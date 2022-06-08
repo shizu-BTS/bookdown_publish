@@ -1,4 +1,9 @@
-h1:hello-bookdown Hello bookdown
-h2:a-section A section
-h3:an-unnumbered-section An unnumbered section
+h1:intro Introduction
+h2:r을-왜-사용해야할까 R을 왜 사용해야할까?
+h2:이-책의-구성 이 책의 구성
+h3:부.-r의-기초-이해 1부. R의 기초 이해
+h3:부.-r을-활용한-기초-다변량-분석 2부. R을 활용한 기초 다변량 분석
+h3:부.-실전데이터를-활용한-분석-사례 3부. 실전데이터를 활용한 분석 사례
+h2:배우지-않는-내용들 배우지 않는 내용들
+h2:당부의-말 당부의 말
 

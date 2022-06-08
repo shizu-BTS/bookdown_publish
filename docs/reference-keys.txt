@@ -24,3 +24,8 @@ fig:nice-fig
 tab:nice-tab
 eq:binom
 thm:tri
+intro
+r을-왜-사용해야할까
+이-책의-구성
+배우지-않는-내용들
+당부의-말
