@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 R 자료 구조의 이해 | A Minimal Book Example</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 R 자료 구조의 이해 | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 R 자료 구조의 이해 | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="John Doe" />
+
+
+<meta name="date" content="2022-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="parts.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#r을-왜-사용해야할까"><i class="fa fa-check"></i><b>2.1</b> R을 왜 사용해야할까?</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#이-책의-구성"><i class="fa fa-check"></i><b>2.2</b> 이 책의 구성</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#부.-r의-기초-이해"><i class="fa fa-check"></i>1부. R의 기초 이해</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#부.-r을-활용한-기초-다변량-분석"><i class="fa fa-check"></i>2부. R을 활용한 기초 다변량 분석</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#부.-실전데이터를-활용한-분석-사례"><i class="fa fa-check"></i>3부. 실전데이터를 활용한 분석 사례</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#배우지-않는-내용들"><i class="fa fa-check"></i><b>2.3</b> 배우지 않는 내용들</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#당부의-말"><i class="fa fa-check"></i><b>2.4</b> 당부의 말</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> R 자료 구조의 이해</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#명령어의-구조와-자료-입력"><i class="fa fa-check"></i><b>3.1</b> 명령어의 구조와 자료 입력</a></li>
+<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#r에서-쓰이는-자료의-유형"><i class="fa fa-check"></i><b>3.2</b> R에서 쓰이는 자료의 유형</a></li>
+<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#r에서-쓰이는-자료의-구조"><i class="fa fa-check"></i><b>3.3</b> R에서 쓰이는 자료의 구조</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="data.html"><a href="data.html#스칼라-scala"><i class="fa fa-check"></i><b>3.3.1</b> 스칼라 scala</a></li>
+<li class="chapter" data-level="3.3.2" data-path="data.html"><a href="data.html#벡터-vector"><i class="fa fa-check"></i><b>3.3.2</b> 벡터 vector</a></li>
+<li class="chapter" data-level="3.3.3" data-path="data.html"><a href="data.html#매트릭스-matrix"><i class="fa fa-check"></i><b>3.3.3</b> 매트릭스 matrix</a></li>
+<li class="chapter" data-level="3.3.4" data-path="data.html"><a href="data.html#배열-array"><i class="fa fa-check"></i><b>3.3.4</b> 배열 array</a></li>
+<li class="chapter" data-level="3.3.5" data-path="data.html"><a href="data.html#데이터프레임-dataframe"><i class="fa fa-check"></i><b>3.3.5</b> 데이터프레임 dataframe</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#factor-변수"><i class="fa fa-check"></i><b>3.4</b> factor 변수</a></li>
+<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#na와-null"><i class="fa fa-check"></i><b>3.5</b> NA와 NULL</a></li>
+<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#r-내장함수를-활용한-기술통계량-산출"><i class="fa fa-check"></i><b>3.6</b> R 내장함수를 활용한 기술통계량 산출</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="parts.html"><a href="parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
+<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="blocks.html"><a href="blocks.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
+<li class="chapter" data-level="6.2" data-path="blocks.html"><a href="blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="6.3" data-path="blocks.html"><a href="blocks.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
+<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
+<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> R 자료 구조의 이해<a href="data.html#data" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="명령어의-구조와-자료-입력" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> 명령어의 구조와 자료 입력<a href="data.html#명령어의-구조와-자료-입력" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R의 명령어는 일종의 언어laguage이기 때문에 나름의 문법을 갖고 있다. 처음 R의 언어를 접하는 독자들은 다소 어렵게 느껴지기때문에, 손에 익을때까지 자주 연습해볼 필요가 있다. 텅 비어있는 스크립트 창에 a라는 객체를 만드는 작업을 해보자. 이때 객체object는 다양한 형태의 자료를 담고있는 바구니라고 생각하자. a라는 객체에 2라는 데이터 하나를 삽입해보자. 명령어 구조를 보면 객체는 왼쪽, 넣을 데이터는 오른쪽에 위치시킨다. 중간의 화살표의 방향을 보면 직관적으로 이해가 가능하다. 스크립트 창에 있는 명령어를 실행시키기 위해서는 해당 명령어를 드래그 한후 “run” 버튼을 누르거나 Ctrl+Enter를 누르면 된다. 명령어로 실행시키고 싶지 않은 comment나 각주는 문장 앞에 #을 삽입하면 된다. 회색 박스안에는 스크립트창, 흰색 박스 안에는 콘솔에 나타나는 output을 보여준다. 한 가지 주의해야 할 부분은 R의 실행 구조는 누적이 아니라 덮어쓰기 방식이라는 것이다. 객체 a에 다시 3이라는 데이터를 넣는다고 정의하면, 2의 데이터는 사라지게 된다. 만일 두 개 이상의 데이터를 하나의 객체에 삽입하고 싶다면 c(연결concatenate의 약자)라는 명령어를 사용하자.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data.html#cb4-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">2</span> <span class="co"># a라는 객체에 2를 삽입</span></span>
+<span id="cb4-2"><a href="data.html#cb4-2" aria-hidden="true" tabindex="-1"></a>a <span class="co">#a 객체를 출력</span></span>
+<span id="cb4-3"><a href="data.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2</span></span>
+<span id="cb4-4"><a href="data.html#cb4-4" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="dv">3</span> </span>
+<span id="cb4-5"><a href="data.html#cb4-5" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb4-6"><a href="data.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3</span></span>
+<span id="cb4-7"><a href="data.html#cb4-7" aria-hidden="true" tabindex="-1"></a>a<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb4-8"><a href="data.html#cb4-8" aria-hidden="true" tabindex="-1"></a>a</span>
+<span id="cb4-9"><a href="data.html#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3 4 5</span></span></code></pre></div>
+<p>이상의 설명을 요약하면 R의 언어는 다음과 같은 규칙이 있다</p>
+<ul>
+<li>화살표의 방향은 데이터 또는 함수로 객체를 정의하는 것을 뜻한다(객체 &lt;- 데이터 또는 함수)</li>
+<li>문장 앞에 #을 붙이면 명령어로 실행되지 않는다(comment, 각주 등)</li>
+<li>객체의 이름을 실행시키면, 객체에 담겨있는 데이터가 출력된다</li>
+<li>R의 명령어 실행은 덮어쓰기 방식이다.</li>
+<li>다수의 데이터를 연결하기 위해서는 c를 사용한다(c(1,2,3) 등)</li>
+</ul>
+</div>
+<div id="r에서-쓰이는-자료의-유형" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> R에서 쓰이는 자료의 유형<a href="data.html#r에서-쓰이는-자료의-유형" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>본격적으로 R의 자료구조를 살펴보기 전에 R에서 쓰이는 자료의 유형에 대해서 알아보자. 연구에서 쓰이는 자료들은 다양한 유형이 있다. 키(168cm, 170cm)와 같은 수치형 자료나, 이름(홍길동, 김영희)과 같은 문자형 자료 등이 여기에 포함된다. 자료의 유형이 중요한 이유는 특정 작업은 특정한 자료의 유형에만 작동하기 때문이다. 예를 들어 덧셈, 뺄셈 등의 연산 작업은 수치형 자료에서만 작동한다. 글자의 앞 한자리만 삭제하는 것은 문자형 자료에만 작동한다. 또한 숫자를 문자형으로 인식한다면 연산 작업은 작동을 하지 않을 것이다. R에서 쓰이는 자료의 유형은 다음과 같이 요약할 수 있다.</p>
+<ul>
+<li>수치형 값(numeric value) : 소수점을 포함하는 숫자값 (1, 2.2, pi)</li>
+<li>문자형 값(character value) : 문자로 표현된 값, 큰따옴표로 표현 (“a,” “work,” “1”)</li>
+<li>복소수형 값(complex value) : 실수와 허수(i)의 합으로 표현한 값(1+4i)</li>
+<li>논리형 값(logical value) : 참(true) 혹은 거짓(false)으로 출력되는 논리형 값</li>
+<li>정수형 값(integer value) : 수치형 자료의 특수한 형태, 정수로 표현되는 숫자 (1, 2, 10)</li>
+</ul>
+<p><br/></p>
+</div>
+<div id="r에서-쓰이는-자료의-구조" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> R에서 쓰이는 자료의 구조<a href="data.html#r에서-쓰이는-자료의-구조" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>이제 자료구조(data structure)에 대해 알아보자. 자료구조란 간단히 이야기해서 자료가 갖고 있는 골격, 형태를 의미한다. 사회과학에서 쓰이는 상당수의 자료는 행과 열의 구조를 갖고있는 2차원의 매트릭스 형태를 띈다. 간단히 이야기해서 엑셀의 데이터시트를 생각해보자. 행(row) 하나는 개인의 자료 set을 의미한다. 열(column)은 보통 각 개인의 특성을 나타내는 변수를 의미한다. 100명의 사례의 ID, 성별, 시험점수를 조사한 자료를 생각해보면 100 * 3의 매트릭스 형태가 될 것이다.
+앞으로 설명할 자료 구조는 이처럼 자료가 갖고 있는 형태와 특성을 의미한다. SPSS나 STATA와 같은 통계 패키지에서는 엑셀 자료와 같은 매트릭스 형태(R에서는 dataframe이라 부른다)만을 사용하지만,R에서는 총 7개의 자료구조가 있다. 조금 복잡하지만 처음부터 제대로 이해해놓는 것이 중요하다.</p>
+<div id="스칼라-scala" class="section level3 hasAnchor" number="3.3.1">
+<h3><span class="header-section-number">3.3.1</span> 스칼라 scala<a href="data.html#스칼라-scala" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>구성인자element가 하나인 자료를 의미한다. 일반적으로 사회과학에서 구성인자가 하나인 데이터를 쓰는 경우는 많지 않다. 따라서 스칼라scala는 이후에 살펴볼 벡터vector의 하위구조로 생각해둘 필요가 있다. 자료를 입력할 때 문자형 자료는 큰따옴표로 정의해주는 것을 염두에 두자.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data.html#cb5-1" aria-hidden="true" tabindex="-1"></a>scalar<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb5-2"><a href="data.html#cb5-2" aria-hidden="true" tabindex="-1"></a>scalar</span>
+<span id="cb5-3"><a href="data.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1</span></span>
+<span id="cb5-4"><a href="data.html#cb5-4" aria-hidden="true" tabindex="-1"></a>scalar<span class="ot">&lt;-</span><span class="st">&quot;bts&quot;</span></span>
+<span id="cb5-5"><a href="data.html#cb5-5" aria-hidden="true" tabindex="-1"></a>scalar</span>
+<span id="cb5-6"><a href="data.html#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;bts&quot;</span></span></code></pre></div>
+</div>
+<div id="벡터-vector" class="section level3 hasAnchor" number="3.3.2">
+<h3><span class="header-section-number">3.3.2</span> 벡터 vector<a href="data.html#벡터-vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>구성인자element가 두 개 이상인 자료를 의미한다. 따라서 스칼라는 특수한 형태의 벡터이다. 벡터를 만들때는 c() 명령어를 주로 쓴다. 쉼표로 연결해주면 무한대로 복수의 스칼라를 연결할 수 있다.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data.html#cb6-1" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb6-2"><a href="data.html#cb6-2" aria-hidden="true" tabindex="-1"></a>vector</span>
+<span id="cb6-3"><a href="data.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1 2 3</span></span>
+<span id="cb6-4"><a href="data.html#cb6-4" aria-hidden="true" tabindex="-1"></a>vector <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;v&quot;</span>, <span class="st">&quot;rm&quot;</span>, <span class="st">&quot;suga&quot;</span>)</span>
+<span id="cb6-5"><a href="data.html#cb6-5" aria-hidden="true" tabindex="-1"></a>vector</span>
+<span id="cb6-6"><a href="data.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;v&quot;    &quot;rm&quot;   &quot;suga&quot;</span></span></code></pre></div>
+</div>
+<div id="매트릭스-matrix" class="section level3 hasAnchor" number="3.3.3">
+<h3><span class="header-section-number">3.3.3</span> 매트릭스 matrix<a href="data.html#매트릭스-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>매트릭스는 벡터를 여러 개의 row(행) 또는 column(열)으로 쌓은 자료를 의미한다. 2 by 2, 100 by 100 등의 행렬의 형태가 대표적이다. 벡터가 1차원이라면, 매트릭스는 2차원 형태의 데이터 구조를 띈다. 따라서 매트릭스부터는 생성을 위해 별도의 명령어가 필요하다.</p>
+<ul>
+<li>매트릭스를 만들기 위한 명령어는 matrix()이다. 대체로 R의 명령어는 이렇게 직관적이다. 괄호 안에 자료에 들어갈 값을 c()를 활용해 지정해주고, 행 또는 열의 개수를 nrow= , ncol= 의 옵션으로 지정해준다.</li>
+<li>1열(by column)부터 값이 부여된다. 1행(by row)부터 값을 부여하고 싶다면 byrow=TRUE의 옵션을 사용한다.</li>
+<li>matrix() 명령어를 찬찬히 살펴보면 R의 명령어 구조에 대한 힌트를 얻을 수 있다. 다시 말해, 부수적인 옵션들은 쉼표로 연결하는 구조이다. 당연하게도 옵션을 나열하는 순서도 변경가능하다.</li>
+<li>c(1:10)은 1부터 10까지의 수를 차례대로 삽입하라는 뜻이다.</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data.html#cb7-1" aria-hidden="true" tabindex="-1"></a>matrix <span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb7-2"><a href="data.html#cb7-2" aria-hidden="true" tabindex="-1"></a>matrix</span>
+<span id="cb7-3"><a href="data.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb7-4"><a href="data.html#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    4</span></span>
+<span id="cb7-5"><a href="data.html#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    5</span></span>
+<span id="cb7-6"><a href="data.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]    3    6</span></span>
+<span id="cb7-7"><a href="data.html#cb7-7" aria-hidden="true" tabindex="-1"></a>matrix <span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>), <span class="at">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb7-8"><a href="data.html#cb7-8" aria-hidden="true" tabindex="-1"></a>matrix</span>
+<span id="cb7-9"><a href="data.html#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb7-10"><a href="data.html#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    3    5</span></span>
+<span id="cb7-11"><a href="data.html#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    4    6</span></span>
+<span id="cb7-12"><a href="data.html#cb7-12" aria-hidden="true" tabindex="-1"></a>matrix <span class="ot">&lt;-</span><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>), <span class="at">nrow=</span><span class="dv">4</span>, <span class="at">ncol=</span><span class="dv">5</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb7-13"><a href="data.html#cb7-13" aria-hidden="true" tabindex="-1"></a>matrix</span>
+<span id="cb7-14"><a href="data.html#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb7-15"><a href="data.html#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    2    3    4    5</span></span>
+<span id="cb7-16"><a href="data.html#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    6    7    8    9   10</span></span>
+<span id="cb7-17"><a href="data.html#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]   11   12   13   14   15</span></span>
+<span id="cb7-18"><a href="data.html#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [4,]   16   17   18   19   20</span></span></code></pre></div>
+<p>매트릭스는 벡터를 행 또는 열로 쌓은 자료이기 때문에, 실제로 이러한 방식으로 데이터를 만들수도 있다. 즉, 벡터를 연결하는 방식으로 매트릭스를 만들 수 있다. 사회과학에서 쓰는 자료 구조에서 하나의 벡터는 하나의 변수(variable) 또는 하나의 케이스(case)로 이해할 수 있다.</p>
+<ul>
+<li>mat1과 mat2는 각각 1에서 3, 4에서 6의 값을 갖는 벡터이다. 이 벡터를 행 또는 열로 연결하면 매트릭스가 된다.</li>
+<li>행으로 연결하기 위해서는 rbind(), 열로 연결하기 위해서는 cbind()의 명령어를 사용하면 된다. 행으로 연결한다면 몇 개의 case를 추가하는 것, 열로 연결한다면 몇 개의 변수를 추가하는 것으로 이해할 수 있다.</li>
+<li>c(vector1, vector2)를 사용하게 되면 1차원의 벡터로 만들어진다는 점을 유념하자.</li>
+</ul>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data.html#cb8-1" aria-hidden="true" tabindex="-1"></a>mat1 <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)</span>
+<span id="cb8-2"><a href="data.html#cb8-2" aria-hidden="true" tabindex="-1"></a>mat2 <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb8-3"><a href="data.html#cb8-3" aria-hidden="true" tabindex="-1"></a>matrix1 <span class="ot">&lt;-</span><span class="fu">rbind</span>(mat1, mat2)  <span class="co">#rbind : row을 기준으로 종으로 붙이기</span></span>
+<span id="cb8-4"><a href="data.html#cb8-4" aria-hidden="true" tabindex="-1"></a>matrix1</span>
+<span id="cb8-5"><a href="data.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb8-6"><a href="data.html#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">## mat1    1    2    3</span></span>
+<span id="cb8-7"><a href="data.html#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## mat2    4    5    6</span></span>
+<span id="cb8-8"><a href="data.html#cb8-8" aria-hidden="true" tabindex="-1"></a>matrix2 <span class="ot">&lt;-</span><span class="fu">cbind</span>(mat1, mat2)  <span class="co">#cbind : column을 기준으로 횡으로 붙이기</span></span>
+<span id="cb8-9"><a href="data.html#cb8-9" aria-hidden="true" tabindex="-1"></a>matrix2</span>
+<span id="cb8-10"><a href="data.html#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="do">##      mat1 mat2</span></span>
+<span id="cb8-11"><a href="data.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    4</span></span>
+<span id="cb8-12"><a href="data.html#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    5</span></span>
+<span id="cb8-13"><a href="data.html#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]    3    6</span></span>
+<span id="cb8-14"><a href="data.html#cb8-14" aria-hidden="true" tabindex="-1"></a>matrix3<span class="ot">&lt;-</span><span class="fu">c</span>(mat1, mat2) <span class="co">#c()를 사용하면 벡터와 벡터를 하나의 차원으로 연결</span></span>
+<span id="cb8-15"><a href="data.html#cb8-15" aria-hidden="true" tabindex="-1"></a>matrix3</span>
+<span id="cb8-16"><a href="data.html#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1 2 3 4 5 6</span></span></code></pre></div>
+<p>매트릭스에서 추가로 이해해야 할 개념은 특정 요소(element)의 위치를 행과 열의 자릿수로 설명할수 있다는 것이다. “행렬”이라는 이름에서 직관적으로 이해할 수 있듯이 행렬의 원소의 위치는 [n번째 행, k번째 열]의 순서로 표기한다. 원소의 위치를 특정하는 것은 어떠한 작업과 연결될까? 예를 들어 내가 갖고 있는 데이터의 103번째 사례(행번호 103)의 3번째 변수(열번호 3번)를 수정하고 싶을 때 사용할 수 있다.</p>
+<ul>
+<li>매트릭스의 특정 위치의 원소 추출을 위해서는 대괄호[] 를 사용한다.</li>
+<li>[1,2]는 1번째 행, 2번째 열에 위치를 의미한다</li>
+<li>쉼표는 “전체”를 의미한다 예를 들어 [1,]는 첫번째 행과 모든 열을 의미한다. 다시 이야기하면 첫번째 행의 모든 원소를 의미한다.</li>
+<li>복수의 위치를 지정하고 싶다면 만능키인 c()를 사용한다. 행 또는 열 위치에 삽입하면 된다.</li>
+<li>원소를 치환하고 싶으면 equal(=)을 사용하여 간단히 정의하면 된다.</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data.html#cb9-1" aria-hidden="true" tabindex="-1"></a>matrix2[<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb9-2"><a href="data.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="do">## mat2 </span></span>
+<span id="cb9-3"><a href="data.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="do">##    4</span></span>
+<span id="cb9-4"><a href="data.html#cb9-4" aria-hidden="true" tabindex="-1"></a>matrix2[<span class="dv">1</span>,] <span class="co">#첫번째 row의 모든 원소를 추출</span></span>
+<span id="cb9-5"><a href="data.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="do">## mat1 mat2 </span></span>
+<span id="cb9-6"><a href="data.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="do">##    1    4</span></span>
+<span id="cb9-7"><a href="data.html#cb9-7" aria-hidden="true" tabindex="-1"></a>matrix2[,<span class="dv">1</span>] <span class="co">#첫번째 col의 모든 원소를 추출</span></span>
+<span id="cb9-8"><a href="data.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1 2 3</span></span>
+<span id="cb9-9"><a href="data.html#cb9-9" aria-hidden="true" tabindex="-1"></a>matrix2[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),] <span class="co">#1,2번째 row의 모든 원소를 추출</span></span>
+<span id="cb9-10"><a href="data.html#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="do">##      mat1 mat2</span></span>
+<span id="cb9-11"><a href="data.html#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    4</span></span>
+<span id="cb9-12"><a href="data.html#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    5</span></span>
+<span id="cb9-13"><a href="data.html#cb9-13" aria-hidden="true" tabindex="-1"></a>matrix2[<span class="dv">1</span>,<span class="dv">2</span>]<span class="ot">=</span><span class="dv">100</span> <span class="co"># 첫번째 행, 두 번째 열의 원소를 100으로 치환한다. </span></span>
+<span id="cb9-14"><a href="data.html#cb9-14" aria-hidden="true" tabindex="-1"></a>matrix2</span>
+<span id="cb9-15"><a href="data.html#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="do">##      mat1 mat2</span></span>
+<span id="cb9-16"><a href="data.html#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1  100</span></span>
+<span id="cb9-17"><a href="data.html#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    5</span></span>
+<span id="cb9-18"><a href="data.html#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]    3    6</span></span></code></pre></div>
+</div>
+<div id="배열-array" class="section level3 hasAnchor" number="3.3.4">
+<h3><span class="header-section-number">3.3.4</span> 배열 array<a href="data.html#배열-array" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>array는 matrix를 여러 층으로 쌓은 것이다. matrix가 2차원 구조이므로, array는 3차원 구조이다. 행렬로 표현된 데이터를 켜켜히 쌓아올린다고 생각하면 된다. 통상 사회과학연구에서 자주 볼수 없는 데이터 구조이나, 시계열적인 자료나 청키한 데이터들이 array의 형태를 띈다.</p>
+<ul>
+<li>array를 생성하는 명령어는 array()이다.</li>
+<li>보통 2개 이상의 매트릭스를 연결하여 만든다(c(matrix1, matrix2, ….))</li>
+<li>matrix와 유사하게 dimension의 구조도 옵션으로 제시해준다. dim=c()의 명령어를 사용한다.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data.html#cb10-1" aria-hidden="true" tabindex="-1"></a>matrix1<span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>), <span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb10-2"><a href="data.html#cb10-2" aria-hidden="true" tabindex="-1"></a>matrix1</span>
+<span id="cb10-3"><a href="data.html#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb10-4"><a href="data.html#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    4    7</span></span>
+<span id="cb10-5"><a href="data.html#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    5    8</span></span>
+<span id="cb10-6"><a href="data.html#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]    3    6    9</span></span>
+<span id="cb10-7"><a href="data.html#cb10-7" aria-hidden="true" tabindex="-1"></a>matrix2<span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">10</span><span class="sc">:</span><span class="dv">18</span>), <span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb10-8"><a href="data.html#cb10-8" aria-hidden="true" tabindex="-1"></a>matrix3<span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">19</span><span class="sc">:</span><span class="dv">27</span>), <span class="at">nrow=</span><span class="dv">3</span>)</span>
+<span id="cb10-9"><a href="data.html#cb10-9" aria-hidden="true" tabindex="-1"></a>matrix2</span>
+<span id="cb10-10"><a href="data.html#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb10-11"><a href="data.html#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]   10   13   16</span></span>
+<span id="cb10-12"><a href="data.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   11   14   17</span></span>
+<span id="cb10-13"><a href="data.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]   12   15   18</span></span>
+<span id="cb10-14"><a href="data.html#cb10-14" aria-hidden="true" tabindex="-1"></a>matrix3</span>
+<span id="cb10-15"><a href="data.html#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb10-16"><a href="data.html#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]   19   22   25</span></span>
+<span id="cb10-17"><a href="data.html#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   20   23   26</span></span>
+<span id="cb10-18"><a href="data.html#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]   21   24   27</span></span>
+<span id="cb10-19"><a href="data.html#cb10-19" aria-hidden="true" tabindex="-1"></a>array <span class="ot">&lt;-</span><span class="fu">array</span>(<span class="fu">c</span>(matrix1, matrix2, matrix3), <span class="at">dim=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">3</span>))</span>
+<span id="cb10-20"><a href="data.html#cb10-20" aria-hidden="true" tabindex="-1"></a>array</span>
+<span id="cb10-21"><a href="data.html#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="do">## , , 1</span></span>
+<span id="cb10-22"><a href="data.html#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-23"><a href="data.html#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb10-24"><a href="data.html#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]    1    4    7</span></span>
+<span id="cb10-25"><a href="data.html#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]    2    5    8</span></span>
+<span id="cb10-26"><a href="data.html#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]    3    6    9</span></span>
+<span id="cb10-27"><a href="data.html#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-28"><a href="data.html#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="do">## , , 2</span></span>
+<span id="cb10-29"><a href="data.html#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-30"><a href="data.html#cb10-30" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb10-31"><a href="data.html#cb10-31" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]   10   13   16</span></span>
+<span id="cb10-32"><a href="data.html#cb10-32" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   11   14   17</span></span>
+<span id="cb10-33"><a href="data.html#cb10-33" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]   12   15   18</span></span>
+<span id="cb10-34"><a href="data.html#cb10-34" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-35"><a href="data.html#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="do">## , , 3</span></span>
+<span id="cb10-36"><a href="data.html#cb10-36" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb10-37"><a href="data.html#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb10-38"><a href="data.html#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="do">## [1,]   19   22   25</span></span>
+<span id="cb10-39"><a href="data.html#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="do">## [2,]   20   23   26</span></span>
+<span id="cb10-40"><a href="data.html#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="do">## [3,]   21   24   27</span></span></code></pre></div>
+</div>
+<div id="데이터프레임-dataframe" class="section level3 hasAnchor" number="3.3.5">
+<h3><span class="header-section-number">3.3.5</span> 데이터프레임 dataframe<a href="data.html#데이터프레임-dataframe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>지금까지 살펴본 vector, matrix, array는 모두 같은 유형의 데이터로만 구성되어 있다. 즉 문자형(character), 논리형(logic), 숫자형(numeric) 등 통일된 한종류로만 구성이 되어 있다. 우리가 일반적으로 쓰는 데이터는 문자형 변수, 숫자형 변수 등이 혼재되어 하나의 데이터셋에 담겨있다. 이러한 경우 R은 데이터 프레임(dataframe)이라는 별도의 데이터 구조를 사용한다. 앞으로 우리가 사용할 대부분의 데이터는 데이터프레임일 것이다.</p>
+<p>간단한 형태의 데이터 프레임을 직접 만들어 보자. 저자가 좋아하는 방탄소년단의 정보를 하나의 자료로 구성해보겠다. 방탄소년단 멤버들의 이름(문자형변수), 생년(숫자형 변수), 포지션(“반복”되는 문자형변수) 등 이다.</p>
+<ul>
+<li>데이터 프레임을 만드는 명령어는 data.frame()이다.</li>
+<li>통상적으로 c(원소1, 원소2…)로 벡터를 만들면 횡이 아니라 종의 방향의 벡터가 만들어진다 따라서, 각각의 벡터는 하나의 열(column)이 된다. 사회과학분야에서는 주로 변수(variable)가 된다.</li>
+<li>bts라는 데이터 프레임을 만들면, R studio의 오른쪽 상단의 Environment 패널에 해당 데이터 프레임이 생성된다. 더블클릭하게 되면 명령어 창에 우리게 친숙한 형태의 데이터시트가 나타난다.</li>
+<li>str()은 데이터 프레임의 구조(structure)를 보여준다. 3개의 변수를 가진 7개의 관측치(observation)를 가지고 있으며, 각각의 변수들을 요약해서 보여주고 있다.</li>
+<li>bts라는 데이터 프레임의 3개의 변수명 앞에 $ 표시가 있는것을 기억하자. $ 는 변수를 의미하는 표시로 앞으로 자주 사용하게 될 것이다.</li>
+<li>변수별로 chr, num 등의 약어가 제시되는데, 이는 자료의 유형(문자형(character), 수치형(numeric) 등)을 의미한다.</li>
+<li>어떠한 데이터프레임이던 분석을 시작하기 전에 반드시 str()를 사용해서 자료 구조를 확인하는 것이 좋다.</li>
+<li>stringAsFactors=FALSE는 문자형(string) 변수를 factor 변수로 처리하지 말라는 뜻이다. factor 변수에 대해서는 아래에서 설명할 예정이다.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data.html#cb11-1" aria-hidden="true" tabindex="-1"></a>btsname <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;RM&quot;</span>, <span class="st">&quot;Jin&quot;</span>, <span class="st">&quot;Suga&quot;</span>,<span class="st">&quot;Jhope&quot;</span>, <span class="st">&quot;Jimin&quot;</span>, <span class="st">&quot;V&quot;</span>, <span class="st">&quot;JK&quot;</span>)</span>
+<span id="cb11-2"><a href="data.html#cb11-2" aria-hidden="true" tabindex="-1"></a>btsyear <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1994</span>, <span class="dv">1992</span>, <span class="dv">1993</span>, <span class="dv">1994</span>, <span class="dv">1995</span>, <span class="dv">1995</span>, <span class="dv">1997</span>)</span>
+<span id="cb11-3"><a href="data.html#cb11-3" aria-hidden="true" tabindex="-1"></a>btsposition <span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;rap&quot;</span>, <span class="st">&quot;vocal&quot;</span>, <span class="st">&quot;rap&quot;</span>, <span class="st">&quot;rap&quot;</span>, <span class="st">&quot;vocal&quot;</span>, <span class="st">&quot;vocal&quot;</span>,<span class="st">&quot;vocal&quot;</span>)</span>
+<span id="cb11-4"><a href="data.html#cb11-4" aria-hidden="true" tabindex="-1"></a>bts <span class="ot">&lt;-</span><span class="fu">data.frame</span>(btsname, btsyear, btsposition, <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb11-5"><a href="data.html#cb11-5" aria-hidden="true" tabindex="-1"></a>bts  </span>
+<span id="cb11-6"><a href="data.html#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   btsname btsyear btsposition</span></span>
+<span id="cb11-7"><a href="data.html#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      RM    1994         rap</span></span>
+<span id="cb11-8"><a href="data.html#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 2     Jin    1992       vocal</span></span>
+<span id="cb11-9"><a href="data.html#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 3    Suga    1993         rap</span></span>
+<span id="cb11-10"><a href="data.html#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 4   Jhope    1994         rap</span></span>
+<span id="cb11-11"><a href="data.html#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 5   Jimin    1995       vocal</span></span>
+<span id="cb11-12"><a href="data.html#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 6       V    1995       vocal</span></span>
+<span id="cb11-13"><a href="data.html#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 7      JK    1997       vocal</span></span>
+<span id="cb11-14"><a href="data.html#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bts)</span>
+<span id="cb11-15"><a href="data.html#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    7 obs. of  3 variables:</span></span>
+<span id="cb11-16"><a href="data.html#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ btsname    : chr  &quot;RM&quot; &quot;Jin&quot; &quot;Suga&quot; &quot;Jhope&quot; ...</span></span>
+<span id="cb11-17"><a href="data.html#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ btsyear    : num  1994 1992 1993 1994 1995 ...</span></span>
+<span id="cb11-18"><a href="data.html#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ btsposition: chr  &quot;rap&quot; &quot;vocal&quot; &quot;rap&quot; &quot;rap&quot; ...</span></span></code></pre></div>
+</div>
+</div>
+<div id="factor-변수" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> factor 변수<a href="data.html#factor-변수" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>bts 데이터 프레임에서 btsname변수와 btsposition 변수는 모두 문자형 변수이지만 차이점이 있다. btsposition 변수는 “rap”과 “vocal”이라는 두개의 값(value)이 반복된다. 이러한 형태의 변수를 R에서는 요인(factor)라는 특별한 데이터유형으로 취급한다. 사회과학연구에서 주로 사용하는 요인분석에서의 요인과는 구별되는 개념이다. R에서의 factor 변수는 주로 범주형 변수이다. 흔히 사용되는 변수 중에 성별(“남,” “여”), 학년(“1학년,”“2학년,” “3학년”), 학업성취도(“상,” “중,” “하”) 등이 factor 변수의 대표적인 예다. 범주변수를 factor로 변환하기 위해서는 다음의 사항을 기억하자.</p>
+<ul>
+<li>factor 변수로 지정하기 위해서는 factor() 명령어를 사용한다.</li>
+<li>factor 변수는 “값(일반 벡터)”에 “level”이라는 정보를 추가한 것이다. default로 level의 값이 부여되지만 이를 수정할 수도 있다.</li>
+<li>level의 순서는 알파벳 순서가 default이다.</li>
+<li>경우에 따라서는 level의 순서를 바꾸고 싶을 때가 있다. 예를 들어 성별의 경우 알파벳 순서에 따라 female, male의 순서가 default이다. 이후에 그래프 등을 그릴 때 이 순서를 따르기 때문에 levels=c() 명령어를 사용해서 새롭게 지정이 가능하다.</li>
+</ul>
+<p>factor() 명령어를 활용하여 btspostiion 변수를 문자형 변수에서 factor 변수로 변환을 해보자. str()를 활용하여 자료의 구조를 살펴보면 factor로 잘 변환되어 있는것을 확인할 수 있다. factor로 변환하는 순간 원래의 데이터가 숫자의 정보로 변하고(1, 2,1,1,2,2,2), level(1=rap, 2=vocal)의 정보가 추가로 생성된다. 만약에 1=vocal, 2=rap의 순서로 바꾸고 싶다면, levels=c(“vocal,” “rap”)의 옵션을 추가하면 된다.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data.html#cb12-1" aria-hidden="true" tabindex="-1"></a>bts<span class="sc">$</span>btsposition <span class="ot">&lt;-</span><span class="fu">factor</span>(btsposition)</span>
+<span id="cb12-2"><a href="data.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bts<span class="sc">$</span>btsposition)</span>
+<span id="cb12-3"><a href="data.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  Factor w/ 2 levels &quot;rap&quot;,&quot;vocal&quot;: 1 2 1 1 2 2 2</span></span>
+<span id="cb12-4"><a href="data.html#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(bts<span class="sc">$</span>btsposition)</span>
+<span id="cb12-5"><a href="data.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;rap&quot;   &quot;vocal&quot;</span></span>
+<span id="cb12-6"><a href="data.html#cb12-6" aria-hidden="true" tabindex="-1"></a>bts<span class="sc">$</span>btsposition <span class="ot">&lt;-</span><span class="fu">factor</span>(btsposition, <span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;vocal&quot;</span>, <span class="st">&quot;rap&quot;</span>))</span>
+<span id="cb12-7"><a href="data.html#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bts<span class="sc">$</span>btsposition)</span>
+<span id="cb12-8"><a href="data.html#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  Factor w/ 2 levels &quot;vocal&quot;,&quot;rap&quot;: 2 1 2 2 1 1 1</span></span>
+<span id="cb12-9"><a href="data.html#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bts<span class="sc">$</span>btsposition)</span>
+<span id="cb12-10"><a href="data.html#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="do">## vocal   rap </span></span>
+<span id="cb12-11"><a href="data.html#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="do">##     4     3</span></span></code></pre></div>
+<p>factor 변수를 활용할 때 조심해야할 것들이 있다. 문자형변수를 수치형변수 +level의 정보로 축약하기 때문이다. 아래와 같이 as.numeric() 명령어를 활용해서 변수를 팩터에서 숫자형으로 변환해보면, 팩터의 원래값이 나타난다.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data.html#cb13-1" aria-hidden="true" tabindex="-1"></a>bts<span class="sc">$</span>btsposition <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(bts<span class="sc">$</span>btsposition)</span>
+<span id="cb13-2"><a href="data.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bts<span class="sc">$</span>btsposition)</span>
+<span id="cb13-3"><a href="data.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  num [1:7] 2 1 2 2 1 1 1</span></span></code></pre></div>
+<p>이러한 특징은 가끔 팩터형 자료를 붙이거나 자를때 문제를 일으키는 경우가 많다. 따라서 전처리 과정에서는 계속해서 문자형 변수로 두다가, 통계적 분석 과정 직전에(즉, 데이터 전처리가 모두 끝난 후에) 팩터형 변수로 바꾸는 것을 권장한다.
+팩터형 변수를 다루는 것이 까다롭기 때문에 종종 별도의 패키지를 쓰곤한다. 대표적인것이 FORCAT 패키지인데, 이는 3장에서 다시 구체적으로 다루도록 하겠다.</p>
+</div>
+<div id="na와-null" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> NA와 NULL<a href="data.html#na와-null" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>마지막으로 R에서 결측치를 표현하는 두가지 방식에 대해 이해해보도록 하자. 어떠한 데이터든지 결측치는 흔하게 존재한다. 특히 다른 곳에서 수집된 자료를 2차 가공을 하는 경우에는 더욱 빈번하게 출현한다. R에서 벡터 또는 데이터 프레임에서 비어있는 값, 결측치를 표현하는 방식은 다음과 같다.</p>
+<ul>
+<li>NA는 not available의 약자로, 결측치를 의미한다.<br />
+</li>
+<li>NA는 우리가 사용하는 데이터에서 흔히 볼 수 있는 결측치이기 때문에 특정 변수(벡터)의 한 요소(element)로 존재한다.원래 있어야하는 값이 기 떄문에 NA는 평균 등 통계량 산출에 영향을 미친다.</li>
+<li>NA를 무시하고 통계량을 계산하고 싶다면 na.rm=TRUE 옵션을 명령어 뒤에 붙이면 된다. na.rm은 NA를 제거(removing)하라는 뜻이다.</li>
+<li>NULL은 원래 존재하지 않는 값을 의미한다. NA와 달리 벡터 자체가 정의되지 않은 것이라는 점을 이해해야 한다. 일반적으로는 특정한 목적으로 데이터를 담지 않은(“즉, 텅 비어있는”) 객체(object)를 만들어야 할 때 사용된다.</li>
+</ul>
+<p>데이터 분석시 자주 활용하게 될 NA를 중심으로 살펴보면 아래와 같다. age 변수의 첫번째 값을 결측치(NA)로 변경하면, 평균값을 산출할때 조심할 필요가 있다. na.rm=FALSE가 기본옵션(default)이기 때문에 mean() 함수를 사용하면 NA가 산출된다. 반면에 na.rm=TRUE 옵션을 사용하게 되면 결측치를 제거하고 6개의 자료의 평균을 산출해준다.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#btsyear 변수를 활용(computation)해서 age 변수를 새로 만든다</span></span>
+<span id="cb14-2"><a href="data.html#cb14-2" aria-hidden="true" tabindex="-1"></a>bts<span class="sc">$</span>age <span class="ot">&lt;-</span> <span class="dv">2021</span><span class="sc">-</span>bts<span class="sc">$</span>btsyear<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb14-3"><a href="data.html#cb14-3" aria-hidden="true" tabindex="-1"></a>bts</span>
+<span id="cb14-4"><a href="data.html#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   btsname btsyear btsposition age</span></span>
+<span id="cb14-5"><a href="data.html#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      RM    1994         rap  28</span></span>
+<span id="cb14-6"><a href="data.html#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 2     Jin    1992       vocal  30</span></span>
+<span id="cb14-7"><a href="data.html#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 3    Suga    1993         rap  29</span></span>
+<span id="cb14-8"><a href="data.html#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 4   Jhope    1994         rap  28</span></span>
+<span id="cb14-9"><a href="data.html#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 5   Jimin    1995       vocal  27</span></span>
+<span id="cb14-10"><a href="data.html#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 6       V    1995       vocal  27</span></span>
+<span id="cb14-11"><a href="data.html#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 7      JK    1997       vocal  25</span></span>
+<span id="cb14-12"><a href="data.html#cb14-12" aria-hidden="true" tabindex="-1"></a>bts[<span class="dv">1</span>,<span class="dv">4</span>] <span class="ot">&lt;-</span><span class="cn">NA</span></span>
+<span id="cb14-13"><a href="data.html#cb14-13" aria-hidden="true" tabindex="-1"></a>bts</span>
+<span id="cb14-14"><a href="data.html#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="do">##   btsname btsyear btsposition age</span></span>
+<span id="cb14-15"><a href="data.html#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 1      RM    1994         rap  NA</span></span>
+<span id="cb14-16"><a href="data.html#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 2     Jin    1992       vocal  30</span></span>
+<span id="cb14-17"><a href="data.html#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 3    Suga    1993         rap  29</span></span>
+<span id="cb14-18"><a href="data.html#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 4   Jhope    1994         rap  28</span></span>
+<span id="cb14-19"><a href="data.html#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 5   Jimin    1995       vocal  27</span></span>
+<span id="cb14-20"><a href="data.html#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 6       V    1995       vocal  27</span></span>
+<span id="cb14-21"><a href="data.html#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 7      JK    1997       vocal  25</span></span>
+<span id="cb14-22"><a href="data.html#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bts<span class="sc">$</span>age)</span>
+<span id="cb14-23"><a href="data.html#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] NA</span></span>
+<span id="cb14-24"><a href="data.html#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(bts<span class="sc">$</span>age, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb14-25"><a href="data.html#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 27.66667</span></span></code></pre></div>
+</div>
+<div id="r-내장함수를-활용한-기술통계량-산출" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> R 내장함수를 활용한 기술통계량 산출<a href="data.html#r-내장함수를-활용한-기술통계량-산출" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>장을 마무리하기 전에 데이터의 간단한 통계량을 산출하는 방법을 알아보자. 좀 더 복잡한 분석은 다음 장에서 다룰 dplyr 패키지를 활용하는 것이 좋다. 그러나 R에 내장되어 있는 함수를 활용해서도 내가 갖고 있는 데이터 프레임의 구조를 확인하고, 간단한 통계량을 확인할 수 있다. R 내장함수중에 빈번하게 사용되는 명령어를 정리해보면 아래와 같다.</p>
+<p><strong>데이터 구조 및 요약</strong></p>
+<ul>
+<li>str() : 데이터 프레임의 사례수, 변수, 변수별 자료 유형등을 제시해준다</li>
+<li>summary() : 데이터프레임의 각 변수별 최솟값, 최대값, 길이, 평균, 사분위 수등을 제시해준다.</li>
+</ul>
+<p><strong>기술통계량 확인</strong></p>
+<ul>
+<li>mean() : 데이터 프레임, 또는 데이터 프레임의 특정변수(dataframe$variable)의 평균값</li>
+<li>median(): 데이터 프레임, 또는 데이터 프레임의 특정변수의 중앙값</li>
+<li>min(), max() : 데이터프레임 또는 특정변수의 최솟값, 최대값</li>
+<li>var(), sd() : 데이터 프레임 또는 특정변수의 분산, 표준편차</li>
+<li>sum() : 데이터 프레임 또는 특정변수의 합</li>
+<li>length() : 길이, 관측값의 갯수</li>
+</ul>
+<p><strong>테이블 또는 교차표 산출</strong></p>
+<ul>
+<li>table(): 데이터 프레임의 각 변수별 분할표를 제시</li>
+<li>table(변수, 변수) : $인자를 활용해서 특정변수간의 교차표 생성<br />
+</li>
+<li>addmargin() : 마진에 소계값을 계산</li>
+<li>prop.table() : 테이블의 비율 계산</li>
+<li>margin= : prop.table()의 옵션, 1의 값인 경우 행(row)의 비율 합을 1로, 2의 값인 경우 열(colomun)의 비율 합을 1로 계산</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bts)</span>
+<span id="cb15-2"><a href="data.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">##    btsname             btsyear     btsposition      age       </span></span>
+<span id="cb15-3"><a href="data.html#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  Length:7           Min.   :1992   vocal:4     Min.   :25.00  </span></span>
+<span id="cb15-4"><a href="data.html#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  Class :character   1st Qu.:1994   rap  :3     1st Qu.:27.00  </span></span>
+<span id="cb15-5"><a href="data.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  Mode  :character   Median :1994               Median :28.00  </span></span>
+<span id="cb15-6"><a href="data.html#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="do">##                     Mean   :1994               Mean   :27.71  </span></span>
+<span id="cb15-7"><a href="data.html#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="do">##                     3rd Qu.:1995               3rd Qu.:28.50  </span></span>
+<span id="cb15-8"><a href="data.html#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="do">##                     Max.   :1997               Max.   :30.00</span></span>
+<span id="cb15-9"><a href="data.html#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(bts)</span>
+<span id="cb15-10"><a href="data.html#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    7 obs. of  4 variables:</span></span>
+<span id="cb15-11"><a href="data.html#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ btsname    : chr  &quot;RM&quot; &quot;Jin&quot; &quot;Suga&quot; &quot;Jhope&quot; ...</span></span>
+<span id="cb15-12"><a href="data.html#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ btsyear    : num  1994 1992 1993 1994 1995 ...</span></span>
+<span id="cb15-13"><a href="data.html#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ btsposition: Factor w/ 2 levels &quot;vocal&quot;,&quot;rap&quot;: 2 1 2 2 1 1 1</span></span>
+<span id="cb15-14"><a href="data.html#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ age        : num  28 30 29 28 27 27 25</span></span>
+<span id="cb15-15"><a href="data.html#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bts<span class="sc">$</span>age)</span>
+<span id="cb15-16"><a href="data.html#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb15-17"><a href="data.html#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 25 27 28 29 30 </span></span>
+<span id="cb15-18"><a href="data.html#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  1  2  2  1  1</span></span>
+<span id="cb15-19"><a href="data.html#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co">#소숫점 두번째에서 반올림</span></span>
+<span id="cb15-20"><a href="data.html#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(bts<span class="sc">$</span>age)),<span class="dv">2</span>)</span>
+<span id="cb15-21"><a href="data.html#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb15-22"><a href="data.html#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="do">##   25   27   28   29   30 </span></span>
+<span id="cb15-23"><a href="data.html#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 0.14 0.29 0.29 0.14 0.14</span></span>
+<span id="cb15-24"><a href="data.html#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co">#분할표를 백분율로 계산</span></span>
+<span id="cb15-25"><a href="data.html#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(bts<span class="sc">$</span>age)),<span class="dv">2</span>)<span class="sc">*</span><span class="dv">100</span></span>
+<span id="cb15-26"><a href="data.html#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb15-27"><a href="data.html#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 25 27 28 29 30 </span></span>
+<span id="cb15-28"><a href="data.html#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="do">## 14 29 29 14 14</span></span>
+<span id="cb15-29"><a href="data.html#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="co">#마진에 소계값을 계산</span></span>
+<span id="cb15-30"><a href="data.html#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="fu">addmargins</span>(<span class="fu">table</span>(bts<span class="sc">$</span>age))</span>
+<span id="cb15-31"><a href="data.html#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb15-32"><a href="data.html#cb15-32" aria-hidden="true" tabindex="-1"></a><span class="do">##  25  27  28  29  30 Sum </span></span>
+<span id="cb15-33"><a href="data.html#cb15-33" aria-hidden="true" tabindex="-1"></a><span class="do">##   1   2   2   1   1   7</span></span>
+<span id="cb15-34"><a href="data.html#cb15-34" aria-hidden="true" tabindex="-1"></a><span class="co"># 변수 * 변수의 교차표를 산출</span></span>
+<span id="cb15-35"><a href="data.html#cb15-35" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(bts<span class="sc">$</span>age, bts<span class="sc">$</span>btsposition)</span>
+<span id="cb15-36"><a href="data.html#cb15-36" aria-hidden="true" tabindex="-1"></a><span class="do">##     </span></span>
+<span id="cb15-37"><a href="data.html#cb15-37" aria-hidden="true" tabindex="-1"></a><span class="do">##      vocal rap</span></span>
+<span id="cb15-38"><a href="data.html#cb15-38" aria-hidden="true" tabindex="-1"></a><span class="do">##   25     1   0</span></span>
+<span id="cb15-39"><a href="data.html#cb15-39" aria-hidden="true" tabindex="-1"></a><span class="do">##   27     2   0</span></span>
+<span id="cb15-40"><a href="data.html#cb15-40" aria-hidden="true" tabindex="-1"></a><span class="do">##   28     0   2</span></span>
+<span id="cb15-41"><a href="data.html#cb15-41" aria-hidden="true" tabindex="-1"></a><span class="do">##   29     0   1</span></span>
+<span id="cb15-42"><a href="data.html#cb15-42" aria-hidden="true" tabindex="-1"></a><span class="do">##   30     1   0</span></span>
+<span id="cb15-43"><a href="data.html#cb15-43" aria-hidden="true" tabindex="-1"></a><span class="co"># 교차표의 셀별 비율 계산(열의 합을 1로)</span></span>
+<span id="cb15-44"><a href="data.html#cb15-44" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(bts<span class="sc">$</span>age, bts<span class="sc">$</span>btsposition), <span class="at">margin=</span><span class="dv">2</span>)</span>
+<span id="cb15-45"><a href="data.html#cb15-45" aria-hidden="true" tabindex="-1"></a><span class="do">##     </span></span>
+<span id="cb15-46"><a href="data.html#cb15-46" aria-hidden="true" tabindex="-1"></a><span class="do">##          vocal       rap</span></span>
+<span id="cb15-47"><a href="data.html#cb15-47" aria-hidden="true" tabindex="-1"></a><span class="do">##   25 0.2500000 0.0000000</span></span>
+<span id="cb15-48"><a href="data.html#cb15-48" aria-hidden="true" tabindex="-1"></a><span class="do">##   27 0.5000000 0.0000000</span></span>
+<span id="cb15-49"><a href="data.html#cb15-49" aria-hidden="true" tabindex="-1"></a><span class="do">##   28 0.0000000 0.6666667</span></span>
+<span id="cb15-50"><a href="data.html#cb15-50" aria-hidden="true" tabindex="-1"></a><span class="do">##   29 0.0000000 0.3333333</span></span>
+<span id="cb15-51"><a href="data.html#cb15-51" aria-hidden="true" tabindex="-1"></a><span class="do">##   30 0.2500000 0.0000000</span></span></code></pre></div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="parts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-data.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
