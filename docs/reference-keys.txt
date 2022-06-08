@@ -1,3 +1,4 @@
+fig:unnamed-chunk-19
 eq:binom
 about
 usage

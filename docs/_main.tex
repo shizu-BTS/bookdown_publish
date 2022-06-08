@@ -899,13 +899,9 @@ R에서 패키지를 설치하는 방법은 크게 두가지이다. 콘솔창에
   프로젝트를 생성하면 projectname.Rprj이라는 파일이 해당 폴더 안에 생성된다. 이 프로젝트 안에서 생성되는 script, output 파일들이 해당 폴더 안에서 내보내기/가져오기가 자유롭게 된다.
 \end{itemize}
 
-\begin{verbatim}
-## Error in knitr::include_graphics("images/project3.png"): Cannot find the file(s): "images/project3.png"
-\end{verbatim}
-
-\begin{verbatim}
-## Error in knitr::include_graphics("images/project4.png"): Cannot find the file(s): "images/project4.png"
-\end{verbatim}
+\begin{figure}
+\includegraphics[width=0.4\linewidth]{images/project3} \includegraphics[width=0.4\linewidth]{images/project4} \caption{R prject 생성}\label{fig:unnamed-chunk-19}
+\end{figure}
 
 \textbf{work space 설정 방식}
 
@@ -1010,7 +1006,7 @@ filter 함수는 특정한 행(row)을 선택하는 기능이다. 시각적으�
 \DocumentationTok{\#\# package \textquotesingle{}nycflights13\textquotesingle{} successfully unpacked and MD5 sums checked}
 \DocumentationTok{\#\# }
 \DocumentationTok{\#\# The downloaded binary packages are in}
-\DocumentationTok{\#\#  C:\textbackslash{}Users\textbackslash{}shizu\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}RtmpmAsOku\textbackslash{}downloaded\_packages}
+\DocumentationTok{\#\#  C:\textbackslash{}Users\textbackslash{}shizu\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}RtmpamW2lN\textbackslash{}downloaded\_packages}
 \FunctionTok{library}\NormalTok{(nycflights13)}
 \DocumentationTok{\#\# Warning: 패키지 \textquotesingle{}nycflights13\textquotesingle{}는 R 버전 4.1.3에서 작성되었습니다}
 \FunctionTok{head}\NormalTok{(flights) }\CommentTok{\# head 자료 수개를 보여줌}
@@ -1860,22 +1856,21 @@ txt 파일을 불러오는 방법은 read.delim()이다. 현재 프로젝트 안
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{company\_3 }\OtherTok{\textless{}{-}}\FunctionTok{read.delim}\NormalTok{(}\StringTok{"HCCP\_Head\_3th.txt"}\NormalTok{, }\AttributeTok{header =}\NormalTok{ T)}
-\DocumentationTok{\#\# Warning in file(file, "rt"): 파일 \textquotesingle{}HCCP\_Head\_3th.txt\textquotesingle{}를 여는데 실패했습니다: No}
-\DocumentationTok{\#\# such file or directory}
-\DocumentationTok{\#\# Error in file(file, "rt"): 커넥션을 열 수 없습니다}
 \NormalTok{company\_4 }\OtherTok{\textless{}{-}}\FunctionTok{read.delim}\NormalTok{(}\StringTok{"HCCP\_Head\_4th.txt"}\NormalTok{, }\AttributeTok{header =}\NormalTok{ T)}
-\DocumentationTok{\#\# Warning in file(file, "rt"): 파일 \textquotesingle{}HCCP\_Head\_4th.txt\textquotesingle{}를 여는데 실패했습니다: No}
-\DocumentationTok{\#\# such file or directory}
-\DocumentationTok{\#\# Error in file(file, "rt"): 커넥션을 열 수 없습니다}
+\DocumentationTok{\#\# Warning in read.table(file = file, header = header, sep = sep, quote = quote, :}
+\DocumentationTok{\#\# line 1 appears to contain embedded nulls}
+\DocumentationTok{\#\# Warning in read.table(file = file, header = header, sep = sep, quote = quote, :}
+\DocumentationTok{\#\# line 2 appears to contain embedded nulls}
+\DocumentationTok{\#\# Warning in read.table(file = file, header = header, sep = sep, quote = quote, :}
+\DocumentationTok{\#\# line 3 appears to contain embedded nulls}
+\DocumentationTok{\#\# Warning in read.table(file = file, header = header, sep = sep, quote = quote, :}
+\DocumentationTok{\#\# line 4 appears to contain embedded nulls}
+\DocumentationTok{\#\# Warning in read.table(file = file, header = header, sep = sep, quote = quote, :}
+\DocumentationTok{\#\# line 5 appears to contain embedded nulls}
+\DocumentationTok{\#\# Error in make.names(col.names, unique = TRUE): \textquotesingle{}\textless{}ff\textgreater{}\textless{}fe\textgreater{}\textless{}63\textgreater{}\textquotesingle{}에서 유효하지 않은 멀티바이트 문자열이 있습니다}
 
 \NormalTok{worker\_3 }\OtherTok{\textless{}{-}}\FunctionTok{read.delim}\NormalTok{(}\StringTok{"HCCP\_Work\_3rd.txt"}\NormalTok{, }\AttributeTok{header =}\NormalTok{ T)}
-\DocumentationTok{\#\# Warning in file(file, "rt"): 파일 \textquotesingle{}HCCP\_Work\_3rd.txt\textquotesingle{}를 여는데 실패했습니다: No}
-\DocumentationTok{\#\# such file or directory}
-\DocumentationTok{\#\# Error in file(file, "rt"): 커넥션을 열 수 없습니다}
 \NormalTok{worker\_4 }\OtherTok{\textless{}{-}}\FunctionTok{read.delim}\NormalTok{(}\StringTok{"HCCP\_Work\_4th.txt"}\NormalTok{, }\AttributeTok{header =}\NormalTok{ T)}
-\DocumentationTok{\#\# Warning in file(file, "rt"): 파일 \textquotesingle{}HCCP\_Work\_4th.txt\textquotesingle{}를 여는데 실패했습니다: No}
-\DocumentationTok{\#\# such file or directory}
-\DocumentationTok{\#\# Error in file(file, "rt"): 커넥션을 열 수 없습니다}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1884,9 +1879,6 @@ txt 파일을 불러오는 방법은 read.delim()이다. 현재 프로젝트 안
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{company\_4 }\OtherTok{\textless{}{-}}\FunctionTok{read.delim}\NormalTok{(}\StringTok{"HCCP\_Head\_4th.txt"}\NormalTok{, }\AttributeTok{header =}\NormalTok{ T, }\AttributeTok{fileEncoding=}\StringTok{"utf16"}\NormalTok{)}
-\DocumentationTok{\#\# Warning in file(file, "rt", encoding = fileEncoding): 파일 \textquotesingle{}HCCP\_Head\_4th.txt\textquotesingle{}를}
-\DocumentationTok{\#\# 여는데 실패했습니다: No such file or directory}
-\DocumentationTok{\#\# Error in file(file, "rt", encoding = fileEncoding): 커넥션을 열 수 없습니다}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1908,13 +1900,57 @@ txt 파일을 불러오는 방법은 read.delim()이다. 현재 프로젝트 안
 \begin{Highlighting}[]
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(W3\_id1)}
-\DocumentationTok{\#\# Error in count(., W3\_id1): 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\# Error in \textasciigrave{}group\_by()\textasciigrave{}:}
+\DocumentationTok{\#\# ! Must group by variables found in \textasciigrave{}.data\textasciigrave{}.}
+\DocumentationTok{\#\# x Column \textasciigrave{}W3\_id1\textasciigrave{} is not found.}
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(W3\_id2)}
-\DocumentationTok{\#\# Error in count(., W3\_id2): 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\#   W3\_id2    n}
+\DocumentationTok{\#\# 1      0 8225}
+\DocumentationTok{\#\# 2      1 1363}
+\DocumentationTok{\#\# 3      2  376}
+\DocumentationTok{\#\# 4      3   55}
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(W3\_id3)}
-\DocumentationTok{\#\# Error in count(., W3\_id3): 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\#    W3\_id3    n}
+\DocumentationTok{\#\# 1     101 1103}
+\DocumentationTok{\#\# 2     102   45}
+\DocumentationTok{\#\# 3     103   14}
+\DocumentationTok{\#\# 4     201 1214}
+\DocumentationTok{\#\# 5     202  140}
+\DocumentationTok{\#\# 6     203    6}
+\DocumentationTok{\#\# 7     204    1}
+\DocumentationTok{\#\# 8     311  216}
+\DocumentationTok{\#\# 9     312   13}
+\DocumentationTok{\#\# 10    321 1559}
+\DocumentationTok{\#\# 11    322   18}
+\DocumentationTok{\#\# 12    323    3}
+\DocumentationTok{\#\# 13    331  290}
+\DocumentationTok{\#\# 14    332    6}
+\DocumentationTok{\#\# 15    341   89}
+\DocumentationTok{\#\# 16    351  166}
+\DocumentationTok{\#\# 17    401  305}
+\DocumentationTok{\#\# 18    402   82}
+\DocumentationTok{\#\# 19    403    2}
+\DocumentationTok{\#\# 20    501  109}
+\DocumentationTok{\#\# 21    502   20}
+\DocumentationTok{\#\# 22    601  101}
+\DocumentationTok{\#\# 23    602   32}
+\DocumentationTok{\#\# 24    603   13}
+\DocumentationTok{\#\# 25    701 1635}
+\DocumentationTok{\#\# 26    702 1066}
+\DocumentationTok{\#\# 27    703  343}
+\DocumentationTok{\#\# 28    704   74}
+\DocumentationTok{\#\# 29    705   31}
+\DocumentationTok{\#\# 30    801  120}
+\DocumentationTok{\#\# 31    802  117}
+\DocumentationTok{\#\# 32    803   91}
+\DocumentationTok{\#\# 33    804   60}
+\DocumentationTok{\#\# 34    805   23}
+\DocumentationTok{\#\# 35    901  484}
+\DocumentationTok{\#\# 36    902  318}
+\DocumentationTok{\#\# 37    903   98}
+\DocumentationTok{\#\# 38    904   12}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1924,16 +1960,12 @@ txt 파일을 불러오는 방법은 read.delim()이다. 현재 프로젝트 안
 \begin{Highlighting}[]
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{rename\_all}\NormalTok{(tolower)}\OtherTok{{-}\textgreater{}}\NormalTok{worker\_3}
-\DocumentationTok{\#\# Error in tbl\_vars\_dispatch(x): 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
 \NormalTok{worker\_4 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{rename\_all}\NormalTok{(tolower)}\OtherTok{{-}\textgreater{}}\NormalTok{worker\_4}
-\DocumentationTok{\#\# Error in tbl\_vars\_dispatch(x): 객체 \textquotesingle{}worker\_4\textquotesingle{}를 찾을 수 없습니다}
 \NormalTok{company\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{rename\_all}\NormalTok{(tolower)}\OtherTok{{-}\textgreater{}}\NormalTok{company\_3}
-\DocumentationTok{\#\# Error in tbl\_vars\_dispatch(x): 객체 \textquotesingle{}company\_3\textquotesingle{}를 찾을 수 없습니다}
 \NormalTok{company\_4 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{rename\_all}\NormalTok{(tolower)}\OtherTok{{-}\textgreater{}}\NormalTok{company\_4}
-\DocumentationTok{\#\# Error in tbl\_vars\_dispatch(x): 객체 \textquotesingle{}company\_4\textquotesingle{}를 찾을 수 없습니다}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1943,16 +1975,545 @@ ID관련 변수 4개의 빈도를 확인해보니, 이제 정상적으로 출력
 \begin{Highlighting}[]
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(w3\_id1)}
-\DocumentationTok{\#\# Error in count(., w3\_id1): 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\#     w3\_id1  n}
+\DocumentationTok{\#\# 1        1 28}
+\DocumentationTok{\#\# 2        2 25}
+\DocumentationTok{\#\# 3        5 31}
+\DocumentationTok{\#\# 4        6 25}
+\DocumentationTok{\#\# 5        7 54}
+\DocumentationTok{\#\# 6        8  3}
+\DocumentationTok{\#\# 7        9 43}
+\DocumentationTok{\#\# 8       10 35}
+\DocumentationTok{\#\# 9       11 17}
+\DocumentationTok{\#\# 10      12  9}
+\DocumentationTok{\#\# 11      15 16}
+\DocumentationTok{\#\# 12      18 52}
+\DocumentationTok{\#\# 13      19 25}
+\DocumentationTok{\#\# 14      20 21}
+\DocumentationTok{\#\# 15      22 48}
+\DocumentationTok{\#\# 16      23 32}
+\DocumentationTok{\#\# 17      24 47}
+\DocumentationTok{\#\# 18      25 15}
+\DocumentationTok{\#\# 19      29 19}
+\DocumentationTok{\#\# 20      30  7}
+\DocumentationTok{\#\# 21      33 22}
+\DocumentationTok{\#\# 22      34 35}
+\DocumentationTok{\#\# 23      35 30}
+\DocumentationTok{\#\# 24      37 26}
+\DocumentationTok{\#\# 25      39 47}
+\DocumentationTok{\#\# 26      41 14}
+\DocumentationTok{\#\# 27      42 29}
+\DocumentationTok{\#\# 28      44  3}
+\DocumentationTok{\#\# 29      45  7}
+\DocumentationTok{\#\# 30      49  3}
+\DocumentationTok{\#\# 31      51 48}
+\DocumentationTok{\#\# 32      52 12}
+\DocumentationTok{\#\# 33      55 55}
+\DocumentationTok{\#\# 34      57  4}
+\DocumentationTok{\#\# 35      59 29}
+\DocumentationTok{\#\# 36      60 25}
+\DocumentationTok{\#\# 37      61  7}
+\DocumentationTok{\#\# 38      67  8}
+\DocumentationTok{\#\# 39      68 26}
+\DocumentationTok{\#\# 40      69 29}
+\DocumentationTok{\#\# 41      70  5}
+\DocumentationTok{\#\# 42      71 26}
+\DocumentationTok{\#\# 43      72 17}
+\DocumentationTok{\#\# 44      73  2}
+\DocumentationTok{\#\# 45      75 15}
+\DocumentationTok{\#\# 46      76 27}
+\DocumentationTok{\#\# 47      77 45}
+\DocumentationTok{\#\# 48      80 26}
+\DocumentationTok{\#\# 49      86 24}
+\DocumentationTok{\#\# 50      87 22}
+\DocumentationTok{\#\# 51      88 20}
+\DocumentationTok{\#\# 52      89 13}
+\DocumentationTok{\#\# 53      90 28}
+\DocumentationTok{\#\# 54      91  1}
+\DocumentationTok{\#\# 55      93  4}
+\DocumentationTok{\#\# 56      94 17}
+\DocumentationTok{\#\# 57      95 37}
+\DocumentationTok{\#\# 58      96 14}
+\DocumentationTok{\#\# 59      98 19}
+\DocumentationTok{\#\# 60     104 27}
+\DocumentationTok{\#\# 61     106 28}
+\DocumentationTok{\#\# 62     107 21}
+\DocumentationTok{\#\# 63     108 27}
+\DocumentationTok{\#\# 64     111  1}
+\DocumentationTok{\#\# 65     116 26}
+\DocumentationTok{\#\# 66     120  4}
+\DocumentationTok{\#\# 67     121 24}
+\DocumentationTok{\#\# 68     122  1}
+\DocumentationTok{\#\# 69     123 45}
+\DocumentationTok{\#\# 70     124 10}
+\DocumentationTok{\#\# 71     126 28}
+\DocumentationTok{\#\# 72     128  1}
+\DocumentationTok{\#\# 73     131 54}
+\DocumentationTok{\#\# 74     137 55}
+\DocumentationTok{\#\# 75     138  2}
+\DocumentationTok{\#\# 76     139 24}
+\DocumentationTok{\#\# 77     140 28}
+\DocumentationTok{\#\# 78     144  1}
+\DocumentationTok{\#\# 79     147 20}
+\DocumentationTok{\#\# 80     150 30}
+\DocumentationTok{\#\# 81     154 27}
+\DocumentationTok{\#\# 82     155 14}
+\DocumentationTok{\#\# 83     156 32}
+\DocumentationTok{\#\# 84     157 33}
+\DocumentationTok{\#\# 85     158 39}
+\DocumentationTok{\#\# 86     159 40}
+\DocumentationTok{\#\# 87     160 32}
+\DocumentationTok{\#\# 88     163 22}
+\DocumentationTok{\#\# 89     165 16}
+\DocumentationTok{\#\# 90     167 36}
+\DocumentationTok{\#\# 91     168  4}
+\DocumentationTok{\#\# 92     172 20}
+\DocumentationTok{\#\# 93     173 22}
+\DocumentationTok{\#\# 94     176 28}
+\DocumentationTok{\#\# 95     177 12}
+\DocumentationTok{\#\# 96     179 27}
+\DocumentationTok{\#\# 97     181 43}
+\DocumentationTok{\#\# 98     185 22}
+\DocumentationTok{\#\# 99     187 14}
+\DocumentationTok{\#\# 100    188  2}
+\DocumentationTok{\#\# 101    189 15}
+\DocumentationTok{\#\# 102    191 41}
+\DocumentationTok{\#\# 103    195 26}
+\DocumentationTok{\#\# 104    196 17}
+\DocumentationTok{\#\# 105    197 12}
+\DocumentationTok{\#\# 106    198  2}
+\DocumentationTok{\#\# 107    199  4}
+\DocumentationTok{\#\# 108    200 17}
+\DocumentationTok{\#\# 109    203 21}
+\DocumentationTok{\#\# 110    204 28}
+\DocumentationTok{\#\# 111    205 18}
+\DocumentationTok{\#\# 112    206 19}
+\DocumentationTok{\#\# 113    208  4}
+\DocumentationTok{\#\# 114    209 20}
+\DocumentationTok{\#\# 115    211 34}
+\DocumentationTok{\#\# 116    212 33}
+\DocumentationTok{\#\# 117    215 18}
+\DocumentationTok{\#\# 118    216 50}
+\DocumentationTok{\#\# 119    217 10}
+\DocumentationTok{\#\# 120    219 36}
+\DocumentationTok{\#\# 121    220 17}
+\DocumentationTok{\#\# 122    221 10}
+\DocumentationTok{\#\# 123    222 50}
+\DocumentationTok{\#\# 124    223 29}
+\DocumentationTok{\#\# 125    224  4}
+\DocumentationTok{\#\# 126    227 23}
+\DocumentationTok{\#\# 127    228 28}
+\DocumentationTok{\#\# 128    229  3}
+\DocumentationTok{\#\# 129    230  1}
+\DocumentationTok{\#\# 130    232  6}
+\DocumentationTok{\#\# 131    233 35}
+\DocumentationTok{\#\# 132    234 18}
+\DocumentationTok{\#\# 133    236 25}
+\DocumentationTok{\#\# 134    237 16}
+\DocumentationTok{\#\# 135    238 28}
+\DocumentationTok{\#\# 136    239 36}
+\DocumentationTok{\#\# 137    240 32}
+\DocumentationTok{\#\# 138    241  4}
+\DocumentationTok{\#\# 139    244 42}
+\DocumentationTok{\#\# 140    245 18}
+\DocumentationTok{\#\# 141    250 17}
+\DocumentationTok{\#\# 142    254 47}
+\DocumentationTok{\#\# 143    255 25}
+\DocumentationTok{\#\# 144    258 36}
+\DocumentationTok{\#\# 145    262 36}
+\DocumentationTok{\#\# 146    263 42}
+\DocumentationTok{\#\# 147    264 32}
+\DocumentationTok{\#\# 148    265 19}
+\DocumentationTok{\#\# 149    267  5}
+\DocumentationTok{\#\# 150    268 16}
+\DocumentationTok{\#\# 151    270 28}
+\DocumentationTok{\#\# 152    271 20}
+\DocumentationTok{\#\# 153    272 35}
+\DocumentationTok{\#\# 154    273  1}
+\DocumentationTok{\#\# 155    275  1}
+\DocumentationTok{\#\# 156    279 16}
+\DocumentationTok{\#\# 157    280 22}
+\DocumentationTok{\#\# 158    281 28}
+\DocumentationTok{\#\# 159    283  5}
+\DocumentationTok{\#\# 160    285 29}
+\DocumentationTok{\#\# 161    287 25}
+\DocumentationTok{\#\# 162    289 36}
+\DocumentationTok{\#\# 163    292 36}
+\DocumentationTok{\#\# 164    293 11}
+\DocumentationTok{\#\# 165    295 35}
+\DocumentationTok{\#\# 166    296 19}
+\DocumentationTok{\#\# 167    297 27}
+\DocumentationTok{\#\# 168    298 36}
+\DocumentationTok{\#\# 169    299 32}
+\DocumentationTok{\#\# 170    300 26}
+\DocumentationTok{\#\# 171    301 27}
+\DocumentationTok{\#\# 172    302  1}
+\DocumentationTok{\#\# 173    303 37}
+\DocumentationTok{\#\# 174    304 11}
+\DocumentationTok{\#\# 175    305  3}
+\DocumentationTok{\#\# 176    306  7}
+\DocumentationTok{\#\# 177    308 14}
+\DocumentationTok{\#\# 178    310 13}
+\DocumentationTok{\#\# 179    313 50}
+\DocumentationTok{\#\# 180    314 31}
+\DocumentationTok{\#\# 181    318 28}
+\DocumentationTok{\#\# 182    320 33}
+\DocumentationTok{\#\# 183    321 23}
+\DocumentationTok{\#\# 184    322  4}
+\DocumentationTok{\#\# 185    323 20}
+\DocumentationTok{\#\# 186    324 38}
+\DocumentationTok{\#\# 187    325 28}
+\DocumentationTok{\#\# 188    326 26}
+\DocumentationTok{\#\# 189    327 26}
+\DocumentationTok{\#\# 190    328 13}
+\DocumentationTok{\#\# 191    331 26}
+\DocumentationTok{\#\# 192    332 36}
+\DocumentationTok{\#\# 193    333 23}
+\DocumentationTok{\#\# 194    334 25}
+\DocumentationTok{\#\# 195    335  5}
+\DocumentationTok{\#\# 196    336 55}
+\DocumentationTok{\#\# 197    337 17}
+\DocumentationTok{\#\# 198    339  6}
+\DocumentationTok{\#\# 199    340  4}
+\DocumentationTok{\#\# 200    342  1}
+\DocumentationTok{\#\# 201    343  1}
+\DocumentationTok{\#\# 202    344 45}
+\DocumentationTok{\#\# 203    348 12}
+\DocumentationTok{\#\# 204    349 16}
+\DocumentationTok{\#\# 205    351  2}
+\DocumentationTok{\#\# 206    352 22}
+\DocumentationTok{\#\# 207    355 26}
+\DocumentationTok{\#\# 208    356 28}
+\DocumentationTok{\#\# 209    357 34}
+\DocumentationTok{\#\# 210    358 29}
+\DocumentationTok{\#\# 211    361 18}
+\DocumentationTok{\#\# 212    363 46}
+\DocumentationTok{\#\# 213    365 20}
+\DocumentationTok{\#\# 214    366 35}
+\DocumentationTok{\#\# 215    367  5}
+\DocumentationTok{\#\# 216    369 24}
+\DocumentationTok{\#\# 217    371 23}
+\DocumentationTok{\#\# 218    373 27}
+\DocumentationTok{\#\# 219    374  3}
+\DocumentationTok{\#\# 220    375 20}
+\DocumentationTok{\#\# 221    377 19}
+\DocumentationTok{\#\# 222    379 22}
+\DocumentationTok{\#\# 223    381 25}
+\DocumentationTok{\#\# 224    383 38}
+\DocumentationTok{\#\# 225    387  9}
+\DocumentationTok{\#\# 226    388  9}
+\DocumentationTok{\#\# 227    390 27}
+\DocumentationTok{\#\# 228    392 32}
+\DocumentationTok{\#\# 229    396  1}
+\DocumentationTok{\#\# 230    398 39}
+\DocumentationTok{\#\# 231    399 24}
+\DocumentationTok{\#\# 232    400 23}
+\DocumentationTok{\#\# 233    401 24}
+\DocumentationTok{\#\# 234    403  8}
+\DocumentationTok{\#\# 235    404 24}
+\DocumentationTok{\#\# 236    405 54}
+\DocumentationTok{\#\# 237    406 28}
+\DocumentationTok{\#\# 238    408  3}
+\DocumentationTok{\#\# 239    410  5}
+\DocumentationTok{\#\# 240    412 26}
+\DocumentationTok{\#\# 241    413 25}
+\DocumentationTok{\#\# 242    414  3}
+\DocumentationTok{\#\# 243    415 20}
+\DocumentationTok{\#\# 244    417 23}
+\DocumentationTok{\#\# 245    420 29}
+\DocumentationTok{\#\# 246    423 28}
+\DocumentationTok{\#\# 247    424  1}
+\DocumentationTok{\#\# 248    428 17}
+\DocumentationTok{\#\# 249    429 29}
+\DocumentationTok{\#\# 250    433  7}
+\DocumentationTok{\#\# 251    436 49}
+\DocumentationTok{\#\# 252    438 21}
+\DocumentationTok{\#\# 253    440  7}
+\DocumentationTok{\#\# 254    441 39}
+\DocumentationTok{\#\# 255    443  3}
+\DocumentationTok{\#\# 256    444 23}
+\DocumentationTok{\#\# 257    446 12}
+\DocumentationTok{\#\# 258    449 32}
+\DocumentationTok{\#\# 259    452 28}
+\DocumentationTok{\#\# 260    455  8}
+\DocumentationTok{\#\# 261    457  7}
+\DocumentationTok{\#\# 262    458 13}
+\DocumentationTok{\#\# 263    462 49}
+\DocumentationTok{\#\# 264    464 28}
+\DocumentationTok{\#\# 265    465 28}
+\DocumentationTok{\#\# 266    467 43}
+\DocumentationTok{\#\# 267    469 25}
+\DocumentationTok{\#\# 268    470 43}
+\DocumentationTok{\#\# 269    476 30}
+\DocumentationTok{\#\# 270    477  1}
+\DocumentationTok{\#\# 271    479 19}
+\DocumentationTok{\#\# 272    480  9}
+\DocumentationTok{\#\# 273    489 49}
+\DocumentationTok{\#\# 274    496 35}
+\DocumentationTok{\#\# 275    497 33}
+\DocumentationTok{\#\# 276    499 27}
+\DocumentationTok{\#\# 277    502  4}
+\DocumentationTok{\#\# 278    503 15}
+\DocumentationTok{\#\# 279    506  1}
+\DocumentationTok{\#\# 280    507 21}
+\DocumentationTok{\#\# 281    508 22}
+\DocumentationTok{\#\# 282    509 44}
+\DocumentationTok{\#\# 283    512 38}
+\DocumentationTok{\#\# 284    513 29}
+\DocumentationTok{\#\# 285    514 22}
+\DocumentationTok{\#\# 286    515 47}
+\DocumentationTok{\#\# 287    516 14}
+\DocumentationTok{\#\# 288    517 17}
+\DocumentationTok{\#\# 289    518 28}
+\DocumentationTok{\#\# 290    519 55}
+\DocumentationTok{\#\# 291    520 33}
+\DocumentationTok{\#\# 292    521  3}
+\DocumentationTok{\#\# 293    523 25}
+\DocumentationTok{\#\# 294    524 24}
+\DocumentationTok{\#\# 295    527 11}
+\DocumentationTok{\#\# 296    528 31}
+\DocumentationTok{\#\# 297    529 16}
+\DocumentationTok{\#\# 298    530  6}
+\DocumentationTok{\#\# 299    534 24}
+\DocumentationTok{\#\# 300    536 24}
+\DocumentationTok{\#\# 301    538  1}
+\DocumentationTok{\#\# 302    539 13}
+\DocumentationTok{\#\# 303    543  6}
+\DocumentationTok{\#\# 304    546  2}
+\DocumentationTok{\#\# 305    547  7}
+\DocumentationTok{\#\# 306    550  9}
+\DocumentationTok{\#\# 307    551 16}
+\DocumentationTok{\#\# 308    552 35}
+\DocumentationTok{\#\# 309    561 50}
+\DocumentationTok{\#\# 310    563 22}
+\DocumentationTok{\#\# 311    564  2}
+\DocumentationTok{\#\# 312    566  3}
+\DocumentationTok{\#\# 313    567  7}
+\DocumentationTok{\#\# 314    600 16}
+\DocumentationTok{\#\# 315    601 25}
+\DocumentationTok{\#\# 316    602 24}
+\DocumentationTok{\#\# 317    603  3}
+\DocumentationTok{\#\# 318    604 17}
+\DocumentationTok{\#\# 319    605 34}
+\DocumentationTok{\#\# 320    607 16}
+\DocumentationTok{\#\# 321    609 34}
+\DocumentationTok{\#\# 322    610 31}
+\DocumentationTok{\#\# 323    611 12}
+\DocumentationTok{\#\# 324    612  6}
+\DocumentationTok{\#\# 325    614 30}
+\DocumentationTok{\#\# 326    615 21}
+\DocumentationTok{\#\# 327    616 11}
+\DocumentationTok{\#\# 328    617 30}
+\DocumentationTok{\#\# 329    619 52}
+\DocumentationTok{\#\# 330    620 27}
+\DocumentationTok{\#\# 331    621 17}
+\DocumentationTok{\#\# 332    623 23}
+\DocumentationTok{\#\# 333    624 23}
+\DocumentationTok{\#\# 334    625 13}
+\DocumentationTok{\#\# 335    626 37}
+\DocumentationTok{\#\# 336    627 22}
+\DocumentationTok{\#\# 337    628  8}
+\DocumentationTok{\#\# 338    629 21}
+\DocumentationTok{\#\# 339    630 37}
+\DocumentationTok{\#\# 340    631  2}
+\DocumentationTok{\#\# 341    632  6}
+\DocumentationTok{\#\# 342    634 19}
+\DocumentationTok{\#\# 343    635 28}
+\DocumentationTok{\#\# 344    636  4}
+\DocumentationTok{\#\# 345    637 25}
+\DocumentationTok{\#\# 346    638 18}
+\DocumentationTok{\#\# 347    639 35}
+\DocumentationTok{\#\# 348    640 46}
+\DocumentationTok{\#\# 349    641  3}
+\DocumentationTok{\#\# 350    642  4}
+\DocumentationTok{\#\# 351    643  5}
+\DocumentationTok{\#\# 352    644 41}
+\DocumentationTok{\#\# 353    645 21}
+\DocumentationTok{\#\# 354    646 37}
+\DocumentationTok{\#\# 355    648  5}
+\DocumentationTok{\#\# 356    649 15}
+\DocumentationTok{\#\# 357    651 39}
+\DocumentationTok{\#\# 358    652 18}
+\DocumentationTok{\#\# 359    653 30}
+\DocumentationTok{\#\# 360    654  4}
+\DocumentationTok{\#\# 361    656 48}
+\DocumentationTok{\#\# 362    660  1}
+\DocumentationTok{\#\# 363    662  1}
+\DocumentationTok{\#\# 364    663 25}
+\DocumentationTok{\#\# 365    664  7}
+\DocumentationTok{\#\# 366    666 14}
+\DocumentationTok{\#\# 367    667 20}
+\DocumentationTok{\#\# 368    668 10}
+\DocumentationTok{\#\# 369    669  8}
+\DocumentationTok{\#\# 370    670  5}
+\DocumentationTok{\#\# 371    672 27}
+\DocumentationTok{\#\# 372    673 27}
+\DocumentationTok{\#\# 373    674  5}
+\DocumentationTok{\#\# 374    675 13}
+\DocumentationTok{\#\# 375    676 24}
+\DocumentationTok{\#\# 376    677 19}
+\DocumentationTok{\#\# 377    678 28}
+\DocumentationTok{\#\# 378    679 13}
+\DocumentationTok{\#\# 379    682 23}
+\DocumentationTok{\#\# 380    683 18}
+\DocumentationTok{\#\# 381    684 14}
+\DocumentationTok{\#\# 382    685 22}
+\DocumentationTok{\#\# 383    686 27}
+\DocumentationTok{\#\# 384    687 20}
+\DocumentationTok{\#\# 385    688 10}
+\DocumentationTok{\#\# 386    689 28}
+\DocumentationTok{\#\# 387    692 23}
+\DocumentationTok{\#\# 388    693 22}
+\DocumentationTok{\#\# 389    694 32}
+\DocumentationTok{\#\# 390    696 17}
+\DocumentationTok{\#\# 391    697 40}
+\DocumentationTok{\#\# 392    698 17}
+\DocumentationTok{\#\# 393    701 20}
+\DocumentationTok{\#\# 394    702 18}
+\DocumentationTok{\#\# 395    705 26}
+\DocumentationTok{\#\# 396    706  4}
+\DocumentationTok{\#\# 397    707 26}
+\DocumentationTok{\#\# 398    708 27}
+\DocumentationTok{\#\# 399    709 13}
+\DocumentationTok{\#\# 400    710  5}
+\DocumentationTok{\#\# 401    711 13}
+\DocumentationTok{\#\# 402    713 11}
+\DocumentationTok{\#\# 403    714  7}
+\DocumentationTok{\#\# 404    715 23}
+\DocumentationTok{\#\# 405    716 27}
+\DocumentationTok{\#\# 406    717 20}
+\DocumentationTok{\#\# 407    718 25}
+\DocumentationTok{\#\# 408    719 25}
+\DocumentationTok{\#\# 409    720 16}
+\DocumentationTok{\#\# 410    721 16}
+\DocumentationTok{\#\# 411    722 12}
+\DocumentationTok{\#\# 412    724 25}
+\DocumentationTok{\#\# 413    725 24}
+\DocumentationTok{\#\# 414    727 29}
+\DocumentationTok{\#\# 415    729 12}
+\DocumentationTok{\#\# 416    730 15}
+\DocumentationTok{\#\# 417    731 17}
+\DocumentationTok{\#\# 418    732 31}
+\DocumentationTok{\#\# 419    734 16}
+\DocumentationTok{\#\# 420    735 23}
+\DocumentationTok{\#\# 421    736  5}
+\DocumentationTok{\#\# 422    737 28}
+\DocumentationTok{\#\# 423    738 14}
+\DocumentationTok{\#\# 424    739 37}
+\DocumentationTok{\#\# 425    740 37}
+\DocumentationTok{\#\# 426    741 28}
+\DocumentationTok{\#\# 427    742 30}
+\DocumentationTok{\#\# 428    743  6}
+\DocumentationTok{\#\# 429    744  7}
+\DocumentationTok{\#\# 430    745 24}
+\DocumentationTok{\#\# 431    746 18}
+\DocumentationTok{\#\# 432    747 15}
+\DocumentationTok{\#\# 433    748 33}
+\DocumentationTok{\#\# 434    801  5}
+\DocumentationTok{\#\# 435    805 10}
+\DocumentationTok{\#\# 436    808  6}
+\DocumentationTok{\#\# 437    809  2}
+\DocumentationTok{\#\# 438    815  9}
+\DocumentationTok{\#\# 439    821 25}
+\DocumentationTok{\#\# 440    822  6}
+\DocumentationTok{\#\# 441    823 10}
+\DocumentationTok{\#\# 442    851  9}
+\DocumentationTok{\#\# 443    855 10}
+\DocumentationTok{\#\# 444    856  3}
+\DocumentationTok{\#\# 445    858  6}
+\DocumentationTok{\#\# 446    868  7}
+\DocumentationTok{\#\# 447    871  7}
+\DocumentationTok{\#\# 448    877  5}
+\DocumentationTok{\#\# 449    901 17}
+\DocumentationTok{\#\# 450    902 28}
+\DocumentationTok{\#\# 451    903 21}
+\DocumentationTok{\#\# 452    904 14}
+\DocumentationTok{\#\# 453    905 16}
+\DocumentationTok{\#\# 454    906 12}
+\DocumentationTok{\#\# 455    907  2}
+\DocumentationTok{\#\# 456    908 24}
+\DocumentationTok{\#\# 457    909 34}
+\DocumentationTok{\#\# 458    910 35}
+\DocumentationTok{\#\# 459    911 24}
+\DocumentationTok{\#\# 460    912 23}
+\DocumentationTok{\#\# 461    913 26}
+\DocumentationTok{\#\# 462    914 17}
+\DocumentationTok{\#\# 463    915 54}
+\DocumentationTok{\#\# 464    916 33}
+\DocumentationTok{\#\# 465    917  8}
+\DocumentationTok{\#\# 466    918 20}
+\DocumentationTok{\#\# 467    919 13}
+\DocumentationTok{\#\# 468    920  7}
+\DocumentationTok{\#\# 469    921 18}
+\DocumentationTok{\#\# 470    922 23}
+\DocumentationTok{\#\# 471    923 17}
+\DocumentationTok{\#\# 472    924 15}
+\DocumentationTok{\#\# 473    925  2}
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(w3\_id2)}
-\DocumentationTok{\#\# Error in count(., w3\_id2): 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\#   w3\_id2    n}
+\DocumentationTok{\#\# 1      0 8225}
+\DocumentationTok{\#\# 2      1 1363}
+\DocumentationTok{\#\# 3      2  376}
+\DocumentationTok{\#\# 4      3   55}
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(w3\_id3)}
-\DocumentationTok{\#\# Error in count(., w3\_id3): 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\#    w3\_id3    n}
+\DocumentationTok{\#\# 1     101 1103}
+\DocumentationTok{\#\# 2     102   45}
+\DocumentationTok{\#\# 3     103   14}
+\DocumentationTok{\#\# 4     201 1214}
+\DocumentationTok{\#\# 5     202  140}
+\DocumentationTok{\#\# 6     203    6}
+\DocumentationTok{\#\# 7     204    1}
+\DocumentationTok{\#\# 8     311  216}
+\DocumentationTok{\#\# 9     312   13}
+\DocumentationTok{\#\# 10    321 1559}
+\DocumentationTok{\#\# 11    322   18}
+\DocumentationTok{\#\# 12    323    3}
+\DocumentationTok{\#\# 13    331  290}
+\DocumentationTok{\#\# 14    332    6}
+\DocumentationTok{\#\# 15    341   89}
+\DocumentationTok{\#\# 16    351  166}
+\DocumentationTok{\#\# 17    401  305}
+\DocumentationTok{\#\# 18    402   82}
+\DocumentationTok{\#\# 19    403    2}
+\DocumentationTok{\#\# 20    501  109}
+\DocumentationTok{\#\# 21    502   20}
+\DocumentationTok{\#\# 22    601  101}
+\DocumentationTok{\#\# 23    602   32}
+\DocumentationTok{\#\# 24    603   13}
+\DocumentationTok{\#\# 25    701 1635}
+\DocumentationTok{\#\# 26    702 1066}
+\DocumentationTok{\#\# 27    703  343}
+\DocumentationTok{\#\# 28    704   74}
+\DocumentationTok{\#\# 29    705   31}
+\DocumentationTok{\#\# 30    801  120}
+\DocumentationTok{\#\# 31    802  117}
+\DocumentationTok{\#\# 32    803   91}
+\DocumentationTok{\#\# 33    804   60}
+\DocumentationTok{\#\# 34    805   23}
+\DocumentationTok{\#\# 35    901  484}
+\DocumentationTok{\#\# 36    902  318}
+\DocumentationTok{\#\# 37    903   98}
+\DocumentationTok{\#\# 38    904   12}
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(w3\_id4)}
-\DocumentationTok{\#\# Error in count(., w3\_id4): 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\#    w3\_id4    n}
+\DocumentationTok{\#\# 1       0 3143}
+\DocumentationTok{\#\# 2       1 1868}
+\DocumentationTok{\#\# 3       2 1682}
+\DocumentationTok{\#\# 4       3 1455}
+\DocumentationTok{\#\# 5       4 1172}
+\DocumentationTok{\#\# 6       5  560}
+\DocumentationTok{\#\# 7       6   80}
+\DocumentationTok{\#\# 8       7   32}
+\DocumentationTok{\#\# 9       8   14}
+\DocumentationTok{\#\# 10      9    5}
+\DocumentationTok{\#\# 11     10    5}
+\DocumentationTok{\#\# 12     11    1}
+\DocumentationTok{\#\# 13     12    1}
+\DocumentationTok{\#\# 14     13    1}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1983,11 +2544,9 @@ ID관련 변수 4개의 빈도를 확인해보니, 이제 정상적으로 출력
 \begin{Highlighting}[]
 \NormalTok{worker\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{select}\NormalTok{(w3\_id1, w3\_id3, w3\_id4, w3\_ind1, w3\_team, w3\_posit, w301\_01, w301\_02, w303\_02, w3\_sex, w3\_birthy, w3\_marr, w3\_edu, w306\_01, w306\_02, w306\_03, w306\_04, w306\_05, w306\_06, w306\_07, w306\_08, w311\_01, w311\_02, w311\_05, w311\_06, w312, w329\_01, w329\_02, w329\_03, w329\_04, w333, w335, w336\_01, w336\_02, w337\_01, w337\_02) }\OtherTok{{-}\textgreater{}}\NormalTok{ worker\_3\_se}
-\DocumentationTok{\#\# Error in select(., w3\_id1, w3\_id3, w3\_id4, w3\_ind1, w3\_team, w3\_posit, : 객체 \textquotesingle{}worker\_3\textquotesingle{}를 찾을 수 없습니다}
 
 \NormalTok{worker\_4 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{select}\NormalTok{(w4\_id1, w4\_id3, w4\_id4, w4\_ind1, w4\_team, w4\_posit, w401\_01, w401\_02, w403\_02, w4\_sex, w4\_birthy, w4\_marr, w4\_edu, w406\_01, w406\_02, w406\_03, w406\_04, w406\_05, w406\_06, w406\_07, w406\_08, w411\_01, w411\_02, w411\_05, w411\_06, w412, w429\_01, w429\_02, w429\_03, w429\_04, w433, w435, w436\_01, w436\_02, w437\_01, w437\_02) }\OtherTok{{-}\textgreater{}}\NormalTok{ worker\_4\_se}
-\DocumentationTok{\#\# Error in select(., w4\_id1, w4\_id3, w4\_id4, w4\_ind1, w4\_team, w4\_posit, : 객체 \textquotesingle{}worker\_4\textquotesingle{}를 찾을 수 없습니다}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2011,11 +2570,9 @@ ID관련 변수 4개의 빈도를 확인해보니, 이제 정상적으로 출력
 \begin{Highlighting}[]
 \NormalTok{company\_3 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{select}\NormalTok{(c3\_id1, c3\_ind1, c3\_ksic1, c3\_scale, c3a02\_07, c3b02\_01\_01, c3b02\_01\_02, c3b02\_01\_03, c3b02\_01\_04, c3b02\_02\_01, c3b02\_02\_02, c3b02\_02\_05, c3b02\_03\_02, c3b02\_03\_03, c3b02\_03\_04, c3b02\_05\_01, c3b02\_05\_02, c3c01\_01, c3c01\_01\_01, c3c01\_02, c3c01\_03, c3c01\_06\_01, c3c01\_06\_02, c3c02\_03\_01, c3c02\_03\_02, c3c02\_03\_03, c3c02\_03\_04, c3c02\_03\_05, c3c04\_02\_01, c3c04\_02\_02, c3c04\_02\_03)}\OtherTok{{-}\textgreater{}}\NormalTok{company\_3\_se}
-\DocumentationTok{\#\# Error in select(., c3\_id1, c3\_ind1, c3\_ksic1, c3\_scale, c3a02\_07, c3b02\_01\_01, : 객체 \textquotesingle{}company\_3\textquotesingle{}를 찾을 수 없습니다}
 
 \NormalTok{company\_4 }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{select}\NormalTok{(c4\_id1, c4\_ind1, c4\_ksic1, c4\_scale, c4a02\_07, c4b02\_01\_01, c4b02\_01\_02, c4b02\_01\_03, c4b02\_01\_04, c4b02\_02\_01, c4b02\_02\_02, c4b02\_02\_05, c4b02\_03\_02, c4b02\_03\_03, c4b02\_03\_04, c4b02\_05\_01, c4b02\_05\_02, c4c01\_01, c4c01\_01\_01, c4c01\_02, c4c01\_03, c4c01\_06\_01, c4c01\_06\_02, c4c02\_03\_01, c4c02\_03\_02, c4c02\_03\_03, c4c02\_03\_04, c4c02\_03\_05, a\_3rd)}\OtherTok{{-}\textgreater{}}\NormalTok{company\_4\_se}
-\DocumentationTok{\#\# Error in select(., c4\_id1, c4\_ind1, c4\_ksic1, c4\_scale, c4a02\_07, c4b02\_01\_01, : 객체 \textquotesingle{}company\_4\textquotesingle{}를 찾을 수 없습니다}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2029,12 +2586,14 @@ ID관련 변수 4개의 빈도를 확인해보니, 이제 정상적으로 출력
 \NormalTok{company\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(c3\_id1) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{filter}\NormalTok{(n}\SpecialCharTok{\textgreater{}}\DecValTok{1}\NormalTok{)}
-\DocumentationTok{\#\# Error in count(., c3\_id1): 객체 \textquotesingle{}company\_3\_se\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\# [1] c3\_id1 n     }
+\DocumentationTok{\#\# \textless{}0 행\textgreater{} \textless{}또는 row.names의 길이가 0입니다\textgreater{}}
 
 \NormalTok{company\_4\_se }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(c4\_id1) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{filter}\NormalTok{(n}\SpecialCharTok{\textgreater{}}\DecValTok{1}\NormalTok{)}
-\DocumentationTok{\#\# Error in count(., c4\_id1): 객체 \textquotesingle{}company\_4\_se\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\# [1] c4\_id1 n     }
+\DocumentationTok{\#\# \textless{}0 행\textgreater{} \textless{}또는 row.names의 길이가 0입니다\textgreater{}}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2048,18 +2607,594 @@ c3\_id1과 c4\_id1이 각각의 데이터의 관측치의 고유값으로 역할
 \CommentTok{\#데이터 결합}
 \NormalTok{company\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{full\_join}\NormalTok{(company\_4\_se, }\FunctionTok{c}\NormalTok{(}\StringTok{"c3\_id1"}\OtherTok{=}\StringTok{"c4\_id1"}\NormalTok{)) }\OtherTok{{-}\textgreater{}}\NormalTok{ company\_full}
-\DocumentationTok{\#\# Error in full\_join(., company\_4\_se, c(c3\_id1 = "c4\_id1")): 객체 \textquotesingle{}company\_3\_se\textquotesingle{}를 찾을 수 없습니다}
 
 \CommentTok{\#key 변수 확인}
 \NormalTok{company\_full }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(c3\_id1)}
-\DocumentationTok{\#\# Error in count(., c3\_id1): 객체 \textquotesingle{}company\_full\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\#     c3\_id1 n}
+\DocumentationTok{\#\# 1        1 1}
+\DocumentationTok{\#\# 2        2 1}
+\DocumentationTok{\#\# 3        5 1}
+\DocumentationTok{\#\# 4        6 1}
+\DocumentationTok{\#\# 5        7 1}
+\DocumentationTok{\#\# 6        8 1}
+\DocumentationTok{\#\# 7        9 1}
+\DocumentationTok{\#\# 8       10 1}
+\DocumentationTok{\#\# 9       11 1}
+\DocumentationTok{\#\# 10      12 1}
+\DocumentationTok{\#\# 11      15 1}
+\DocumentationTok{\#\# 12      18 1}
+\DocumentationTok{\#\# 13      19 1}
+\DocumentationTok{\#\# 14      20 1}
+\DocumentationTok{\#\# 15      22 1}
+\DocumentationTok{\#\# 16      23 1}
+\DocumentationTok{\#\# 17      24 1}
+\DocumentationTok{\#\# 18      25 1}
+\DocumentationTok{\#\# 19      29 1}
+\DocumentationTok{\#\# 20      30 1}
+\DocumentationTok{\#\# 21      33 1}
+\DocumentationTok{\#\# 22      34 1}
+\DocumentationTok{\#\# 23      35 1}
+\DocumentationTok{\#\# 24      37 1}
+\DocumentationTok{\#\# 25      39 1}
+\DocumentationTok{\#\# 26      41 1}
+\DocumentationTok{\#\# 27      42 1}
+\DocumentationTok{\#\# 28      44 1}
+\DocumentationTok{\#\# 29      45 1}
+\DocumentationTok{\#\# 30      49 1}
+\DocumentationTok{\#\# 31      51 1}
+\DocumentationTok{\#\# 32      52 1}
+\DocumentationTok{\#\# 33      55 1}
+\DocumentationTok{\#\# 34      57 1}
+\DocumentationTok{\#\# 35      59 1}
+\DocumentationTok{\#\# 36      60 1}
+\DocumentationTok{\#\# 37      61 1}
+\DocumentationTok{\#\# 38      67 1}
+\DocumentationTok{\#\# 39      68 1}
+\DocumentationTok{\#\# 40      69 1}
+\DocumentationTok{\#\# 41      70 1}
+\DocumentationTok{\#\# 42      71 1}
+\DocumentationTok{\#\# 43      72 1}
+\DocumentationTok{\#\# 44      73 1}
+\DocumentationTok{\#\# 45      75 1}
+\DocumentationTok{\#\# 46      76 1}
+\DocumentationTok{\#\# 47      77 1}
+\DocumentationTok{\#\# 48      80 1}
+\DocumentationTok{\#\# 49      86 1}
+\DocumentationTok{\#\# 50      87 1}
+\DocumentationTok{\#\# 51      88 1}
+\DocumentationTok{\#\# 52      89 1}
+\DocumentationTok{\#\# 53      90 1}
+\DocumentationTok{\#\# 54      91 1}
+\DocumentationTok{\#\# 55      93 1}
+\DocumentationTok{\#\# 56      94 1}
+\DocumentationTok{\#\# 57      95 1}
+\DocumentationTok{\#\# 58      96 1}
+\DocumentationTok{\#\# 59      98 1}
+\DocumentationTok{\#\# 60     104 1}
+\DocumentationTok{\#\# 61     106 1}
+\DocumentationTok{\#\# 62     107 1}
+\DocumentationTok{\#\# 63     108 1}
+\DocumentationTok{\#\# 64     111 1}
+\DocumentationTok{\#\# 65     116 1}
+\DocumentationTok{\#\# 66     120 1}
+\DocumentationTok{\#\# 67     121 1}
+\DocumentationTok{\#\# 68     122 1}
+\DocumentationTok{\#\# 69     123 1}
+\DocumentationTok{\#\# 70     124 1}
+\DocumentationTok{\#\# 71     126 1}
+\DocumentationTok{\#\# 72     128 1}
+\DocumentationTok{\#\# 73     131 1}
+\DocumentationTok{\#\# 74     137 1}
+\DocumentationTok{\#\# 75     138 1}
+\DocumentationTok{\#\# 76     139 1}
+\DocumentationTok{\#\# 77     140 1}
+\DocumentationTok{\#\# 78     144 1}
+\DocumentationTok{\#\# 79     147 1}
+\DocumentationTok{\#\# 80     150 1}
+\DocumentationTok{\#\# 81     154 1}
+\DocumentationTok{\#\# 82     155 1}
+\DocumentationTok{\#\# 83     156 1}
+\DocumentationTok{\#\# 84     157 1}
+\DocumentationTok{\#\# 85     158 1}
+\DocumentationTok{\#\# 86     159 1}
+\DocumentationTok{\#\# 87     160 1}
+\DocumentationTok{\#\# 88     163 1}
+\DocumentationTok{\#\# 89     165 1}
+\DocumentationTok{\#\# 90     167 1}
+\DocumentationTok{\#\# 91     168 1}
+\DocumentationTok{\#\# 92     172 1}
+\DocumentationTok{\#\# 93     173 1}
+\DocumentationTok{\#\# 94     176 1}
+\DocumentationTok{\#\# 95     177 1}
+\DocumentationTok{\#\# 96     179 1}
+\DocumentationTok{\#\# 97     181 1}
+\DocumentationTok{\#\# 98     185 1}
+\DocumentationTok{\#\# 99     187 1}
+\DocumentationTok{\#\# 100    188 1}
+\DocumentationTok{\#\# 101    189 1}
+\DocumentationTok{\#\# 102    191 1}
+\DocumentationTok{\#\# 103    195 1}
+\DocumentationTok{\#\# 104    196 1}
+\DocumentationTok{\#\# 105    197 1}
+\DocumentationTok{\#\# 106    198 1}
+\DocumentationTok{\#\# 107    199 1}
+\DocumentationTok{\#\# 108    200 1}
+\DocumentationTok{\#\# 109    203 1}
+\DocumentationTok{\#\# 110    204 1}
+\DocumentationTok{\#\# 111    205 1}
+\DocumentationTok{\#\# 112    206 1}
+\DocumentationTok{\#\# 113    208 1}
+\DocumentationTok{\#\# 114    209 1}
+\DocumentationTok{\#\# 115    211 1}
+\DocumentationTok{\#\# 116    212 1}
+\DocumentationTok{\#\# 117    215 1}
+\DocumentationTok{\#\# 118    216 1}
+\DocumentationTok{\#\# 119    217 1}
+\DocumentationTok{\#\# 120    219 1}
+\DocumentationTok{\#\# 121    220 1}
+\DocumentationTok{\#\# 122    221 1}
+\DocumentationTok{\#\# 123    222 1}
+\DocumentationTok{\#\# 124    223 1}
+\DocumentationTok{\#\# 125    224 1}
+\DocumentationTok{\#\# 126    227 1}
+\DocumentationTok{\#\# 127    228 1}
+\DocumentationTok{\#\# 128    229 1}
+\DocumentationTok{\#\# 129    230 1}
+\DocumentationTok{\#\# 130    232 1}
+\DocumentationTok{\#\# 131    233 1}
+\DocumentationTok{\#\# 132    234 1}
+\DocumentationTok{\#\# 133    236 1}
+\DocumentationTok{\#\# 134    237 1}
+\DocumentationTok{\#\# 135    238 1}
+\DocumentationTok{\#\# 136    239 1}
+\DocumentationTok{\#\# 137    240 1}
+\DocumentationTok{\#\# 138    241 1}
+\DocumentationTok{\#\# 139    244 1}
+\DocumentationTok{\#\# 140    245 1}
+\DocumentationTok{\#\# 141    250 1}
+\DocumentationTok{\#\# 142    254 1}
+\DocumentationTok{\#\# 143    255 1}
+\DocumentationTok{\#\# 144    258 1}
+\DocumentationTok{\#\# 145    262 1}
+\DocumentationTok{\#\# 146    263 1}
+\DocumentationTok{\#\# 147    264 1}
+\DocumentationTok{\#\# 148    265 1}
+\DocumentationTok{\#\# 149    267 1}
+\DocumentationTok{\#\# 150    268 1}
+\DocumentationTok{\#\# 151    270 1}
+\DocumentationTok{\#\# 152    271 1}
+\DocumentationTok{\#\# 153    272 1}
+\DocumentationTok{\#\# 154    273 1}
+\DocumentationTok{\#\# 155    275 1}
+\DocumentationTok{\#\# 156    279 1}
+\DocumentationTok{\#\# 157    280 1}
+\DocumentationTok{\#\# 158    281 1}
+\DocumentationTok{\#\# 159    283 1}
+\DocumentationTok{\#\# 160    285 1}
+\DocumentationTok{\#\# 161    287 1}
+\DocumentationTok{\#\# 162    289 1}
+\DocumentationTok{\#\# 163    292 1}
+\DocumentationTok{\#\# 164    293 1}
+\DocumentationTok{\#\# 165    295 1}
+\DocumentationTok{\#\# 166    296 1}
+\DocumentationTok{\#\# 167    297 1}
+\DocumentationTok{\#\# 168    298 1}
+\DocumentationTok{\#\# 169    299 1}
+\DocumentationTok{\#\# 170    300 1}
+\DocumentationTok{\#\# 171    301 1}
+\DocumentationTok{\#\# 172    302 1}
+\DocumentationTok{\#\# 173    303 1}
+\DocumentationTok{\#\# 174    304 1}
+\DocumentationTok{\#\# 175    305 1}
+\DocumentationTok{\#\# 176    306 1}
+\DocumentationTok{\#\# 177    308 1}
+\DocumentationTok{\#\# 178    310 1}
+\DocumentationTok{\#\# 179    313 1}
+\DocumentationTok{\#\# 180    314 1}
+\DocumentationTok{\#\# 181    318 1}
+\DocumentationTok{\#\# 182    320 1}
+\DocumentationTok{\#\# 183    321 1}
+\DocumentationTok{\#\# 184    322 1}
+\DocumentationTok{\#\# 185    323 1}
+\DocumentationTok{\#\# 186    324 1}
+\DocumentationTok{\#\# 187    325 1}
+\DocumentationTok{\#\# 188    326 1}
+\DocumentationTok{\#\# 189    327 1}
+\DocumentationTok{\#\# 190    328 1}
+\DocumentationTok{\#\# 191    331 1}
+\DocumentationTok{\#\# 192    332 1}
+\DocumentationTok{\#\# 193    333 1}
+\DocumentationTok{\#\# 194    334 1}
+\DocumentationTok{\#\# 195    335 1}
+\DocumentationTok{\#\# 196    336 1}
+\DocumentationTok{\#\# 197    337 1}
+\DocumentationTok{\#\# 198    339 1}
+\DocumentationTok{\#\# 199    340 1}
+\DocumentationTok{\#\# 200    342 1}
+\DocumentationTok{\#\# 201    343 1}
+\DocumentationTok{\#\# 202    344 1}
+\DocumentationTok{\#\# 203    348 1}
+\DocumentationTok{\#\# 204    349 1}
+\DocumentationTok{\#\# 205    351 1}
+\DocumentationTok{\#\# 206    352 1}
+\DocumentationTok{\#\# 207    355 1}
+\DocumentationTok{\#\# 208    356 1}
+\DocumentationTok{\#\# 209    357 1}
+\DocumentationTok{\#\# 210    358 1}
+\DocumentationTok{\#\# 211    361 1}
+\DocumentationTok{\#\# 212    363 1}
+\DocumentationTok{\#\# 213    365 1}
+\DocumentationTok{\#\# 214    366 1}
+\DocumentationTok{\#\# 215    367 1}
+\DocumentationTok{\#\# 216    369 1}
+\DocumentationTok{\#\# 217    371 1}
+\DocumentationTok{\#\# 218    373 1}
+\DocumentationTok{\#\# 219    374 1}
+\DocumentationTok{\#\# 220    375 1}
+\DocumentationTok{\#\# 221    377 1}
+\DocumentationTok{\#\# 222    379 1}
+\DocumentationTok{\#\# 223    381 1}
+\DocumentationTok{\#\# 224    383 1}
+\DocumentationTok{\#\# 225    387 1}
+\DocumentationTok{\#\# 226    388 1}
+\DocumentationTok{\#\# 227    390 1}
+\DocumentationTok{\#\# 228    392 1}
+\DocumentationTok{\#\# 229    396 1}
+\DocumentationTok{\#\# 230    398 1}
+\DocumentationTok{\#\# 231    399 1}
+\DocumentationTok{\#\# 232    400 1}
+\DocumentationTok{\#\# 233    401 1}
+\DocumentationTok{\#\# 234    403 1}
+\DocumentationTok{\#\# 235    404 1}
+\DocumentationTok{\#\# 236    405 1}
+\DocumentationTok{\#\# 237    406 1}
+\DocumentationTok{\#\# 238    408 1}
+\DocumentationTok{\#\# 239    410 1}
+\DocumentationTok{\#\# 240    412 1}
+\DocumentationTok{\#\# 241    413 1}
+\DocumentationTok{\#\# 242    414 1}
+\DocumentationTok{\#\# 243    415 1}
+\DocumentationTok{\#\# 244    417 1}
+\DocumentationTok{\#\# 245    420 1}
+\DocumentationTok{\#\# 246    423 1}
+\DocumentationTok{\#\# 247    424 1}
+\DocumentationTok{\#\# 248    428 1}
+\DocumentationTok{\#\# 249    429 1}
+\DocumentationTok{\#\# 250    433 1}
+\DocumentationTok{\#\# 251    436 1}
+\DocumentationTok{\#\# 252    438 1}
+\DocumentationTok{\#\# 253    440 1}
+\DocumentationTok{\#\# 254    441 1}
+\DocumentationTok{\#\# 255    443 1}
+\DocumentationTok{\#\# 256    444 1}
+\DocumentationTok{\#\# 257    446 1}
+\DocumentationTok{\#\# 258    449 1}
+\DocumentationTok{\#\# 259    452 1}
+\DocumentationTok{\#\# 260    455 1}
+\DocumentationTok{\#\# 261    457 1}
+\DocumentationTok{\#\# 262    458 1}
+\DocumentationTok{\#\# 263    462 1}
+\DocumentationTok{\#\# 264    464 1}
+\DocumentationTok{\#\# 265    465 1}
+\DocumentationTok{\#\# 266    467 1}
+\DocumentationTok{\#\# 267    469 1}
+\DocumentationTok{\#\# 268    470 1}
+\DocumentationTok{\#\# 269    476 1}
+\DocumentationTok{\#\# 270    477 1}
+\DocumentationTok{\#\# 271    479 1}
+\DocumentationTok{\#\# 272    480 1}
+\DocumentationTok{\#\# 273    489 1}
+\DocumentationTok{\#\# 274    496 1}
+\DocumentationTok{\#\# 275    497 1}
+\DocumentationTok{\#\# 276    499 1}
+\DocumentationTok{\#\# 277    502 1}
+\DocumentationTok{\#\# 278    503 1}
+\DocumentationTok{\#\# 279    506 1}
+\DocumentationTok{\#\# 280    507 1}
+\DocumentationTok{\#\# 281    508 1}
+\DocumentationTok{\#\# 282    509 1}
+\DocumentationTok{\#\# 283    512 1}
+\DocumentationTok{\#\# 284    513 1}
+\DocumentationTok{\#\# 285    514 1}
+\DocumentationTok{\#\# 286    515 1}
+\DocumentationTok{\#\# 287    516 1}
+\DocumentationTok{\#\# 288    517 1}
+\DocumentationTok{\#\# 289    518 1}
+\DocumentationTok{\#\# 290    519 1}
+\DocumentationTok{\#\# 291    520 1}
+\DocumentationTok{\#\# 292    521 1}
+\DocumentationTok{\#\# 293    523 1}
+\DocumentationTok{\#\# 294    524 1}
+\DocumentationTok{\#\# 295    527 1}
+\DocumentationTok{\#\# 296    528 1}
+\DocumentationTok{\#\# 297    529 1}
+\DocumentationTok{\#\# 298    530 1}
+\DocumentationTok{\#\# 299    534 1}
+\DocumentationTok{\#\# 300    536 1}
+\DocumentationTok{\#\# 301    538 1}
+\DocumentationTok{\#\# 302    539 1}
+\DocumentationTok{\#\# 303    543 1}
+\DocumentationTok{\#\# 304    546 1}
+\DocumentationTok{\#\# 305    547 1}
+\DocumentationTok{\#\# 306    550 1}
+\DocumentationTok{\#\# 307    551 1}
+\DocumentationTok{\#\# 308    552 1}
+\DocumentationTok{\#\# 309    561 1}
+\DocumentationTok{\#\# 310    563 1}
+\DocumentationTok{\#\# 311    564 1}
+\DocumentationTok{\#\# 312    566 1}
+\DocumentationTok{\#\# 313    567 1}
+\DocumentationTok{\#\# 314    600 1}
+\DocumentationTok{\#\# 315    601 1}
+\DocumentationTok{\#\# 316    602 1}
+\DocumentationTok{\#\# 317    603 1}
+\DocumentationTok{\#\# 318    604 1}
+\DocumentationTok{\#\# 319    605 1}
+\DocumentationTok{\#\# 320    607 1}
+\DocumentationTok{\#\# 321    609 1}
+\DocumentationTok{\#\# 322    610 1}
+\DocumentationTok{\#\# 323    611 1}
+\DocumentationTok{\#\# 324    612 1}
+\DocumentationTok{\#\# 325    614 1}
+\DocumentationTok{\#\# 326    615 1}
+\DocumentationTok{\#\# 327    616 1}
+\DocumentationTok{\#\# 328    617 1}
+\DocumentationTok{\#\# 329    619 1}
+\DocumentationTok{\#\# 330    620 1}
+\DocumentationTok{\#\# 331    621 1}
+\DocumentationTok{\#\# 332    623 1}
+\DocumentationTok{\#\# 333    624 1}
+\DocumentationTok{\#\# 334    625 1}
+\DocumentationTok{\#\# 335    626 1}
+\DocumentationTok{\#\# 336    627 1}
+\DocumentationTok{\#\# 337    628 1}
+\DocumentationTok{\#\# 338    629 1}
+\DocumentationTok{\#\# 339    630 1}
+\DocumentationTok{\#\# 340    631 1}
+\DocumentationTok{\#\# 341    632 1}
+\DocumentationTok{\#\# 342    634 1}
+\DocumentationTok{\#\# 343    635 1}
+\DocumentationTok{\#\# 344    636 1}
+\DocumentationTok{\#\# 345    637 1}
+\DocumentationTok{\#\# 346    638 1}
+\DocumentationTok{\#\# 347    639 1}
+\DocumentationTok{\#\# 348    640 1}
+\DocumentationTok{\#\# 349    641 1}
+\DocumentationTok{\#\# 350    642 1}
+\DocumentationTok{\#\# 351    643 1}
+\DocumentationTok{\#\# 352    644 1}
+\DocumentationTok{\#\# 353    645 1}
+\DocumentationTok{\#\# 354    646 1}
+\DocumentationTok{\#\# 355    648 1}
+\DocumentationTok{\#\# 356    649 1}
+\DocumentationTok{\#\# 357    651 1}
+\DocumentationTok{\#\# 358    652 1}
+\DocumentationTok{\#\# 359    653 1}
+\DocumentationTok{\#\# 360    654 1}
+\DocumentationTok{\#\# 361    656 1}
+\DocumentationTok{\#\# 362    660 1}
+\DocumentationTok{\#\# 363    662 1}
+\DocumentationTok{\#\# 364    663 1}
+\DocumentationTok{\#\# 365    664 1}
+\DocumentationTok{\#\# 366    666 1}
+\DocumentationTok{\#\# 367    667 1}
+\DocumentationTok{\#\# 368    668 1}
+\DocumentationTok{\#\# 369    669 1}
+\DocumentationTok{\#\# 370    670 1}
+\DocumentationTok{\#\# 371    672 1}
+\DocumentationTok{\#\# 372    673 1}
+\DocumentationTok{\#\# 373    674 1}
+\DocumentationTok{\#\# 374    675 1}
+\DocumentationTok{\#\# 375    676 1}
+\DocumentationTok{\#\# 376    677 1}
+\DocumentationTok{\#\# 377    678 1}
+\DocumentationTok{\#\# 378    679 1}
+\DocumentationTok{\#\# 379    682 1}
+\DocumentationTok{\#\# 380    683 1}
+\DocumentationTok{\#\# 381    684 1}
+\DocumentationTok{\#\# 382    685 1}
+\DocumentationTok{\#\# 383    686 1}
+\DocumentationTok{\#\# 384    687 1}
+\DocumentationTok{\#\# 385    688 1}
+\DocumentationTok{\#\# 386    689 1}
+\DocumentationTok{\#\# 387    692 1}
+\DocumentationTok{\#\# 388    693 1}
+\DocumentationTok{\#\# 389    694 1}
+\DocumentationTok{\#\# 390    696 1}
+\DocumentationTok{\#\# 391    697 1}
+\DocumentationTok{\#\# 392    698 1}
+\DocumentationTok{\#\# 393    701 1}
+\DocumentationTok{\#\# 394    702 1}
+\DocumentationTok{\#\# 395    705 1}
+\DocumentationTok{\#\# 396    706 1}
+\DocumentationTok{\#\# 397    707 1}
+\DocumentationTok{\#\# 398    708 1}
+\DocumentationTok{\#\# 399    709 1}
+\DocumentationTok{\#\# 400    710 1}
+\DocumentationTok{\#\# 401    711 1}
+\DocumentationTok{\#\# 402    713 1}
+\DocumentationTok{\#\# 403    714 1}
+\DocumentationTok{\#\# 404    715 1}
+\DocumentationTok{\#\# 405    716 1}
+\DocumentationTok{\#\# 406    717 1}
+\DocumentationTok{\#\# 407    718 1}
+\DocumentationTok{\#\# 408    719 1}
+\DocumentationTok{\#\# 409    720 1}
+\DocumentationTok{\#\# 410    721 1}
+\DocumentationTok{\#\# 411    722 1}
+\DocumentationTok{\#\# 412    724 1}
+\DocumentationTok{\#\# 413    725 1}
+\DocumentationTok{\#\# 414    727 1}
+\DocumentationTok{\#\# 415    729 1}
+\DocumentationTok{\#\# 416    730 1}
+\DocumentationTok{\#\# 417    731 1}
+\DocumentationTok{\#\# 418    732 1}
+\DocumentationTok{\#\# 419    734 1}
+\DocumentationTok{\#\# 420    735 1}
+\DocumentationTok{\#\# 421    736 1}
+\DocumentationTok{\#\# 422    737 1}
+\DocumentationTok{\#\# 423    738 1}
+\DocumentationTok{\#\# 424    739 1}
+\DocumentationTok{\#\# 425    740 1}
+\DocumentationTok{\#\# 426    741 1}
+\DocumentationTok{\#\# 427    742 1}
+\DocumentationTok{\#\# 428    743 1}
+\DocumentationTok{\#\# 429    744 1}
+\DocumentationTok{\#\# 430    745 1}
+\DocumentationTok{\#\# 431    746 1}
+\DocumentationTok{\#\# 432    747 1}
+\DocumentationTok{\#\# 433    748 1}
+\DocumentationTok{\#\# 434    801 1}
+\DocumentationTok{\#\# 435    805 1}
+\DocumentationTok{\#\# 436    808 1}
+\DocumentationTok{\#\# 437    809 1}
+\DocumentationTok{\#\# 438    815 1}
+\DocumentationTok{\#\# 439    821 1}
+\DocumentationTok{\#\# 440    822 1}
+\DocumentationTok{\#\# 441    823 1}
+\DocumentationTok{\#\# 442    851 1}
+\DocumentationTok{\#\# 443    855 1}
+\DocumentationTok{\#\# 444    856 1}
+\DocumentationTok{\#\# 445    858 1}
+\DocumentationTok{\#\# 446    868 1}
+\DocumentationTok{\#\# 447    871 1}
+\DocumentationTok{\#\# 448    877 1}
+\DocumentationTok{\#\# 449    901 1}
+\DocumentationTok{\#\# 450    902 1}
+\DocumentationTok{\#\# 451    903 1}
+\DocumentationTok{\#\# 452    904 1}
+\DocumentationTok{\#\# 453    905 1}
+\DocumentationTok{\#\# 454    906 1}
+\DocumentationTok{\#\# 455    907 1}
+\DocumentationTok{\#\# 456    908 1}
+\DocumentationTok{\#\# 457    909 1}
+\DocumentationTok{\#\# 458    910 1}
+\DocumentationTok{\#\# 459    911 1}
+\DocumentationTok{\#\# 460    912 1}
+\DocumentationTok{\#\# 461    913 1}
+\DocumentationTok{\#\# 462    914 1}
+\DocumentationTok{\#\# 463    915 1}
+\DocumentationTok{\#\# 464    916 1}
+\DocumentationTok{\#\# 465    917 1}
+\DocumentationTok{\#\# 466    918 1}
+\DocumentationTok{\#\# 467    919 1}
+\DocumentationTok{\#\# 468    920 1}
+\DocumentationTok{\#\# 469    921 1}
+\DocumentationTok{\#\# 470    922 1}
+\DocumentationTok{\#\# 471    923 1}
+\DocumentationTok{\#\# 472    924 1}
+\DocumentationTok{\#\# 473    925 1}
+\DocumentationTok{\#\# 474   1006 1}
+\DocumentationTok{\#\# 475   1010 1}
+\DocumentationTok{\#\# 476   1017 1}
+\DocumentationTok{\#\# 477   1020 1}
+\DocumentationTok{\#\# 478   1021 1}
+\DocumentationTok{\#\# 479   1022 1}
+\DocumentationTok{\#\# 480   1024 1}
+\DocumentationTok{\#\# 481   1025 1}
+\DocumentationTok{\#\# 482   1026 1}
+\DocumentationTok{\#\# 483   1027 1}
+\DocumentationTok{\#\# 484   1028 1}
+\DocumentationTok{\#\# 485   1029 1}
+\DocumentationTok{\#\# 486   1030 1}
+\DocumentationTok{\#\# 487   1031 1}
+\DocumentationTok{\#\# 488   1033 1}
+\DocumentationTok{\#\# 489   1034 1}
+\DocumentationTok{\#\# 490   1035 1}
+\DocumentationTok{\#\# 491   1036 1}
+\DocumentationTok{\#\# 492   1037 1}
+\DocumentationTok{\#\# 493   1038 1}
+\DocumentationTok{\#\# 494   1039 1}
+\DocumentationTok{\#\# 495   1040 1}
+\DocumentationTok{\#\# 496   1042 1}
+\DocumentationTok{\#\# 497   1045 1}
+\DocumentationTok{\#\# 498   1046 1}
+\DocumentationTok{\#\# 499   1101 1}
+\DocumentationTok{\#\# 500   1108 1}
+\DocumentationTok{\#\# 501   1115 1}
+\DocumentationTok{\#\# 502   1122 1}
+\DocumentationTok{\#\# 503   1125 1}
+\DocumentationTok{\#\# 504   1127 1}
+\DocumentationTok{\#\# 505   1133 1}
+\DocumentationTok{\#\# 506   1134 1}
+\DocumentationTok{\#\# 507   1137 1}
+\DocumentationTok{\#\# 508   1138 1}
+\DocumentationTok{\#\# 509   1140 1}
+\DocumentationTok{\#\# 510   1141 1}
+\DocumentationTok{\#\# 511   1142 1}
+\DocumentationTok{\#\# 512   1143 1}
+\DocumentationTok{\#\# 513   1144 1}
+\DocumentationTok{\#\# 514   1201 1}
+\DocumentationTok{\#\# 515   1202 1}
+\DocumentationTok{\#\# 516   1203 1}
+\DocumentationTok{\#\# 517   1204 1}
+\DocumentationTok{\#\# 518   1205 1}
+\DocumentationTok{\#\# 519   1206 1}
+\DocumentationTok{\#\# 520   1207 1}
+\DocumentationTok{\#\# 521   1208 1}
+\DocumentationTok{\#\# 522   1209 1}
+\DocumentationTok{\#\# 523   1211 1}
+\DocumentationTok{\#\# 524   1212 1}
+\DocumentationTok{\#\# 525   1213 1}
+\DocumentationTok{\#\# 526   1214 1}
+\DocumentationTok{\#\# 527   1215 1}
+\DocumentationTok{\#\# 528   1216 1}
+\DocumentationTok{\#\# 529   1217 1}
+\DocumentationTok{\#\# 530   1218 1}
+\DocumentationTok{\#\# 531   1219 1}
+\DocumentationTok{\#\# 532   1220 1}
+\DocumentationTok{\#\# 533   1221 1}
+\DocumentationTok{\#\# 534   1222 1}
+\DocumentationTok{\#\# 535   1224 1}
+\DocumentationTok{\#\# 536   1225 1}
+\DocumentationTok{\#\# 537   1226 1}
+\DocumentationTok{\#\# 538   1227 1}
+\DocumentationTok{\#\# 539   1229 1}
+\DocumentationTok{\#\# 540   1230 1}
+\DocumentationTok{\#\# 541   1231 1}
+\DocumentationTok{\#\# 542   1232 1}
+\DocumentationTok{\#\# 543   1233 1}
+\DocumentationTok{\#\# 544   1234 1}
+\DocumentationTok{\#\# 545   1235 1}
+\DocumentationTok{\#\# 546   1236 1}
+\DocumentationTok{\#\# 547   1237 1}
+\DocumentationTok{\#\# 548   1238 1}
+\DocumentationTok{\#\# 549   1239 1}
+\DocumentationTok{\#\# 550   1240 1}
+\DocumentationTok{\#\# 551   1241 1}
+\DocumentationTok{\#\# 552   1242 1}
+\DocumentationTok{\#\# 553   1243 1}
+\DocumentationTok{\#\# 554   1244 1}
+\DocumentationTok{\#\# 555   1245 1}
+\DocumentationTok{\#\# 556   1246 1}
+\DocumentationTok{\#\# 557   1247 1}
+\DocumentationTok{\#\# 558   1248 1}
+\DocumentationTok{\#\# 559   1249 1}
+\DocumentationTok{\#\# 560   1250 1}
+\DocumentationTok{\#\# 561   1251 1}
+\DocumentationTok{\#\# 562   1252 1}
+\DocumentationTok{\#\# 563   1253 1}
 
 \CommentTok{\#연도별 기업 현황 확인}
 \NormalTok{company\_full }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{group\_by}\NormalTok{(c3\_ind1, c4\_ind1) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{())}
-\DocumentationTok{\#\# Error in group\_by(., c3\_ind1, c4\_ind1): 객체 \textquotesingle{}company\_full\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\# \textasciigrave{}summarise()\textasciigrave{} has grouped output by \textquotesingle{}c3\_ind1\textquotesingle{}. You can override using the}
+\DocumentationTok{\#\# \textasciigrave{}.groups\textasciigrave{} argument.}
+\DocumentationTok{\#\# \# A tibble: 9 x 3}
+\DocumentationTok{\#\# \# Groups:   c3\_ind1 [4]}
+\DocumentationTok{\#\#   c3\_ind1 c4\_ind1 count}
+\DocumentationTok{\#\#     \textless{}int\textgreater{}   \textless{}int\textgreater{} \textless{}int\textgreater{}}
+\DocumentationTok{\#\# 1       1       1   288}
+\DocumentationTok{\#\# 2       1      NA    48}
+\DocumentationTok{\#\# 3       2       2    36}
+\DocumentationTok{\#\# 4       2      NA     1}
+\DocumentationTok{\#\# 5       3       3    86}
+\DocumentationTok{\#\# 6       3      NA    14}
+\DocumentationTok{\#\# 7      NA       1    81}
+\DocumentationTok{\#\# 8      NA       2     1}
+\DocumentationTok{\#\# 9      NA       3     8}
   \FunctionTok{count}\NormalTok{(c3\_ind1, c4\_id1)}
 \DocumentationTok{\#\# Error in count(c3\_ind1, c4\_id1): 객체 \textquotesingle{}c3\_ind1\textquotesingle{}를 찾을 수 없습니다}
 \end{Highlighting}
@@ -2071,12 +3206,19 @@ inner join 작업도 수행해보자. full\_join과 동일하게 옵션을 설�
 \begin{Highlighting}[]
 \NormalTok{company\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{inner\_join}\NormalTok{(company\_4\_se, }\FunctionTok{c}\NormalTok{(}\StringTok{"c3\_id1"}\OtherTok{=}\StringTok{"c4\_id1"}\NormalTok{)) }\OtherTok{{-}\textgreater{}}\NormalTok{ company\_inner}
-\DocumentationTok{\#\# Error in inner\_join(., company\_4\_se, c(c3\_id1 = "c4\_id1")): 객체 \textquotesingle{}company\_3\_se\textquotesingle{}를 찾을 수 없습니다}
 
 \NormalTok{company\_inner }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{group\_by}\NormalTok{(c3\_ind1, c4\_ind1) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{())}
-\DocumentationTok{\#\# Error in group\_by(., c3\_ind1, c4\_ind1): 객체 \textquotesingle{}company\_inner\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\# \textasciigrave{}summarise()\textasciigrave{} has grouped output by \textquotesingle{}c3\_ind1\textquotesingle{}. You can override using the}
+\DocumentationTok{\#\# \textasciigrave{}.groups\textasciigrave{} argument.}
+\DocumentationTok{\#\# \# A tibble: 3 x 3}
+\DocumentationTok{\#\# \# Groups:   c3\_ind1 [3]}
+\DocumentationTok{\#\#   c3\_ind1 c4\_ind1 count}
+\DocumentationTok{\#\#     \textless{}int\textgreater{}   \textless{}int\textgreater{} \textless{}int\textgreater{}}
+\DocumentationTok{\#\# 1       1       1   288}
+\DocumentationTok{\#\# 2       2       2    36}
+\DocumentationTok{\#\# 3       3       3    86}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2090,21 +3232,517 @@ inner join 작업도 수행해보자. full\_join과 동일하게 옵션을 설�
 
 \NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{left\_join}\NormalTok{(company\_3\_se, }\FunctionTok{c}\NormalTok{(}\StringTok{"w3\_id1"}\OtherTok{=}\StringTok{"c3\_id1"}\NormalTok{)) }\OtherTok{{-}\textgreater{}}\NormalTok{worker\_company\_inner}
-\DocumentationTok{\#\# Error in left\_join(., company\_3\_se, c(w3\_id1 = "c3\_id1")): 객체 \textquotesingle{}worker\_3\_se\textquotesingle{}를 찾을 수 없습니다}
 
 \NormalTok{worker\_company\_inner }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{group\_by}\NormalTok{(w3\_id1, w3\_id4) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{())}
-\DocumentationTok{\#\# Error in group\_by(., w3\_id1, w3\_id4): 객체 \textquotesingle{}worker\_company\_inner\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\# \textasciigrave{}summarise()\textasciigrave{} has grouped output by \textquotesingle{}w3\_id1\textquotesingle{}. You can override using the}
+\DocumentationTok{\#\# \textasciigrave{}.groups\textasciigrave{} argument.}
+\DocumentationTok{\#\# \# A tibble: 2,402 x 3}
+\DocumentationTok{\#\# \# Groups:   w3\_id1 [473]}
+\DocumentationTok{\#\#    w3\_id1 w3\_id4 count}
+\DocumentationTok{\#\#     \textless{}int\textgreater{}  \textless{}int\textgreater{} \textless{}int\textgreater{}}
+\DocumentationTok{\#\#  1      1      0     7}
+\DocumentationTok{\#\#  2      1      1     6}
+\DocumentationTok{\#\#  3      1      2     5}
+\DocumentationTok{\#\#  4      1      3     4}
+\DocumentationTok{\#\#  5      1      4     3}
+\DocumentationTok{\#\#  6      1      5     2}
+\DocumentationTok{\#\#  7      1      6     1}
+\DocumentationTok{\#\#  8      2      0     7}
+\DocumentationTok{\#\#  9      2      1     5}
+\DocumentationTok{\#\# 10      2      2     5}
+\DocumentationTok{\#\# \# ... with 2,392 more rows}
 
 \NormalTok{worker\_company\_inner }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{count}\NormalTok{(w3\_id1)}
-\DocumentationTok{\#\# Error in count(., w3\_id1): 객체 \textquotesingle{}worker\_company\_inner\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\#     w3\_id1  n}
+\DocumentationTok{\#\# 1        1 28}
+\DocumentationTok{\#\# 2        2 25}
+\DocumentationTok{\#\# 3        5 31}
+\DocumentationTok{\#\# 4        6 25}
+\DocumentationTok{\#\# 5        7 54}
+\DocumentationTok{\#\# 6        8  3}
+\DocumentationTok{\#\# 7        9 43}
+\DocumentationTok{\#\# 8       10 35}
+\DocumentationTok{\#\# 9       11 17}
+\DocumentationTok{\#\# 10      12  9}
+\DocumentationTok{\#\# 11      15 16}
+\DocumentationTok{\#\# 12      18 52}
+\DocumentationTok{\#\# 13      19 25}
+\DocumentationTok{\#\# 14      20 21}
+\DocumentationTok{\#\# 15      22 48}
+\DocumentationTok{\#\# 16      23 32}
+\DocumentationTok{\#\# 17      24 47}
+\DocumentationTok{\#\# 18      25 15}
+\DocumentationTok{\#\# 19      29 19}
+\DocumentationTok{\#\# 20      30  7}
+\DocumentationTok{\#\# 21      33 22}
+\DocumentationTok{\#\# 22      34 35}
+\DocumentationTok{\#\# 23      35 30}
+\DocumentationTok{\#\# 24      37 26}
+\DocumentationTok{\#\# 25      39 47}
+\DocumentationTok{\#\# 26      41 14}
+\DocumentationTok{\#\# 27      42 29}
+\DocumentationTok{\#\# 28      44  3}
+\DocumentationTok{\#\# 29      45  7}
+\DocumentationTok{\#\# 30      49  3}
+\DocumentationTok{\#\# 31      51 48}
+\DocumentationTok{\#\# 32      52 12}
+\DocumentationTok{\#\# 33      55 55}
+\DocumentationTok{\#\# 34      57  4}
+\DocumentationTok{\#\# 35      59 29}
+\DocumentationTok{\#\# 36      60 25}
+\DocumentationTok{\#\# 37      61  7}
+\DocumentationTok{\#\# 38      67  8}
+\DocumentationTok{\#\# 39      68 26}
+\DocumentationTok{\#\# 40      69 29}
+\DocumentationTok{\#\# 41      70  5}
+\DocumentationTok{\#\# 42      71 26}
+\DocumentationTok{\#\# 43      72 17}
+\DocumentationTok{\#\# 44      73  2}
+\DocumentationTok{\#\# 45      75 15}
+\DocumentationTok{\#\# 46      76 27}
+\DocumentationTok{\#\# 47      77 45}
+\DocumentationTok{\#\# 48      80 26}
+\DocumentationTok{\#\# 49      86 24}
+\DocumentationTok{\#\# 50      87 22}
+\DocumentationTok{\#\# 51      88 20}
+\DocumentationTok{\#\# 52      89 13}
+\DocumentationTok{\#\# 53      90 28}
+\DocumentationTok{\#\# 54      91  1}
+\DocumentationTok{\#\# 55      93  4}
+\DocumentationTok{\#\# 56      94 17}
+\DocumentationTok{\#\# 57      95 37}
+\DocumentationTok{\#\# 58      96 14}
+\DocumentationTok{\#\# 59      98 19}
+\DocumentationTok{\#\# 60     104 27}
+\DocumentationTok{\#\# 61     106 28}
+\DocumentationTok{\#\# 62     107 21}
+\DocumentationTok{\#\# 63     108 27}
+\DocumentationTok{\#\# 64     111  1}
+\DocumentationTok{\#\# 65     116 26}
+\DocumentationTok{\#\# 66     120  4}
+\DocumentationTok{\#\# 67     121 24}
+\DocumentationTok{\#\# 68     122  1}
+\DocumentationTok{\#\# 69     123 45}
+\DocumentationTok{\#\# 70     124 10}
+\DocumentationTok{\#\# 71     126 28}
+\DocumentationTok{\#\# 72     128  1}
+\DocumentationTok{\#\# 73     131 54}
+\DocumentationTok{\#\# 74     137 55}
+\DocumentationTok{\#\# 75     138  2}
+\DocumentationTok{\#\# 76     139 24}
+\DocumentationTok{\#\# 77     140 28}
+\DocumentationTok{\#\# 78     144  1}
+\DocumentationTok{\#\# 79     147 20}
+\DocumentationTok{\#\# 80     150 30}
+\DocumentationTok{\#\# 81     154 27}
+\DocumentationTok{\#\# 82     155 14}
+\DocumentationTok{\#\# 83     156 32}
+\DocumentationTok{\#\# 84     157 33}
+\DocumentationTok{\#\# 85     158 39}
+\DocumentationTok{\#\# 86     159 40}
+\DocumentationTok{\#\# 87     160 32}
+\DocumentationTok{\#\# 88     163 22}
+\DocumentationTok{\#\# 89     165 16}
+\DocumentationTok{\#\# 90     167 36}
+\DocumentationTok{\#\# 91     168  4}
+\DocumentationTok{\#\# 92     172 20}
+\DocumentationTok{\#\# 93     173 22}
+\DocumentationTok{\#\# 94     176 28}
+\DocumentationTok{\#\# 95     177 12}
+\DocumentationTok{\#\# 96     179 27}
+\DocumentationTok{\#\# 97     181 43}
+\DocumentationTok{\#\# 98     185 22}
+\DocumentationTok{\#\# 99     187 14}
+\DocumentationTok{\#\# 100    188  2}
+\DocumentationTok{\#\# 101    189 15}
+\DocumentationTok{\#\# 102    191 41}
+\DocumentationTok{\#\# 103    195 26}
+\DocumentationTok{\#\# 104    196 17}
+\DocumentationTok{\#\# 105    197 12}
+\DocumentationTok{\#\# 106    198  2}
+\DocumentationTok{\#\# 107    199  4}
+\DocumentationTok{\#\# 108    200 17}
+\DocumentationTok{\#\# 109    203 21}
+\DocumentationTok{\#\# 110    204 28}
+\DocumentationTok{\#\# 111    205 18}
+\DocumentationTok{\#\# 112    206 19}
+\DocumentationTok{\#\# 113    208  4}
+\DocumentationTok{\#\# 114    209 20}
+\DocumentationTok{\#\# 115    211 34}
+\DocumentationTok{\#\# 116    212 33}
+\DocumentationTok{\#\# 117    215 18}
+\DocumentationTok{\#\# 118    216 50}
+\DocumentationTok{\#\# 119    217 10}
+\DocumentationTok{\#\# 120    219 36}
+\DocumentationTok{\#\# 121    220 17}
+\DocumentationTok{\#\# 122    221 10}
+\DocumentationTok{\#\# 123    222 50}
+\DocumentationTok{\#\# 124    223 29}
+\DocumentationTok{\#\# 125    224  4}
+\DocumentationTok{\#\# 126    227 23}
+\DocumentationTok{\#\# 127    228 28}
+\DocumentationTok{\#\# 128    229  3}
+\DocumentationTok{\#\# 129    230  1}
+\DocumentationTok{\#\# 130    232  6}
+\DocumentationTok{\#\# 131    233 35}
+\DocumentationTok{\#\# 132    234 18}
+\DocumentationTok{\#\# 133    236 25}
+\DocumentationTok{\#\# 134    237 16}
+\DocumentationTok{\#\# 135    238 28}
+\DocumentationTok{\#\# 136    239 36}
+\DocumentationTok{\#\# 137    240 32}
+\DocumentationTok{\#\# 138    241  4}
+\DocumentationTok{\#\# 139    244 42}
+\DocumentationTok{\#\# 140    245 18}
+\DocumentationTok{\#\# 141    250 17}
+\DocumentationTok{\#\# 142    254 47}
+\DocumentationTok{\#\# 143    255 25}
+\DocumentationTok{\#\# 144    258 36}
+\DocumentationTok{\#\# 145    262 36}
+\DocumentationTok{\#\# 146    263 42}
+\DocumentationTok{\#\# 147    264 32}
+\DocumentationTok{\#\# 148    265 19}
+\DocumentationTok{\#\# 149    267  5}
+\DocumentationTok{\#\# 150    268 16}
+\DocumentationTok{\#\# 151    270 28}
+\DocumentationTok{\#\# 152    271 20}
+\DocumentationTok{\#\# 153    272 35}
+\DocumentationTok{\#\# 154    273  1}
+\DocumentationTok{\#\# 155    275  1}
+\DocumentationTok{\#\# 156    279 16}
+\DocumentationTok{\#\# 157    280 22}
+\DocumentationTok{\#\# 158    281 28}
+\DocumentationTok{\#\# 159    283  5}
+\DocumentationTok{\#\# 160    285 29}
+\DocumentationTok{\#\# 161    287 25}
+\DocumentationTok{\#\# 162    289 36}
+\DocumentationTok{\#\# 163    292 36}
+\DocumentationTok{\#\# 164    293 11}
+\DocumentationTok{\#\# 165    295 35}
+\DocumentationTok{\#\# 166    296 19}
+\DocumentationTok{\#\# 167    297 27}
+\DocumentationTok{\#\# 168    298 36}
+\DocumentationTok{\#\# 169    299 32}
+\DocumentationTok{\#\# 170    300 26}
+\DocumentationTok{\#\# 171    301 27}
+\DocumentationTok{\#\# 172    302  1}
+\DocumentationTok{\#\# 173    303 37}
+\DocumentationTok{\#\# 174    304 11}
+\DocumentationTok{\#\# 175    305  3}
+\DocumentationTok{\#\# 176    306  7}
+\DocumentationTok{\#\# 177    308 14}
+\DocumentationTok{\#\# 178    310 13}
+\DocumentationTok{\#\# 179    313 50}
+\DocumentationTok{\#\# 180    314 31}
+\DocumentationTok{\#\# 181    318 28}
+\DocumentationTok{\#\# 182    320 33}
+\DocumentationTok{\#\# 183    321 23}
+\DocumentationTok{\#\# 184    322  4}
+\DocumentationTok{\#\# 185    323 20}
+\DocumentationTok{\#\# 186    324 38}
+\DocumentationTok{\#\# 187    325 28}
+\DocumentationTok{\#\# 188    326 26}
+\DocumentationTok{\#\# 189    327 26}
+\DocumentationTok{\#\# 190    328 13}
+\DocumentationTok{\#\# 191    331 26}
+\DocumentationTok{\#\# 192    332 36}
+\DocumentationTok{\#\# 193    333 23}
+\DocumentationTok{\#\# 194    334 25}
+\DocumentationTok{\#\# 195    335  5}
+\DocumentationTok{\#\# 196    336 55}
+\DocumentationTok{\#\# 197    337 17}
+\DocumentationTok{\#\# 198    339  6}
+\DocumentationTok{\#\# 199    340  4}
+\DocumentationTok{\#\# 200    342  1}
+\DocumentationTok{\#\# 201    343  1}
+\DocumentationTok{\#\# 202    344 45}
+\DocumentationTok{\#\# 203    348 12}
+\DocumentationTok{\#\# 204    349 16}
+\DocumentationTok{\#\# 205    351  2}
+\DocumentationTok{\#\# 206    352 22}
+\DocumentationTok{\#\# 207    355 26}
+\DocumentationTok{\#\# 208    356 28}
+\DocumentationTok{\#\# 209    357 34}
+\DocumentationTok{\#\# 210    358 29}
+\DocumentationTok{\#\# 211    361 18}
+\DocumentationTok{\#\# 212    363 46}
+\DocumentationTok{\#\# 213    365 20}
+\DocumentationTok{\#\# 214    366 35}
+\DocumentationTok{\#\# 215    367  5}
+\DocumentationTok{\#\# 216    369 24}
+\DocumentationTok{\#\# 217    371 23}
+\DocumentationTok{\#\# 218    373 27}
+\DocumentationTok{\#\# 219    374  3}
+\DocumentationTok{\#\# 220    375 20}
+\DocumentationTok{\#\# 221    377 19}
+\DocumentationTok{\#\# 222    379 22}
+\DocumentationTok{\#\# 223    381 25}
+\DocumentationTok{\#\# 224    383 38}
+\DocumentationTok{\#\# 225    387  9}
+\DocumentationTok{\#\# 226    388  9}
+\DocumentationTok{\#\# 227    390 27}
+\DocumentationTok{\#\# 228    392 32}
+\DocumentationTok{\#\# 229    396  1}
+\DocumentationTok{\#\# 230    398 39}
+\DocumentationTok{\#\# 231    399 24}
+\DocumentationTok{\#\# 232    400 23}
+\DocumentationTok{\#\# 233    401 24}
+\DocumentationTok{\#\# 234    403  8}
+\DocumentationTok{\#\# 235    404 24}
+\DocumentationTok{\#\# 236    405 54}
+\DocumentationTok{\#\# 237    406 28}
+\DocumentationTok{\#\# 238    408  3}
+\DocumentationTok{\#\# 239    410  5}
+\DocumentationTok{\#\# 240    412 26}
+\DocumentationTok{\#\# 241    413 25}
+\DocumentationTok{\#\# 242    414  3}
+\DocumentationTok{\#\# 243    415 20}
+\DocumentationTok{\#\# 244    417 23}
+\DocumentationTok{\#\# 245    420 29}
+\DocumentationTok{\#\# 246    423 28}
+\DocumentationTok{\#\# 247    424  1}
+\DocumentationTok{\#\# 248    428 17}
+\DocumentationTok{\#\# 249    429 29}
+\DocumentationTok{\#\# 250    433  7}
+\DocumentationTok{\#\# 251    436 49}
+\DocumentationTok{\#\# 252    438 21}
+\DocumentationTok{\#\# 253    440  7}
+\DocumentationTok{\#\# 254    441 39}
+\DocumentationTok{\#\# 255    443  3}
+\DocumentationTok{\#\# 256    444 23}
+\DocumentationTok{\#\# 257    446 12}
+\DocumentationTok{\#\# 258    449 32}
+\DocumentationTok{\#\# 259    452 28}
+\DocumentationTok{\#\# 260    455  8}
+\DocumentationTok{\#\# 261    457  7}
+\DocumentationTok{\#\# 262    458 13}
+\DocumentationTok{\#\# 263    462 49}
+\DocumentationTok{\#\# 264    464 28}
+\DocumentationTok{\#\# 265    465 28}
+\DocumentationTok{\#\# 266    467 43}
+\DocumentationTok{\#\# 267    469 25}
+\DocumentationTok{\#\# 268    470 43}
+\DocumentationTok{\#\# 269    476 30}
+\DocumentationTok{\#\# 270    477  1}
+\DocumentationTok{\#\# 271    479 19}
+\DocumentationTok{\#\# 272    480  9}
+\DocumentationTok{\#\# 273    489 49}
+\DocumentationTok{\#\# 274    496 35}
+\DocumentationTok{\#\# 275    497 33}
+\DocumentationTok{\#\# 276    499 27}
+\DocumentationTok{\#\# 277    502  4}
+\DocumentationTok{\#\# 278    503 15}
+\DocumentationTok{\#\# 279    506  1}
+\DocumentationTok{\#\# 280    507 21}
+\DocumentationTok{\#\# 281    508 22}
+\DocumentationTok{\#\# 282    509 44}
+\DocumentationTok{\#\# 283    512 38}
+\DocumentationTok{\#\# 284    513 29}
+\DocumentationTok{\#\# 285    514 22}
+\DocumentationTok{\#\# 286    515 47}
+\DocumentationTok{\#\# 287    516 14}
+\DocumentationTok{\#\# 288    517 17}
+\DocumentationTok{\#\# 289    518 28}
+\DocumentationTok{\#\# 290    519 55}
+\DocumentationTok{\#\# 291    520 33}
+\DocumentationTok{\#\# 292    521  3}
+\DocumentationTok{\#\# 293    523 25}
+\DocumentationTok{\#\# 294    524 24}
+\DocumentationTok{\#\# 295    527 11}
+\DocumentationTok{\#\# 296    528 31}
+\DocumentationTok{\#\# 297    529 16}
+\DocumentationTok{\#\# 298    530  6}
+\DocumentationTok{\#\# 299    534 24}
+\DocumentationTok{\#\# 300    536 24}
+\DocumentationTok{\#\# 301    538  1}
+\DocumentationTok{\#\# 302    539 13}
+\DocumentationTok{\#\# 303    543  6}
+\DocumentationTok{\#\# 304    546  2}
+\DocumentationTok{\#\# 305    547  7}
+\DocumentationTok{\#\# 306    550  9}
+\DocumentationTok{\#\# 307    551 16}
+\DocumentationTok{\#\# 308    552 35}
+\DocumentationTok{\#\# 309    561 50}
+\DocumentationTok{\#\# 310    563 22}
+\DocumentationTok{\#\# 311    564  2}
+\DocumentationTok{\#\# 312    566  3}
+\DocumentationTok{\#\# 313    567  7}
+\DocumentationTok{\#\# 314    600 16}
+\DocumentationTok{\#\# 315    601 25}
+\DocumentationTok{\#\# 316    602 24}
+\DocumentationTok{\#\# 317    603  3}
+\DocumentationTok{\#\# 318    604 17}
+\DocumentationTok{\#\# 319    605 34}
+\DocumentationTok{\#\# 320    607 16}
+\DocumentationTok{\#\# 321    609 34}
+\DocumentationTok{\#\# 322    610 31}
+\DocumentationTok{\#\# 323    611 12}
+\DocumentationTok{\#\# 324    612  6}
+\DocumentationTok{\#\# 325    614 30}
+\DocumentationTok{\#\# 326    615 21}
+\DocumentationTok{\#\# 327    616 11}
+\DocumentationTok{\#\# 328    617 30}
+\DocumentationTok{\#\# 329    619 52}
+\DocumentationTok{\#\# 330    620 27}
+\DocumentationTok{\#\# 331    621 17}
+\DocumentationTok{\#\# 332    623 23}
+\DocumentationTok{\#\# 333    624 23}
+\DocumentationTok{\#\# 334    625 13}
+\DocumentationTok{\#\# 335    626 37}
+\DocumentationTok{\#\# 336    627 22}
+\DocumentationTok{\#\# 337    628  8}
+\DocumentationTok{\#\# 338    629 21}
+\DocumentationTok{\#\# 339    630 37}
+\DocumentationTok{\#\# 340    631  2}
+\DocumentationTok{\#\# 341    632  6}
+\DocumentationTok{\#\# 342    634 19}
+\DocumentationTok{\#\# 343    635 28}
+\DocumentationTok{\#\# 344    636  4}
+\DocumentationTok{\#\# 345    637 25}
+\DocumentationTok{\#\# 346    638 18}
+\DocumentationTok{\#\# 347    639 35}
+\DocumentationTok{\#\# 348    640 46}
+\DocumentationTok{\#\# 349    641  3}
+\DocumentationTok{\#\# 350    642  4}
+\DocumentationTok{\#\# 351    643  5}
+\DocumentationTok{\#\# 352    644 41}
+\DocumentationTok{\#\# 353    645 21}
+\DocumentationTok{\#\# 354    646 37}
+\DocumentationTok{\#\# 355    648  5}
+\DocumentationTok{\#\# 356    649 15}
+\DocumentationTok{\#\# 357    651 39}
+\DocumentationTok{\#\# 358    652 18}
+\DocumentationTok{\#\# 359    653 30}
+\DocumentationTok{\#\# 360    654  4}
+\DocumentationTok{\#\# 361    656 48}
+\DocumentationTok{\#\# 362    660  1}
+\DocumentationTok{\#\# 363    662  1}
+\DocumentationTok{\#\# 364    663 25}
+\DocumentationTok{\#\# 365    664  7}
+\DocumentationTok{\#\# 366    666 14}
+\DocumentationTok{\#\# 367    667 20}
+\DocumentationTok{\#\# 368    668 10}
+\DocumentationTok{\#\# 369    669  8}
+\DocumentationTok{\#\# 370    670  5}
+\DocumentationTok{\#\# 371    672 27}
+\DocumentationTok{\#\# 372    673 27}
+\DocumentationTok{\#\# 373    674  5}
+\DocumentationTok{\#\# 374    675 13}
+\DocumentationTok{\#\# 375    676 24}
+\DocumentationTok{\#\# 376    677 19}
+\DocumentationTok{\#\# 377    678 28}
+\DocumentationTok{\#\# 378    679 13}
+\DocumentationTok{\#\# 379    682 23}
+\DocumentationTok{\#\# 380    683 18}
+\DocumentationTok{\#\# 381    684 14}
+\DocumentationTok{\#\# 382    685 22}
+\DocumentationTok{\#\# 383    686 27}
+\DocumentationTok{\#\# 384    687 20}
+\DocumentationTok{\#\# 385    688 10}
+\DocumentationTok{\#\# 386    689 28}
+\DocumentationTok{\#\# 387    692 23}
+\DocumentationTok{\#\# 388    693 22}
+\DocumentationTok{\#\# 389    694 32}
+\DocumentationTok{\#\# 390    696 17}
+\DocumentationTok{\#\# 391    697 40}
+\DocumentationTok{\#\# 392    698 17}
+\DocumentationTok{\#\# 393    701 20}
+\DocumentationTok{\#\# 394    702 18}
+\DocumentationTok{\#\# 395    705 26}
+\DocumentationTok{\#\# 396    706  4}
+\DocumentationTok{\#\# 397    707 26}
+\DocumentationTok{\#\# 398    708 27}
+\DocumentationTok{\#\# 399    709 13}
+\DocumentationTok{\#\# 400    710  5}
+\DocumentationTok{\#\# 401    711 13}
+\DocumentationTok{\#\# 402    713 11}
+\DocumentationTok{\#\# 403    714  7}
+\DocumentationTok{\#\# 404    715 23}
+\DocumentationTok{\#\# 405    716 27}
+\DocumentationTok{\#\# 406    717 20}
+\DocumentationTok{\#\# 407    718 25}
+\DocumentationTok{\#\# 408    719 25}
+\DocumentationTok{\#\# 409    720 16}
+\DocumentationTok{\#\# 410    721 16}
+\DocumentationTok{\#\# 411    722 12}
+\DocumentationTok{\#\# 412    724 25}
+\DocumentationTok{\#\# 413    725 24}
+\DocumentationTok{\#\# 414    727 29}
+\DocumentationTok{\#\# 415    729 12}
+\DocumentationTok{\#\# 416    730 15}
+\DocumentationTok{\#\# 417    731 17}
+\DocumentationTok{\#\# 418    732 31}
+\DocumentationTok{\#\# 419    734 16}
+\DocumentationTok{\#\# 420    735 23}
+\DocumentationTok{\#\# 421    736  5}
+\DocumentationTok{\#\# 422    737 28}
+\DocumentationTok{\#\# 423    738 14}
+\DocumentationTok{\#\# 424    739 37}
+\DocumentationTok{\#\# 425    740 37}
+\DocumentationTok{\#\# 426    741 28}
+\DocumentationTok{\#\# 427    742 30}
+\DocumentationTok{\#\# 428    743  6}
+\DocumentationTok{\#\# 429    744  7}
+\DocumentationTok{\#\# 430    745 24}
+\DocumentationTok{\#\# 431    746 18}
+\DocumentationTok{\#\# 432    747 15}
+\DocumentationTok{\#\# 433    748 33}
+\DocumentationTok{\#\# 434    801  5}
+\DocumentationTok{\#\# 435    805 10}
+\DocumentationTok{\#\# 436    808  6}
+\DocumentationTok{\#\# 437    809  2}
+\DocumentationTok{\#\# 438    815  9}
+\DocumentationTok{\#\# 439    821 25}
+\DocumentationTok{\#\# 440    822  6}
+\DocumentationTok{\#\# 441    823 10}
+\DocumentationTok{\#\# 442    851  9}
+\DocumentationTok{\#\# 443    855 10}
+\DocumentationTok{\#\# 444    856  3}
+\DocumentationTok{\#\# 445    858  6}
+\DocumentationTok{\#\# 446    868  7}
+\DocumentationTok{\#\# 447    871  7}
+\DocumentationTok{\#\# 448    877  5}
+\DocumentationTok{\#\# 449    901 17}
+\DocumentationTok{\#\# 450    902 28}
+\DocumentationTok{\#\# 451    903 21}
+\DocumentationTok{\#\# 452    904 14}
+\DocumentationTok{\#\# 453    905 16}
+\DocumentationTok{\#\# 454    906 12}
+\DocumentationTok{\#\# 455    907  2}
+\DocumentationTok{\#\# 456    908 24}
+\DocumentationTok{\#\# 457    909 34}
+\DocumentationTok{\#\# 458    910 35}
+\DocumentationTok{\#\# 459    911 24}
+\DocumentationTok{\#\# 460    912 23}
+\DocumentationTok{\#\# 461    913 26}
+\DocumentationTok{\#\# 462    914 17}
+\DocumentationTok{\#\# 463    915 54}
+\DocumentationTok{\#\# 464    916 33}
+\DocumentationTok{\#\# 465    917  8}
+\DocumentationTok{\#\# 466    918 20}
+\DocumentationTok{\#\# 467    919 13}
+\DocumentationTok{\#\# 468    920  7}
+\DocumentationTok{\#\# 469    921 18}
+\DocumentationTok{\#\# 470    922 23}
+\DocumentationTok{\#\# 471    923 17}
+\DocumentationTok{\#\# 472    924 15}
+\DocumentationTok{\#\# 473    925  2}
 
 \NormalTok{worker\_company\_inner }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{group\_by}\NormalTok{(c3\_ind1, w3\_ind1) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{count=}\FunctionTok{n}\NormalTok{())}
-\DocumentationTok{\#\# Error in group\_by(., c3\_ind1, w3\_ind1): 객체 \textquotesingle{}worker\_company\_inner\textquotesingle{}를 찾을 수 없습니다}
+\DocumentationTok{\#\# \textasciigrave{}summarise()\textasciigrave{} has grouped output by \textquotesingle{}c3\_ind1\textquotesingle{}. You can override using the}
+\DocumentationTok{\#\# \textasciigrave{}.groups\textasciigrave{} argument.}
+\DocumentationTok{\#\# \# A tibble: 3 x 3}
+\DocumentationTok{\#\# \# Groups:   c3\_ind1 [3]}
+\DocumentationTok{\#\#   c3\_ind1 w3\_ind1 count}
+\DocumentationTok{\#\#     \textless{}int\textgreater{}   \textless{}int\textgreater{} \textless{}int\textgreater{}}
+\DocumentationTok{\#\# 1       1       1  7207}
+\DocumentationTok{\#\# 2       2       2   972}
+\DocumentationTok{\#\# 3       3       3  1840}
 \end{Highlighting}
 \end{Shaded}
 
