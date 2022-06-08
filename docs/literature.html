@@ -37,7 +37,7 @@ set in the _output.yml file.</p>" />
   
   
 <link rel="prev" href="data.html"/>
-<link rel="next" href="footnotes-and-citations.html"/>
+<link rel="next" href="graph.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -125,28 +125,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -237,10 +215,21 @@ div.csl-indent {
 <li class="chapter" data-level="4.6.5" data-path="literature.html"><a href="literature.html#근로자-기업-데이터-결합one-to-many-match"><i class="fa fa-check"></i><b>4.6.5</b> 근로자-기업 데이터 결합(one-to-many match)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html"><i class="fa fa-check"></i><b>5</b> Footnotes and citations</a>
+<li class="chapter" data-level="5" data-path="graph.html"><a href="graph.html"><i class="fa fa-check"></i><b>5</b> 데이터 시각화</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#footnotes"><i class="fa fa-check"></i><b>5.1</b> Footnotes</a></li>
-<li class="chapter" data-level="5.2" data-path="footnotes-and-citations.html"><a href="footnotes-and-citations.html#citations"><i class="fa fa-check"></i><b>5.2</b> Citations</a></li>
+<li class="chapter" data-level="5.1" data-path="graph.html"><a href="graph.html#들어가며-1"><i class="fa fa-check"></i><b>5.1</b> 들어가며</a></li>
+<li class="chapter" data-level="5.2" data-path="graph.html"><a href="graph.html#ggplot2의-설치-및-소개"><i class="fa fa-check"></i><b>5.2</b> ggplot2의 설치 및 소개</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="graph.html"><a href="graph.html#ggplot2-설치"><i class="fa fa-check"></i><b>5.2.1</b> ggplot2 설치</a></li>
+<li class="chapter" data-level="5.2.2" data-path="graph.html"><a href="graph.html#ggplot2의-작동-원리"><i class="fa fa-check"></i><b>5.2.2</b> ggplot2의 작동 원리</a></li>
+<li class="chapter" data-level="5.2.3" data-path="graph.html"><a href="graph.html#변수의-갯수-유형과-그래프-종류"><i class="fa fa-check"></i><b>5.2.3</b> 변수의 갯수, 유형과 그래프 종류</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="graph.html"><a href="graph.html#변인이-1개인-graph"><i class="fa fa-check"></i><b>5.3</b> 변인이 1개인 graph</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="graph.html"><a href="graph.html#변인이-연속형continuous인-경우"><i class="fa fa-check"></i><b>5.3.1</b> 변인이 연속형(continuous)인 경우</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="graph.html"><a href="graph.html#변인이-2개인-graph"><i class="fa fa-check"></i><b>5.4</b> 변인이 2개인 graph</a></li>
+<li class="chapter" data-level="5.5" data-path="graph.html"><a href="graph.html#stat"><i class="fa fa-check"></i><b>5.5</b> stat</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
 <ul>
@@ -381,7 +370,7 @@ Figure 4.1: R prject 생성
 <span id="cb21-2"><a href="literature.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="do">## package &#39;nycflights13&#39; successfully unpacked and MD5 sums checked</span></span>
 <span id="cb21-3"><a href="literature.html#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb21-4"><a href="literature.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="do">## The downloaded binary packages are in</span></span>
-<span id="cb21-5"><a href="literature.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  C:\Users\shizu\AppData\Local\Temp\Rtmpo50smh\downloaded_packages</span></span>
+<span id="cb21-5"><a href="literature.html#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  C:\Users\shizu\AppData\Local\Temp\RtmpeshAIn\downloaded_packages</span></span>
 <span id="cb21-6"><a href="literature.html#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb21-7"><a href="literature.html#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: 패키지 &#39;nycflights13&#39;는 R 버전 4.1.3에서 작성되었습니다</span></span>
 <span id="cb21-8"><a href="literature.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(flights) <span class="co"># head 자료 수개를 보여줌</span></span>
@@ -2772,7 +2761,7 @@ c3_id1과 c4_id1이 각각의 데이터의 관측치의 고유값으로 역할�
         </div>
       </div>
 <a href="data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="footnotes-and-citations.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="graph.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
