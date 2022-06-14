@@ -59,7 +59,6 @@ worker_3 %>%
 
 위의 내용이 결정되면 선택할 수 있는 그래프의 유형이 좁혀진다. 예를 들어, 변수의 갯수가 1개라면, scatter plot 그래프를 그리는 것이 불가능하다. 변수의 갯수가 2개 더라도 둘 다 범주변수라면 scatter plot을 그릴 수 없다. ggplot2를 배우는 초보자들에게 빈번하게 발생하는 실수가 이런 형태이다. 변수 갯수 및 유형과 그래프 유형과의 관계를 반드시 이해해야 한다. 
 
-[변수종류와 그래프 유형 그림 삽입]
 
 ## 변인이 1개인 graph
 
@@ -78,20 +77,20 @@ w336_02(초과 근로시간)의 빈도분포를 알고 싶다면 히스토그램
 
 ```{r, collapse=TRUE}
 ggplot(worker_3_se)+
-  geom_histogram(aes(x=w336_02))->plot2
-plot2
+  geom_histogram(aes(x=w336_02))
 ```
 
 위의 명령어를 실행하면 아마 다음과 같은 에러메시지를 볼 수 있을 것이다. 
 
-'stat_bin()' using 'bins=30'. Pick better value with 'binwidth'
+* 'stat_bin()' using 'bins=30'. Pick better value with 'binwidth'.
+
+
 
 히스토그램에서 bin이란 빈도를 카운트하는 범주를 의미한다. 즉, 히스토그램의 막대 너비를 의미한다. 우리가 별도의 지정을 해주지 않았기 때문에 프로그램에서 자동으로 bin의 갯수를 30개(bins=30)로 지정했으니 더 나은 값을 지정해주라는 의미이다. 막대 너비를 지정하는 방식은 bin의 갯수를 지정하는 방식(bins=OO), 또는 bin의 너비를 지정하는(binwidth=OO) 방식이 있다. 통상 사용하는 binwidth를 지정하는 방식을 사용해보자. 1시간단위로 빈도를 보기 위해 binwidth=1로 지정하자. 이를 위해서는 geom_histogram()에 해당 코드를 쉼표로 연결만 해주면 된다. 
 
 ```{r, collapse=TRUE}
 ggplot(worker_3_se)+
-  geom_histogram(aes(x=w336_02), binwidth=1)->plot2
-plot2
+  geom_histogram(aes(x=w336_02), binwidth=1)
 ```
 이왕 이야기가 나온김에 몇가지의 옵션을 더 지정해보자. ggplot2에서는 기본적으로 면 색깔(fill), 면색깔의 투명도(alpha), 선 색깔(color), 선 종류(linetype) 등을 변형시킬 수 있다. 
 
@@ -100,17 +99,15 @@ plot2
 
 ```{r, collapse=TRUE}
 ggplot(worker_3_se)+
-  geom_histogram(aes(x=w336_02), binwidth=1, color="black", fill="rolyalblue", alpha=0.2)->plot2
-plot2
+  geom_histogram(aes(x=w336_02), binwidth=1, color="black", fill="blue", alpha=0.2)
 ```
 
-만일 x축과 y축의 명칭을 수정하거나, 그래프의 제목을 달고 싶다면 어떻게 해야 할까? 마찬가지로 layer를 추가해주면 된다. 이때 쓰이는 명령어는 labs(title="", x="", y="")이다. 
+만일 x축과 y축의 명칭을 수정하거나, 그래프의 제목을 달고 싶다면 어떻게 해야 할까? 마찬가지로 layer를 추가해주면 된다. 이때 쓰이는 명령어는 labs(title="", x="", y="")이다.
 
 ```{r, collapse=TRUE}
 ggplot(worker_3_se)+
   geom_histogram(aes(x=w336_02), binwidth=1, color="black", fill="skyblue", alpha=0.2)+
-  labs(title="근로자의 주당 초과근로시간", x="주당 초과근로시간", y="빈도(명)")->plot2
-plot2
+  labs(title="근로자의 주당 초과근로시간", x="주당 초과근로시간", y="빈도(명)")
 ```
 
 그래프의 배경을 변경하고 싶다면 theme_ 명령어를 사용하도록 한다. 마찬가지로 layer를 추가해주면 된다. theme_minimal() layer를 추가하여 배경을 최소화하기 위해서는 아래와 같이 코드를 작성하면 된다.  
@@ -123,8 +120,8 @@ plot2
 ggplot(worker_3_se)+
   geom_histogram(aes(x=w336_02), binwidth=1, color="black", fill="skyblue", alpha=0.2)+
   labs(title="근로자의 주당 초과근로시간", x="주당 초과근로시간", y="빈도(명)")+
-  theme_minimal()->plot2
-plot2
+  theme_minimal()->plot4
+plot4
 ```
 이제 ggplot2의 명령어 구조에 대해서 어느정도 감을 잡았을 것이라 생각한다. 다른 그래프들도 명령어 구조가 거의 유사하기 때문에 쉽게 응용할 수 있을 것이다. 좀 더 심화된 과정으로 ggplot2와 dplyr의 결합방식을 알아보도록 하자. 
 
@@ -136,7 +133,7 @@ worker_3_se %>%
   ggplot()+
   geom_histogram(aes(x=w336_02, y=..density..), binwidth=1, color="black", fill="skyblue", alpha=0.2)+
   labs(title="근로자의 주당 초과근로시간", x="주당 초과근로시간", y="빈도(명)")+
-  theme_minimal()->plot2
+  theme_minimal()->plot5
 ```
 복잡해보이지만 dplyr의 chain operator를 사용하여 간단히 데이터 필터링(w336_02가 0보다 같거나 큰 case만 선택)한 후에 ggplot() 구문을 결합하는 구조이다. 간혹 ggplot() 구문에 레이어를 추가할때 +이 아닌 %>% 을 쓰는 실수가 발생하는데 이것만 주의한다면 데이터 변형도 쉽게 진행할 수 있다. ggplot2의 장점은 이렇게 dpyr와 결합하여 데이터의 실제 변형 없이 임시적인 변형으로 그래프를 그릴 수 있다는 것이다.
 
@@ -262,23 +259,3 @@ worker_3_fa %>%
 ```
 
 ## 변인이 2개인 graph
-
-###연속형 변수 X, 연속형 변수 Y
-
-####geom_point()
-####geom_smooth()
-####geom_line()
-
-
-
-###범주형 변수 X, 연속형 변수 Y
-####geom_bar()
-####geom_boxplot()
-
-
-###visualizing error bar
-#### geom_errorbar()
-#### geom_pointrange()
-
-
-## stat

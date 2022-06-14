@@ -58,3 +58,9 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+```{r}
+library(showtext)
+font_add_google("Nanum Pen Script", "gl")
+showtext_auto()
+```

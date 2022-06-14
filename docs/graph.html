@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="John Doe" />
 
 
-<meta name="date" content="2022-06-08" />
+<meta name="date" content="2022-06-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -229,7 +229,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.3.1" data-path="graph.html"><a href="graph.html#변인이-연속형continuous인-경우"><i class="fa fa-check"></i><b>5.3.1</b> 변인이 연속형(continuous)인 경우</a></li>
 </ul></li>
 <li class="chapter" data-level="5.4" data-path="graph.html"><a href="graph.html#변인이-2개인-graph"><i class="fa fa-check"></i><b>5.4</b> 변인이 2개인 graph</a></li>
-<li class="chapter" data-level="5.5" data-path="graph.html"><a href="graph.html#stat"><i class="fa fa-check"></i><b>5.5</b> stat</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="blocks.html"><a href="blocks.html"><i class="fa fa-check"></i><b>6</b> Blocks</a>
 <ul>
@@ -306,7 +305,6 @@ library(tidyverse)로 불러오기만 하면 된다.</p>
 <li><p>둘째, 변수의 유형 : 선택한 변수의 유형이 무엇인가? 범주변수(categorical)인가? 순서형(ordinal)인가? 연속형(continuous)인가?</p></li>
 </ul>
 <p>위의 내용이 결정되면 선택할 수 있는 그래프의 유형이 좁혀진다. 예를 들어, 변수의 갯수가 1개라면, scatter plot 그래프를 그리는 것이 불가능하다. 변수의 갯수가 2개 더라도 둘 다 범주변수라면 scatter plot을 그릴 수 없다. ggplot2를 배우는 초보자들에게 빈번하게 발생하는 실수가 이런 형태이다. 변수 갯수 및 유형과 그래프 유형과의 관계를 반드시 이해해야 한다.</p>
-<p>[변수종류와 그래프 유형 그림 삽입]</p>
 </div>
 </div>
 <div id="변인이-1개인-graph" class="section level2 hasAnchor" number="5.3">
@@ -323,70 +321,67 @@ library(tidyverse)로 불러오기만 하면 된다.</p>
 <li>layer를 추가할때는 더하기(+)로 연결해준다.</li>
 <li>산출되는 그래프를 별도의 객체로 지정하고 싶다면 -&gt; 화살표를 이용해서 간단히 객체명을 기입하면 된다. 이렇게 하면 해당 객체명을 실행하면 언제든지 그래프를 불러올 수 있다.</li>
 </ul>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="graph.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
-<span id="cb54-2"><a href="graph.html#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02))<span class="ot">-&gt;</span>plot2</span>
-<span id="cb54-3"><a href="graph.html#cb54-3" aria-hidden="true" tabindex="-1"></a>plot2</span>
-<span id="cb54-4"><a href="graph.html#cb54-4" aria-hidden="true" tabindex="-1"></a><span class="do">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="graph.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
+<span id="cb60-2"><a href="graph.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02))</span>
+<span id="cb60-3"><a href="graph.html#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="do">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
 <p>위의 명령어를 실행하면 아마 다음과 같은 에러메시지를 볼 수 있을 것이다.</p>
-<p>‘stat_bin()’ using ‘bins=30.’ Pick better value with ‘binwidth’</p>
+<ul>
+<li>‘stat_bin()’ using ‘bins=30.’ Pick better value with ‘binwidth.’</li>
+</ul>
 <p>히스토그램에서 bin이란 빈도를 카운트하는 범주를 의미한다. 즉, 히스토그램의 막대 너비를 의미한다. 우리가 별도의 지정을 해주지 않았기 때문에 프로그램에서 자동으로 bin의 갯수를 30개(bins=30)로 지정했으니 더 나은 값을 지정해주라는 의미이다. 막대 너비를 지정하는 방식은 bin의 갯수를 지정하는 방식(bins=OO), 또는 bin의 너비를 지정하는(binwidth=OO) 방식이 있다. 통상 사용하는 binwidth를 지정하는 방식을 사용해보자. 1시간단위로 빈도를 보기 위해 binwidth=1로 지정하자. 이를 위해서는 geom_histogram()에 해당 코드를 쉼표로 연결만 해주면 된다.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="graph.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
-<span id="cb55-2"><a href="graph.html#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02), <span class="at">binwidth=</span><span class="dv">1</span>)<span class="ot">-&gt;</span>plot2</span>
-<span id="cb55-3"><a href="graph.html#cb55-3" aria-hidden="true" tabindex="-1"></a>plot2</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-62-1.png" width="672" />
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="graph.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
+<span id="cb61-2"><a href="graph.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02), <span class="at">binwidth=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-63-1.png" width="672" />
 이왕 이야기가 나온김에 몇가지의 옵션을 더 지정해보자. ggplot2에서는 기본적으로 면 색깔(fill), 면색깔의 투명도(alpha), 선 색깔(color), 선 종류(linetype) 등을 변형시킬 수 있다.</p>
 <ul>
 <li>색은 특정한 색의 명칭을 직접 기입하거나(따옴표 필수), RColorBrewer와 같이 RGB 값을 직접 기입하여 색을 지정할 수도 있다.</li>
 <li>면 색(fill)은 투명도(alpha)를 조절할 수도 있다. 0~1사이의 값을 자유롭게 지정하면 된다. 0에 가까울수록 투명해진다</li>
 </ul>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="graph.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
-<span id="cb56-2"><a href="graph.html#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;rolyalblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="ot">-&gt;</span>plot2</span>
-<span id="cb56-3"><a href="graph.html#cb56-3" aria-hidden="true" tabindex="-1"></a>plot2</span>
-<span id="cb56-4"><a href="graph.html#cb56-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Error: Unknown colour name: rolyalblue</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
-<p>만일 x축과 y축의 명칭을 수정하거나, 그래프의 제목을 달고 싶다면 어떻게 해야 할까? 마찬가지로 layer를 추가해주면 된다. 이때 쓰이는 명령어는 labs(title=““, x=”“, y=”“)이다.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="graph.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
-<span id="cb57-2"><a href="graph.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb57-3"><a href="graph.html#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 초과근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 초과근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;빈도(명)&quot;</span>)<span class="ot">-&gt;</span>plot2</span>
-<span id="cb57-4"><a href="graph.html#cb57-4" aria-hidden="true" tabindex="-1"></a>plot2</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="graph.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
+<span id="cb62-2"><a href="graph.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p>만일 x축과 y축의 명칭을 수정하거나, 그래프의 제목을 달고 싶다면 어떻게 해야 할까? 마찬가지로 layer를 추가해주면 된다. 이때 쓰이는 명령어는 labs(title=““, x=”“, y=”“)이다.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="graph.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
+<span id="cb63-2"><a href="graph.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb63-3"><a href="graph.html#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 초과근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 초과근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;빈도(명)&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
 <p>그래프의 배경을 변경하고 싶다면 theme_ 명령어를 사용하도록 한다. 마찬가지로 layer를 추가해주면 된다. theme_minimal() layer를 추가하여 배경을 최소화하기 위해서는 아래와 같이 코드를 작성하면 된다.<br />
 * theme_grey() : 회색 배경 (defalut)
 * theme_bw() : 하얀 배경에 격자무늬
 * theme_classic() : 하얀 배경에 격자무늬 없음
 * theme_minimal() : 배경 최소화</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="graph.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
-<span id="cb58-2"><a href="graph.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb58-3"><a href="graph.html#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 초과근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 초과근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;빈도(명)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb58-4"><a href="graph.html#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="ot">-&gt;</span>plot2</span>
-<span id="cb58-5"><a href="graph.html#cb58-5" aria-hidden="true" tabindex="-1"></a>plot2</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-65-1.png" width="672" />
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="graph.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(worker_3_se)<span class="sc">+</span></span>
+<span id="cb64-2"><a href="graph.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb64-3"><a href="graph.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 초과근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 초과근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;빈도(명)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb64-4"><a href="graph.html#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="ot">-&gt;</span>plot4</span>
+<span id="cb64-5"><a href="graph.html#cb64-5" aria-hidden="true" tabindex="-1"></a>plot4</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-66-1.png" width="672" />
 이제 ggplot2의 명령어 구조에 대해서 어느정도 감을 잡았을 것이라 생각한다. 다른 그래프들도 명령어 구조가 거의 유사하기 때문에 쉽게 응용할 수 있을 것이다. 좀 더 심화된 과정으로 ggplot2와 dplyr의 결합방식을 알아보도록 하자.</p>
 <p>바로 윗 단락에서 확인했던 히스토그램을 보면 -10으로 응답한 사람들이 몇명 있는 것을 확인할 수 있다. 보통 패널데이터의 마이너스 값은 무응답 등과 같은 결측치이다. 결측치를 제거하고 그래프를 그리기 위해서 dplyr를 활용해 바로 데이터를 변형하여 그래프를 그려보도록 하자.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="graph.html#cb59-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
-<span id="cb59-2"><a href="graph.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb59-3"><a href="graph.html#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb59-4"><a href="graph.html#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02, <span class="at">y=</span>..density..), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb59-5"><a href="graph.html#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 초과근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 초과근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;빈도(명)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb59-6"><a href="graph.html#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="ot">-&gt;</span>plot2</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="graph.html#cb65-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
+<span id="cb65-2"><a href="graph.html#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb65-3"><a href="graph.html#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb65-4"><a href="graph.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>w336_02, <span class="at">y=</span>..density..), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb65-5"><a href="graph.html#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 초과근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 초과근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;빈도(명)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb65-6"><a href="graph.html#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="ot">-&gt;</span>plot5</span></code></pre></div>
 <p>복잡해보이지만 dplyr의 chain operator를 사용하여 간단히 데이터 필터링(w336_02가 0보다 같거나 큰 case만 선택)한 후에 ggplot() 구문을 결합하는 구조이다. 간혹 ggplot() 구문에 레이어를 추가할때 +이 아닌 %&gt;% 을 쓰는 실수가 발생하는데 이것만 주의한다면 데이터 변형도 쉽게 진행할 수 있다. ggplot2의 장점은 이렇게 dpyr와 결합하여 데이터의 실제 변형 없이 임시적인 변형으로 그래프를 그릴 수 있다는 것이다.</p>
 <p>다른 형태의 데이터 변형도 시도해보자. 당초 우리의 관심 변수가 주당 정규근로시간(w336_01)과 추가근로시간(w336_02)였다. 이를 합산하여 workingHour라는 변수를 생성하여 히스토그램을 그려보자. 아래 코드를 보면 (1)worker_3_se 데이터를 가져와서 (2) 주당근로시간 변수들이 0 이상인 관측치만 필터링 해서 (3) histogram을 그리라는 흐름을 갖고 있다.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="graph.html#cb60-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
-<span id="cb60-2"><a href="graph.html#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb60-3"><a href="graph.html#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
-<span id="cb60-4"><a href="graph.html#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb60-5"><a href="graph.html#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;빈도(명)&quot;</span>)<span class="sc">+</span></span>
-<span id="cb60-6"><a href="graph.html#cb60-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-67-1.png" width="672" />
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="graph.html#cb66-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
+<span id="cb66-2"><a href="graph.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-3"><a href="graph.html#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
+<span id="cb66-4"><a href="graph.html#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb66-5"><a href="graph.html#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;빈도(명)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb66-6"><a href="graph.html#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672" />
 히스토그램에서 y축을 빈도가 아닌 비율로 바꿀 수도 있다. aes(y=) 옵션에서 이를 해결할 수 있다. aes(y=..density..) 옵션을 추가하면된다. y축을 density로 변형시킨다는 것은 bin의 관측치수/전체 관측치수를 의미한다. 즉, 해당 bin의 사례수가 전체 사례의 몇 %를 차지하는지 확인할 수 있다. 참고로 density 앞뒤에 마침표 두개(..)를 반드시 붙여야 일반적인 변수명과 구분이 된다는 점을 기억하자. 만일 마침표를 붙이지 않는다면 R은 density라는 이름의 변수를 y축에 할당하려고 해서 에러가 발생한다.</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="graph.html#cb61-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
-<span id="cb61-2"><a href="graph.html#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb61-3"><a href="graph.html#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
-<span id="cb61-4"><a href="graph.html#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">y=</span>..density..), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb61-5"><a href="graph.html#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;density&quot;</span>)<span class="sc">+</span></span>
-<span id="cb61-6"><a href="graph.html#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="graph.html#cb67-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
+<span id="cb67-2"><a href="graph.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb67-3"><a href="graph.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
+<span id="cb67-4"><a href="graph.html#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">y=</span>..density..), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb67-5"><a href="graph.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;density&quot;</span>)<span class="sc">+</span></span>
+<span id="cb67-6"><a href="graph.html#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
 </div>
 <div id="density-curve" class="section level4 hasAnchor" number="5.3.1.2">
 <h4><span class="header-section-number">5.3.1.2</span> density curve<a href="graph.html#density-curve" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -398,97 +393,84 @@ library(tidyverse)로 불러오기만 하면 된다.</p>
 <li>density curve가 오른쪽으로 skewed 되어 있다면 평균값이 중앙값보다 크다는 것을 의미한다.</li>
 <li>density curve가 skewed 되어 있지 않다면 평균값과 중앙값이 같음을 의미한다.</li>
 </ul>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="graph.html#cb62-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
-<span id="cb62-2"><a href="graph.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb62-3"><a href="graph.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
-<span id="cb62-4"><a href="graph.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour), <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb62-5"><a href="graph.html#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간 &quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;density&quot;</span>)<span class="sc">+</span></span>
-<span id="cb62-6"><a href="graph.html#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
-<p>산출된 density curve를 보니 왼쪽으로 상당히 skewed 되어 있는 모습이다. 여기에 mean 값을 표현하는 그래프를 layer로 추가해보도록 하자. 그래프에 특정 값을 수직선으로 표현하기 위해서는 geom_vline(aes(xintercept=))의 명령어를 사용하면 된다. 수직선의 색을 파란색, 선 유형은 점선으로 옵션을 지정해보자.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="graph.html#cb63-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
-<span id="cb63-2"><a href="graph.html#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb63-3"><a href="graph.html#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
-<span id="cb63-4"><a href="graph.html#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour), <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(whour)), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb63-5"><a href="graph.html#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간 &quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;density&quot;</span>)<span class="sc">+</span></span>
-<span id="cb63-6"><a href="graph.html#cb63-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="graph.html#cb68-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
+<span id="cb68-2"><a href="graph.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-3"><a href="graph.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-4"><a href="graph.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour), <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb68-5"><a href="graph.html#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간 &quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;density&quot;</span>)<span class="sc">+</span></span>
+<span id="cb68-6"><a href="graph.html#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<p>산출된 density curve를 보니 왼쪽으로 상당히 skewed 되어 있는 모습이다. 여기에 mean 값을 표현하는 그래프를 layer로 추가해보도록 하자. 그래프에 특정 값을 수직선으로 표현하기 위해서는 geom_vline(aes(xintercept=))의 명령어를 사용하면 된다. 수직선의 색을 파란색, 선 유형은 점선으로 옵션을 지정해보자.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="graph.html#cb69-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
+<span id="cb69-2"><a href="graph.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-3"><a href="graph.html#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-4"><a href="graph.html#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour), <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span><span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept=</span><span class="fu">mean</span>(whour)), <span class="at">color=</span><span class="st">&quot;blue&quot;</span>, <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">size=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb69-5"><a href="graph.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간 &quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;density&quot;</span>)<span class="sc">+</span></span>
+<span id="cb69-6"><a href="graph.html#cb69-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
 </div>
 <div id="histogram-density-curve" class="section level4 hasAnchor" number="5.3.1.3">
 <h4><span class="header-section-number">5.3.1.3</span> histogram + density curve<a href="graph.html#histogram-density-curve" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>ggplot2의 장점은 layer를 무한대로 쌓을 수 있어 여러개의 그래프를 겹쳐서 그릴 수 있다는 점이다. 위에서 살펴본 histogram과 density curve를 하나의 그래프에 표현해보자. 간단하게 + 기호로 두개의 geom_ 명령어를 합치기만 하면 된다. 주의 할점은 두개 이상의 그래프를 겹칠때 x축과 y축은 모두 동일한 변수 또는 통계값이어야 한다는 것이다. geom_histogram의 default는 빈도수(count)이기 때문에 aes(y=..density..) 옵션을 활용해서 y축을 density curve와 동일하게 맞추어야 한다.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="graph.html#cb64-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
-<span id="cb64-2"><a href="graph.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb64-3"><a href="graph.html#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
-<span id="cb64-4"><a href="graph.html#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour), <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.1</span>)<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">y=</span>..density..), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb64-5"><a href="graph.html#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간 비중&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;density&quot;</span>)<span class="sc">+</span></span>
-<span id="cb64-6"><a href="graph.html#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="graph.html#cb70-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
+<span id="cb70-2"><a href="graph.html#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-3"><a href="graph.html#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-4"><a href="graph.html#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour), <span class="at">linetype=</span><span class="st">&quot;dashed&quot;</span>, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.1</span>)<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">y=</span>..density..), <span class="at">binwidth=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&quot;black&quot;</span>, <span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>, <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb70-5"><a href="graph.html#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;근로자의 주당 근로시간 비중&quot;</span>, <span class="at">x=</span><span class="st">&quot;주당 근로시간&quot;</span>, <span class="at">y=</span><span class="st">&quot;density&quot;</span>)<span class="sc">+</span></span>
+<span id="cb70-6"><a href="graph.html#cb70-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
 </div>
 <div id="집단비교" class="section level4 hasAnchor" number="5.3.1.4">
 <h4><span class="header-section-number">5.3.1.4</span> 집단비교<a href="graph.html#집단비교" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>근로자의 주당 근로시간이 대체로 40~52시간 사이에 몰린 오른쪽 꼬리가 긴 분포를 갖고있는 것을 확인했다. 다음 질문은 혹시 성별에 따라 주당 근로시간에 차이가 있을것인가 이다. 통상적으로 여성의 가사부담시간이 많으므로 여성의 주당근로시간의 분포가 좀더 적을것이라 예측할 수 있다. 간단히 평균의 차이를 보는것도 방법이지만, 그래프로 분포를 보면 더욱 많은 정보를 확인할 수 있다.
 ggplot2는 성별과 같은 변수에 따라 색이나 linetype을 다르게 하여 시각적인 집단 구분을 가능케 해준다. 먼저 작업해야 할 것은 성별 등의 집단변수를 factor 변수로 만들어주는 일이다. 여기서 tidyverse 패키지군 중에 또 하나의 유용한 패키지은 forcats을 소개하도록 하겠다. forcats(for catagorical variable의 약자)는 초보자에게 많은 시련을 안겨주는 factor형 변수를 조작하는데 아주 유용한 패키지이다. 직관적이며, 쉬운 코드 구조를 자랑한다.</p>
 <p>우선 데이터(worker3_se)에서 성별 변수(w3_sex)를 찾아보자. 변수가 숫자형(numeric)인지 팩터형 변수로 저장되어 있는지를 확인하기 위해서는 str 명령어를 활용하면 된다. 또한 missing 값들이 엉뚱한 값으로 코딩되어 있을 수도 있으니 count 명령어를 통해 대략적인 값별 빈도를 알아보자.</p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="graph.html#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(worker_3_se<span class="sc">$</span>w3_sex)</span>
-<span id="cb65-2"><a href="graph.html#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  int [1:10019] 1 1 1 2 1 1 2 1 1 1 ...</span></span>
-<span id="cb65-3"><a href="graph.html#cb65-3" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
-<span id="cb65-4"><a href="graph.html#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(w3_sex)</span>
-<span id="cb65-5"><a href="graph.html#cb65-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   w3_sex    n</span></span>
-<span id="cb65-6"><a href="graph.html#cb65-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 1     -9   10</span></span>
-<span id="cb65-7"><a href="graph.html#cb65-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 2      1 8124</span></span>
-<span id="cb65-8"><a href="graph.html#cb65-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 3      2 1885</span></span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="graph.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(worker_3_se<span class="sc">$</span>w3_sex)</span>
+<span id="cb71-2"><a href="graph.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  int [1:10019] 1 1 1 2 1 1 2 1 1 1 ...</span></span>
+<span id="cb71-3"><a href="graph.html#cb71-3" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
+<span id="cb71-4"><a href="graph.html#cb71-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(w3_sex)</span>
+<span id="cb71-5"><a href="graph.html#cb71-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   w3_sex    n</span></span>
+<span id="cb71-6"><a href="graph.html#cb71-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 1     -9   10</span></span>
+<span id="cb71-7"><a href="graph.html#cb71-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 2      1 8124</span></span>
+<span id="cb71-8"><a href="graph.html#cb71-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 3      2 1885</span></span></code></pre></div>
 <p>결과를 살펴보면 숫자형의 일종인 정수형(int)으로 표현 되어 있고(1 또는 2의 값), 성별 불상인 10명이 -9로 코딩되어 있는 것을 확인할 수 있다. 따라서 우리는 세 단계의 작업을 수행해야 한다.</p>
 <ul>
 <li>filter 함수를 활용해서 성별 불상인 10명을 제거</li>
 <li>mutate와 as_factor를 활용해서 w3_sex를 factor형 변수로 변환하고 변수명을 gender로 변환</li>
 <li>mutate와 fct_recode를 활용해서 level의 값을 수정한다. fct_recode는 level의 순서변경이나 명칭변경, 병합등의 강력한 기능을 갖고 있다. 여기서는 1의 값에 male, 2의 값에 female의 레벨 정보를 부여하였다.</li>
 </ul>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="graph.html#cb66-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
-<span id="cb66-2"><a href="graph.html#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-3"><a href="graph.html#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-4"><a href="graph.html#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w3_sex<span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb66-5"><a href="graph.html#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender=</span><span class="fu">as_factor</span>(w3_sex)) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-6"><a href="graph.html#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender=</span><span class="fu">fct_recode</span>(gender, <span class="at">male=</span><span class="st">&quot;1&quot;</span>, <span class="at">female=</span><span class="st">&quot;2&quot;</span>))<span class="ot">-&gt;</span> worker_3_fa</span>
-<span id="cb66-7"><a href="graph.html#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(worker_3_fa<span class="sc">$</span>gender)</span>
-<span id="cb66-8"><a href="graph.html#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  Factor w/ 2 levels &quot;male&quot;,&quot;female&quot;: 1 1 1 2 1 1 2 1 1 1 ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="graph.html#cb72-1" aria-hidden="true" tabindex="-1"></a>worker_3_se <span class="sc">%&gt;%</span> </span>
+<span id="cb72-2"><a href="graph.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w336_02<span class="sc">&gt;=</span><span class="dv">0</span> <span class="sc">&amp;</span> w336_01<span class="sc">&gt;=</span><span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb72-3"><a href="graph.html#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">whour=</span>w336_01<span class="sc">+</span>w336_02) <span class="sc">%&gt;%</span> </span>
+<span id="cb72-4"><a href="graph.html#cb72-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(w3_sex<span class="sc">&gt;</span><span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb72-5"><a href="graph.html#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender=</span><span class="fu">as_factor</span>(w3_sex)) <span class="sc">%&gt;%</span> </span>
+<span id="cb72-6"><a href="graph.html#cb72-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender=</span><span class="fu">fct_recode</span>(gender, <span class="at">male=</span><span class="st">&quot;1&quot;</span>, <span class="at">female=</span><span class="st">&quot;2&quot;</span>))<span class="ot">-&gt;</span> worker_3_fa</span>
+<span id="cb72-7"><a href="graph.html#cb72-7" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(worker_3_fa<span class="sc">$</span>gender)</span>
+<span id="cb72-8"><a href="graph.html#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  Factor w/ 2 levels &quot;male&quot;,&quot;female&quot;: 1 1 1 2 1 1 2 1 1 1 ...</span></span></code></pre></div>
 <p>성별변수를 팩터형 변수로 전환하였으니, 이제 성별에 따른 주당 근로시간을 비교하는 그래프를 그려보자. 집단에 따라 구분된 그래프를 그리는 방법은 크게 두가지가 있다.</p>
 <ul>
 <li><p>하나의 패널에 집단별로 색깔, 선모양 등으로 그래프를 구분하여 그리는 방법 : aes(fill=gender) 등의 명령어로 처리 가능</p></li>
 <li><p>두개의 패널에 집단별 그래프를 각각 그리는 방법: facet_wrap(~gender) 등의 명령어로 처리 가능</p></li>
 </ul>
 <p>가장 간단한 히스토그램부터 시작해보자. 한개의 패널에 여러집단의 그래프를 동시에 그리는 것은 aes 옵션안에 fill=gender 등을 삽입하여 간단히 수행할 수 있다. 만일 선의 색깔로 집단별 그래프를 구분하고 싶다면 color=gender 옵션을 사용하는 식이다. position=“dodge”는 여러분이 처음 접하는 옵션일 것이다. 만일 이 옵션이 없이 아래 명령어를 실행하면 여성과 남성의 근로시간이 하나의 막대에 표현된다. 우리는 누적 빈도에는 관심이 없으니 막대를 분리하기 위해 position=“dodge” 명령어를 쓴다.</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="graph.html#cb67-1" aria-hidden="true" tabindex="-1"></a>worker_3_fa <span class="sc">%&gt;%</span> </span>
-<span id="cb67-2"><a href="graph.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">fill=</span>gender), <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span>
-<span id="cb67-3"><a href="graph.html#cb67-3" aria-hidden="true" tabindex="-1"></a><span class="do">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="graph.html#cb73-1" aria-hidden="true" tabindex="-1"></a>worker_3_fa <span class="sc">%&gt;%</span> </span>
+<span id="cb73-2"><a href="graph.html#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">fill=</span>gender), <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>)</span>
+<span id="cb73-3"><a href="graph.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="do">## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
 <p>그래프 출력결과를 살펴보면 뭔가 이상하다. 우리는 여성이 남성에 비해 근로시간이 짧다는 것을 확인하고 싶었는데, y축이 빈도이다 보니 사례수가 압도적으로 많은 남성이 어떤 구간에서나 빈도가 많은 것처럼 보인다. 따라서 y축을 density(y=..density..)로 바꾸어서 그려보자. 또한 좀더 조밀하게 보기 위해 bin의 너비를 1로 지정해보자(binwidth=1)</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="graph.html#cb68-1" aria-hidden="true" tabindex="-1"></a>worker_3_fa <span class="sc">%&gt;%</span> </span>
-<span id="cb68-2"><a href="graph.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">y=</span>..density.., <span class="at">fill=</span>gender), <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>, <span class="at">binwidth=</span><span class="dv">1</span>)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-75-1.png" width="672" />
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="graph.html#cb74-1" aria-hidden="true" tabindex="-1"></a>worker_3_fa <span class="sc">%&gt;%</span> </span>
+<span id="cb74-2"><a href="graph.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">y=</span>..density.., <span class="at">fill=</span>gender), <span class="at">position=</span><span class="st">&quot;dodge&quot;</span>, <span class="at">binwidth=</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-76-1.png" width="672" />
 두번째로 복수의 패널에 집단별 그래프를 분리해서 그리는 방법을 알아보자. 이때는 aes() 옵션을 사용하지 않고 facet_wrap(~집단변수명)으로 layer를 추가 생성한다.</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="graph.html#cb69-1" aria-hidden="true" tabindex="-1"></a>worker_3_fa <span class="sc">%&gt;%</span> </span>
-<span id="cb69-2"><a href="graph.html#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">y=</span>..density..), <span class="at">binwidth=</span><span class="dv">1</span>)<span class="sc">+</span></span>
-<span id="cb69-3"><a href="graph.html#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender)</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="graph.html#cb75-1" aria-hidden="true" tabindex="-1"></a>worker_3_fa <span class="sc">%&gt;%</span> </span>
+<span id="cb75-2"><a href="graph.html#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span><span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>whour, <span class="at">y=</span>..density..), <span class="at">binwidth=</span><span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb75-3"><a href="graph.html#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>gender)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
 </div>
 </div>
 </div>
 <div id="변인이-2개인-graph" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> 변인이 2개인 graph<a href="graph.html#변인이-2개인-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>###연속형 변수 X, 연속형 변수 Y</p>
-<p>####geom_point()
-####geom_smooth()
-####geom_line()</p>
-<p>###범주형 변수 X, 연속형 변수 Y
-####geom_bar()
-####geom_boxplot()</p>
-<p>###visualizing error bar
-#### geom_errorbar()
-#### geom_pointrange()</p>
-</div>
-<div id="stat" class="section level2 hasAnchor" number="5.5">
-<h2><span class="header-section-number">5.5</span> stat<a href="graph.html#stat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

@@ -6,7 +6,7 @@
 ]{book}
 \title{A Minimal Book Example}
 \author{John Doe}
-\date{2022-06-08}
+\date{2022-06-14}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -198,6 +198,35 @@ As you work, you may start a local server to live preview this HTML book. This p
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{bookdown}\SpecialCharTok{::}\FunctionTok{serve\_book}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(showtext)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: 패키지 'showtext'는 R 버전 4.1.3에서 작성되었습니다
+\end{verbatim}
+
+\begin{verbatim}
+## 필요한 패키지를 로딩중입니다: sysfonts
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: 패키지 'sysfonts'는 R 버전 4.1.3에서 작성되었습니다
+\end{verbatim}
+
+\begin{verbatim}
+## 필요한 패키지를 로딩중입니다: showtextdb
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{font\_add\_google}\NormalTok{(}\StringTok{"Nanum Pen Script"}\NormalTok{, }\StringTok{"gl"}\NormalTok{)}
+\FunctionTok{showtext\_auto}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
 
@@ -900,7 +929,7 @@ R에서 패키지를 설치하는 방법은 크게 두가지이다. 콘솔창에
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=0.4\linewidth]{images/project3} \includegraphics[width=0.4\linewidth]{images/project4} \caption{R prject 생성}\label{fig:unnamed-chunk-19}
+\includegraphics[width=0.4\linewidth]{images/project3} \includegraphics[width=0.4\linewidth]{images/project4} \caption{R prject 생성}\label{fig:unnamed-chunk-20}
 \end{figure}
 
 \textbf{work space 설정 방식}
@@ -1006,7 +1035,7 @@ filter 함수는 특정한 행(row)을 선택하는 기능이다. 시각적으�
 \DocumentationTok{\#\# package \textquotesingle{}nycflights13\textquotesingle{} successfully unpacked and MD5 sums checked}
 \DocumentationTok{\#\# }
 \DocumentationTok{\#\# The downloaded binary packages are in}
-\DocumentationTok{\#\#  C:\textbackslash{}Users\textbackslash{}shizu\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}Rtmp6XYOs5\textbackslash{}downloaded\_packages}
+\DocumentationTok{\#\#  C:\textbackslash{}Users\textbackslash{}shizu\textbackslash{}AppData\textbackslash{}Local\textbackslash{}Temp\textbackslash{}RtmpoNGKG8\textbackslash{}downloaded\_packages}
 \FunctionTok{library}\NormalTok{(nycflights13)}
 \DocumentationTok{\#\# Warning: 패키지 \textquotesingle{}nycflights13\textquotesingle{}는 R 버전 4.1.3에서 작성되었습니다}
 \FunctionTok{head}\NormalTok{(flights) }\CommentTok{\# head 자료 수개를 보여줌}
@@ -3746,23 +3775,377 @@ inner join 작업도 수행해보자. full\_join과 동일하게 옵션을 설�
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{footnotes-and-citations}{%
-\chapter{Footnotes and citations}\label{footnotes-and-citations}}
+\hypertarget{graph}{%
+\chapter{데이터 시각화}\label{graph}}
 
-\hypertarget{footnotes}{%
-\section{Footnotes}\label{footnotes}}
+\hypertarget{uxb4e4uxc5b4uxac00uxba70-1}{%
+\section{들어가며}\label{uxb4e4uxc5b4uxac00uxba70-1}}
 
-Footnotes are put inside the square brackets after a caret \texttt{\^{}{[}{]}}. Like this one \footnote{This is a footnote.}.
+그래프는 강력하다. 10개의 표보다 잘 그린 그래프가 선명한 메시지를 전달한다. 그래프는 언제 필요할까? 많은 사람들이 연구 결과를 요약할 때만 그래프를 사용한다. 하지만 그래프는 데이터 전처리를 마친 후, 탐색적인 목적으로 활용될때 더욱 강점을 가진다. 내가 관심있는 변수의 분포는 어떠한지?, 이상치(outlier)는 없는지를 확인하는데 필요하다. 또한 변수간의 공분산covariance를 확인하는데도 그래프는 강력한 도구로 활용된다. 내가 미쳐 파악하지 못했던 변수간의 관계를 확인할 수 있다. 4장에서는 R의 또 다른 강점 중 하나인 데이터 시각화에 대해 알아보도록 하겠다.
 
-\hypertarget{citations}{%
-\section{Citations}\label{citations}}
+R의 내장함수에서도 간단한 그래프 작업이 가능하다. 그러나 복잡한 그래프를 그리거나, 보다 심미적인 형태의 그래프를 그리고 싶다면 별도의 패키지를 활용하는 것이 필요하다. 3장에서 다루었던 tidyverse의 하위 패키지 중 하나인 ggplot2가 대표적이다. 이 장에서는 ggplot2를 활용하여 데이터를 효과적으로 시각화하는 방법에 대해 알아보겠다.
 
-Reference items in your bibliography file(s) using \texttt{@key}.
+\hypertarget{ggplot2uxc758-uxc124uxce58-uxbc0f-uxc18cuxac1c}{%
+\section{ggplot2의 설치 및 소개}\label{ggplot2uxc758-uxc124uxce58-uxbc0f-uxc18cuxac1c}}
 
-For example, we are using the \textbf{bookdown} package \citep{R-bookdown} (check out the last code chunk in index.Rmd to see how this citation key was added) in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015} (this citation was added manually in an external file book.bib).
-Note that the \texttt{.bib} files need to be listed in the index.Rmd with the YAML \texttt{bibliography} key.
+\hypertarget{ggplot2-uxc124uxce58}{%
+\subsection{ggplot2 설치}\label{ggplot2-uxc124uxce58}}
 
-The RStudio Visual Markdown Editor can also make it easier to insert citations: \url{https://rstudio.github.io/visual-markdown-editing/\#/citations}
+다른 여타의 패키지와 마찬가지로 ggplot2는 install.packages(``\,``)로 설치가 가능하다. 단독패키지 설치도 가능하고 만일 tidyverse 설치가 되어있다면
+library(tidyverse)로 불러오기만 하면 된다.
+
+\hypertarget{ggplot2uxc758-uxc791uxb3d9-uxc6d0uxb9ac}{%
+\subsection{ggplot2의 작동 원리}\label{ggplot2uxc758-uxc791uxb3d9-uxc6d0uxb9ac}}
+
+ggplot2는 일종의 그래프를 그리는 문법을 갖고 있다. 이 문법은 일종의 layer를 쌓는 방식이다. 일러스트레이터와 같은 그림을 그리는 tool을 사용해본 사람들은 layer를 쌓는 방식에 익숙할 것이라 생각한다. 첫번째 layer에 스케치를 하고, 두번째 layer에 채색을, 세번째 layer에는 효과를 입히는 방식이다. layer라는 것은 일종의 투명한 도화지라고 생각하면 된다. 투명하기때문에 layer의 그림은 모두 보여지게 된다.
+좀더 구체적으로 ggplot2의 layer 구조를 알아보자. ggplot layer는 무한대로 쌓을 수 있으나, 기본적으로 포함되야 하는 layer는 다음과 같다.
+
+\begin{itemize}
+\tightlist
+\item
+  사용될 데이터 (data=)
+\item
+  x축과 y축에 사용될 변수 (aes(x,y))\footnote{그래프의 성걱에 따라 축의 개수는 1개, 2개 또는 3개가 가능하다}
+\item
+  그래프의 종류와 그래프의 심미적 요소(geom\_)
+\end{itemize}
+
+위의 layer에 더해 선택적으로 추가할 수 있는 layer는 다음과 같다.
+
+\begin{itemize}
+\tightlist
+\item
+  에러 바 (geom\_errorbar())
+\item
+  축의 scale (scale\_)
+\item
+  좌표 시스템 (coord\_)
+\item
+  그래프의 배경 (themes\_)
+\item
+  그래프의 분리 (facet\_)
+\item
+  축 라벨 (labs\_)
+\end{itemize}
+
+\hypertarget{uxbcc0uxc218uxc758-uxac2fuxc218-uxc720uxd615uxacfc-uxadf8uxb798uxd504-uxc885uxb958}{%
+\subsection{변수의 갯수, 유형과 그래프 종류}\label{uxbcc0uxc218uxc758-uxac2fuxc218-uxc720uxd615uxacfc-uxadf8uxb798uxd504-uxc885uxb958}}
+
+데이터를 시각화하는 작업은 매우 탐색적이다. 다시 말해 어떠한 변수(들)을 선택할지, 변수들의 어떠한 값을 어떻게 보여줄지에 따라 선택할 수 있는 그래프의 유형은 매우 다양하다.
+자료의 시각화를 위한 의사결정의 단계를 정리해보면 다음과 같다.
+
+\begin{itemize}
+\item
+  첫째, 변수의 갯수 : 하나의 변수의 빈도나 분포를 볼 것인가? 아니면 두개 이상의 변수의 관계를 볼 것인가?
+\item
+  둘째, 변수의 유형 : 선택한 변수의 유형이 무엇인가? 범주변수(categorical)인가? 순서형(ordinal)인가? 연속형(continuous)인가?
+\end{itemize}
+
+위의 내용이 결정되면 선택할 수 있는 그래프의 유형이 좁혀진다. 예를 들어, 변수의 갯수가 1개라면, scatter plot 그래프를 그리는 것이 불가능하다. 변수의 갯수가 2개 더라도 둘 다 범주변수라면 scatter plot을 그릴 수 없다. ggplot2를 배우는 초보자들에게 빈번하게 발생하는 실수가 이런 형태이다. 변수 갯수 및 유형과 그래프 유형과의 관계를 반드시 이해해야 한다.
+
+\hypertarget{uxbcc0uxc778uxc774-1uxac1cuxc778-graph}{%
+\section{변인이 1개인 graph}\label{uxbcc0uxc778uxc774-1uxac1cuxc778-graph}}
+
+\hypertarget{uxbcc0uxc778uxc774-uxc5f0uxc18duxd615continuousuxc778-uxacbduxc6b0}{%
+\subsection{변인이 연속형(continuous)인 경우}\label{uxbcc0uxc778uxc774-uxc5f0uxc18duxd615continuousuxc778-uxacbduxc6b0}}
+
+앞서 dplyr에서 작업했던 worker\_3 데이터를 활용하여 그래프를 그려보자. woker\_3 데이터의 w336\_01과 w336\_02는 각각 주당 정규 근로시간과 초과 근로시간을 의미한다. 근로시간은 0부터 시작되는 연속형 변수이기 때문에 이 변수를 x축으로 두고, y축은 빈도나 비율로 표현하는 히스토그램histogram과 밀도그래프(density)를 그릴 수 있다.
+
+\hypertarget{historam}{%
+\subsubsection{historam}\label{historam}}
+
+w336\_02(초과 근로시간)의 빈도분포를 알고 싶다면 히스토그램을 그려보면 된다. ggplot2에서 histogram을 그리기 위한 함수는 geom\_histogram이다. 앞서 설명한 ggplot2의 명령어구조를 떠올리며 아래 코드를 해석해보자.
+
+\begin{itemize}
+\tightlist
+\item
+  첫 줄은 ggplot()으로 OO데이터를 활용해서 그래프를 그리겠다는 첫번째 layer에 해당된다. 우리는 worker\_3\_se를 사용할 예정이기 때문에 괄호안에 해당 데이터프레임 이름을 적어준다.
+\item
+  다음 layer는 그래프의 유형, 그래프에서 사용할 변수, 그리고 기타 옵션지정이다. 편의상 옵션은 생략하고 그래프의 유형(histogram)과 변수(w336\_02)만 지정해주자. 히스토그램을 그리기 위한 명령어는 geom\_histogram()이다. 그리고 괄호안에는 aes(x=변수명)을 추가한다. 이때 aes는 aesthetic의 약자이다.
+\item
+  layer를 추가할때는 더하기(+)로 연결해준다.
+\item
+  산출되는 그래프를 별도의 객체로 지정하고 싶다면 -\textgreater{} 화살표를 이용해서 간단히 객체명을 기입하면 된다. 이렇게 하면 해당 객체명을 실행하면 언제든지 그래프를 불러올 수 있다.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(worker\_3\_se)}\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{w336\_02))}
+\DocumentationTok{\#\# \textasciigrave{}stat\_bin()\textasciigrave{} using \textasciigrave{}bins = 30\textasciigrave{}. Pick better value with \textasciigrave{}binwidth\textasciigrave{}.}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-62-1.pdf}
+
+위의 명령어를 실행하면 아마 다음과 같은 에러메시지를 볼 수 있을 것이다.
+
+\begin{itemize}
+\tightlist
+\item
+  `stat\_bin()' using `bins=30'. Pick better value with `binwidth'.
+\end{itemize}
+
+히스토그램에서 bin이란 빈도를 카운트하는 범주를 의미한다. 즉, 히스토그램의 막대 너비를 의미한다. 우리가 별도의 지정을 해주지 않았기 때문에 프로그램에서 자동으로 bin의 갯수를 30개(bins=30)로 지정했으니 더 나은 값을 지정해주라는 의미이다. 막대 너비를 지정하는 방식은 bin의 갯수를 지정하는 방식(bins=OO), 또는 bin의 너비를 지정하는(binwidth=OO) 방식이 있다. 통상 사용하는 binwidth를 지정하는 방식을 사용해보자. 1시간단위로 빈도를 보기 위해 binwidth=1로 지정하자. 이를 위해서는 geom\_histogram()에 해당 코드를 쉼표로 연결만 해주면 된다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(worker\_3\_se)}\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{w336\_02), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-63-1.pdf}
+이왕 이야기가 나온김에 몇가지의 옵션을 더 지정해보자. ggplot2에서는 기본적으로 면 색깔(fill), 면색깔의 투명도(alpha), 선 색깔(color), 선 종류(linetype) 등을 변형시킬 수 있다.
+
+\begin{itemize}
+\tightlist
+\item
+  색은 특정한 색의 명칭을 직접 기입하거나(따옴표 필수), RColorBrewer와 같이 RGB 값을 직접 기입하여 색을 지정할 수도 있다.
+\item
+  면 색(fill)은 투명도(alpha)를 조절할 수도 있다. 0\textasciitilde1사이의 값을 자유롭게 지정하면 된다. 0에 가까울수록 투명해진다
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(worker\_3\_se)}\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{w336\_02), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-64-1.pdf}
+
+만일 x축과 y축의 명칭을 수정하거나, 그래프의 제목을 달고 싶다면 어떻게 해야 할까? 마찬가지로 layer를 추가해주면 된다. 이때 쓰이는 명령어는 labs(title=````, x=''``, y=''``)이다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(worker\_3\_se)}\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{w336\_02), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"근로자의 주당 초과근로시간"}\NormalTok{, }\AttributeTok{x=}\StringTok{"주당 초과근로시간"}\NormalTok{, }\AttributeTok{y=}\StringTok{"빈도(명)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-65-1.pdf}
+
+그래프의 배경을 변경하고 싶다면 theme\_ 명령어를 사용하도록 한다. 마찬가지로 layer를 추가해주면 된다. theme\_minimal() layer를 추가하여 배경을 최소화하기 위해서는 아래와 같이 코드를 작성하면 된다.\\
+* theme\_grey() : 회색 배경 (defalut)
+* theme\_bw() : 하얀 배경에 격자무늬
+* theme\_classic() : 하얀 배경에 격자무늬 없음
+* theme\_minimal() : 배경 최소화
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(worker\_3\_se)}\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{w336\_02), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"근로자의 주당 초과근로시간"}\NormalTok{, }\AttributeTok{x=}\StringTok{"주당 초과근로시간"}\NormalTok{, }\AttributeTok{y=}\StringTok{"빈도(명)"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}\OtherTok{{-}\textgreater{}}\NormalTok{plot4}
+\NormalTok{plot4}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-66-1.pdf}
+이제 ggplot2의 명령어 구조에 대해서 어느정도 감을 잡았을 것이라 생각한다. 다른 그래프들도 명령어 구조가 거의 유사하기 때문에 쉽게 응용할 수 있을 것이다. 좀 더 심화된 과정으로 ggplot2와 dplyr의 결합방식을 알아보도록 하자.
+
+바로 윗 단락에서 확인했던 히스토그램을 보면 -10으로 응답한 사람들이 몇명 있는 것을 확인할 수 있다. 보통 패널데이터의 마이너스 값은 무응답 등과 같은 결측치이다. 결측치를 제거하고 그래프를 그리기 위해서 dplyr를 활용해 바로 데이터를 변형하여 그래프를 그려보도록 하자.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(w336\_02}\SpecialCharTok{\textgreater{}=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}
+  \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{w336\_02, }\AttributeTok{y=}\NormalTok{..density..), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"근로자의 주당 초과근로시간"}\NormalTok{, }\AttributeTok{x=}\StringTok{"주당 초과근로시간"}\NormalTok{, }\AttributeTok{y=}\StringTok{"빈도(명)"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}\OtherTok{{-}\textgreater{}}\NormalTok{plot5}
+\end{Highlighting}
+\end{Shaded}
+
+복잡해보이지만 dplyr의 chain operator를 사용하여 간단히 데이터 필터링(w336\_02가 0보다 같거나 큰 case만 선택)한 후에 ggplot() 구문을 결합하는 구조이다. 간혹 ggplot() 구문에 레이어를 추가할때 +이 아닌 \%\textgreater\% 을 쓰는 실수가 발생하는데 이것만 주의한다면 데이터 변형도 쉽게 진행할 수 있다. ggplot2의 장점은 이렇게 dpyr와 결합하여 데이터의 실제 변형 없이 임시적인 변형으로 그래프를 그릴 수 있다는 것이다.
+
+다른 형태의 데이터 변형도 시도해보자. 당초 우리의 관심 변수가 주당 정규근로시간(w336\_01)과 추가근로시간(w336\_02)였다. 이를 합산하여 workingHour라는 변수를 생성하여 히스토그램을 그려보자. 아래 코드를 보면 (1)worker\_3\_se 데이터를 가져와서 (2) 주당근로시간 변수들이 0 이상인 관측치만 필터링 해서 (3) histogram을 그리라는 흐름을 갖고 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(w336\_02}\SpecialCharTok{\textgreater{}=}\DecValTok{0} \SpecialCharTok{\&}\NormalTok{ w336\_01}\SpecialCharTok{\textgreater{}=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{whour=}\NormalTok{w336\_01}\SpecialCharTok{+}\NormalTok{w336\_02) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"근로자의 주당 근로시간"}\NormalTok{, }\AttributeTok{x=}\StringTok{"주당 근로시간"}\NormalTok{, }\AttributeTok{y=}\StringTok{"빈도(명)"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-68-1.pdf}
+히스토그램에서 y축을 빈도가 아닌 비율로 바꿀 수도 있다. aes(y=) 옵션에서 이를 해결할 수 있다. aes(y=..density..) 옵션을 추가하면된다. y축을 density로 변형시킨다는 것은 bin의 관측치수/전체 관측치수를 의미한다. 즉, 해당 bin의 사례수가 전체 사례의 몇 \%를 차지하는지 확인할 수 있다. 참고로 density 앞뒤에 마침표 두개(..)를 반드시 붙여야 일반적인 변수명과 구분이 된다는 점을 기억하자. 만일 마침표를 붙이지 않는다면 R은 density라는 이름의 변수를 y축에 할당하려고 해서 에러가 발생한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(w336\_02}\SpecialCharTok{\textgreater{}=}\DecValTok{0} \SpecialCharTok{\&}\NormalTok{ w336\_01}\SpecialCharTok{\textgreater{}=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{whour=}\NormalTok{w336\_01}\SpecialCharTok{+}\NormalTok{w336\_02) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour, }\AttributeTok{y=}\NormalTok{..density..), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"근로자의 주당 근로시간"}\NormalTok{, }\AttributeTok{x=}\StringTok{"주당 근로시간"}\NormalTok{, }\AttributeTok{y=}\StringTok{"density"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-69-1.pdf}
+
+\hypertarget{density-curve}{%
+\subsubsection{density curve}\label{density-curve}}
+
+연속형 변수 1개로 표현할 수 있는 그래프중 하나는 density curve이다. density curve는 x축 변수의 확률(probability)를 의미한다. 따라서 curve의 면적을 모두 더하면 100\%, 즉 1의 확률이 된다. density curve는 변수의 분포를 확인할때 사용되며, 다음과 같이 해석한다.
+
+\begin{itemize}
+\tightlist
+\item
+  density curve의 y축은 확률이다
+\item
+  density curve의 면적의 합은 1이다.
+\item
+  density curve가 왼쪽으로 skewed 되어 있다면, 평균값이 중앙값보다 작다는 것을 의미한다.
+\item
+  density curve가 오른쪽으로 skewed 되어 있다면 평균값이 중앙값보다 크다는 것을 의미한다.
+\item
+  density curve가 skewed 되어 있지 않다면 평균값과 중앙값이 같음을 의미한다.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(w336\_02}\SpecialCharTok{\textgreater{}=}\DecValTok{0} \SpecialCharTok{\&}\NormalTok{ w336\_01}\SpecialCharTok{\textgreater{}=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{whour=}\NormalTok{w336\_01}\SpecialCharTok{+}\NormalTok{w336\_02) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_density}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour), }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"근로자의 주당 근로시간 "}\NormalTok{, }\AttributeTok{x=}\StringTok{"주당 근로시간"}\NormalTok{, }\AttributeTok{y=}\StringTok{"density"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-70-1.pdf}
+
+산출된 density curve를 보니 왼쪽으로 상당히 skewed 되어 있는 모습이다. 여기에 mean 값을 표현하는 그래프를 layer로 추가해보도록 하자. 그래프에 특정 값을 수직선으로 표현하기 위해서는 geom\_vline(aes(xintercept=))의 명령어를 사용하면 된다. 수직선의 색을 파란색, 선 유형은 점선으로 옵션을 지정해보자.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(w336\_02}\SpecialCharTok{\textgreater{}=}\DecValTok{0} \SpecialCharTok{\&}\NormalTok{ w336\_01}\SpecialCharTok{\textgreater{}=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{whour=}\NormalTok{w336\_01}\SpecialCharTok{+}\NormalTok{w336\_02) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_density}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour), }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}\FunctionTok{geom\_vline}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{xintercept=}\FunctionTok{mean}\NormalTok{(whour)), }\AttributeTok{color=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{linetype=}\StringTok{"dashed"}\NormalTok{, }\AttributeTok{size=}\DecValTok{1}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"근로자의 주당 근로시간 "}\NormalTok{, }\AttributeTok{x=}\StringTok{"주당 근로시간"}\NormalTok{, }\AttributeTok{y=}\StringTok{"density"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-71-1.pdf}
+
+\hypertarget{histogram-density-curve}{%
+\subsubsection{histogram + density curve}\label{histogram-density-curve}}
+
+ggplot2의 장점은 layer를 무한대로 쌓을 수 있어 여러개의 그래프를 겹쳐서 그릴 수 있다는 점이다. 위에서 살펴본 histogram과 density curve를 하나의 그래프에 표현해보자. 간단하게 + 기호로 두개의 geom\_ 명령어를 합치기만 하면 된다. 주의 할점은 두개 이상의 그래프를 겹칠때 x축과 y축은 모두 동일한 변수 또는 통계값이어야 한다는 것이다. geom\_histogram의 default는 빈도수(count)이기 때문에 aes(y=..density..) 옵션을 활용해서 y축을 density curve와 동일하게 맞추어야 한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(w336\_02}\SpecialCharTok{\textgreater{}=}\DecValTok{0} \SpecialCharTok{\&}\NormalTok{ w336\_01}\SpecialCharTok{\textgreater{}=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{whour=}\NormalTok{w336\_01}\SpecialCharTok{+}\NormalTok{w336\_02) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_density}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour), }\AttributeTok{linetype=}\StringTok{"dashed"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.1}\NormalTok{)}\SpecialCharTok{+}\FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour, }\AttributeTok{y=}\NormalTok{..density..), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{, }\AttributeTok{color=}\StringTok{"black"}\NormalTok{, }\AttributeTok{fill=}\StringTok{"skyblue"}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.2}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title=}\StringTok{"근로자의 주당 근로시간 비중"}\NormalTok{, }\AttributeTok{x=}\StringTok{"주당 근로시간"}\NormalTok{, }\AttributeTok{y=}\StringTok{"density"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-72-1.pdf}
+
+\hypertarget{uxc9d1uxb2e8uxbe44uxad50}{%
+\subsubsection{집단비교}\label{uxc9d1uxb2e8uxbe44uxad50}}
+
+근로자의 주당 근로시간이 대체로 40\textasciitilde52시간 사이에 몰린 오른쪽 꼬리가 긴 분포를 갖고있는 것을 확인했다. 다음 질문은 혹시 성별에 따라 주당 근로시간에 차이가 있을것인가 이다. 통상적으로 여성의 가사부담시간이 많으므로 여성의 주당근로시간의 분포가 좀더 적을것이라 예측할 수 있다. 간단히 평균의 차이를 보는것도 방법이지만, 그래프로 분포를 보면 더욱 많은 정보를 확인할 수 있다.
+ggplot2는 성별과 같은 변수에 따라 색이나 linetype을 다르게 하여 시각적인 집단 구분을 가능케 해준다. 먼저 작업해야 할 것은 성별 등의 집단변수를 factor 변수로 만들어주는 일이다. 여기서 tidyverse 패키지군 중에 또 하나의 유용한 패키지은 forcats을 소개하도록 하겠다. forcats(for catagorical variable의 약자)는 초보자에게 많은 시련을 안겨주는 factor형 변수를 조작하는데 아주 유용한 패키지이다. 직관적이며, 쉬운 코드 구조를 자랑한다.
+
+우선 데이터(worker3\_se)에서 성별 변수(w3\_sex)를 찾아보자. 변수가 숫자형(numeric)인지 팩터형 변수로 저장되어 있는지를 확인하기 위해서는 str 명령어를 활용하면 된다. 또한 missing 값들이 엉뚱한 값으로 코딩되어 있을 수도 있으니 count 명령어를 통해 대략적인 값별 빈도를 알아보자.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{str}\NormalTok{(worker\_3\_se}\SpecialCharTok{$}\NormalTok{w3\_sex)}
+\DocumentationTok{\#\#  int [1:10019] 1 1 1 2 1 1 2 1 1 1 ...}
+\NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{count}\NormalTok{(w3\_sex)}
+\DocumentationTok{\#\#   w3\_sex    n}
+\DocumentationTok{\#\# 1     {-}9   10}
+\DocumentationTok{\#\# 2      1 8124}
+\DocumentationTok{\#\# 3      2 1885}
+\end{Highlighting}
+\end{Shaded}
+
+결과를 살펴보면 숫자형의 일종인 정수형(int)으로 표현 되어 있고(1 또는 2의 값), 성별 불상인 10명이 -9로 코딩되어 있는 것을 확인할 수 있다. 따라서 우리는 세 단계의 작업을 수행해야 한다.
+
+\begin{itemize}
+\tightlist
+\item
+  filter 함수를 활용해서 성별 불상인 10명을 제거
+\item
+  mutate와 as\_factor를 활용해서 w3\_sex를 factor형 변수로 변환하고 변수명을 gender로 변환
+\item
+  mutate와 fct\_recode를 활용해서 level의 값을 수정한다. fct\_recode는 level의 순서변경이나 명칭변경, 병합등의 강력한 기능을 갖고 있다. 여기서는 1의 값에 male, 2의 값에 female의 레벨 정보를 부여하였다.
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_se }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(w336\_02}\SpecialCharTok{\textgreater{}=}\DecValTok{0} \SpecialCharTok{\&}\NormalTok{ w336\_01}\SpecialCharTok{\textgreater{}=}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{whour=}\NormalTok{w336\_01}\SpecialCharTok{+}\NormalTok{w336\_02) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{filter}\NormalTok{(w3\_sex}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{gender=}\FunctionTok{as\_factor}\NormalTok{(w3\_sex)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{mutate}\NormalTok{(}\AttributeTok{gender=}\FunctionTok{fct\_recode}\NormalTok{(gender, }\AttributeTok{male=}\StringTok{"1"}\NormalTok{, }\AttributeTok{female=}\StringTok{"2"}\NormalTok{))}\OtherTok{{-}\textgreater{}}\NormalTok{ worker\_3\_fa}
+\FunctionTok{str}\NormalTok{(worker\_3\_fa}\SpecialCharTok{$}\NormalTok{gender)}
+\DocumentationTok{\#\#  Factor w/ 2 levels "male","female": 1 1 1 2 1 1 2 1 1 1 ...}
+\end{Highlighting}
+\end{Shaded}
+
+성별변수를 팩터형 변수로 전환하였으니, 이제 성별에 따른 주당 근로시간을 비교하는 그래프를 그려보자. 집단에 따라 구분된 그래프를 그리는 방법은 크게 두가지가 있다.
+
+\begin{itemize}
+\item
+  하나의 패널에 집단별로 색깔, 선모양 등으로 그래프를 구분하여 그리는 방법 : aes(fill=gender) 등의 명령어로 처리 가능
+\item
+  두개의 패널에 집단별 그래프를 각각 그리는 방법: facet\_wrap(\textasciitilde gender) 등의 명령어로 처리 가능
+\end{itemize}
+
+가장 간단한 히스토그램부터 시작해보자. 한개의 패널에 여러집단의 그래프를 동시에 그리는 것은 aes 옵션안에 fill=gender 등을 삽입하여 간단히 수행할 수 있다. 만일 선의 색깔로 집단별 그래프를 구분하고 싶다면 color=gender 옵션을 사용하는 식이다. position=``dodge''는 여러분이 처음 접하는 옵션일 것이다. 만일 이 옵션이 없이 아래 명령어를 실행하면 여성과 남성의 근로시간이 하나의 막대에 표현된다. 우리는 누적 빈도에는 관심이 없으니 막대를 분리하기 위해 position=``dodge'' 명령어를 쓴다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_fa }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour, }\AttributeTok{fill=}\NormalTok{gender), }\AttributeTok{position=}\StringTok{"dodge"}\NormalTok{)}
+\DocumentationTok{\#\# \textasciigrave{}stat\_bin()\textasciigrave{} using \textasciigrave{}bins = 30\textasciigrave{}. Pick better value with \textasciigrave{}binwidth\textasciigrave{}.}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-75-1.pdf}
+
+그래프 출력결과를 살펴보면 뭔가 이상하다. 우리는 여성이 남성에 비해 근로시간이 짧다는 것을 확인하고 싶었는데, y축이 빈도이다 보니 사례수가 압도적으로 많은 남성이 어떤 구간에서나 빈도가 많은 것처럼 보인다. 따라서 y축을 density(y=..density..)로 바꾸어서 그려보자. 또한 좀더 조밀하게 보기 위해 bin의 너비를 1로 지정해보자(binwidth=1)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_fa }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour, }\AttributeTok{y=}\NormalTok{..density.., }\AttributeTok{fill=}\NormalTok{gender), }\AttributeTok{position=}\StringTok{"dodge"}\NormalTok{, }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-76-1.pdf}
+두번째로 복수의 패널에 집단별 그래프를 분리해서 그리는 방법을 알아보자. 이때는 aes() 옵션을 사용하지 않고 facet\_wrap(\textasciitilde 집단변수명)으로 layer를 추가 생성한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{worker\_3\_fa }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{ggplot}\NormalTok{()}\SpecialCharTok{+}\FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{whour, }\AttributeTok{y=}\NormalTok{..density..), }\AttributeTok{binwidth=}\DecValTok{1}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{gender)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-77-1.pdf}
+
+\hypertarget{uxbcc0uxc778uxc774-2uxac1cuxc778-graph}{%
+\section{변인이 2개인 graph}\label{uxbcc0uxc778uxc774-2uxac1cuxc778-graph}}
 
 \hypertarget{blocks}{%
 \chapter{Blocks}\label{blocks}}
