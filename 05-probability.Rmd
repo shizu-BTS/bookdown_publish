@@ -1,4 +1,10 @@
-# Blocks
+# 추론통계과 가설검정 {#probability}
+
+
+>
+>
+>
+>
 
 ## Equations
 

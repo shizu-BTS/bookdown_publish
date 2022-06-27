@@ -1,6 +1,6 @@
 --- 
-title: "A Minimal Book Example"
-author: "John Doe"
+title: "R을 활용한 산업인력개발통계"
+author: "Su Jung Choi (Seoul National University)"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
