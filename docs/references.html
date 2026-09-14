@@ -5,38 +5,32 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>References | R을 활용한 산업인력개발통계</title>
-  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
-  <meta name="generator" content="bookdown 0.26 and GitBook 2.6.7" />
+  <meta name="description" content="This book is an ongoing work in progress. It is intended for use only as material for the Department of Vocational Education and Workforce Development at Seoul National University. Any other use is prohibited." />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
 
   <meta property="og:title" content="References | R을 활용한 산업인력개발통계" />
   <meta property="og:type" content="book" />
   
-  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta property="og:description" content="This book is an ongoing work in progress. It is intended for use only as material for the Department of Vocational Education and Workforce Development at Seoul National University. Any other use is prohibited." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="References | R을 활용한 산업인력개발통계" />
   
-  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
-The HTML output format for this example is bookdown::gitbook,
-set in the _output.yml file.</p>" />
+  <meta name="twitter:description" content="This book is an ongoing work in progress. It is intended for use only as material for the Department of Vocational Education and Workforce Development at Seoul National University. Any other use is prohibited." />
   
 
 <meta name="author" content="Su Jung Choi (Seoul National University)" />
 
 
-<meta name="date" content="2022-06-27" />
+<meta name="date" content="2026-09-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sharing-your-book.html"/>
+<link rel="prev" href="regression-1.html"/>
 
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -61,6 +55,7 @@ set in the _output.yml file.</p>" />
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -98,7 +93,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -111,7 +106,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -125,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -139,113 +138,226 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./"> Intuitive Regression Analysis in Workforce Development</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> About</a>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#usage"><i class="fa fa-check"></i><b>1.1</b> Usage</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#render-book"><i class="fa fa-check"></i><b>1.2</b> Render book</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#preview-book"><i class="fa fa-check"></i><b>1.3</b> Preview book</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r%EC%9D%84-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%ED%95%A0%EA%B9%8C"><i class="fa fa-check"></i><b>1.1</b> R을 왜 사용해야할까?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#%EC%9D%B4-%EC%B1%85%EC%9D%98-%EA%B5%AC%EC%84%B1"><i class="fa fa-check"></i><b>1.2</b> 이 책의 구성</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#%EB%B6%80.-r%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i>1부. R의 기초 이해</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#%EB%B6%80.-r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B8%B0%EC%B4%88-%EB%8B%A4%EB%B3%80%EB%9F%89-%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i>2부. R을 활용한 기초 다변량 분석</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#r을-왜-사용해야할까"><i class="fa fa-check"></i><b>2.1</b> R을 왜 사용해야할까?</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#이-책의-구성"><i class="fa fa-check"></i><b>2.2</b> 이 책의 구성</a>
-<ul>
-<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#부.-r의-기초-이해"><i class="fa fa-check"></i>1부. R의 기초 이해</a></li>
-<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#부.-r을-활용한-기초-다변량-분석"><i class="fa fa-check"></i>2부. R을 활용한 기초 다변량 분석</a></li>
-<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#부.-실전데이터를-활용한-분석-사례"><i class="fa fa-check"></i>3부. 실전데이터를 활용한 분석 사례</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#%EB%B0%B0%EC%9A%B0%EC%A7%80-%EC%95%8A%EB%8A%94-%EB%82%B4%EC%9A%A9%EB%93%A4"><i class="fa fa-check"></i><b>1.3</b> 배우지 않는 내용들</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#%EB%8B%B9%EB%B6%80%EC%9D%98-%EB%A7%90"><i class="fa fa-check"></i><b>1.4</b> 당부의 말</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#배우지-않는-내용들"><i class="fa fa-check"></i><b>2.3</b> 배우지 않는 내용들</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#당부의-말"><i class="fa fa-check"></i><b>2.4</b> 당부의 말</a></li>
+<li class="chapter" data-level="2" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>2</b> R 자료 구조의 이해</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data.html"><a href="data.html#%EB%AA%85%EB%A0%B9%EC%96%B4%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%9E%90%EB%A3%8C-%EC%9E%85%EB%A0%A5"><i class="fa fa-check"></i><b>2.1</b> 명령어의 구조와 자료 입력</a></li>
+<li class="chapter" data-level="2.2" data-path="data.html"><a href="data.html#r%EC%97%90%EC%84%9C-%EC%93%B0%EC%9D%B4%EB%8A%94-%EC%9E%90%EB%A3%8C%EC%9D%98-%EC%9C%A0%ED%98%95"><i class="fa fa-check"></i><b>2.2</b> R에서 쓰이는 자료의 유형</a></li>
+<li class="chapter" data-level="2.3" data-path="data.html"><a href="data.html#r%EC%97%90%EC%84%9C-%EC%93%B0%EC%9D%B4%EB%8A%94-%EC%9E%90%EB%A3%8C%EC%9D%98-%EA%B5%AC%EC%A1%B0"><i class="fa fa-check"></i><b>2.3</b> R에서 쓰이는 자료의 구조</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="data.html"><a href="data.html#%EC%8A%A4%EC%B9%BC%EB%9D%BC-scala"><i class="fa fa-check"></i><b>2.3.1</b> 스칼라 scala</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data.html"><a href="data.html#%EB%B2%A1%ED%84%B0-vector"><i class="fa fa-check"></i><b>2.3.2</b> 벡터 vector</a></li>
+<li class="chapter" data-level="2.3.3" data-path="data.html"><a href="data.html#%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4-matrix"><i class="fa fa-check"></i><b>2.3.3</b> 매트릭스 matrix</a></li>
+<li class="chapter" data-level="2.3.4" data-path="data.html"><a href="data.html#%EB%B0%B0%EC%97%B4-array"><i class="fa fa-check"></i><b>2.3.4</b> 배열 array</a></li>
+<li class="chapter" data-level="2.3.5" data-path="data.html"><a href="data.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84-dataframe"><i class="fa fa-check"></i><b>2.3.5</b> 데이터프레임 dataframe</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> R 자료 구조의 이해</a>
-<ul>
-<li class="chapter" data-level="3.1" data-path="data.html"><a href="data.html#명령어의-구조와-자료-입력"><i class="fa fa-check"></i><b>3.1</b> 명령어의 구조와 자료 입력</a></li>
-<li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#r에서-쓰이는-자료의-유형"><i class="fa fa-check"></i><b>3.2</b> R에서 쓰이는 자료의 유형</a></li>
-<li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#r에서-쓰이는-자료의-구조"><i class="fa fa-check"></i><b>3.3</b> R에서 쓰이는 자료의 구조</a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="data.html"><a href="data.html#스칼라-scala"><i class="fa fa-check"></i><b>3.3.1</b> 스칼라 scala</a></li>
-<li class="chapter" data-level="3.3.2" data-path="data.html"><a href="data.html#벡터-vector"><i class="fa fa-check"></i><b>3.3.2</b> 벡터 vector</a></li>
-<li class="chapter" data-level="3.3.3" data-path="data.html"><a href="data.html#매트릭스-matrix"><i class="fa fa-check"></i><b>3.3.3</b> 매트릭스 matrix</a></li>
-<li class="chapter" data-level="3.3.4" data-path="data.html"><a href="data.html#배열-array"><i class="fa fa-check"></i><b>3.3.4</b> 배열 array</a></li>
-<li class="chapter" data-level="3.3.5" data-path="data.html"><a href="data.html#데이터프레임-dataframe"><i class="fa fa-check"></i><b>3.3.5</b> 데이터프레임 dataframe</a></li>
+<li class="chapter" data-level="2.4" data-path="data.html"><a href="data.html#factor-%EB%B3%80%EC%88%98"><i class="fa fa-check"></i><b>2.4</b> factor 변수</a></li>
+<li class="chapter" data-level="2.5" data-path="data.html"><a href="data.html#na%EC%99%80-null"><i class="fa fa-check"></i><b>2.5</b> NA와 NULL</a></li>
+<li class="chapter" data-level="2.6" data-path="data.html"><a href="data.html#r-%EB%82%B4%EC%9E%A5%ED%95%A8%EC%88%98%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B8%B0%EC%88%A0%ED%86%B5%EA%B3%84%EB%9F%89-%EC%82%B0%EC%B6%9C"><i class="fa fa-check"></i><b>2.6</b> R 내장함수를 활용한 기술통계량 산출</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="data.html"><a href="data.html#factor-변수"><i class="fa fa-check"></i><b>3.4</b> factor 변수</a></li>
-<li class="chapter" data-level="3.5" data-path="data.html"><a href="data.html#na와-null"><i class="fa fa-check"></i><b>3.5</b> NA와 NULL</a></li>
-<li class="chapter" data-level="3.6" data-path="data.html"><a href="data.html#r-내장함수를-활용한-기술통계량-산출"><i class="fa fa-check"></i><b>3.6</b> R 내장함수를 활용한 기술통계량 산출</a></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> 데이터 전처리</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="literature.html"><a href="literature.html#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0"><i class="fa fa-check"></i><b>3.1</b> 들어가며</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="literature.html"><a href="literature.html#%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.1</b> 패키지 준비하기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85%EA%B3%B5%EA%B0%84-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업공간 설정하기</a></li>
+<li class="chapter" data-level="3.1.3" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.3</b> 데이터 불러오기</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>4</b> 데이터 전처리</a>
+<li class="chapter" data-level="3.2" data-path="literature.html"><a href="literature.html#dplyr-%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>3.2</b> dplyr 패키지의 이해</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="literature.html"><a href="literature.html#들어가며"><i class="fa fa-check"></i><b>4.1</b> 들어가며</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="literature.html"><a href="literature.html#패키지-준비하기"><i class="fa fa-check"></i><b>4.1.1</b> 패키지 준비하기</a></li>
-<li class="chapter" data-level="4.1.2" data-path="literature.html"><a href="literature.html#작업공간-설정하기"><i class="fa fa-check"></i><b>4.1.2</b> 작업공간 설정하기</a></li>
-<li class="chapter" data-level="4.1.3" data-path="literature.html"><a href="literature.html#데이터-불러오기"><i class="fa fa-check"></i><b>4.1.3</b> 데이터 불러오기</a></li>
+<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#chain-operator"><i class="fa fa-check"></i><b>3.2.1</b> chain operator</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="literature.html"><a href="literature.html#dplyr-패키지의-이해"><i class="fa fa-check"></i><b>4.2</b> dplyr 패키지의 이해</a>
+<li class="chapter" data-level="3.3" data-path="literature.html"><a href="literature.html#dplyr%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5"><i class="fa fa-check"></i><b>3.3</b> dplyr의 주요 기능</a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="literature.html"><a href="literature.html#chain-operator"><i class="fa fa-check"></i><b>4.2.1</b> chain operator</a></li>
+<li class="chapter" data-level="3.3.1" data-path="literature.html"><a href="literature.html#filter"><i class="fa fa-check"></i><b>3.3.1</b> filter</a></li>
+<li class="chapter" data-level="3.3.2" data-path="literature.html"><a href="literature.html#select"><i class="fa fa-check"></i><b>3.3.2</b> select</a></li>
+<li class="chapter" data-level="3.3.3" data-path="literature.html"><a href="literature.html#arrange"><i class="fa fa-check"></i><b>3.3.3</b> arrange</a></li>
+<li class="chapter" data-level="3.3.4" data-path="literature.html"><a href="literature.html#mutate"><i class="fa fa-check"></i><b>3.3.4</b> mutate</a></li>
+<li class="chapter" data-level="3.3.5" data-path="literature.html"><a href="literature.html#group_by%EC%99%80-summarise"><i class="fa fa-check"></i><b>3.3.5</b> group_by와 summarise</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="literature.html"><a href="literature.html#dplyr의-주요-기능"><i class="fa fa-check"></i><b>4.3</b> dplyr의 주요 기능</a>
+<li class="chapter" data-level="3.4" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.4</b> 데이터 결합하기</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="literature.html"><a href="literature.html#filter"><i class="fa fa-check"></i><b>4.3.1</b> filter</a></li>
-<li class="chapter" data-level="4.3.2" data-path="literature.html"><a href="literature.html#select"><i class="fa fa-check"></i><b>4.3.2</b> select</a></li>
-<li class="chapter" data-level="4.3.3" data-path="literature.html"><a href="literature.html#arrange"><i class="fa fa-check"></i><b>4.3.3</b> arrange</a></li>
-<li class="chapter" data-level="4.3.4" data-path="literature.html"><a href="literature.html#mutate"><i class="fa fa-check"></i><b>4.3.4</b> mutate</a></li>
-<li class="chapter" data-level="4.3.5" data-path="literature.html"><a href="literature.html#group_by와-summarise"><i class="fa fa-check"></i><b>4.3.5</b> group_by와 summarise</a></li>
+<li class="chapter" data-level="3.4.1" data-path="literature.html"><a href="literature.html#bind_cols%EC%99%80-bind_rows%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.4.1</b> bind_cols와 bind_rows로 데이터 결합하기</a></li>
+<li class="chapter" data-level="3.4.2" data-path="literature.html"><a href="literature.html#join%EC%9C%BC%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.4.2</b> join으로 데이터 결합하기</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="literature.html"><a href="literature.html#데이터-결합하기"><i class="fa fa-check"></i><b>4.4</b> 데이터 결합하기</a>
+<li class="chapter" data-level="3.5" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%83%80%EC%9D%B4%EB%94%94%ED%95%98%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0-pivot_longer%EC%99%80-pivot_wider"><i class="fa fa-check"></i><b>3.5</b> 데이터를 타이디하게 만들기 : pivot_longer와 pivot_wider</a>
 <ul>
-<li class="chapter" data-level="4.4.1" data-path="literature.html"><a href="literature.html#bind_cols와-bind_rows로-데이터-결합하기"><i class="fa fa-check"></i><b>4.4.1</b> bind_cols와 bind_rows로 데이터 결합하기</a></li>
-<li class="chapter" data-level="4.4.2" data-path="literature.html"><a href="literature.html#join으로-데이터-결합하기"><i class="fa fa-check"></i><b>4.4.2</b> join으로 데이터 결합하기</a></li>
+<li class="chapter" data-level="3.5.1" data-path="literature.html"><a href="literature.html#%EA%B8%B8%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0-pivot_longer-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.5.1</b> 길게 만들기 : pivot_longer 활용하기</a></li>
+<li class="chapter" data-level="3.5.2" data-path="literature.html"><a href="literature.html#%EB%84%93%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0-pivot_wider-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.5.2</b> 넓게 만들기 : pivot_wider 활용하기</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="literature.html"><a href="literature.html#데이터를-타이디하게-만들기-pivot_longer와-pivot_wider"><i class="fa fa-check"></i><b>4.5</b> 데이터를 타이디하게 만들기 : pivot_longer와 pivot_wider</a>
+<li class="chapter" data-level="3.6" data-path="literature.html"><a href="literature.html#%ED%8C%A8%EB%84%90%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%B2%98%EB%A6%AC-%EC%8B%A4%EC%8A%B5"><i class="fa fa-check"></i><b>3.6</b> 패널데이터를 활용한 데이터 전처리 실습</a>
 <ul>
-<li class="chapter" data-level="4.5.1" data-path="literature.html"><a href="literature.html#길게-만들기-pivot_longer-활용하기"><i class="fa fa-check"></i><b>4.5.1</b> 길게 만들기 : pivot_longer 활용하기</a></li>
-<li class="chapter" data-level="4.5.2" data-path="literature.html"><a href="literature.html#넓게-만들기-pivot_wider-활용하기"><i class="fa fa-check"></i><b>4.5.2</b> 넓게 만들기 : pivot_wider 활용하기</a></li>
-</ul></li>
-<li class="chapter" data-level="4.6" data-path="literature.html"><a href="literature.html#패널데이터를-활용한-데이터-전처리-실습"><i class="fa fa-check"></i><b>4.6</b> 패널데이터를 활용한 데이터 전처리 실습</a>
-<ul>
-<li class="chapter" data-level="4.6.1" data-path="literature.html"><a href="literature.html#데이터의-이해"><i class="fa fa-check"></i><b>4.6.1</b> 데이터의 이해</a></li>
-<li class="chapter" data-level="4.6.2" data-path="literature.html"><a href="literature.html#데이터의-불러오기import"><i class="fa fa-check"></i><b>4.6.2</b> 데이터의 불러오기(import)</a></li>
-<li class="chapter" data-level="4.6.3" data-path="literature.html"><a href="literature.html#필요한-변수만-선택select"><i class="fa fa-check"></i><b>4.6.3</b> 필요한 변수만 선택(select)</a></li>
-<li class="chapter" data-level="4.6.4" data-path="literature.html"><a href="literature.html#기업-데이터-결합one-to-one-match"><i class="fa fa-check"></i><b>4.6.4</b> 기업 데이터 결합(one-to-one match)</a></li>
-<li class="chapter" data-level="4.6.5" data-path="literature.html"><a href="literature.html#근로자-기업-데이터-결합one-to-many-match"><i class="fa fa-check"></i><b>4.6.5</b> 근로자-기업 데이터 결합(one-to-many match)</a></li>
+<li class="chapter" data-level="3.6.1" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>3.6.1</b> 데이터의 이해</a></li>
+<li class="chapter" data-level="3.6.2" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0import"><i class="fa fa-check"></i><b>3.6.2</b> 데이터의 불러오기(import)</a></li>
+<li class="chapter" data-level="3.6.3" data-path="literature.html"><a href="literature.html#%ED%95%84%EC%9A%94%ED%95%9C-%EB%B3%80%EC%88%98%EB%A7%8C-%EC%84%A0%ED%83%9Dselect"><i class="fa fa-check"></i><b>3.6.3</b> 필요한 변수만 선택(select)</a></li>
+<li class="chapter" data-level="3.6.4" data-path="literature.html"><a href="literature.html#%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-one-match"><i class="fa fa-check"></i><b>3.6.4</b> 기업 데이터 결합(one-to-one match)</a></li>
+<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-many-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(one-to-many match)</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="graph.html"><a href="graph.html"><i class="fa fa-check"></i><b>5</b> 데이터 시각화</a>
+<li class="chapter" data-level="4" data-path="graph.html"><a href="graph.html"><i class="fa fa-check"></i><b>4</b> 데이터 시각화</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="graph.html"><a href="graph.html#들어가며-1"><i class="fa fa-check"></i><b>5.1</b> 들어가며</a></li>
-<li class="chapter" data-level="5.2" data-path="graph.html"><a href="graph.html#ggplot2의-설치-및-소개"><i class="fa fa-check"></i><b>5.2</b> ggplot2의 설치 및 소개</a>
+<li class="chapter" data-level="4.1" data-path="graph.html"><a href="graph.html#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0-1"><i class="fa fa-check"></i><b>4.1</b> 들어가며</a></li>
+<li class="chapter" data-level="4.2" data-path="graph.html"><a href="graph.html#ggplot2%EC%9D%98-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%86%8C%EA%B0%9C"><i class="fa fa-check"></i><b>4.2</b> ggplot2의 설치 및 소개</a>
 <ul>
-<li class="chapter" data-level="5.2.1" data-path="graph.html"><a href="graph.html#ggplot2-설치"><i class="fa fa-check"></i><b>5.2.1</b> ggplot2 설치</a></li>
-<li class="chapter" data-level="5.2.2" data-path="graph.html"><a href="graph.html#ggplot2의-작동-원리"><i class="fa fa-check"></i><b>5.2.2</b> ggplot2의 작동 원리</a></li>
-<li class="chapter" data-level="5.2.3" data-path="graph.html"><a href="graph.html#변수의-갯수-유형과-그래프-종류"><i class="fa fa-check"></i><b>5.2.3</b> 변수의 갯수, 유형과 그래프 종류</a></li>
+<li class="chapter" data-level="4.2.1" data-path="graph.html"><a href="graph.html#ggplot2-%EC%84%A4%EC%B9%98"><i class="fa fa-check"></i><b>4.2.1</b> ggplot2 설치</a></li>
+<li class="chapter" data-level="4.2.2" data-path="graph.html"><a href="graph.html#ggplot2%EC%9D%98-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC"><i class="fa fa-check"></i><b>4.2.2</b> ggplot2의 작동 원리</a></li>
+<li class="chapter" data-level="4.2.3" data-path="graph.html"><a href="graph.html#%EB%B3%80%EC%88%98%EC%9D%98-%EA%B0%9C%EC%88%98-%EC%9C%A0%ED%98%95%EA%B3%BC-%EA%B7%B8%EB%9E%98%ED%94%84-%EC%A2%85%EB%A5%98"><i class="fa fa-check"></i><b>4.2.3</b> 변수의 개수, 유형과 그래프 종류</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="graph.html"><a href="graph.html#변인이-1개인-graph"><i class="fa fa-check"></i><b>5.3</b> 변인이 1개인 graph</a>
+<li class="chapter" data-level="4.3" data-path="graph.html"><a href="graph.html#%EB%B3%80%EC%9D%B8%EC%9D%B4-1%EA%B0%9C%EC%9D%B8-graph"><i class="fa fa-check"></i><b>4.3</b> 변인이 1개인 graph</a>
 <ul>
-<li class="chapter" data-level="5.3.1" data-path="graph.html"><a href="graph.html#변인이-연속형continuous인-경우"><i class="fa fa-check"></i><b>5.3.1</b> 변인이 연속형(continuous)인 경우</a></li>
+<li class="chapter" data-level="4.3.1" data-path="graph.html"><a href="graph.html#%EB%B3%80%EC%9D%B8%EC%9D%B4-%EC%97%B0%EC%86%8D%ED%98%95continuous%EC%9D%B8-%EA%B2%BD%EC%9A%B0"><i class="fa fa-check"></i><b>4.3.1</b> 변인이 연속형(continuous)인 경우</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="graph.html"><a href="graph.html#변인이-2개인-graph"><i class="fa fa-check"></i><b>5.4</b> 변인이 2개인 graph</a>
+<li class="chapter" data-level="4.4" data-path="graph.html"><a href="graph.html#%EB%B3%80%EC%9D%B8%EC%9D%B4-2%EA%B0%9C%EC%9D%B8-graph"><i class="fa fa-check"></i><b>4.4</b> 변인이 2개인 graph</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="graph.html"><a href="graph.html#continuous-x-continuous-y"><i class="fa fa-check"></i><b>5.4.1</b> Continuous X, Continuous Y</a></li>
-<li class="chapter" data-level="5.4.2" data-path="graph.html"><a href="graph.html#discrete-x-continuous-y"><i class="fa fa-check"></i><b>5.4.2</b> Discrete X, Continuous Y</a></li>
+<li class="chapter" data-level="4.4.1" data-path="graph.html"><a href="graph.html#continuous-x-continuous-y"><i class="fa fa-check"></i><b>4.4.1</b> Continuous X, Continuous Y</a></li>
+<li class="chapter" data-level="4.4.2" data-path="graph.html"><a href="graph.html#discrete-x-continuous-y"><i class="fa fa-check"></i><b>4.4.2</b> Discrete X, Continuous Y</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="graph.html"><a href="graph.html#miscellaneous-items"><i class="fa fa-check"></i><b>5.5</b> Miscellaneous items</a></li>
+<li class="chapter" data-level="4.5" data-path="graph.html"><a href="graph.html#miscellaneous-items"><i class="fa fa-check"></i><b>4.5</b> Miscellaneous items</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>6</b> 추론통계과 가설검정</a>
+<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계과 가설검정</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="probability.html"><a href="probability.html#equations"><i class="fa fa-check"></i><b>6.1</b> Equations</a></li>
-<li class="chapter" data-level="6.2" data-path="probability.html"><a href="probability.html#theorems-and-proofs"><i class="fa fa-check"></i><b>6.2</b> Theorems and proofs</a></li>
-<li class="chapter" data-level="6.3" data-path="probability.html"><a href="probability.html#callout-blocks"><i class="fa fa-check"></i><b>6.3</b> Callout blocks</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="sharing-your-book.html"><a href="sharing-your-book.html"><i class="fa fa-check"></i><b>7</b> Sharing your book</a>
+<li class="chapter" data-level="5.1" data-path="probability.html"><a href="probability.html#%EC%B6%94%EB%A1%A0%ED%86%B5%EA%B3%84%EC%99%80-%ED%99%95%EB%A5%A0"><i class="fa fa-check"></i><b>5.1</b> 추론통계와 확률</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="sharing-your-book.html"><a href="sharing-your-book.html#publishing"><i class="fa fa-check"></i><b>7.1</b> Publishing</a></li>
-<li class="chapter" data-level="7.2" data-path="sharing-your-book.html"><a href="sharing-your-book.html#pages"><i class="fa fa-check"></i><b>7.2</b> 404 pages</a></li>
-<li class="chapter" data-level="7.3" data-path="sharing-your-book.html"><a href="sharing-your-book.html#metadata-for-sharing"><i class="fa fa-check"></i><b>7.3</b> Metadata for sharing</a></li>
+<li class="chapter" data-level="5.1.1" data-path="probability.html"><a href="probability.html#%EA%B8%B0%EC%88%A0%ED%86%B5%EA%B3%84%EC%99%80-%EC%B6%94%EB%A1%A0%ED%86%B5%EA%B3%84"><i class="fa fa-check"></i><b>5.1.1</b> 기술통계와 추론통계</a></li>
+<li class="chapter" data-level="5.1.2" data-path="probability.html"><a href="probability.html#%ED%99%95%EB%A5%A0probability%EA%B3%BC-%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98random-variable"><i class="fa fa-check"></i><b>5.1.2</b> 확률<code>probability</code>과 확률변수<code>random variable</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="probability.html"><a href="probability.html#%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98random-variable%EC%99%80-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%ACprobability-distribution"><i class="fa fa-check"></i><b>5.1.3</b> 확률변수<code>random variable</code>와 확률분포<code>probability distribution</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="probability.html"><a href="probability.html#%ED%99%95%EB%A5%A0%EC%A7%88%EB%9F%89%ED%95%A8%EC%88%98%EC%99%80-%ED%99%95%EB%A5%A0%EB%B0%80%EB%8F%84%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>5.1.4</b> 확률질량함수와 확률밀도함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="probability.html"><a href="probability.html#%EB%8C%80%ED%91%9C%EC%A0%81%EC%9D%B8-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"><i class="fa fa-check"></i><b>5.2</b> 대표적인 확률분포</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="probability.html"><a href="probability.html#%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC"><i class="fa fa-check"></i><b>5.2.1</b> 정규분포</a></li>
+<li class="chapter" data-level="5.2.2" data-path="probability.html"><a href="probability.html#%ED%91%9C%EC%A4%80%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC-standard-normal-distribution"><i class="fa fa-check"></i><b>5.2.2</b> 표준정규분포 (standard normal distribution)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="probability.html"><a href="probability.html#%EC%B9%B4%EC%9D%B4%EC%8A%A4%ED%80%98%EC%96%B4%EB%B6%84%ED%8F%AC-chi-square-distribution"><i class="fa fa-check"></i><b>5.2.3</b> 카이스퀘어분포 chi-square distribution</a></li>
+<li class="chapter" data-level="5.2.4" data-path="probability.html"><a href="probability.html#f-%EB%B6%84%ED%8F%AC-f-distribution"><i class="fa fa-check"></i><b>5.2.4</b> F 분포 F distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="probability.html"><a href="probability.html#%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"><i class="fa fa-check"></i><b>5.3</b> 중심극한정리</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="probability.html"><a href="probability.html#%ED%91%9C%EB%B3%B8%ED%8F%89%EA%B7%A0%EA%B3%BC-%ED%91%9C%EB%B3%B8%ED%8F%89%EA%B7%A0-%EB%B6%84%ED%8F%AC"><i class="fa fa-check"></i><b>5.3.1</b> 표본평균과 표본평균 분포</a></li>
+<li class="chapter" data-level="5.3.2" data-path="probability.html"><a href="probability.html#%EC%98%88%EC%A0%9C%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"><i class="fa fa-check"></i><b>5.3.2</b> 예제를 통해 이해하는 중심극한정리</a></li>
+<li class="chapter" data-level="5.3.3" data-path="probability.html"><a href="probability.html#%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%84-%ED%86%B5%ED%95%B4-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"><i class="fa fa-check"></i><b>5.3.3</b> 시뮬레이션을 통해 이해하는 중심극한정리</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="probability.html"><a href="probability.html#%EC%B6%94%EC%A0%95%EA%B3%BC-%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>5.4</b> 추정과 가설검정</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="probability.html"><a href="probability.html#%EC%B6%94%EC%A0%95"><i class="fa fa-check"></i><b>5.4.1</b> 추정</a></li>
+<li class="chapter" data-level="5.4.2" data-path="probability.html"><a href="probability.html#%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84%EC%9D%98-%ED%95%B4%EC%84%9D"><i class="fa fa-check"></i><b>5.4.2</b> 신뢰구간의 해석</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ttest.html"><a href="ttest.html"><i class="fa fa-check"></i><b>6</b> t검정과 ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ttest.html"><a href="ttest.html#%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EA%B4%80%ED%95%9C-%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.1</b> 모집단 평균에 관한 가설검정</a></li>
+<li class="chapter" data-level="6.2" data-path="ttest.html"><a href="ttest.html#t-%EA%B2%80%EC%A0%95-t-test"><i class="fa fa-check"></i><b>6.2</b> t 검정 (t-test)</a></li>
+<li class="chapter" data-level="6.3" data-path="ttest.html"><a href="ttest.html#t-%EA%B2%80%EC%A0%95-t-test%EC%9D%98-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B0%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3</b> t 검정 (t-test)의 개념 및 가정</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="ttest.html"><a href="ttest.html#%EB%8B%A8%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3.1</b> 단일 모집단 평균에 대한 t 검정</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ttest.html"><a href="ttest.html#%EB%8F%99%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%EB%B0%98%EB%B3%B5%EC%B8%A1%EC%A0%95-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3.2</b> 동일 모집단 반복측정 평균에 대한 t 검정</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ttest.html"><a href="ttest.html#%EB%91%90-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3.3</b> 두 모집단 평균에 대한 t 검정</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ttest.html"><a href="ttest.html#t-%EA%B2%80%EC%A0%95%EC%97%90%EC%84%9C%EC%9D%98-%ED%9A%A8%EA%B3%BC%ED%81%AC%EA%B8%B0%EC%99%80-%EA%B2%80%EC%A6%9D%EB%A0%A5"><i class="fa fa-check"></i><b>6.3.4</b> t 검정에서의 효과크기와 검증력</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ttest.html"><a href="ttest.html#r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-t-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3.5</b> R을 활용한 t 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ttest.html"><a href="ttest.html#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-anova"><i class="fa fa-check"></i><b>6.4</b> 분산분석 (ANOVA)</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ttest.html"><a href="ttest.html#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-anova%EC%9D%98-%EA%B0%9C%EB%85%90"><i class="fa fa-check"></i><b>6.4.1</b> 분산분석 (ANOVA)의 개념</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ttest.html"><a href="ttest.html#%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-%EA%B3%B5%EC%8B%9D"><i class="fa fa-check"></i><b>6.4.2</b> 일원분산분석 공식</a></li>
+<li class="chapter" data-level="6.4.3" data-path="ttest.html"><a href="ttest.html#%EC%86%90%EC%9C%BC%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EB%8A%94-%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9Danova"><i class="fa fa-check"></i><b>6.4.3</b> 손으로 풀어보는 일원분산분석(ANOVA)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="ttest.html"><a href="ttest.html#r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9Danova"><i class="fa fa-check"></i><b>6.4.4</b> R을 활용한 일원분산분석(ANOVA)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>7</b> 분산, 공분산 그리고 상관</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="correlation.html"><a href="correlation.html#%EB%91%90-%EB%B3%80%EC%88%98%EC%9D%98-%EA%B4%80%EA%B3%84"><i class="fa fa-check"></i><b>7.1</b> 두 변수의 관계</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="correlation.html"><a href="correlation.html#%EA%B4%80%EB%A0%A8-%EA%B0%80%EC%84%A4%EB%93%A4"><i class="fa fa-check"></i><b>7.1.1</b> 관련 가설들</a></li>
+<li class="chapter" data-level="7.1.2" data-path="correlation.html"><a href="correlation.html#%EB%B3%80%EC%88%98%EC%9D%98-%EC%B2%99%EB%8F%84%EC%97%90-%EB%94%B0%EB%A5%B8-%EB%91%90-%EB%B3%80%EC%88%98%EC%9D%98-%EA%B4%80%EA%B3%84"><i class="fa fa-check"></i><b>7.1.2</b> 변수의 척도에 따른 두 변수의 관계</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="correlation.html"><a href="correlation.html#%EB%B6%84%EC%82%B0%EA%B3%BC-%EA%B3%B5%EB%B6%84%EC%82%B0"><i class="fa fa-check"></i><b>7.2</b> 분산과 공분산</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="correlation.html"><a href="correlation.html#%EB%B6%84%EC%82%B0%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>7.2.1</b> 분산의 의미</a></li>
+<li class="chapter" data-level="7.2.2" data-path="correlation.html"><a href="correlation.html#%EB%91%90-%EB%B3%80%EC%88%98%EC%9D%98-%EB%B6%84%EC%82%B0-%EA%B3%B5%EB%B6%84%EC%82%B0"><i class="fa fa-check"></i><b>7.2.2</b> 두 변수의 분산, 공분산</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="correlation.html"><a href="correlation.html#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"><i class="fa fa-check"></i><b>7.3</b> 상관계수</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="correlation.html"><a href="correlation.html#%EA%B3%B5%EB%B6%84%EC%82%B0%EC%9D%98-%ED%95%9C%EA%B3%84"><i class="fa fa-check"></i><b>7.3.1</b> 공분산의 한계</a></li>
+<li class="chapter" data-level="7.3.2" data-path="correlation.html"><a href="correlation.html#%EA%B3%B5%EB%B6%84%EC%82%B0%EC%9D%98-%ED%91%9C%EC%A4%80%ED%99%94%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"><i class="fa fa-check"></i><b>7.3.2</b> 공분산의 표준화=상관계수</a></li>
+<li class="chapter" data-level="7.3.3" data-path="correlation.html"><a href="correlation.html#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98%EC%9D%98-%ED%95%B4%EC%84%9D"><i class="fa fa-check"></i><b>7.3.3</b> 상관계수의 해석</a></li>
+<li class="chapter" data-level="7.3.4" data-path="correlation.html"><a href="correlation.html#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%EC%B6%94%EC%A0%95-%EB%B0%8F-%EC%9C%A0%EC%9D%98%EC%84%B1-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>7.3.4</b> 상관계수 추정 및 유의성 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="correlation.html"><a href="correlation.html#%ED%8E%B8%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"><i class="fa fa-check"></i><b>7.4</b> 편상관계수</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="intuitive.html"><a href="intuitive.html"><i class="fa fa-check"></i><b>8</b> 직관으로 이해하는 회귀분석</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="intuitive.html"><a href="intuitive.html#%EC%82%B0%EC%97%85%EC%9D%B8%EB%A0%A5%EA%B0%9C%EB%B0%9C%EC%97%90%EC%84%9C%EC%9D%98-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>8.1</b> 산업인력개발에서의 회귀분석</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="intuitive.html"><a href="intuitive.html#%EB%B3%80%EC%88%98%EA%B0%84%EC%9D%98-%EA%B4%80%EA%B3%84%EB%A5%BC-%EA%B5%AC%EB%AA%85%ED%95%98%EB%8A%94-%EC%97%B0%EA%B5%AC%EA%B0%80%EC%84%A4%EB%93%A4"><i class="fa fa-check"></i><b>8.1.1</b> 변수간의 관계를 구명하는 연구가설들</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EA%B3%BC-1%EC%B0%A8-%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>8.2</b> 회귀분석과 1차 함수</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="intuitive.html"><a href="intuitive.html#%EC%A0%88%ED%8E%B8%EA%B3%BC-%EA%B8%B0%EC%9A%B8%EA%B8%B0%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>8.2.1</b> 절편과 기울기의 의미</a></li>
+<li class="chapter" data-level="8.2.2" data-path="intuitive.html"><a href="intuitive.html#%EA%B8%B0%EC%9A%B8%EA%B8%B0%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>8.2.2</b> 기울기의 의미</a></li>
+<li class="chapter" data-level="8.2.3" data-path="intuitive.html"><a href="intuitive.html#haty-y%EC%99%80-%EC%9E%94%EC%B0%A8residual"><i class="fa fa-check"></i><b>8.2.3</b> <span class="math inline">\(\hat{Y}\)</span>, <span class="math inline">\(Y\)</span>와 잔차(residual)</a></li>
+<li class="chapter" data-level="8.2.4" data-path="intuitive.html"><a href="intuitive.html#%EB%8F%85%EB%A6%BD%EB%B3%80%EC%88%98%EA%B0%80-%EB%91%90-%EA%B0%9C-%EC%9D%B4%EC%83%81%EC%9D%BC%EB%95%8C%EC%9D%98-%ED%9A%8C%EA%B7%80%EC%8B%9D"><i class="fa fa-check"></i><b>8.2.4</b> 독립변수가 두 개 이상일때의 회귀식</a></li>
+<li class="chapter" data-level="8.2.5" data-path="intuitive.html"><a href="intuitive.html#added-variable-plot"><i class="fa fa-check"></i><b>8.2.5</b> added variable plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EA%B3%BC-2%EC%B0%A8%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>8.3</b> 회귀분석과 2차함수</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="intuitive.html"><a href="intuitive.html#%EB%B9%84%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>8.3.1</b> 비선형 회귀분석</a></li>
+<li class="chapter" data-level="8.3.2" data-path="intuitive.html"><a href="intuitive.html#%EC%A0%88%ED%8E%B8%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>8.3.2</b> 절편의 의미</a></li>
+<li class="chapter" data-level="8.3.3" data-path="intuitive.html"><a href="intuitive.html#%EC%B0%A8%ED%95%AD%EB%B0%8F-2%EC%B0%A8%ED%95%AD%EC%9D%98-%EA%B8%B0%EC%9A%B8%EA%B8%B0%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>8.3.3</b> 1차항및 2차항의 기울기의 의미</a></li>
+<li class="chapter" data-level="8.3.4" data-path="intuitive.html"><a href="intuitive.html#%EC%9E%84%EA%B8%88%EB%B0%A9%EC%A0%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EB%B9%84%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>8.3.4</b> 임금방정식으로 이해하는 비선형 회귀분석</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%97%90%EC%84%9C-%EB%8D%94%EB%AF%B8%EB%B3%80%EC%88%98-%ED%99%9C%EC%9A%A9"><i class="fa fa-check"></i><b>8.4</b> 회귀분석에서 더미변수 활용</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%97%90-%EC%A0%81%ED%95%A9%ED%95%9C-%EB%B3%80%EC%88%98%EC%9D%98-%EC%B2%99%EB%8F%84"><i class="fa fa-check"></i><b>8.4.1</b> 회귀분석에 적합한 변수의 척도</a></li>
+<li class="chapter" data-level="8.4.2" data-path="intuitive.html"><a href="intuitive.html#%EB%B2%94%EC%A3%BC%ED%98%95-%EB%B3%80%EC%88%98%EA%B0%80-%EB%8F%85%EB%A6%BD%EB%B3%80%EC%88%98%EB%A1%9C-%ED%88%AC%EC%9E%85%EB%90%A0-%EB%95%8C"><i class="fa fa-check"></i><b>8.4.2</b> 범주형 변수가 독립변수로 투입될 때</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EC%A1%B0%EC%A0%88%ED%9A%A8%EA%B3%BC"><i class="fa fa-check"></i><b>8.5</b> 회귀식으로 이해하는 조절효과</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="intuitive.html"><a href="intuitive.html#%EC%A1%B0%EC%A0%88%ED%9A%A8%EA%B3%BC%EC%9D%98-%EA%B0%9C%EB%85%90"><i class="fa fa-check"></i><b>8.5.1</b> 조절효과의 개념</a></li>
+<li class="chapter" data-level="8.5.2" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EC%8B%9D-%EB%A7%8C%EB%93%A4%EA%B8%B0%EC%99%80-%ED%95%B4%EC%84%9D%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>8.5.2</b> 회귀식 만들기와 해석하기</a></li>
+<li class="chapter" data-level="8.5.3" data-path="intuitive.html"><a href="intuitive.html#%EB%B6%84%EC%84%9D%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D-%EC%98%88%EC%A0%9C"><i class="fa fa-check"></i><b>8.5.3</b> 분석결과 해석 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EB%A7%A4%EA%B0%9C%ED%9A%A8%EA%B3%BC"><i class="fa fa-check"></i><b>8.6</b> 회귀식으로 이해하는 매개효과</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="intuitive.html"><a href="intuitive.html#%EB%A7%A4%EA%B0%9C%ED%9A%A8%EA%B3%BC%EC%9D%98-%EA%B0%9C%EB%85%90"><i class="fa fa-check"></i><b>8.6.1</b> 매개효과의 개념</a></li>
+<li class="chapter" data-level="8.6.2" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EC%8B%9D-%EB%A7%8C%EB%93%A4%EA%B8%B0%EC%99%80-%ED%95%B4%EC%84%9D%ED%95%98%EA%B8%B0-1"><i class="fa fa-check"></i><b>8.6.2</b> 회귀식 만들기와 해석하기</a></li>
+<li class="chapter" data-level="8.6.3" data-path="intuitive.html"><a href="intuitive.html#%EB%B6%84%EC%84%9D%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D-%EC%98%88%EC%A0%9C-1"><i class="fa fa-check"></i><b>8.6.3</b> 분석결과 해석 예제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> 회귀분석 심화 및 기본가정</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#simple-regression-anlysis"><i class="fa fa-check"></i><b>9.1</b> simple regression anlysis</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="regression.html"><a href="regression.html#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90"><i class="fa fa-check"></i><b>9.1.1</b> 단순회귀분석의 개념</a></li>
+<li class="chapter" data-level="9.1.2" data-path="regression.html"><a href="regression.html#%EC%B5%9C%EC%86%8C%EC%9E%90%EC%8A%B9%EB%B2%95%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EB%8F%84%EC%B6%9C"><i class="fa fa-check"></i><b>9.1.2</b> 최소자승법을 활용한 회귀계수 도출</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#multiple-regression-analysis"><i class="fa fa-check"></i><b>9.2</b> multiple regression analysis</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#%EB%8B%A4%EC%A4%91%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%9D%98-%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EB%8F%84%EC%B6%9C"><i class="fa fa-check"></i><b>9.2.1</b> 다중회귀분석의 회귀계수 도출</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression-1.html"><a href="regression-1.html"><i class="fa fa-check"></i><b>10</b> regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regression-1.html"><a href="regression-1.html#simple-regression-anlysis-1"><i class="fa fa-check"></i><b>10.1</b> simple regression anlysis</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="regression-1.html"><a href="regression-1.html#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90-1"><i class="fa fa-check"></i><b>10.1.1</b> 단순회귀분석의 개념</a></li>
+<li class="chapter" data-level="10.1.2" data-path="regression-1.html"><a href="regression-1.html#%EC%B5%9C%EC%86%8C%EC%9E%90%EC%8A%B9%EB%B2%95%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EB%8F%84%EC%B6%9C-1"><i class="fa fa-check"></i><b>10.1.2</b> 최소자승법을 활용한 회귀계수 도출</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="regression-1.html"><a href="regression-1.html#multiple-regression-analysis-1"><i class="fa fa-check"></i><b>10.2</b> multiple regression analysis</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="regression-1.html"><a href="regression-1.html#%EB%8B%A4%EC%A4%91%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%9D%98-%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EB%8F%84%EC%B6%9C-1"><i class="fa fa-check"></i><b>10.2.1</b> 다중회귀분석의 회귀계수 도출</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -287,7 +399,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="sharing-your-book.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="regression-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>
@@ -302,42 +414,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": "https://github.com/USERNAME/REPO/edit/BRANCH/07-references.Rmd",
-"text": "Edit"
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["_main.pdf", "_main.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "subsection"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/11-references.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
 });
 });
 </script>
@@ -348,7 +460,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

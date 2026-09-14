@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 t검정과 ANOVA | R을 활용한 산업인력개발통계</title>
+  <meta name="description" content="This book is an ongoing work in progress. It is intended for use only as material for the Department of Vocational Education and Workforce Development at Seoul National University. Any other use is prohibited." />
+  <meta name="generator" content="bookdown 0.48 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 t검정과 ANOVA | R을 활용한 산업인력개발통계" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This book is an ongoing work in progress. It is intended for use only as material for the Department of Vocational Education and Workforce Development at Seoul National University. Any other use is prohibited." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 t검정과 ANOVA | R을 활용한 산업인력개발통계" />
+  
+  <meta name="twitter:description" content="This book is an ongoing work in progress. It is intended for use only as material for the Department of Vocational Education and Workforce Development at Seoul National University. Any other use is prohibited." />
+  
+
+<meta name="author" content="Su Jung Choi (Seoul National University)" />
+
+
+<meta name="date" content="2026-09-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="probability.html"/>
+<link rel="next" href="correlation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"> Intuitive Regression Analysis in Workforce Development</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#r%EC%9D%84-%EC%99%9C-%EC%82%AC%EC%9A%A9%ED%95%B4%EC%95%BC%ED%95%A0%EA%B9%8C"><i class="fa fa-check"></i><b>1.1</b> R을 왜 사용해야할까?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#%EC%9D%B4-%EC%B1%85%EC%9D%98-%EA%B5%AC%EC%84%B1"><i class="fa fa-check"></i><b>1.2</b> 이 책의 구성</a>
+<ul>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#%EB%B6%80.-r%EC%9D%98-%EA%B8%B0%EC%B4%88-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i>1부. R의 기초 이해</a></li>
+<li class="chapter" data-level="" data-path="intro.html"><a href="intro.html#%EB%B6%80.-r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B8%B0%EC%B4%88-%EB%8B%A4%EB%B3%80%EB%9F%89-%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i>2부. R을 활용한 기초 다변량 분석</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#%EB%B0%B0%EC%9A%B0%EC%A7%80-%EC%95%8A%EB%8A%94-%EB%82%B4%EC%9A%A9%EB%93%A4"><i class="fa fa-check"></i><b>1.3</b> 배우지 않는 내용들</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#%EB%8B%B9%EB%B6%80%EC%9D%98-%EB%A7%90"><i class="fa fa-check"></i><b>1.4</b> 당부의 말</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>2</b> R 자료 구조의 이해</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data.html"><a href="data.html#%EB%AA%85%EB%A0%B9%EC%96%B4%EC%9D%98-%EA%B5%AC%EC%A1%B0%EC%99%80-%EC%9E%90%EB%A3%8C-%EC%9E%85%EB%A0%A5"><i class="fa fa-check"></i><b>2.1</b> 명령어의 구조와 자료 입력</a></li>
+<li class="chapter" data-level="2.2" data-path="data.html"><a href="data.html#r%EC%97%90%EC%84%9C-%EC%93%B0%EC%9D%B4%EB%8A%94-%EC%9E%90%EB%A3%8C%EC%9D%98-%EC%9C%A0%ED%98%95"><i class="fa fa-check"></i><b>2.2</b> R에서 쓰이는 자료의 유형</a></li>
+<li class="chapter" data-level="2.3" data-path="data.html"><a href="data.html#r%EC%97%90%EC%84%9C-%EC%93%B0%EC%9D%B4%EB%8A%94-%EC%9E%90%EB%A3%8C%EC%9D%98-%EA%B5%AC%EC%A1%B0"><i class="fa fa-check"></i><b>2.3</b> R에서 쓰이는 자료의 구조</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="data.html"><a href="data.html#%EC%8A%A4%EC%B9%BC%EB%9D%BC-scala"><i class="fa fa-check"></i><b>2.3.1</b> 스칼라 scala</a></li>
+<li class="chapter" data-level="2.3.2" data-path="data.html"><a href="data.html#%EB%B2%A1%ED%84%B0-vector"><i class="fa fa-check"></i><b>2.3.2</b> 벡터 vector</a></li>
+<li class="chapter" data-level="2.3.3" data-path="data.html"><a href="data.html#%EB%A7%A4%ED%8A%B8%EB%A6%AD%EC%8A%A4-matrix"><i class="fa fa-check"></i><b>2.3.3</b> 매트릭스 matrix</a></li>
+<li class="chapter" data-level="2.3.4" data-path="data.html"><a href="data.html#%EB%B0%B0%EC%97%B4-array"><i class="fa fa-check"></i><b>2.3.4</b> 배열 array</a></li>
+<li class="chapter" data-level="2.3.5" data-path="data.html"><a href="data.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%ED%94%84%EB%A0%88%EC%9E%84-dataframe"><i class="fa fa-check"></i><b>2.3.5</b> 데이터프레임 dataframe</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="data.html"><a href="data.html#factor-%EB%B3%80%EC%88%98"><i class="fa fa-check"></i><b>2.4</b> factor 변수</a></li>
+<li class="chapter" data-level="2.5" data-path="data.html"><a href="data.html#na%EC%99%80-null"><i class="fa fa-check"></i><b>2.5</b> NA와 NULL</a></li>
+<li class="chapter" data-level="2.6" data-path="data.html"><a href="data.html#r-%EB%82%B4%EC%9E%A5%ED%95%A8%EC%88%98%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B8%B0%EC%88%A0%ED%86%B5%EA%B3%84%EB%9F%89-%EC%82%B0%EC%B6%9C"><i class="fa fa-check"></i><b>2.6</b> R 내장함수를 활용한 기술통계량 산출</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> 데이터 전처리</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="literature.html"><a href="literature.html#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0"><i class="fa fa-check"></i><b>3.1</b> 들어가며</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="literature.html"><a href="literature.html#%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.1</b> 패키지 준비하기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85%EA%B3%B5%EA%B0%84-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업공간 설정하기</a></li>
+<li class="chapter" data-level="3.1.3" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.3</b> 데이터 불러오기</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="literature.html"><a href="literature.html#dplyr-%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>3.2</b> dplyr 패키지의 이해</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#chain-operator"><i class="fa fa-check"></i><b>3.2.1</b> chain operator</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="literature.html"><a href="literature.html#dplyr%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5"><i class="fa fa-check"></i><b>3.3</b> dplyr의 주요 기능</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="literature.html"><a href="literature.html#filter"><i class="fa fa-check"></i><b>3.3.1</b> filter</a></li>
+<li class="chapter" data-level="3.3.2" data-path="literature.html"><a href="literature.html#select"><i class="fa fa-check"></i><b>3.3.2</b> select</a></li>
+<li class="chapter" data-level="3.3.3" data-path="literature.html"><a href="literature.html#arrange"><i class="fa fa-check"></i><b>3.3.3</b> arrange</a></li>
+<li class="chapter" data-level="3.3.4" data-path="literature.html"><a href="literature.html#mutate"><i class="fa fa-check"></i><b>3.3.4</b> mutate</a></li>
+<li class="chapter" data-level="3.3.5" data-path="literature.html"><a href="literature.html#group_by%EC%99%80-summarise"><i class="fa fa-check"></i><b>3.3.5</b> group_by와 summarise</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.4</b> 데이터 결합하기</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="literature.html"><a href="literature.html#bind_cols%EC%99%80-bind_rows%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.4.1</b> bind_cols와 bind_rows로 데이터 결합하기</a></li>
+<li class="chapter" data-level="3.4.2" data-path="literature.html"><a href="literature.html#join%EC%9C%BC%EB%A1%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.4.2</b> join으로 데이터 결합하기</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%83%80%EC%9D%B4%EB%94%94%ED%95%98%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0-pivot_longer%EC%99%80-pivot_wider"><i class="fa fa-check"></i><b>3.5</b> 데이터를 타이디하게 만들기 : pivot_longer와 pivot_wider</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="literature.html"><a href="literature.html#%EA%B8%B8%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0-pivot_longer-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.5.1</b> 길게 만들기 : pivot_longer 활용하기</a></li>
+<li class="chapter" data-level="3.5.2" data-path="literature.html"><a href="literature.html#%EB%84%93%EA%B2%8C-%EB%A7%8C%EB%93%A4%EA%B8%B0-pivot_wider-%ED%99%9C%EC%9A%A9%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.5.2</b> 넓게 만들기 : pivot_wider 활용하기</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="literature.html"><a href="literature.html#%ED%8C%A8%EB%84%90%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%A5%BC-%ED%99%9C%EC%9A%A9%ED%95%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EC%A0%84%EC%B2%98%EB%A6%AC-%EC%8B%A4%EC%8A%B5"><i class="fa fa-check"></i><b>3.6</b> 패널데이터를 활용한 데이터 전처리 실습</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>3.6.1</b> 데이터의 이해</a></li>
+<li class="chapter" data-level="3.6.2" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0import"><i class="fa fa-check"></i><b>3.6.2</b> 데이터의 불러오기(import)</a></li>
+<li class="chapter" data-level="3.6.3" data-path="literature.html"><a href="literature.html#%ED%95%84%EC%9A%94%ED%95%9C-%EB%B3%80%EC%88%98%EB%A7%8C-%EC%84%A0%ED%83%9Dselect"><i class="fa fa-check"></i><b>3.6.3</b> 필요한 변수만 선택(select)</a></li>
+<li class="chapter" data-level="3.6.4" data-path="literature.html"><a href="literature.html#%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-one-match"><i class="fa fa-check"></i><b>3.6.4</b> 기업 데이터 결합(one-to-one match)</a></li>
+<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-many-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(one-to-many match)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="graph.html"><a href="graph.html"><i class="fa fa-check"></i><b>4</b> 데이터 시각화</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="graph.html"><a href="graph.html#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0-1"><i class="fa fa-check"></i><b>4.1</b> 들어가며</a></li>
+<li class="chapter" data-level="4.2" data-path="graph.html"><a href="graph.html#ggplot2%EC%9D%98-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%86%8C%EA%B0%9C"><i class="fa fa-check"></i><b>4.2</b> ggplot2의 설치 및 소개</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="graph.html"><a href="graph.html#ggplot2-%EC%84%A4%EC%B9%98"><i class="fa fa-check"></i><b>4.2.1</b> ggplot2 설치</a></li>
+<li class="chapter" data-level="4.2.2" data-path="graph.html"><a href="graph.html#ggplot2%EC%9D%98-%EC%9E%91%EB%8F%99-%EC%9B%90%EB%A6%AC"><i class="fa fa-check"></i><b>4.2.2</b> ggplot2의 작동 원리</a></li>
+<li class="chapter" data-level="4.2.3" data-path="graph.html"><a href="graph.html#%EB%B3%80%EC%88%98%EC%9D%98-%EA%B0%9C%EC%88%98-%EC%9C%A0%ED%98%95%EA%B3%BC-%EA%B7%B8%EB%9E%98%ED%94%84-%EC%A2%85%EB%A5%98"><i class="fa fa-check"></i><b>4.2.3</b> 변수의 개수, 유형과 그래프 종류</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="graph.html"><a href="graph.html#%EB%B3%80%EC%9D%B8%EC%9D%B4-1%EA%B0%9C%EC%9D%B8-graph"><i class="fa fa-check"></i><b>4.3</b> 변인이 1개인 graph</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="graph.html"><a href="graph.html#%EB%B3%80%EC%9D%B8%EC%9D%B4-%EC%97%B0%EC%86%8D%ED%98%95continuous%EC%9D%B8-%EA%B2%BD%EC%9A%B0"><i class="fa fa-check"></i><b>4.3.1</b> 변인이 연속형(continuous)인 경우</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="graph.html"><a href="graph.html#%EB%B3%80%EC%9D%B8%EC%9D%B4-2%EA%B0%9C%EC%9D%B8-graph"><i class="fa fa-check"></i><b>4.4</b> 변인이 2개인 graph</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="graph.html"><a href="graph.html#continuous-x-continuous-y"><i class="fa fa-check"></i><b>4.4.1</b> Continuous X, Continuous Y</a></li>
+<li class="chapter" data-level="4.4.2" data-path="graph.html"><a href="graph.html#discrete-x-continuous-y"><i class="fa fa-check"></i><b>4.4.2</b> Discrete X, Continuous Y</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="graph.html"><a href="graph.html#miscellaneous-items"><i class="fa fa-check"></i><b>4.5</b> Miscellaneous items</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계과 가설검정</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="probability.html"><a href="probability.html#%EC%B6%94%EB%A1%A0%ED%86%B5%EA%B3%84%EC%99%80-%ED%99%95%EB%A5%A0"><i class="fa fa-check"></i><b>5.1</b> 추론통계와 확률</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="probability.html"><a href="probability.html#%EA%B8%B0%EC%88%A0%ED%86%B5%EA%B3%84%EC%99%80-%EC%B6%94%EB%A1%A0%ED%86%B5%EA%B3%84"><i class="fa fa-check"></i><b>5.1.1</b> 기술통계와 추론통계</a></li>
+<li class="chapter" data-level="5.1.2" data-path="probability.html"><a href="probability.html#%ED%99%95%EB%A5%A0probability%EA%B3%BC-%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98random-variable"><i class="fa fa-check"></i><b>5.1.2</b> 확률<code>probability</code>과 확률변수<code>random variable</code></a></li>
+<li class="chapter" data-level="5.1.3" data-path="probability.html"><a href="probability.html#%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98random-variable%EC%99%80-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%ACprobability-distribution"><i class="fa fa-check"></i><b>5.1.3</b> 확률변수<code>random variable</code>와 확률분포<code>probability distribution</code></a></li>
+<li class="chapter" data-level="5.1.4" data-path="probability.html"><a href="probability.html#%ED%99%95%EB%A5%A0%EC%A7%88%EB%9F%89%ED%95%A8%EC%88%98%EC%99%80-%ED%99%95%EB%A5%A0%EB%B0%80%EB%8F%84%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>5.1.4</b> 확률질량함수와 확률밀도함수</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="probability.html"><a href="probability.html#%EB%8C%80%ED%91%9C%EC%A0%81%EC%9D%B8-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"><i class="fa fa-check"></i><b>5.2</b> 대표적인 확률분포</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="probability.html"><a href="probability.html#%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC"><i class="fa fa-check"></i><b>5.2.1</b> 정규분포</a></li>
+<li class="chapter" data-level="5.2.2" data-path="probability.html"><a href="probability.html#%ED%91%9C%EC%A4%80%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC-standard-normal-distribution"><i class="fa fa-check"></i><b>5.2.2</b> 표준정규분포 (standard normal distribution)</a></li>
+<li class="chapter" data-level="5.2.3" data-path="probability.html"><a href="probability.html#%EC%B9%B4%EC%9D%B4%EC%8A%A4%ED%80%98%EC%96%B4%EB%B6%84%ED%8F%AC-chi-square-distribution"><i class="fa fa-check"></i><b>5.2.3</b> 카이스퀘어분포 chi-square distribution</a></li>
+<li class="chapter" data-level="5.2.4" data-path="probability.html"><a href="probability.html#f-%EB%B6%84%ED%8F%AC-f-distribution"><i class="fa fa-check"></i><b>5.2.4</b> F 분포 F distribution</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="probability.html"><a href="probability.html#%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"><i class="fa fa-check"></i><b>5.3</b> 중심극한정리</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="probability.html"><a href="probability.html#%ED%91%9C%EB%B3%B8%ED%8F%89%EA%B7%A0%EA%B3%BC-%ED%91%9C%EB%B3%B8%ED%8F%89%EA%B7%A0-%EB%B6%84%ED%8F%AC"><i class="fa fa-check"></i><b>5.3.1</b> 표본평균과 표본평균 분포</a></li>
+<li class="chapter" data-level="5.3.2" data-path="probability.html"><a href="probability.html#%EC%98%88%EC%A0%9C%EB%A5%BC-%ED%86%B5%ED%95%B4-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"><i class="fa fa-check"></i><b>5.3.2</b> 예제를 통해 이해하는 중심극한정리</a></li>
+<li class="chapter" data-level="5.3.3" data-path="probability.html"><a href="probability.html#%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98%EC%9D%84-%ED%86%B5%ED%95%B4-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC"><i class="fa fa-check"></i><b>5.3.3</b> 시뮬레이션을 통해 이해하는 중심극한정리</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="probability.html"><a href="probability.html#%EC%B6%94%EC%A0%95%EA%B3%BC-%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>5.4</b> 추정과 가설검정</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="probability.html"><a href="probability.html#%EC%B6%94%EC%A0%95"><i class="fa fa-check"></i><b>5.4.1</b> 추정</a></li>
+<li class="chapter" data-level="5.4.2" data-path="probability.html"><a href="probability.html#%EC%8B%A0%EB%A2%B0%EA%B5%AC%EA%B0%84%EC%9D%98-%ED%95%B4%EC%84%9D"><i class="fa fa-check"></i><b>5.4.2</b> 신뢰구간의 해석</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ttest.html"><a href="ttest.html"><i class="fa fa-check"></i><b>6</b> t검정과 ANOVA</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="ttest.html"><a href="ttest.html#%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EA%B4%80%ED%95%9C-%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.1</b> 모집단 평균에 관한 가설검정</a></li>
+<li class="chapter" data-level="6.2" data-path="ttest.html"><a href="ttest.html#t-%EA%B2%80%EC%A0%95-t-test"><i class="fa fa-check"></i><b>6.2</b> t 검정 (t-test)</a></li>
+<li class="chapter" data-level="6.3" data-path="ttest.html"><a href="ttest.html#t-%EA%B2%80%EC%A0%95-t-test%EC%9D%98-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B0%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3</b> t 검정 (t-test)의 개념 및 가정</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="ttest.html"><a href="ttest.html#%EB%8B%A8%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3.1</b> 단일 모집단 평균에 대한 t 검정</a></li>
+<li class="chapter" data-level="6.3.2" data-path="ttest.html"><a href="ttest.html#%EB%8F%99%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%EB%B0%98%EB%B3%B5%EC%B8%A1%EC%A0%95-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3.2</b> 동일 모집단 반복측정 평균에 대한 t 검정</a></li>
+<li class="chapter" data-level="6.3.3" data-path="ttest.html"><a href="ttest.html#%EB%91%90-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3.3</b> 두 모집단 평균에 대한 t 검정</a></li>
+<li class="chapter" data-level="6.3.4" data-path="ttest.html"><a href="ttest.html#t-%EA%B2%80%EC%A0%95%EC%97%90%EC%84%9C%EC%9D%98-%ED%9A%A8%EA%B3%BC%ED%81%AC%EA%B8%B0%EC%99%80-%EA%B2%80%EC%A6%9D%EB%A0%A5"><i class="fa fa-check"></i><b>6.3.4</b> t 검정에서의 효과크기와 검증력</a></li>
+<li class="chapter" data-level="6.3.5" data-path="ttest.html"><a href="ttest.html#r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-t-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>6.3.5</b> R을 활용한 t 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="ttest.html"><a href="ttest.html#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-anova"><i class="fa fa-check"></i><b>6.4</b> 분산분석 (ANOVA)</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ttest.html"><a href="ttest.html#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-anova%EC%9D%98-%EA%B0%9C%EB%85%90"><i class="fa fa-check"></i><b>6.4.1</b> 분산분석 (ANOVA)의 개념</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ttest.html"><a href="ttest.html#%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-%EA%B3%B5%EC%8B%9D"><i class="fa fa-check"></i><b>6.4.2</b> 일원분산분석 공식</a></li>
+<li class="chapter" data-level="6.4.3" data-path="ttest.html"><a href="ttest.html#%EC%86%90%EC%9C%BC%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EB%8A%94-%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9Danova"><i class="fa fa-check"></i><b>6.4.3</b> 손으로 풀어보는 일원분산분석(ANOVA)</a></li>
+<li class="chapter" data-level="6.4.4" data-path="ttest.html"><a href="ttest.html#r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9Danova"><i class="fa fa-check"></i><b>6.4.4</b> R을 활용한 일원분산분석(ANOVA)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="correlation.html"><a href="correlation.html"><i class="fa fa-check"></i><b>7</b> 분산, 공분산 그리고 상관</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="correlation.html"><a href="correlation.html#%EB%91%90-%EB%B3%80%EC%88%98%EC%9D%98-%EA%B4%80%EA%B3%84"><i class="fa fa-check"></i><b>7.1</b> 두 변수의 관계</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="correlation.html"><a href="correlation.html#%EA%B4%80%EB%A0%A8-%EA%B0%80%EC%84%A4%EB%93%A4"><i class="fa fa-check"></i><b>7.1.1</b> 관련 가설들</a></li>
+<li class="chapter" data-level="7.1.2" data-path="correlation.html"><a href="correlation.html#%EB%B3%80%EC%88%98%EC%9D%98-%EC%B2%99%EB%8F%84%EC%97%90-%EB%94%B0%EB%A5%B8-%EB%91%90-%EB%B3%80%EC%88%98%EC%9D%98-%EA%B4%80%EA%B3%84"><i class="fa fa-check"></i><b>7.1.2</b> 변수의 척도에 따른 두 변수의 관계</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="correlation.html"><a href="correlation.html#%EB%B6%84%EC%82%B0%EA%B3%BC-%EA%B3%B5%EB%B6%84%EC%82%B0"><i class="fa fa-check"></i><b>7.2</b> 분산과 공분산</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="correlation.html"><a href="correlation.html#%EB%B6%84%EC%82%B0%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>7.2.1</b> 분산의 의미</a></li>
+<li class="chapter" data-level="7.2.2" data-path="correlation.html"><a href="correlation.html#%EB%91%90-%EB%B3%80%EC%88%98%EC%9D%98-%EB%B6%84%EC%82%B0-%EA%B3%B5%EB%B6%84%EC%82%B0"><i class="fa fa-check"></i><b>7.2.2</b> 두 변수의 분산, 공분산</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="correlation.html"><a href="correlation.html#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"><i class="fa fa-check"></i><b>7.3</b> 상관계수</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="correlation.html"><a href="correlation.html#%EA%B3%B5%EB%B6%84%EC%82%B0%EC%9D%98-%ED%95%9C%EA%B3%84"><i class="fa fa-check"></i><b>7.3.1</b> 공분산의 한계</a></li>
+<li class="chapter" data-level="7.3.2" data-path="correlation.html"><a href="correlation.html#%EA%B3%B5%EB%B6%84%EC%82%B0%EC%9D%98-%ED%91%9C%EC%A4%80%ED%99%94%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"><i class="fa fa-check"></i><b>7.3.2</b> 공분산의 표준화=상관계수</a></li>
+<li class="chapter" data-level="7.3.3" data-path="correlation.html"><a href="correlation.html#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98%EC%9D%98-%ED%95%B4%EC%84%9D"><i class="fa fa-check"></i><b>7.3.3</b> 상관계수의 해석</a></li>
+<li class="chapter" data-level="7.3.4" data-path="correlation.html"><a href="correlation.html#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%EC%B6%94%EC%A0%95-%EB%B0%8F-%EC%9C%A0%EC%9D%98%EC%84%B1-%EA%B2%80%EC%A0%95"><i class="fa fa-check"></i><b>7.3.4</b> 상관계수 추정 및 유의성 검정</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="correlation.html"><a href="correlation.html#%ED%8E%B8%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"><i class="fa fa-check"></i><b>7.4</b> 편상관계수</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="intuitive.html"><a href="intuitive.html"><i class="fa fa-check"></i><b>8</b> 직관으로 이해하는 회귀분석</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="intuitive.html"><a href="intuitive.html#%EC%82%B0%EC%97%85%EC%9D%B8%EB%A0%A5%EA%B0%9C%EB%B0%9C%EC%97%90%EC%84%9C%EC%9D%98-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>8.1</b> 산업인력개발에서의 회귀분석</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="intuitive.html"><a href="intuitive.html#%EB%B3%80%EC%88%98%EA%B0%84%EC%9D%98-%EA%B4%80%EA%B3%84%EB%A5%BC-%EA%B5%AC%EB%AA%85%ED%95%98%EB%8A%94-%EC%97%B0%EA%B5%AC%EA%B0%80%EC%84%A4%EB%93%A4"><i class="fa fa-check"></i><b>8.1.1</b> 변수간의 관계를 구명하는 연구가설들</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EA%B3%BC-1%EC%B0%A8-%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>8.2</b> 회귀분석과 1차 함수</a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="intuitive.html"><a href="intuitive.html#%EC%A0%88%ED%8E%B8%EA%B3%BC-%EA%B8%B0%EC%9A%B8%EA%B8%B0%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>8.2.1</b> 절편과 기울기의 의미</a></li>
+<li class="chapter" data-level="8.2.2" data-path="intuitive.html"><a href="intuitive.html#%EA%B8%B0%EC%9A%B8%EA%B8%B0%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>8.2.2</b> 기울기의 의미</a></li>
+<li class="chapter" data-level="8.2.3" data-path="intuitive.html"><a href="intuitive.html#haty-y%EC%99%80-%EC%9E%94%EC%B0%A8residual"><i class="fa fa-check"></i><b>8.2.3</b> <span class="math inline">\(\hat{Y}\)</span>, <span class="math inline">\(Y\)</span>와 잔차(residual)</a></li>
+<li class="chapter" data-level="8.2.4" data-path="intuitive.html"><a href="intuitive.html#%EB%8F%85%EB%A6%BD%EB%B3%80%EC%88%98%EA%B0%80-%EB%91%90-%EA%B0%9C-%EC%9D%B4%EC%83%81%EC%9D%BC%EB%95%8C%EC%9D%98-%ED%9A%8C%EA%B7%80%EC%8B%9D"><i class="fa fa-check"></i><b>8.2.4</b> 독립변수가 두 개 이상일때의 회귀식</a></li>
+<li class="chapter" data-level="8.2.5" data-path="intuitive.html"><a href="intuitive.html#added-variable-plot"><i class="fa fa-check"></i><b>8.2.5</b> added variable plot</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EA%B3%BC-2%EC%B0%A8%ED%95%A8%EC%88%98"><i class="fa fa-check"></i><b>8.3</b> 회귀분석과 2차함수</a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="intuitive.html"><a href="intuitive.html#%EB%B9%84%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>8.3.1</b> 비선형 회귀분석</a></li>
+<li class="chapter" data-level="8.3.2" data-path="intuitive.html"><a href="intuitive.html#%EC%A0%88%ED%8E%B8%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>8.3.2</b> 절편의 의미</a></li>
+<li class="chapter" data-level="8.3.3" data-path="intuitive.html"><a href="intuitive.html#%EC%B0%A8%ED%95%AD%EB%B0%8F-2%EC%B0%A8%ED%95%AD%EC%9D%98-%EA%B8%B0%EC%9A%B8%EA%B8%B0%EC%9D%98-%EC%9D%98%EB%AF%B8"><i class="fa fa-check"></i><b>8.3.3</b> 1차항및 2차항의 기울기의 의미</a></li>
+<li class="chapter" data-level="8.3.4" data-path="intuitive.html"><a href="intuitive.html#%EC%9E%84%EA%B8%88%EB%B0%A9%EC%A0%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EB%B9%84%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"><i class="fa fa-check"></i><b>8.3.4</b> 임금방정식으로 이해하는 비선형 회귀분석</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%97%90%EC%84%9C-%EB%8D%94%EB%AF%B8%EB%B3%80%EC%88%98-%ED%99%9C%EC%9A%A9"><i class="fa fa-check"></i><b>8.4</b> 회귀분석에서 더미변수 활용</a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%97%90-%EC%A0%81%ED%95%A9%ED%95%9C-%EB%B3%80%EC%88%98%EC%9D%98-%EC%B2%99%EB%8F%84"><i class="fa fa-check"></i><b>8.4.1</b> 회귀분석에 적합한 변수의 척도</a></li>
+<li class="chapter" data-level="8.4.2" data-path="intuitive.html"><a href="intuitive.html#%EB%B2%94%EC%A3%BC%ED%98%95-%EB%B3%80%EC%88%98%EA%B0%80-%EB%8F%85%EB%A6%BD%EB%B3%80%EC%88%98%EB%A1%9C-%ED%88%AC%EC%9E%85%EB%90%A0-%EB%95%8C"><i class="fa fa-check"></i><b>8.4.2</b> 범주형 변수가 독립변수로 투입될 때</a></li>
+</ul></li>
+<li class="chapter" data-level="8.5" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EC%A1%B0%EC%A0%88%ED%9A%A8%EA%B3%BC"><i class="fa fa-check"></i><b>8.5</b> 회귀식으로 이해하는 조절효과</a>
+<ul>
+<li class="chapter" data-level="8.5.1" data-path="intuitive.html"><a href="intuitive.html#%EC%A1%B0%EC%A0%88%ED%9A%A8%EA%B3%BC%EC%9D%98-%EA%B0%9C%EB%85%90"><i class="fa fa-check"></i><b>8.5.1</b> 조절효과의 개념</a></li>
+<li class="chapter" data-level="8.5.2" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EC%8B%9D-%EB%A7%8C%EB%93%A4%EA%B8%B0%EC%99%80-%ED%95%B4%EC%84%9D%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>8.5.2</b> 회귀식 만들기와 해석하기</a></li>
+<li class="chapter" data-level="8.5.3" data-path="intuitive.html"><a href="intuitive.html#%EB%B6%84%EC%84%9D%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D-%EC%98%88%EC%A0%9C"><i class="fa fa-check"></i><b>8.5.3</b> 분석결과 해석 예제</a></li>
+</ul></li>
+<li class="chapter" data-level="8.6" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EB%A7%A4%EA%B0%9C%ED%9A%A8%EA%B3%BC"><i class="fa fa-check"></i><b>8.6</b> 회귀식으로 이해하는 매개효과</a>
+<ul>
+<li class="chapter" data-level="8.6.1" data-path="intuitive.html"><a href="intuitive.html#%EB%A7%A4%EA%B0%9C%ED%9A%A8%EA%B3%BC%EC%9D%98-%EA%B0%9C%EB%85%90"><i class="fa fa-check"></i><b>8.6.1</b> 매개효과의 개념</a></li>
+<li class="chapter" data-level="8.6.2" data-path="intuitive.html"><a href="intuitive.html#%ED%9A%8C%EA%B7%80%EC%8B%9D-%EB%A7%8C%EB%93%A4%EA%B8%B0%EC%99%80-%ED%95%B4%EC%84%9D%ED%95%98%EA%B8%B0-1"><i class="fa fa-check"></i><b>8.6.2</b> 회귀식 만들기와 해석하기</a></li>
+<li class="chapter" data-level="8.6.3" data-path="intuitive.html"><a href="intuitive.html#%EB%B6%84%EC%84%9D%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D-%EC%98%88%EC%A0%9C-1"><i class="fa fa-check"></i><b>8.6.3</b> 분석결과 해석 예제</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="regression.html"><a href="regression.html"><i class="fa fa-check"></i><b>9</b> 회귀분석 심화 및 기본가정</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="regression.html"><a href="regression.html#simple-regression-anlysis"><i class="fa fa-check"></i><b>9.1</b> simple regression anlysis</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="regression.html"><a href="regression.html#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90"><i class="fa fa-check"></i><b>9.1.1</b> 단순회귀분석의 개념</a></li>
+<li class="chapter" data-level="9.1.2" data-path="regression.html"><a href="regression.html#%EC%B5%9C%EC%86%8C%EC%9E%90%EC%8A%B9%EB%B2%95%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EB%8F%84%EC%B6%9C"><i class="fa fa-check"></i><b>9.1.2</b> 최소자승법을 활용한 회귀계수 도출</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="regression.html"><a href="regression.html#multiple-regression-analysis"><i class="fa fa-check"></i><b>9.2</b> multiple regression analysis</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="regression.html"><a href="regression.html#%EB%8B%A4%EC%A4%91%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%9D%98-%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EB%8F%84%EC%B6%9C"><i class="fa fa-check"></i><b>9.2.1</b> 다중회귀분석의 회귀계수 도출</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="regression-1.html"><a href="regression-1.html"><i class="fa fa-check"></i><b>10</b> regression</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="regression-1.html"><a href="regression-1.html#simple-regression-anlysis-1"><i class="fa fa-check"></i><b>10.1</b> simple regression anlysis</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="regression-1.html"><a href="regression-1.html#%EB%8B%A8%EC%88%9C%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%9D%98-%EA%B0%9C%EB%85%90-1"><i class="fa fa-check"></i><b>10.1.1</b> 단순회귀분석의 개념</a></li>
+<li class="chapter" data-level="10.1.2" data-path="regression-1.html"><a href="regression-1.html#%EC%B5%9C%EC%86%8C%EC%9E%90%EC%8A%B9%EB%B2%95%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EB%8F%84%EC%B6%9C-1"><i class="fa fa-check"></i><b>10.1.2</b> 최소자승법을 활용한 회귀계수 도출</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="regression-1.html"><a href="regression-1.html#multiple-regression-analysis-1"><i class="fa fa-check"></i><b>10.2</b> multiple regression analysis</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="regression-1.html"><a href="regression-1.html#%EB%8B%A4%EC%A4%91%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D%EC%9D%98-%ED%9A%8C%EA%B7%80%EA%B3%84%EC%88%98-%EB%8F%84%EC%B6%9C-1"><i class="fa fa-check"></i><b>10.2.1</b> 다중회귀분석의 회귀계수 도출</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 활용한 산업인력개발통계</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ttest" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">Chapter 6</span> t검정과 ANOVA<a href="ttest.html#ttest" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<blockquote>
+<ul>
+<li><p>모집단 평균에 관한 가설검정 종류</p></li>
+<li><p>t검정 (t-test)</p>
+<ul>
+<li>t검정의 개념 및 가정</li>
+<li>단일 모집단평균에 대한 t 검정</li>
+<li>동일 모집단 반복측정 평균에 대한 t 검정(paired t-test, 쌍체비교)</li>
+<li>두 모집단 평균에 대한 t 검정</li>
+<li>t검정 효과 크기</li>
+<li>R을 활용한 t 검정 실습</li>
+</ul></li>
+<li><p>분산분석 (ANOVA)</p>
+<ul>
+<li>분산분석 (ANOVA)의 개념</li>
+<li>일원분산분석 (one-way ANOVA) 공식</li>
+<li>손으로 푸는 일원분산분석 (one-way ANOVA)</li>
+<li>R을 활용한 일원분산분석 (one-way ANOVA)</li>
+</ul></li>
+</ul>
+</blockquote>
+<div id="모집단-평균에-관한-가설검정" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> 모집단 평균에 관한 가설검정<a href="ttest.html#%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EA%B4%80%ED%95%9C-%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>모집단에 대한 가설검정은 검정 대상에 따라 크게 두가지 종류가 있다. (1) 모집단의 평균(<span class="math inline">\(\mu\)</span>) 검정, (2) 모집단의 분산(<span class="math inline">\(\sigma^2\)</span>) 검정이다. 검정 대상이란 무엇일까? 앞서 살펴본 중심극한정리에 따라 우리는 소량의 표본(sample)의 통계량(표본평균, 표본분산)을 활용해 모집단의 모수(모집단 평균, 모집단분산)을 추정할 수 있음을 이해했다. 여기서 가설검정이란 추정하는 대상이 모집단 평균과 모집단 분산인지를 의미한다.</p>
+<p>아래 그림과 같이 가설검정 대상에 따라 검정 방식은 모두 달라진다. 모집단 평균을 검정하는 경우 모집단의 수에 따라 검정방식이 달라진다.</p>
+<ul>
+<li>1개 모집단의 평균을 검정 : t 검정 (예: H1: 서울대학교 학생들의 평균키는 165cm이다)</li>
+<li>2개 모집단의 평균 차이 검정 :
+단일 모집단 t 검정 : (H1: 서울대학교 남학생의 입학당시 IQ와 졸업당시 IQ는 차이가 있다. )
+두 모집단 T검정 : (H1: 서울대학교 남학생과 여학생의 평균키는 차이가 있다)</li>
+<li>3개 모집단의 평균 차이 검정 : ANOVA (H1: 서울대학교 학생의 GPA는 학년별(1/2/3/4학년)로 차이가 있다)</li>
+</ul>
+<p>한편 모집단 분산을 검정하는 경우에도 모집단의 수에 따라 검정방식은 다르다</p>
+<ul>
+<li>1개 모집단의 분산을 검정 : 카이제곱 검정</li>
+<li>2개 모집단의 분산을 검정 : F 검정</li>
+</ul>
+<p>이 장에서는 산업인력개발 분야에서 주로 쓰이는 모집단 평균 검정에 국한하여 살펴보도록 하겠다.</p>
+</div>
+<div id="t-검정-t-test" class="section level2 hasAnchor" number="6.2">
+<h2><span class="header-section-number">6.2</span> t 검정 (t-test)<a href="ttest.html#t-%EA%B2%80%EC%A0%95-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="t-검정-t-test의-개념-및-가정" class="section level2 hasAnchor" number="6.3">
+<h2><span class="header-section-number">6.3</span> t 검정 (t-test)의 개념 및 가정<a href="ttest.html#t-%EA%B2%80%EC%A0%95-t-test%EC%9D%98-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B0%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>t 검정에 대해 알아보기 전에, 먼저 가설검정에 대해 좀더 자세히 알아보자. 가설 검정은 연구자가 세운 가설(alternative hypothesis)가 참인지 확인하는 절차이다. 가설검정의 중요한 원리는 영가설, 또는 귀무가설(null hypothesis)을 기각하는 방식으로 연구가설을 채택한다는 점이다. 다음의 예시를 통해 이해해보자.</p>
+<ul>
+<li><p>서울대학교 학생회관 근처를 지나가는 학생들 100명을 표집하여 키(cm)를 측정했더니 평균 168cm가 나왔다. 이 평균키가 서울대학교 전체 학생들의 키 분포에서 나왔는지, 아니면 다른 분포에서 나왔는지 검증하려고 한다(예: 서울대학교 농구부 학생들처럼 키가 큰 학생들의 분포에서 나왔는지)</p></li>
+<li><p>서울대학교 전체 학생의 평균키는 평균키 165cm, 분산은 4인 정규분포를 따른다는 정보를 알고 있다. 우리가 갖고 있는 표본이 이 분포에서 나왔다고 가정하자(H0: X~N(165, 4))</p></li>
+<li><p>평균을 검정하는 것이므로 영가설과 연구가설은 다음과 같이 쓸 수 있다.
+<span class="math inline">\(H_0: \mu_x=165\)</span>
+<span class="math inline">\(H_1: \mu_x\neq 5\)</span></p></li>
+<li><p>표본의 평큔키인 168cm가 <span class="math inline">\(N(165,4)\)</span>의 분포에서 나올 확률을 구한다.</p></li>
+<li><p>만일 이 확률이 우리의 기준 확률보다 낮으면, 표본의 평균키가 해당분포에서 나올 확률은 극히 드물것이다. 따라서 표본은 서울대학교 전체 학생들의 키 분포에서 나왔다는 영가설을 기각하고, 우리의 표본은 새로운 분포에서 나왔다는 연구가설(H1)을 채택할 수 있다.</p></li>
+</ul>
+<p>하지만 대부분의 경우 우리는 모집단의 분포에 대한 정보(<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma^2\)</span>)를 알지못한다. 따라서 표본의 평균(<span class="math inline">\(\bar{X}\)</span>)과 표본의 분산(<span class="math inline">\(S^2\)</span>)를 사용하여 모집단의 평균과 분산을 추정할 수 밖에 없다는 것을 기억하자.</p>
+<div id="단일-모집단-평균에-대한-t-검정" class="section level3 hasAnchor" number="6.3.1">
+<h3><span class="header-section-number">6.3.1</span> 단일 모집단 평균에 대한 t 검정<a href="ttest.html#%EB%8B%A8%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>단일 모집단 평균에 대한 t 검정은 우리가 수집한 표본의 평균이 모집단 평균과 차이가 있는지를 확인하는 검정방식이다. 좀더 구체적으로 설명한다면 표본의 평균이 모집단의 분포에서 나온것인지를 확인하는 것이다. 다음의 예시를 살펴보자</p>
+<ul>
+<li>A회사는 자사의 노트북 배터리 용량이 길다고 홍보하고 있다. 제품 스펙에는 배터리 용량이 80시간으로 되어 있는데, 소비자들은 80시간보다 짧은 것 같다고 불만을 나타내고 있다. 이를 확인하기 위해 우리는 A회사 노트북 100개를 무작위로 수집하여 배터리 용량을 각각 측정해보았다. 측정결과 표본 100개의 평균 배터리 용량은 평균 79시간이었고, 분산은 4였다. 노트북 배터리가 80시간보다 짧은지 유의수준 0.05에서 검증해보자.</li>
+</ul>
+<p>위와 같은 예시에서 연구가설과 영가설은 다음과 같이 쓸 수 있다.</p>
+<p><span class="math inline">\(H_1\)</span>: <span class="math inline">\(\mu\)</span>&lt;80 (노트북의 배터리 용량은 80시간보다 작다)
+<span class="math inline">\(H_0: \mu\geq80  또는 \mu=80\)</span>노트북의 배터리 용량은 80시간과 같거나 크다.</p>
+<p>즉, 우리가 수집한 100개의 노트북 배터리의 평균 용량 79시간이 <span class="math inline">\(N(80, \sigma^2)\)</span>의 분포에서 나온것인지 확인하는 것이다. 안타깝게도 모집단의 평균은 80시간으로 알려져있지만 분산값은 확인할 수가 없다. 이 경우는 표본의 분산값을 사용해 모집단의 분산을 추정해야 한다. 앞서 중심극한정리에서 간단히 설명한 바와 같이 모집단의 분산과 표본의 분산은 완전히 일치하지 않지만 가장 적합한 추정량이기 때문에 이를 사용하게 된다.</p>
+<p>만일 우리가 모집단의 평균과 분산을 모두 안다면, 표준정규분포로 변환하여 구간확률을 구할 수 있었던 점을 기억하자. 이때 Z-score는 다음과 같은 공식으로 산출된다.</p>
+<p><span class="math inline">\(Z=\frac{\bar{X}-\mu}{\sigma}\)</span></p>
+<p>우리는 모집단의 표준편차(sigma)를 알지 못하므로, 표본의 표준편차를 표본크기 제곱근(<span class="math inline">\(\sqrt{n}\)</span>)으로 나눈값을 활용해 모집단 표준편차를 대체해보자. 이때의 값을 t-score로 명명한다.</p>
+<p><span class="math inline">\(t=\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}\)</span></p>
+<p><span class="math inline">\(\bar{X}=79\)</span>, <span class="math inline">\(\mu=80\)</span>, <span class="math inline">\(S=2\)</span>, <span class="math inline">\(n=100\)</span>이므로 t값은 다음과 같이 계산된다.</p>
+<p><span class="math inline">\(t_{\bar{X}}=\frac{79-80}{2/\sqrt{100}} =-5\)</span></p>
+<p>산출된 t값 -5는 검정통계량이라고 하며, 검정통계량을 임계치와 비교함으로서 연구가설의 채택여부를 결정한다. 우리의 유의수준은 .05이며, 자유도 99(100-1)의 t값의 임계치는 <span class="math inline">\(-1.64\)</span>이므로 절대값이 임계치보다 크다. 따라서 영가설을 기각하고 연구가설을 채택할 수 있다.</p>
+<p>그림삽입</p>
+<p>따라서 유의수준(<span class="math inline">\(\alpha\)</span>) 0.05에서 A 회사의 노트북 배터리의 평균 용량은 우리의 주장대로 80시간보다 작은 것으로 판단된다.</p>
+</div>
+<div id="동일-모집단-반복측정-평균에-대한-t-검정" class="section level3 hasAnchor" number="6.3.2">
+<h3><span class="header-section-number">6.3.2</span> 동일 모집단 반복측정 평균에 대한 t 검정<a href="ttest.html#%EB%8F%99%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%EB%B0%98%EB%B3%B5%EC%B8%A1%EC%A0%95-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>동일 모집단을 반복측정한 두 평균에 대한 t 검정은 흔히 쌍체비교 t 검정 (paired t-test)이라고 불린다. 산업인력개발분야에서 가장 대표적인 쌍체비교 t 검정 사례는 교육훈련 프로그램 전/후의 직무 수준의 차이가 통계적으로 유의미한지를 확인하는 주제일 것이다. 예를 들어 A 회사의 25명의 사람들에게 특정한 직무훈련프로그램을 제공하였다고 가정해보자. 우리는 직무훈련 프로그램의 효과성을 검증하기 위해 훈련프로그램 전/후의 직무 수준을 측정할 것이다. 25명의 사람들의 교육전 직무 수준을 측정하였더니 평균 3.00(5점 만점)이었다. 직무훈련프로그램을 이수한 후에 동일한 측정도구로 직무 수준을 측정하였더니 평균 3.30(5점 만점)이 나왔다. 프로그램은 효과적이었는가? 다시 말해 훈련프로그램 전 후의 직무수준은 유의미한 차이가 있는가?</p>
+<p>위의 실험에서 우리는 동일한 모집단에게서 반복 측정된 숫자 두 가지를 갖게 된다. 첫번째 사람의 훈련 전/후 직무수준, 두 번째 사람의 훈련 전/후 직무 수준….25번째 사람의 훈련 전/후 직무수준으로 총 50개의 자료를 얻었다. 이들 자료는 전체 평균으로 비교할 것이 아니라 동일한 개인의 사전/사후 검사를 비교해야만 의미가 있을 것이다.즉,쌍별(paired) 평균 비교를 해야 한다.</p>
+<p>관련한 쌍체비교 t 검정을 하기 위해 연구가설과 영가설을 다음과 같이 쓸 수 있다.</p>
+<p><span class="math inline">\(H_1: \mu_{\bar{d}}=\mu_{X_{후}}-\mu_{X_{전}}&gt;0\)</span> (훈련프로그램 사후 직무수준이 사전 직무수준보다 크다)
+<span class="math inline">\(H_0: \mu_{\bar{d}}=\mu_{X_{후}}-\mu_{X_{전}}=0\)</span> (훈련프로그램 사전/사후 직무수준의 차이는 없다)</p>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="19%" />
+<col width="21%" />
+<col width="29%" />
+<col width="24%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>pre-test(x_pre)</th>
+<th>post-test(x_post)</th>
+<th>differences(x_post-x_pre)</th>
+<th>square of deviation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>3.0</td>
+<td>3.2</td>
+<td>0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>3.5</td>
+<td>3.8</td>
+<td>0.3</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3.2</td>
+<td>3.4</td>
+<td>0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>3.0</td>
+<td>2.8</td>
+<td>-0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>2.8</td>
+<td>3.5</td>
+<td>0.7</td>
+<td>0.49</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>3.1</td>
+<td>3.2</td>
+<td>0.1</td>
+<td>0.01</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>3.1</td>
+<td>3.3</td>
+<td>0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>3.2</td>
+<td>3.7</td>
+<td>0.5</td>
+<td>0.25</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>2.9</td>
+<td>3.1</td>
+<td>0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>3.0</td>
+<td>3.8</td>
+<td>0.8</td>
+<td>0.64</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>3.0</td>
+<td>3.3</td>
+<td>0.3</td>
+<td>0.09</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>3.1</td>
+<td>2.9</td>
+<td>-0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>3.3</td>
+<td>3.1</td>
+<td>-0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>2.0</td>
+<td>2.8</td>
+<td>0.8</td>
+<td>0.64</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>3.5</td>
+<td>3.6</td>
+<td>0.1</td>
+<td>0.01</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>3.2</td>
+<td>3.5</td>
+<td>0.3</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>3.3</td>
+<td>3.7</td>
+<td>0.4</td>
+<td>0.16</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>2.8</td>
+<td>2.9</td>
+<td>0.1</td>
+<td>0.01</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>2.9</td>
+<td>2.9</td>
+<td>0.0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>2.9</td>
+<td>3.6</td>
+<td>0.7</td>
+<td>0.49</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>2.7</td>
+<td>3.3</td>
+<td>0.6</td>
+<td>0.36</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>3.2</td>
+<td>3.5</td>
+<td>0.3</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>3.0</td>
+<td>3.1</td>
+<td>0.1</td>
+<td>0.01</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>3.1</td>
+<td>3.4</td>
+<td>0.3</td>
+<td>0.09</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>2.8</td>
+<td>2.6</td>
+<td>-0.2</td>
+<td>0.04</td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+<td>6.4</td>
+<td>3.84</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>평균= 3.0</td>
+<td>평균=3.3</td>
+<td>평균= 0.3</td>
+<td>S=0.39</td>
+</tr>
+</tbody>
+</table>
+<p>쌍체 비교는 두개의 통계량(사전 측정값의 평균, 사후 측정값의 평균)이 존재하지만, 가설검정을 위해서는 사전/사후의 차이(differences)의 평균값만을 활용한다. 위의 표와 같이 25명의 사전/사후 직무수준 측정값을 갖고 있다면, 세 번째 열인 사전/사후 차이값 만을 활용한다. 따라서 가설을 검정하는 방식이 단일 모집단 평균에 관한 검정과 같다.</p>
+<p>위의 가설을 다시 설명해보면 <span class="math inline">\(\mu_{\bar{d}}\)</span>가 평균이 0인 분포에서 도출된 것인지를 검정하는 것이다. 즉 평균이 0인 분포에서 나왔다면 영가설이 채택되고, 그렇지 않다면 연구가설이 채택될 것이다. 마찬가지로 모집단의 표준편차(<span class="math inline">\(\sigma\)</span>)는 알 수 없으므로 표본의 표준편차를 사용하는 것이 최선의 대안일 것이다. 표본의 표준편차는 위의 표의 네번째 열에 나타난 <span class="math inline">\(\mu_{\bar{d}}\)</span>의 제곱합을 표본크기로 나눠준 값이다.</p>
+<p><span class="math inline">\(S_{\bar{d}}=\sqrt{\frac{3.84}{25}}=0.39\)</span></p>
+<p>t값을 구하는 공식은 아래와 같으므로,</p>
+<p><span class="math inline">\(t=\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}\)</span></p>
+<p><span class="math inline">\(\bar{d}=0.3\)</span>, <span class="math inline">\(\mu=0\)</span>, <span class="math inline">\(S=0.39\)</span>, <span class="math inline">\(n=25\)</span>이므로 t값은 다음과 같이 계산된다.</p>
+<p><span class="math inline">\(t_{\bar{d}}=\frac{0.3-0}{0.39/\sqrt{25}} =3.85\)</span></p>
+<p>유의수준이 0.05이고 자유도가 24(n-1)인 t 분포상의 임계치(<span class="math inline">\(t_{(0.05, 24)}\)</span>는 1.710이다. 따라서 표본으로부터 구한 검정통계량(3.85)이 임계치보다 크다. 다시 말해 표본은 평균이 0인 분포에서 나왔다고 말하기 지극히 힘든 수준에서 나왔으므로 연구가설을 채택하게 된다.</p>
+<ul>
+<li><p>왼쪽꼬리 검정</p></li>
+<li><p>오른쪽 꼬리 검정</p></li>
+<li><p>양쪽꼬리 검정</p></li>
+</ul>
+</div>
+<div id="두-모집단-평균에-대한-t-검정" class="section level3 hasAnchor" number="6.3.3">
+<h3><span class="header-section-number">6.3.3</span> 두 모집단 평균에 대한 t 검정<a href="ttest.html#%EB%91%90-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>독립적인 두 모집단 평균에 대한 t 검정도 산업인력개발분야에서 많이 활용된다. 예를 들어 직무만족수준이 성별(남/여)에 따라 차이가 있는지? 삶의 만족도가 취업여부(취업/미취업)에 따라 차이가 있는지를 검증하는 것이 이에 해당된다. 집단간 평균차이 검정은 두집단인 경우에만 t검정을 하고 세 집단 이상인 경우에는 분산분석(ANOVA)를 실시함을 반드시 기억하자!</p>
+<p>이번에도 예시를 들어 가설을 검정해보자. 서울대학교 학생들의 성격요인 중 성실성(conscientiousness) 점수가 성별에 따라 차이가 있는지 검증하고자 한다. 각각 25명의 남학생과 여학생을 표본으로 선정하여 성실성 점수를 측정하였더니 100점 만점에 남학생은 평균 75점, 분산은 9, 여학생은 평균 80점, 분산은 16이 나왔다. 서울대학교 남학생과 여학생의 성실성 점수는 통계적으로 유의한 차이가 있는지 유의수준(<span class="math inline">\(\alpha\)</span>)검증해보자.</p>
+<p>두 집단의 평균에 차이가 있는가를 검증하는 것은 두집단 평균의 차이가 0이 아닌 것을 증명하는 것과 같다. 따라서 위의 예시를 기반으로 가설을 작성하면 다음과 같다.</p>
+<p><span class="math inline">\(H_1: \mu_{M}-\mu_{F}\neq0\)</span> (남학생과 여학생의 성실성 점수의 차이가 있다)
+<span class="math inline">\(H_0: \mu_{M}-\mu_{F}=0\)</span> (남학생과 여학생의 성실성 점수의 차이는 없다)</p>
+<p>이때 <span class="math inline">\(\bar{X_{M}}-\bar{X_{F}}=-5\)</span>, <span class="math inline">\(\mu_{M}-\mu_{F}=0\)</span>, <span class="math inline">\(n_{M}=25\)</span>, <span class="math inline">\(n_{F}=25\)</span>임울 우리는 알고 있다. 모집단이 두개이기 때문에 차근차근 생각해보자. 먼저 두집단의 평균차이(<span class="math inline">\(\bar{X_{M}}-\bar{X_{F}}\)</span>)는 무선변수의 선형적인 결합이기 때문에, 각 집단의 평균이 정규분포를 따른다면 이들의 선형함수인 평균차이 역시 정규분포를 따른다. 문제는 분산과 표준편차인데, 역시나 모집단(서울대학교 전체 학생)의 분산을 알수 없으므로 통계량을 통해 추정해야 한다.</p>
+<p>두 모집단이 독립적이라고 가정한다면 모분산은 다음과 같이 계산할 수 있다.</p>
+<p><span class="math inline">\(\sigma^2_{\bar{X_{M}}-\bar{X_{F}}}= var(\bar{X_{M}}-\bar{X_{F}})=var(\bar{X_{M}})+var(\bar{X_{F}})=\frac{\sigma^2_{M}}{N_{M}}+\frac{\sigma^2_{F}}{N_{F}}\)</span></p>
+<p><span class="math inline">\(\sigma_{\bar{X_{M}}-\bar{X_{F}}}= \sqrt{\frac{\sigma^2_{M}}{N_{M}}+\frac{\sigma^2_{F}}{N_{F}}}\)</span></p>
+<p>만일 두 모집단의 분산이 서로 같다는 가정을 할 수 있다면 두개의 표본을 합쳐서 하나의 표본으로 생각하고, 통합된 분산을 구하여 표준 오차를 구한다. <a href="ttest.html#eq:samevar">(6.1)</a></p>
+<p><span class="math display" id="eq:samevar">\[\begin{equation}
+S_{\bar{X_{M}}-\bar{X_{F}}}= \sqrt{S^2_{p}(\frac{1}{n_M}+\frac{1}{n_F})}
+when
+S^2_{p}=\frac{(n_{M}-1)S^2_{M}+(n_{F}-1)S^2_{F}}{{n_M}+{n_F}-2}
+\tag{6.1}
+\end{equation}\]</span></p>
+<p>이때의 자유도는 다음과 같이 계산된다. <a href="ttest.html#eq:samedf">(6.2)</a></p>
+<p><span class="math display" id="eq:samedf">\[\begin{equation}
+df=\left ( \frac{(S^2_{m}/n_{m}+S^2_{f}/n_{f})^2}{\frac{(S^2_{m}/n_{m})^2}{(n_{m}-1)}+\frac{(S^2_{f}/n_{f})^2}{(n_{f}-1)}} \right )
+\tag{6.2}
+\end{equation}\]</span></p>
+<p>반대로 두 모집단의 분산이 서로 다르다면, 두 집단별 표본분산을 각각의 표본개수로 나우어 더한 다음 루트를 씌워서 표준오차를 구한다.<a href="ttest.html#eq:diffvar">(6.3)</a></p>
+<p><span class="math display" id="eq:diffvar">\[\begin{equation}
+S_{\bar{X_{M}}-\bar{X_{F}}}= \sqrt{\frac{S^2_{M}}{N_{M}}+\frac{S^2_{F}}{N_{F}}}
+\tag{6.3}
+\end{equation}\]</span></p>
+<p>다시 예시로 돌아와서, 남학생과 여학생의 성실성 수준에 차이가 있는가를 검증해보자. 모집단 분산이 서로 다르다고 가정하면 다음과 같다.
+먼저 자유도를 계산해보면 다음과 같다.</p>
+<p><span class="math display">\[\begin{equation}
+df=\left (\frac{(9/25+16/25)^2}{\frac{(9/25)^2}{24}+\frac{(16/25)^2}{24}}  \right )=44.51
+\end{equation}\]</span></p>
+<p>또한 이때의 검정통계량 t값은 다음과 같다.
+<span class="math display">\[\begin{equation}
+t_{\bar{x_{m}}-\bar{x_{f}}}=\frac{(\bar{x_{m}}-\bar{x_{f}})-(\mu_{m}-\mu_{f})}{\sqrt{\frac{S_{m}^2}{n_{m}}+\frac{S_{m}^2}{n_{m}}}}=\frac{(-5)-(0))}{\sqrt{9/25+16/25}}=-5
+\end{equation}\]</span></p>
+<p><span class="math inline">\(t_{(0.25, 44.51)}\)</span>는 <span class="math inline">\(\pm1.96\)</span>으로 검정통계량 t인 -5보다 절대값이 작으므로, 영가설을 기각하고 연구가설을 채택할 수 있다. 즉, 유의수준(<span class="math inline">\(\alpha\)</span>)에서 서울대학교 남학생과 여학생의 성실성 평균수준은 모집단에서도 차이가 있는 것으로 판단할 수 있다.</p>
+</div>
+<div id="t-검정에서의-효과크기와-검증력" class="section level3 hasAnchor" number="6.3.4">
+<h3><span class="header-section-number">6.3.4</span> t 검정에서의 효과크기와 검증력<a href="ttest.html#t-%EA%B2%80%EC%A0%95%EC%97%90%EC%84%9C%EC%9D%98-%ED%9A%A8%EA%B3%BC%ED%81%AC%EA%B8%B0%EC%99%80-%EA%B2%80%EC%A6%9D%EB%A0%A5" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="가설검증의-오류errors" class="section level4 hasAnchor" number="6.3.4.1">
+<h4><span class="header-section-number">6.3.4.1</span> 가설검증의 오류(errors)<a href="ttest.html#%EA%B0%80%EC%84%A4%EA%B2%80%EC%A6%9D%EC%9D%98-%EC%98%A4%EB%A5%98errors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>검정력에 대한 설명을 위해서는 가설검증시 발생가능한 두 가지 종류의 오류(error)에 대해 설명할 필요가 있다. 흔히 1종 오류, 2종 오류라 불리우는데, 직관적인 이해를 위해 양치기 소년 일화를 통해 이해해보자.</p>
+<hr />
+<p>양치기 소년이 늑대가 오지 않았는데 늑대가 나타났다고 소리를 질렀다. 마을 사람들은 늑대가 나타났다고 믿고 달려갔지만 거짓말임을 알게 되었다(type 1 error : <span class="math inline">\(H_1\)</span>이 거짓이지만 <span class="math inline">\(H_1\)</span>을 채택하는 확률).
+며칠이 지나고 진짜 늑대가 나타났고(H1은 참), 양치기 소년이 소리를 질렀지만, 마을 사람들은 믿지 않았다(<span class="math inline">\(H_1\)</span>: reject). 결국 늑대는 양을 모두 잡아먹었다(type 2 error : <span class="math inline">\(H_1\)</span>이 참이지만, <span class="math inline">\(H_1\)</span>을 기각하는 확률)</p>
+<hr />
+<p>위의 일화를 통해 1종오류와 2종오류를 정의해 보면 아래 표와 그림과 같다. 앞선 예시에서는 <span class="math inline">\(H_1\)</span>(연구가설)을 기준으로 설명하였지만, 엄밀히 말해서 가설검정은 <span class="math inline">\(H_0\)</span>(영가설)을 검증하는 것이기 때문에 1종/2종 오류를 정의할때도 <span class="math inline">\(H_0\)</span>(영가설)을 중심으로 설명한다.</p>
+<table>
+<thead>
+<tr class="header">
+<th>구분</th>
+<th>영가설 참</th>
+<th>영가설 거짓</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>영가설 채택</td>
+<td>옳은 결정</td>
+<td>2종 오류(beta)</td>
+</tr>
+<tr class="even">
+<td>영가설 기각</td>
+<td>1종 오류(alpha)</td>
+<td>옳은 결정</td>
+</tr>
+</tbody>
+</table>
+<p>그림을 보면 1종 오류와 2종오류의 정의를 좀더 쉽게 이해할 수 있다. 영가설이 참이지만 영가설이 기각될 확률은 유의수준(alpha) 와 같다. 반면 영가설이 거짓이지만 영가설을 채택하는 확률은 beta로 표기한다. 그림에서 이해를 할 수 있듯이 1종오류 확률과 2종 오류 확률은 서로 trade-off관계이다. 즉, 1종오류가 커지면 2종오류는 줄어든다. 따라서 검증할 가설의 종류에 따라 어떤 오류가 더 치명적인지 결정하고 연구에 반영할 필요가 있다. 일반적으로 사회과학에서는 1종 오류에 대해 더욱 중요하게 다루므로 유의수준의 기준(예: alpha=0.05, 0.01 등)을 엄격하게 살피는 경향이 있다.</p>
+<p>2종오류는 beta로 표기하는데, 그 자체를 활용하기 보다 1-beta에 해당되는 검정력(power)로 치환하여 살펴보게 된다. 검정력은 2종오류의 반대 개념이기 때문에 클 수록 바람직하다. 이를 위해서 보통 통용되는 검정력을 만들기 위해 적정한 표본크기를 계산하는데 사용된다. 검정력에 대해서 좀더 알아보자.</p>
+<div class="float">
+<img src="images/alphabeta.png" alt="가설검정 오류" />
+<div class="figcaption">가설검정 오류</div>
+</div>
+</div>
+<div id="효과크기-effect-size" class="section level4 hasAnchor" number="6.3.4.2">
+<h4><span class="header-section-number">6.3.4.2</span> 효과크기 (effect size)<a href="ttest.html#%ED%9A%A8%EA%B3%BC%ED%81%AC%EA%B8%B0-effect-size" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>검정력(1-<span class="math inline">\(\beta\)</span>)은 크게 세 가지 요소에 의해 결정된다. 유의수준, 표본 크기, 그리고 효과크기이다. 효과크기라는 새로운 개념이 등장했다.</p>
+<p>효과크기(effect size)는 가설 검정 유형에 따라 다양한 지표를 사용할 수 있다. 예를 들어 두 모집단 평균차이에 관한 검정을 할때는 코헨의 d (Cohen’s d)를 사용한다. 코헨의 d를 구하는 공식은 다음과 같다.</p>
+<p><span class="math inline">\(d=\frac{\mu_{a}-\mu_{b}}{S_{pool}}\)</span></p>
+<p>이때 pooled standard deviation은 두 모집단 분산 동일성 여부에 따라 공식이 달라짐을 이미 설명한바 있으므로 참고하길 바란다(reference)
+공식을 잘 살펴보면 결국 두 집단의 평균거리를 표준편차로 척도 차이를 조절한 것이다. 다시 말해 두집단의 평균 거리가 크 수록 코헨의 d, 즉 효과크기가 커진다.</p>
+</div>
+<div id="검정력-power" class="section level4 hasAnchor" number="6.3.4.3">
+<h4><span class="header-section-number">6.3.4.3</span> 검정력 (power)<a href="ttest.html#%EA%B2%80%EC%A0%95%EB%A0%A5-power" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[그림 1]에서 확인할 수 있듯이 검정력은 영가설이 기각되고, 연구가설이 채택되는 확률이다. 앞서 언급했듯이 검정력은 효과크기, 신뢰수준, 그리고 표본크기에 따라 달라진다.</p>
+<div id="효과크기와-검정력" class="section level5 hasAnchor" number="6.3.4.3.1">
+<h5><span class="header-section-number">6.3.4.3.1</span> 효과크기와 검정력<a href="ttest.html#%ED%9A%A8%EA%B3%BC%ED%81%AC%EA%B8%B0%EC%99%80-%EA%B2%80%EC%A0%95%EB%A0%A5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>두모집단 평균차이에서의 효과크기는 영가설과 연구가설의 평균의 차이와 비례한다. 아래 그림과 같이 효과크기가 커질수록, 즉 영가설과 연구가설의 평균차이가 커질수록 연구가설이 채택되는 확률(검정력)이 커지는 것을 알 수 있다.</p>
+<p>그림</p>
+</div>
+<div id="표본크기와-검정력" class="section level5 hasAnchor" number="6.3.4.3.2">
+<h5><span class="header-section-number">6.3.4.3.2</span> 표본크기와 검정력<a href="ttest.html#%ED%91%9C%EB%B3%B8%ED%81%AC%EA%B8%B0%EC%99%80-%EA%B2%80%EC%A0%95%EB%A0%A5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>효과크기와 신뢰수준은 동일하되 표본크기가 커지면 검정력은 어떻게 변화할까? 영가설과 연구가설의 평균이 같을때 표본 크기가 커지만 자동으로 분산이 작아지므로 그림과 같이 분포가 뾰족해진다. 따라서 검정력은 커지게 된다.</p>
+</div>
+<div id="허용오차수준alpha과-검정력" class="section level5 hasAnchor" number="6.3.4.3.3">
+<h5><span class="header-section-number">6.3.4.3.3</span> 허용오차수준(alpha)과 검정력<a href="ttest.html#%ED%97%88%EC%9A%A9%EC%98%A4%EC%B0%A8%EC%88%98%EC%A4%80alpha%EA%B3%BC-%EA%B2%80%EC%A0%95%EB%A0%A5" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>효과크기와 표본수가 동일한 경우에 허용오차수준(<span class="math inline">\(\alpha\)</span>)가 커지면 검정력도 증가한다. 그림과 같이 검정력이 cut-off가 허용오차수준에 의해 결정되기 때문이다.</p>
+</div>
+</div>
+<div id="검정력의-활용-적정-표본수의-결정" class="section level4 hasAnchor" number="6.3.4.4">
+<h4><span class="header-section-number">6.3.4.4</span> 검정력의 활용 : 적정 표본수의 결정<a href="ttest.html#%EA%B2%80%EC%A0%95%EB%A0%A5%EC%9D%98-%ED%99%9C%EC%9A%A9-%EC%A0%81%EC%A0%95-%ED%91%9C%EB%B3%B8%EC%88%98%EC%9D%98-%EA%B2%B0%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>검정력은 연구가설이 참일대, 영가설을 기각하고 연구가설을 채택하는 확률이기 때문에 중요하다. 흔히 가설을 검증할때 허용오차 수준만을 고려하기 때문에 간과되기 쉽다. 표본크기가 작은 실험연구에서는 검정력이 중요하게 고려되는데, 일부 연구분야에서는 일정 수준 이상의 검정력을 요구하는 경우가 있다. 검정력을 확보하기 위해서는 허용오차수준을 늘리거나, 샘플사이즈를 늘리거나, 효과크기를 늘려야 한다. 그러나 허용오차 수준을 늘리면 1종 오류가 늘어나고, 효과크기는 연구자가 조절하기가 어려운 영역이다. 따라서 보통 표본 크기를 늘리는 방식으로 검정렬을 늘리곤 한다. R에서는 pwr 패키지 등을 활용하면 일정 수준의 검정력을 확보하기 위한 최소 표본크기를 계산해준다. 만일 산업인력개발 분야에서 실험 연구 등과 같은 작은 표본을 대상으로 연구를 진행한다면, 반드시 검정력을 고려해 표본크기를 결정해야 한다.</p>
+</div>
+</div>
+<div id="r을-활용한-t-검정" class="section level3 hasAnchor" number="6.3.5">
+<h3><span class="header-section-number">6.3.5</span> R을 활용한 t 검정<a href="ttest.html#r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-t-%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>앞서 3종류의 t 검정방법에 대해 알아보았다.</p>
+<ol style="list-style-type: decimal">
+<li>단일모집단 평균에 대한 t검정</li>
+<li>동일모집단 반복측정 평균에 대한 t 검정</li>
+<li>두 모집단 평균에 대한 t검정</li>
+</ol>
+<p>종합해보면 1번은 모집단이 한개, 2번은 모집단이 한개이지만 반복측정한 두개의 값의 평균차이를 검증, 3번은 서로다른 두개의 모집단의 평균의 차이가 있는지를 확인하는 방식이다. 가상의 데이터를 활용해서 t 검정을 해보자.</p>
+<div id="단일-모집단-평균-t-검정" class="section level4 hasAnchor" number="6.3.5.1">
+<h4><span class="header-section-number">6.3.5.1</span> 단일 모집단 평균 t 검정<a href="ttest.html#%EB%8B%A8%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0-t-%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>C사에서 판매하는 립밤 제품의 중량은 3g으로 표기되어 있다. 하지만 많은 소비자들이 립밤이 너무 빨리 닳는다며, 표기 중량보다 적게 들어 있다고 생각했다. 어떤 유튜버가 총 15개의 립밤을 무작위로 구매하여 각각의 중량을 측정하였다.</p>
+<p>유튜버의 목적은 C사의 립밤의 <code>평균중량</code>이 3g에 미치지 않는 다는 것을 증명하는 것이다. 갖고 있는 관측데이터는 15개에 불과하지만, 이 데이터를 통해 모집단(C사에서 판매하는 모든 립밤)의 평균중량을 예측하는 것이다.</p>
+<p>이때 연구가설과 영가설은 다음과 같다.
+H1: C사 립밤의 평균중량은 3g보다 작다(less than 3g)
+H0: C사 립밤의 평균중량은 3g과 같거나 크다.</p>
+<p>r 코드는 간단하다. <code>t.test</code>를 사용하면 되고, 괄호안에는 총 4개의 인수를 지정해준다. 첫째, 데이터셋$변수명, 둘째, 가설검정할 평균값, 셋째, 단측검정과 양측검정, 넷째, 신뢰수준을 추가해야한다. 이 사례에서는 가설검정을 할 평균값이 3g이므로 mu=3, 연구가설이 평균(mu=3)보다 작다이므로 단측검정, 신뢰수준은 연구자가 설정한 95 프로 이다.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="ttest.html#cb83-1" tabindex="-1"></a></span>
+<span id="cb83-2"><a href="ttest.html#cb83-2" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
+<span id="cb83-3"><a href="ttest.html#cb83-3" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.00</span>, <span class="fl">2.75</span>, <span class="fl">2.81</span>, <span class="fl">3.0</span>, <span class="fl">2.93</span>, <span class="fl">3.01</span>, <span class="fl">3.10</span>, <span class="fl">3.20</span>, <span class="fl">2.90</span>, <span class="fl">3.00</span>, <span class="fl">3.00</span>, <span class="fl">2.95</span>, <span class="fl">2.75</span>, <span class="fl">2.88</span>, <span class="fl">3.12</span>, <span class="fl">3.05</span>, <span class="fl">3.10</span>, <span class="fl">2.85</span>, <span class="fl">2.95</span>, <span class="fl">2.90</span>, <span class="fl">2.79</span>, <span class="fl">3.14</span>, <span class="fl">3.00</span>, <span class="fl">3.10</span>, <span class="fl">2.83</span>)  </span>
+<span id="cb83-4"><a href="ttest.html#cb83-4" tabindex="-1"></a>onesampleT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X)</span>
+<span id="cb83-5"><a href="ttest.html#cb83-5" tabindex="-1"></a><span class="fu">mean</span>(onesampleT<span class="sc">$</span>X)</span>
+<span id="cb83-6"><a href="ttest.html#cb83-6" tabindex="-1"></a><span class="do">## [1] 2.9644</span></span>
+<span id="cb83-7"><a href="ttest.html#cb83-7" tabindex="-1"></a><span class="fu">t.test</span>(onesampleT<span class="sc">$</span>X, <span class="at">mu=</span><span class="dv">3</span>, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
+<span id="cb83-8"><a href="ttest.html#cb83-8" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb83-9"><a href="ttest.html#cb83-9" tabindex="-1"></a><span class="do">##  One Sample t-test</span></span>
+<span id="cb83-10"><a href="ttest.html#cb83-10" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb83-11"><a href="ttest.html#cb83-11" tabindex="-1"></a><span class="do">## data:  onesampleT$X</span></span>
+<span id="cb83-12"><a href="ttest.html#cb83-12" tabindex="-1"></a><span class="do">## t = -1.4225, df = 24, p-value = 0.08388</span></span>
+<span id="cb83-13"><a href="ttest.html#cb83-13" tabindex="-1"></a><span class="do">## alternative hypothesis: true mean is less than 3</span></span>
+<span id="cb83-14"><a href="ttest.html#cb83-14" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb83-15"><a href="ttest.html#cb83-15" tabindex="-1"></a><span class="do">##      -Inf 3.007219</span></span>
+<span id="cb83-16"><a href="ttest.html#cb83-16" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb83-17"><a href="ttest.html#cb83-17" tabindex="-1"></a><span class="do">## mean of x </span></span>
+<span id="cb83-18"><a href="ttest.html#cb83-18" tabindex="-1"></a><span class="do">##    2.9644</span></span></code></pre></div>
+<p>검정 결과, 표본평균은 2.9644이지만 t검정통계량이 -14.225, p-value가 0.08388로 연구가설이 기각되고, 영가설이 채택되었다. 다시 말해 C사의 립밤의 평균중량은 3g과 같거나 크다고 볼 수 있다.</p>
+<div class="float">
+<img src="images/onesampleT.png" alt="t분포를 활용한 가설검정" />
+<div class="figcaption">t분포를 활용한 가설검정</div>
+</div>
+</div>
+<div id="단일-모집단-반복측정-평균-t-검정-paired-t-test" class="section level4 hasAnchor" number="6.3.5.2">
+<h4><span class="header-section-number">6.3.5.2</span> 단일 모집단 반복측정 평균 t 검정 (paired t-test)<a href="ttest.html#%EB%8B%A8%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%EB%B0%98%EB%B3%B5%EC%B8%A1%EC%A0%95-%ED%8F%89%EA%B7%A0-t-%EA%B2%80%EC%A0%95-paired-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>모든 t 검정의 명령어는 <code>t.test()</code>로 동일하다. 다만 괄호안의 인수들을 변경하여 지정함으로서 3개 유형의 t검정을 실시할 수 있다. 이것은 인수들을 자칫 잘못 지정하면 엉뚱한 검정을 할 수 있다는 것을 의미한다.
+t.test()에서 지정할 인수는 다음과 같다.</p>
+<ul>
+<li><p>분석에 사용될 데이터명과 변수명 : 데이터명<span class="math inline">\(변수명1, 데이터명\)</span>변수명2의 형태로 지정</p>
+<ul>
+<li>영가설은 변수1-변수2=0</li>
+</ul></li>
+<li><p>가설검정방식 : 양측검정, 단측(왼쪽/오른쪽)검정</p>
+<ul>
+<li>양측검정 : two.sided, less, greater</li>
+</ul></li>
+<li><p>집단간 동분산 : default : FALSE</p></li>
+<li><p>쌍체비교 여부(대응표본여부) : true/false</p></li>
+<li><p>conf.level= 연구자 지정 (0.90, 0.95, 0.99….)</p></li>
+</ul>
+<p>데이터를 입력한 후에는 일단 각 집단별 평균을 구해보자. 사전점수는 3.024, 사후검사는 3.28로 사후검사가 더 높은 것을 알 수 있다. 다음으로는 집단간 동분산을 확인하여야 한다. 동분산 가정이 충족되지 않는 경우 t값의 계산 공식이 달라지기 때문이다. 집단간 동분산을 검증하는 방법이 여러가지가 있다. 여기서는 <code>var.test</code>명령어를 사용해보자. 분석결과 p값이 상당히 커서 연구가설(두 집단의 분산의 차이가 0이 아니다)이 기각된다. 따라서 두 집단은 분산이 같다고 가정할 수 있다.
+이를 기초로 t.test명령어를 사용하여 분석해보면 t 값은 -4.2262 이고, p-value는 0.05 미만으로 연구가설을 채택한다. 연구가설은 “Xpre-Xpost가 0이 아니다” 이므로 두 집단간의 차이가 있다고 결론내릴 수 있다.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="ttest.html#cb84-1" tabindex="-1"></a></span>
+<span id="cb84-2"><a href="ttest.html#cb84-2" tabindex="-1"></a><span class="do">## 데이터 입력</span></span>
+<span id="cb84-3"><a href="ttest.html#cb84-3" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
+<span id="cb84-4"><a href="ttest.html#cb84-4" tabindex="-1"></a>Xpre<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">2.8</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">2.9</span>, <span class="fl">3.0</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">3.3</span>, <span class="fl">2.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">2.8</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">2.7</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>)  </span>
+<span id="cb84-5"><a href="ttest.html#cb84-5" tabindex="-1"></a>Xpost<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">3.8</span>, <span class="fl">3.4</span>, <span class="fl">2.8</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.7</span>, <span class="fl">3.1</span>, <span class="fl">3.8</span>, <span class="fl">3.3</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">3.7</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">3.6</span>, <span class="fl">3.3</span>, <span class="fl">3.5</span>, <span class="fl">3.1</span>, <span class="fl">3.4</span>, <span class="fl">2.6</span>)</span>
+<span id="cb84-6"><a href="ttest.html#cb84-6" tabindex="-1"></a>prepostT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, Xpre, Xpost)</span>
+<span id="cb84-7"><a href="ttest.html#cb84-7" tabindex="-1"></a></span>
+<span id="cb84-8"><a href="ttest.html#cb84-8" tabindex="-1"></a><span class="do">## 사전/사후 집단의 평균비교</span></span>
+<span id="cb84-9"><a href="ttest.html#cb84-9" tabindex="-1"></a><span class="fu">mean</span>(prepostT<span class="sc">$</span>Xpre)</span>
+<span id="cb84-10"><a href="ttest.html#cb84-10" tabindex="-1"></a><span class="do">## [1] 3.024</span></span>
+<span id="cb84-11"><a href="ttest.html#cb84-11" tabindex="-1"></a><span class="fu">mean</span>(prepostT<span class="sc">$</span>Xpost)</span>
+<span id="cb84-12"><a href="ttest.html#cb84-12" tabindex="-1"></a><span class="do">## [1] 3.28</span></span>
+<span id="cb84-13"><a href="ttest.html#cb84-13" tabindex="-1"></a></span>
+<span id="cb84-14"><a href="ttest.html#cb84-14" tabindex="-1"></a><span class="do">## 집단간 동분산성 확인</span></span>
+<span id="cb84-15"><a href="ttest.html#cb84-15" tabindex="-1"></a><span class="fu">var.test</span>(prepostT<span class="sc">$</span>Xpre, prepostT<span class="sc">$</span>Xpost)</span>
+<span id="cb84-16"><a href="ttest.html#cb84-16" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb84-17"><a href="ttest.html#cb84-17" tabindex="-1"></a><span class="do">##  F test to compare two variances</span></span>
+<span id="cb84-18"><a href="ttest.html#cb84-18" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb84-19"><a href="ttest.html#cb84-19" tabindex="-1"></a><span class="do">## data:  prepostT$Xpre and prepostT$Xpost</span></span>
+<span id="cb84-20"><a href="ttest.html#cb84-20" tabindex="-1"></a><span class="do">## F = 0.76847, num df = 24, denom df = 24, p-value = 0.5238</span></span>
+<span id="cb84-21"><a href="ttest.html#cb84-21" tabindex="-1"></a><span class="do">## alternative hypothesis: true ratio of variances is not equal to 1</span></span>
+<span id="cb84-22"><a href="ttest.html#cb84-22" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb84-23"><a href="ttest.html#cb84-23" tabindex="-1"></a><span class="do">##  0.3386396 1.7438650</span></span>
+<span id="cb84-24"><a href="ttest.html#cb84-24" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb84-25"><a href="ttest.html#cb84-25" tabindex="-1"></a><span class="do">## ratio of variances </span></span>
+<span id="cb84-26"><a href="ttest.html#cb84-26" tabindex="-1"></a><span class="do">##          0.7684672</span></span>
+<span id="cb84-27"><a href="ttest.html#cb84-27" tabindex="-1"></a></span>
+<span id="cb84-28"><a href="ttest.html#cb84-28" tabindex="-1"></a><span class="do">## 쌍체비교 t-test</span></span>
+<span id="cb84-29"><a href="ttest.html#cb84-29" tabindex="-1"></a><span class="fu">t.test</span>(prepostT<span class="sc">$</span>Xpre, prepostT<span class="sc">$</span>Xpost, <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">paired=</span><span class="cn">TRUE</span>)</span>
+<span id="cb84-30"><a href="ttest.html#cb84-30" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb84-31"><a href="ttest.html#cb84-31" tabindex="-1"></a><span class="do">##  Paired t-test</span></span>
+<span id="cb84-32"><a href="ttest.html#cb84-32" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb84-33"><a href="ttest.html#cb84-33" tabindex="-1"></a><span class="do">## data:  prepostT$Xpre and prepostT$Xpost</span></span>
+<span id="cb84-34"><a href="ttest.html#cb84-34" tabindex="-1"></a><span class="do">## t = -4.2262, df = 24, p-value = 0.0002971</span></span>
+<span id="cb84-35"><a href="ttest.html#cb84-35" tabindex="-1"></a><span class="do">## alternative hypothesis: true mean difference is not equal to 0</span></span>
+<span id="cb84-36"><a href="ttest.html#cb84-36" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb84-37"><a href="ttest.html#cb84-37" tabindex="-1"></a><span class="do">##  -0.3810207 -0.1309793</span></span>
+<span id="cb84-38"><a href="ttest.html#cb84-38" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb84-39"><a href="ttest.html#cb84-39" tabindex="-1"></a><span class="do">## mean difference </span></span>
+<span id="cb84-40"><a href="ttest.html#cb84-40" tabindex="-1"></a><span class="do">##          -0.256</span></span></code></pre></div>
+</div>
+<div id="두-모집단-평균-t-검정-two-sample-t-test" class="section level4 hasAnchor" number="6.3.5.3">
+<h4><span class="header-section-number">6.3.5.3</span> 두 모집단 평균 t 검정 (two sample t-test)<a href="ttest.html#%EB%91%90-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0-t-%EA%B2%80%EC%A0%95-two-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>두 모집단 평균 t검정은 paired t-test와 매우 유사한 데이터 구조를 갖고 있지만 쌍별 비교가 아니라 두 집단의 전체 평균을 비교한다는 점에서 차이가 있다. r명령어도 매우 유사한데, 다만 “paired=FALSE”로 반드시 지정해주어야 잘못된 분석결과를 피할 수 있다.</p>
+<p>앞서 paired t-test에서 사용한 데이터셋을 그대로 사용해보자. 다만 이번에는 A직무 25명과, B직무 25명의 시험점수를 측정해서 학년간 격차가 있는지 확인한다고 가정하자.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="ttest.html#cb85-1" tabindex="-1"></a></span>
+<span id="cb85-2"><a href="ttest.html#cb85-2" tabindex="-1"></a><span class="do">## 데이터 입력</span></span>
+<span id="cb85-3"><a href="ttest.html#cb85-3" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
+<span id="cb85-4"><a href="ttest.html#cb85-4" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">2.8</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">2.9</span>, <span class="fl">3.0</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">3.3</span>, <span class="fl">2.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">2.8</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">2.7</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>)  </span>
+<span id="cb85-5"><a href="ttest.html#cb85-5" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">3.8</span>, <span class="fl">3.4</span>, <span class="fl">2.8</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.7</span>, <span class="fl">3.1</span>, <span class="fl">3.8</span>, <span class="fl">3.3</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">3.7</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">3.6</span>, <span class="fl">3.3</span>, <span class="fl">3.5</span>, <span class="fl">3.1</span>, <span class="fl">3.4</span>, <span class="fl">2.6</span>)</span>
+<span id="cb85-6"><a href="ttest.html#cb85-6" tabindex="-1"></a>twosampleT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, A, B)</span>
+<span id="cb85-7"><a href="ttest.html#cb85-7" tabindex="-1"></a></span>
+<span id="cb85-8"><a href="ttest.html#cb85-8" tabindex="-1"></a><span class="do">## A와 B집단의 평균비교</span></span>
+<span id="cb85-9"><a href="ttest.html#cb85-9" tabindex="-1"></a><span class="fu">mean</span>(twosampleT<span class="sc">$</span>A)</span>
+<span id="cb85-10"><a href="ttest.html#cb85-10" tabindex="-1"></a><span class="do">## [1] 3.024</span></span>
+<span id="cb85-11"><a href="ttest.html#cb85-11" tabindex="-1"></a><span class="fu">mean</span>(twosampleT<span class="sc">$</span>B)</span>
+<span id="cb85-12"><a href="ttest.html#cb85-12" tabindex="-1"></a><span class="do">## [1] 3.28</span></span>
+<span id="cb85-13"><a href="ttest.html#cb85-13" tabindex="-1"></a></span>
+<span id="cb85-14"><a href="ttest.html#cb85-14" tabindex="-1"></a><span class="do">## 집단간 동분산성 확인</span></span>
+<span id="cb85-15"><a href="ttest.html#cb85-15" tabindex="-1"></a><span class="fu">var.test</span>(twosampleT<span class="sc">$</span>A, twosampleT<span class="sc">$</span>B)</span>
+<span id="cb85-16"><a href="ttest.html#cb85-16" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb85-17"><a href="ttest.html#cb85-17" tabindex="-1"></a><span class="do">##  F test to compare two variances</span></span>
+<span id="cb85-18"><a href="ttest.html#cb85-18" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb85-19"><a href="ttest.html#cb85-19" tabindex="-1"></a><span class="do">## data:  twosampleT$A and twosampleT$B</span></span>
+<span id="cb85-20"><a href="ttest.html#cb85-20" tabindex="-1"></a><span class="do">## F = 0.76847, num df = 24, denom df = 24, p-value = 0.5238</span></span>
+<span id="cb85-21"><a href="ttest.html#cb85-21" tabindex="-1"></a><span class="do">## alternative hypothesis: true ratio of variances is not equal to 1</span></span>
+<span id="cb85-22"><a href="ttest.html#cb85-22" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb85-23"><a href="ttest.html#cb85-23" tabindex="-1"></a><span class="do">##  0.3386396 1.7438650</span></span>
+<span id="cb85-24"><a href="ttest.html#cb85-24" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb85-25"><a href="ttest.html#cb85-25" tabindex="-1"></a><span class="do">## ratio of variances </span></span>
+<span id="cb85-26"><a href="ttest.html#cb85-26" tabindex="-1"></a><span class="do">##          0.7684672</span></span>
+<span id="cb85-27"><a href="ttest.html#cb85-27" tabindex="-1"></a></span>
+<span id="cb85-28"><a href="ttest.html#cb85-28" tabindex="-1"></a><span class="do">## 두집단 t-test</span></span>
+<span id="cb85-29"><a href="ttest.html#cb85-29" tabindex="-1"></a><span class="fu">t.test</span>(twosampleT<span class="sc">$</span>A, twosampleT<span class="sc">$</span>A, <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">paired=</span><span class="cn">FALSE</span>)</span>
+<span id="cb85-30"><a href="ttest.html#cb85-30" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb85-31"><a href="ttest.html#cb85-31" tabindex="-1"></a><span class="do">##  Two Sample t-test</span></span>
+<span id="cb85-32"><a href="ttest.html#cb85-32" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb85-33"><a href="ttest.html#cb85-33" tabindex="-1"></a><span class="do">## data:  twosampleT$A and twosampleT$A</span></span>
+<span id="cb85-34"><a href="ttest.html#cb85-34" tabindex="-1"></a><span class="do">## t = 0, df = 48, p-value = 1</span></span>
+<span id="cb85-35"><a href="ttest.html#cb85-35" tabindex="-1"></a><span class="do">## alternative hypothesis: true difference in means is not equal to 0</span></span>
+<span id="cb85-36"><a href="ttest.html#cb85-36" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb85-37"><a href="ttest.html#cb85-37" tabindex="-1"></a><span class="do">##  -0.1684459  0.1684459</span></span>
+<span id="cb85-38"><a href="ttest.html#cb85-38" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb85-39"><a href="ttest.html#cb85-39" tabindex="-1"></a><span class="do">## mean of x mean of y </span></span>
+<span id="cb85-40"><a href="ttest.html#cb85-40" tabindex="-1"></a><span class="do">##     3.024     3.024</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="분산분석-anova" class="section level2 hasAnchor" number="6.4">
+<h2><span class="header-section-number">6.4</span> 분산분석 (ANOVA)<a href="ttest.html#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>앞서 살펴본 t-test는 평균을 비교하는 집단의 수가 2개일때 가능한 분석 방법이다. 만일 세개 이상의 집단간 평균의 차이가 유의미하게 있는지 검증하고 싶다면 분산분석(ANOVA, Analysis of Variance)을 수행해야 한다. 예를 들어 학년별 평균 GPA의 차이가 있는지?, 출퇴근 수단(자차,도보,버스,지하철)에 따라 평균 출근소요시간에 차이가 있는지?, 교육방법(강의식, 토론식, 자기학습식)에 따라 교육성과에 따라 차이가 있는지? 등이 분산분석을 통해 검증할 수 있는 연구질문들이다.</p>
+<div id="분산분석-anova의-개념" class="section level3 hasAnchor" number="6.4.1">
+<h3><span class="header-section-number">6.4.1</span> 분산분석 (ANOVA)의 개념<a href="ttest.html#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-anova%EC%9D%98-%EA%B0%9C%EB%85%90" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>세개 이상의 집단간 평균차이를 비교하는데 왜 분산을 분석해야 할까? 강의를 하다보면 많은 학생들이 이와 같은 질문을 한다. 만일 세 집단의 평균차이를 검증하고 싶다면 두집단씩 쌍별로 t검증을 세번하면 되지 않을까(예: A-B 평균차이, B-C 평균 차이, A-C의 평균차이)? 그러나 이 경우 다수의 가설검증으로 인해 1종 오류의 크기가 증가하기 때문에 문제가 발생한다.</p>
+<p>t검증을 다시 떠올려보면 A그룹과 B그룹의 평균차이를 하나의 값(A-B)으로 계산해서 t값을 계산한다. 그러나 세 집단 이상의 경우 평균의 차이는 하나의 수치로 계산이 되지 않는다. 분산분석(ANOVA)는 집단간 평균의 차이(differences)를 사용하지 않고, 집단간 평균의 분산(variance)을 활용하는 방법이다.</p>
+<div id="분산분석의-종류" class="section level4 hasAnchor" number="6.4.1.1">
+<h4><span class="header-section-number">6.4.1.1</span> 분산분석의 종류<a href="ttest.html#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A2%85%EB%A5%98" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>분산분석은 평균의 차이를 확인하고 싶은 종속변수(Y)을 구분하는 집단이 3개 이상일때 쓰인다. 분산분석은 종속변수와 독립변수의 수에 따라 다음과 같이 구분된다.</p>
+<ul>
+<li>종속변수 2개 : 다변량 분산분석</li>
+<li>종속변수 1개 : 단변량 분산분석
+<ul>
+<li>독립변수 1개: 일원 분산분석 (one-way ANOVA)</li>
+<li>독립변수 2개: 이원 분산분석 (two-way ANOVA)</li>
+</ul></li>
+</ul>
+</div>
+<div id="그래프로-이해하는-일원분산분석anova" class="section level4 hasAnchor" number="6.4.1.2">
+<h4><span class="header-section-number">6.4.1.2</span> 그래프로 이해하는 일원분산분석(ANOVA)<a href="ttest.html#%EA%B7%B8%EB%9E%98%ED%94%84%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9Danova" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>3집단 이상의 평균간의 차이가 있는지를 확인하고 싶다면, 집단별 평균과 함께 <code>집단내분산</code>을 함께 고려해야한다. 아래 그림은 세 집단의 각각의 평균이 <span class="math inline">\(\mu_A\)</span>, <span class="math inline">\(\mu_B\)</span>, <span class="math inline">\(\mu_C\)</span>로 같지만, 집단간 분산이 서로 다른 경우를 보여주고 있다.</p>
+<p>상단의 그래프는 집단간 분산이 크다. 예를 들어 A집단의 경우 <span class="math inline">\(\mu_A\)</span>라는 평균에서 멀리 떨어져있다. 하단의 그래프는 보다 촘촘히 집단평균에 모여있다. 집단간 분산이 작다는 뜻이다. 상단과 하단 그래프는 <span class="math inline">\(\mu_A\)</span>, <span class="math inline">\(\mu_B\)</span>, <span class="math inline">\(\mu_C\)</span>가 모두 같다. 만일 평균만 고려한다면 상단과 하단 모두 집단간 평균차이가 유의미한것처럼 보이겠지만, 분산을 고려하면 하단 그래프만이 집단간 평균차이가 유의할 것이다. 왜냐하면 하단의 그래프는 집단간 분산이 매우 작아 집단간 평균의 차이가 분명하기 때문이다. 반대로 상단의 그래프는 평균차이는 있지만 A집단, B집단, C집단이 겹치는 경우가 많다. 따라서 집단간 평균의 차이가 유의미하지 않을 가능성이 높다.</p>
+<div class="float">
+<img src="images/anova2.png" alt="3집단 이상의 평균비교: 분산분석" />
+<div class="figcaption">3집단 이상의 평균비교: 분산분석</div>
+</div>
+<p>예제의 데이터를 활용해서 그래프를 그려보자. A그룹, B그룹, C그룹에 각각 5명의 사람이 있다. 변수 Y는 각 개인의 반차 사용 횟수라고 생각해보자. 우리의 연구가설과 영가설은 다음과 같다.</p>
+<ul>
+<li>H1: A, B, C 그룹간의 반차 사용횟수의 평균의 차이가 존재한다.</li>
+<li>H0: A, B, C 그룹간의 반차 사용횟수의 평균의 차이가 없다.</li>
+</ul>
+<p>간단하게 집단별로 사용횟수의 평균 차이를 group_by와 summarize를 활용해서 분석하였다. A 집단의 평균 반차 사용횟수는 12회, B집단은 10.4회, C 집단은 15.2회이다.</p>
+<p>박스플롯과 density plot을 그려보니 평균에는 차이가 있지만 overlapped되는 케이스가 존재하는 것을 알 수 있다. 따라서 평균 차이만으로는 위의 연구가설을 채택할 수 없다.</p>
+<pre><code>##    ID X  Y G
+## 1   1 1  7 A
+## 2   2 1 11 A
+## 3   3 1 13 A
+## 4   4 1 14 A
+## 5   5 1 15 A
+## 6   6 2  8 B
+## 7   7 2  9 B
+## 8   8 2 14 B
+## 9   9 2 11 B
+## 10 10 2 10 B
+## 11 11 3 14 C
+## 12 12 3 15 C
+## 13 13 3 16 C
+## 14 14 3 14 C
+## 15 15 3 17 C
+## # A tibble: 3 × 2
+##       X  mean
+##   &lt;dbl&gt; &lt;dbl&gt;
+## 1     1  12  
+## 2     2  10.4
+## 3     3  15.2</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-91-2.png" alt="" width="672" /></p>
+</div>
+</div>
+<div id="일원분산분석-공식" class="section level3 hasAnchor" number="6.4.2">
+<h3><span class="header-section-number">6.4.2</span> 일원분산분석 공식<a href="ttest.html#%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-%EA%B3%B5%EC%8B%9D" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="총편차-집단간편차-집단내편차" class="section level4 hasAnchor" number="6.4.2.1">
+<h4><span class="header-section-number">6.4.2.1</span> 총편차, 집단간편차, 집단내편차<a href="ttest.html#%EC%B4%9D%ED%8E%B8%EC%B0%A8-%EC%A7%91%EB%8B%A8%EA%B0%84%ED%8E%B8%EC%B0%A8-%EC%A7%91%EB%8B%A8%EB%82%B4%ED%8E%B8%EC%B0%A8" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>분산분석의 공식은 총편차, 집단간편차 그리고 집단내 편차를 이해하는것에서 시작한다.
+<img src="images/anova1.png" alt="총편차, 집단간편차, 집단내편차" />
+먼저 ANOVA와 같이 집단별로 케이스가 있는 경우(subsample)에는 다음과 같이 아래첨자를 쓴다는 것을 이해하자.</p>
+<ul>
+<li><span class="math inline">\(Y_{ij}\)</span> : j번째 집단의 i번째 사람의 Y값
+<ul>
+<li>예: <span class="math inline">\(Y_{32}\)</span> : 2번째 집단의 3번째 사람의 Y 값</li>
+<li>예: <span class="math inline">\(Y_{.3}\)</span> : 3번째 집단의 모든 사람의 Y 값</li>
+</ul></li>
+</ul>
+<p>3개의 집단에서 측정한 종속변수(Y)값이 있다고 생각해보면, 평균은 총 4개이다.</p>
+<ul>
+<li><p>총평균(grand mean) : <span class="math inline">\(\bar{Y}\)</span></p>
+<ul>
+<li>집단에 관계없이 모든 <span class="math inline">\(Y_{ij}\)</span>의 평균</li>
+<li>pooled mean, total mean 등으로 불리움</li>
+</ul></li>
+<li><p>집단평균(group mean) : <span class="math inline">\(\bar{Y_{1}}\)</span>, <span class="math inline">\(\bar{Y_{2}}\)</span>, <span class="math inline">\(\bar{Y_{3}}\)</span></p>
+<ul>
+<li>각 집단별 <span class="math inline">\(Y_{i}\)</span>의 평균</li>
+</ul></li>
+</ul>
+<p>그리고 이 평균들에서 떨어진 정도가 총편차와 집단내 편차이다.</p>
+<ul>
+<li><p>총편차(total differences) : <span class="math inline">\(\bar{Y}\)</span>- <span class="math inline">\(Y_{ij}\)</span>
++총평균에서 개별데이터가 떨어진 정도</p></li>
+<li><p>집단내편차(within-group differences) : <span class="math inline">\(\bar{Y_{j}}\)</span>- <span class="math inline">\(Y_{ij}\)</span>
++집단평균에서 해당집단의 데이터가 떨어진 정도</p></li>
+<li><p>집단간편차(between-group differences) : <span class="math inline">\(\bar{Y}\)</span>- <span class="math inline">\(\bar{Y_{j}}\)</span>
++총평균에서 집단평균이 떨어진 정도</p></li>
+</ul>
+<p>위의 그림에서 알 수 있듯이 총편차=집단간편차+집단내편차이다. 따라서 이를 수식으로 정리하면 다음과 같다.</p>
+<p><span class="math display">\[ (\bar{Y}- Y_{ij}) = (\bar{Y}- \bar{Y_{j}}) + (\bar{Y_{j}}- Y_{ij})\]</span></p>
+</div>
+<div id="편차제곱합" class="section level4 hasAnchor" number="6.4.2.2">
+<h4><span class="header-section-number">6.4.2.2</span> 편차제곱합<a href="ttest.html#%ED%8E%B8%EC%B0%A8%EC%A0%9C%EA%B3%B1%ED%95%A9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>편차를 합했을때는 모두 상쇄되는 성질이 있기때문에 제곱합의 개념을 도입한다. 총편차, 집단간편차, 집단내편차의 제곱합 공식은 다음과 같다.</p>
+<ul>
+<li>총편차 제곱합(SST) = 집단간편차 제곱합(SSB) + 집단내편차 제곱합(SSW)</li>
+</ul>
+<p><span class="math display">\[ \sum(\bar{Y}- Y_{ij})^2 = \sum(\bar{Y}- \bar{Y_{j}})^2 + \sum(\bar{Y_{j}}- Y_{ij})^2\]</span>
+다만 두개의 식에서 <span class="math inline">\(a=b+c\)</span>가 어째서 <span class="math inline">\(a^2=b^2+c^2\)</span>가 되는지 궁금한 사람이 있을 것이다. 이것이 성립하려면 <span class="math inline">\(b*c=0\)</span>이 성립되어야 하는데, <span class="math inline">\(\sum(\bar{Y}- \bar{Y_{j}})*(\bar{Y_{j}}- Y_{ij})\)</span>은 항상 0이기 때문에 성립된다.</p>
+</div>
+<div id="평균제곱합" class="section level4 hasAnchor" number="6.4.2.3">
+<h4><span class="header-section-number">6.4.2.3</span> 평균제곱합<a href="ttest.html#%ED%8F%89%EA%B7%A0%EC%A0%9C%EA%B3%B1%ED%95%A9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>이제 편차제곱합의 평균을 구해보자. 평균을 구하기 위해서는 각각의 자유도를 분모로 나눠주면 된다.</p>
+<ul>
+<li>총편차 제곱합의 자유도 : n-1 (전체 사례수-1)</li>
+<li>집단간편차 제곱합의 자유도 : g-1 (전체 집단수-1)</li>
+<li>집단내편차 제곱합의 지유도 : n-g (=n-1-(g-1))</li>
+</ul>
+<p>종합하면 다음과 같다.</p>
+<ul>
+<li>총평균제곱(MST) = 집단간평균제곱(MSB) + 집단내평균제곱(MSW)</li>
+</ul>
+<p><span class="math display">\[\frac{\sum(\bar{Y}- Y_{ij})^2}{n-1} = \frac{\sum(\bar{Y}- \bar{Y_{j}})^2}{g-1} + \frac{\sum(\bar{Y_{j}}- Y_{ij})^2}{n-g}\]</span>
+편차의 제곱합을 사례수 또는 자유도로 나눠준 것이 분산이므로 다시 쓰면 다음과 같다.</p>
+<ul>
+<li>총분산 = 집단간분산 + 집단내분산</li>
+</ul>
+</div>
+<div id="일원분산분석-종합" class="section level4 hasAnchor" number="6.4.2.4">
+<h4><span class="header-section-number">6.4.2.4</span> 일원분산분석 종합<a href="ttest.html#%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D-%EC%A2%85%ED%95%A9" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>이상의 내용을 하나의 표로 정리하면 아래와 같다. 보통 어떤 통계패키지를 쓰더라도 다음의 표의 내용이 산출된다. 일원분산분석의 핵심은 <code>집단간 분산과 집단내분산의 비율</code>을 계산하는 것이다. 앞서 살펴본 것처럼 집단간분산이 집단내 분산보다 유의미하게 커야 집단간의 평균차이가 있다고 결론내릴 수 있기 때문이다.</p>
+<ul>
+<li>총분산에서 집단간분산의 비율이 큰 경우 -&gt; 집단간 평균의 차이가 크다. 집단내 분산은 상대적으로 작기 때문에 겹치는 부분이 적다</li>
+<li>총분산에서 집단간분산의 비율이 작은 경우 -&gt; 집단간 평균의 차이가 없다. 집단내 분산이 상대적으로 크기 때문에 겹치는 부분이 많다.</li>
+</ul>
+<div class="float">
+<img src="images/ANOVAtable.png" alt="일원분산분석표" />
+<div class="figcaption">일원분산분석표</div>
+</div>
+<p>집단간 평균차이의 유의성을 검증하기 위해서 F value를 산출해야하는데 이는 집단간평균제곱과 집단내평균제곱합의 비와 같다.</p>
+<div class="float">
+<img src="images/anovaFdist.png" alt="일원분산분석검정을 위한 F 분포" />
+<div class="figcaption">일원분산분석검정을 위한 F 분포</div>
+</div>
+</div>
+</div>
+<div id="손으로-풀어보는-일원분산분석anova" class="section level3 hasAnchor" number="6.4.3">
+<h3><span class="header-section-number">6.4.3</span> 손으로 풀어보는 일원분산분석(ANOVA)<a href="ttest.html#%EC%86%90%EC%9C%BC%EB%A1%9C-%ED%92%80%EC%96%B4%EB%B3%B4%EB%8A%94-%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9Danova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>이상의 이해를 바탕으로 일원분산분석을 손으로 계산해보자. 요즘같은 디지털세상에 손으로 계산하는 것이 우습고 느려보일 수는 있지만, 정확한 이해를 돕는데 이만한 방법이 없다. 앞서 살펴본 집단별 연차횟수의 평균 차이를 확인하려던 데이터를 가져와보자.</p>
+<pre><code>##    G  Y
+## 1  A  7
+## 2  A 11
+## 3  A 13
+## 4  A 14
+## 5  A 15
+## 6  B  8
+## 7  B  9
+## 8  B 14
+## 9  B 11
+## 10 B 10
+## 11 C 14
+## 12 C 15
+## 13 C 16
+## 14 C 14
+## 15 C 17</code></pre>
+<p>좀 더 쉽게 계산하기 위해서는 위의 long data format을 wide data format으로 바꾸도록하자.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="ttest.html#cb88-1" tabindex="-1"></a></span>
+<span id="cb88-2"><a href="ttest.html#cb88-2" tabindex="-1"></a>A_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>)</span>
+<span id="cb88-3"><a href="ttest.html#cb88-3" tabindex="-1"></a>B_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">14</span>, <span class="dv">11</span>, <span class="dv">10</span>)</span>
+<span id="cb88-4"><a href="ttest.html#cb88-4" tabindex="-1"></a>C_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">17</span>)</span>
+<span id="cb88-5"><a href="ttest.html#cb88-5" tabindex="-1"></a>longAnova<span class="ot">&lt;-</span><span class="fu">data.frame</span>(A_group, B_group, C_group)</span>
+<span id="cb88-6"><a href="ttest.html#cb88-6" tabindex="-1"></a>longAnova</span>
+<span id="cb88-7"><a href="ttest.html#cb88-7" tabindex="-1"></a><span class="do">##   A_group B_group C_group</span></span>
+<span id="cb88-8"><a href="ttest.html#cb88-8" tabindex="-1"></a><span class="do">## 1       7       8      14</span></span>
+<span id="cb88-9"><a href="ttest.html#cb88-9" tabindex="-1"></a><span class="do">## 2      11       9      15</span></span>
+<span id="cb88-10"><a href="ttest.html#cb88-10" tabindex="-1"></a><span class="do">## 3      13      14      16</span></span>
+<span id="cb88-11"><a href="ttest.html#cb88-11" tabindex="-1"></a><span class="do">## 4      14      11      14</span></span>
+<span id="cb88-12"><a href="ttest.html#cb88-12" tabindex="-1"></a><span class="do">## 5      15      10      17</span></span></code></pre></div>
+<p>이를 바탕으로 분산분석표를 계산해보면 다음과 같아.</p>
+<div class="float">
+<img src="images/anovatable2.png" alt="일원분산분석검정을 위한 F 분포" />
+<div class="figcaption">일원분산분석검정을 위한 F 분포</div>
+</div>
+<p>가설검증의 유의수준이 0.05인경우 F table 을 통해 임계치를 찾아보면 F=3.8853인것을 확인할 수 있다.</p>
+<div class="float">
+<img src="images/ftable2.png" alt="일원분산분석검정을 위한 F table" />
+<div class="figcaption">일원분산분석검정을 위한 F table</div>
+</div>
+<p>우리의 검정통계량은 5.271, 임계치는 3.8853이므로 연구가설은 채택된다.</p>
+<div class="float">
+<img src="images/anovaResult.png" alt="일원분산분석검정에서의 임계치와 검정통계량" />
+<div class="figcaption">일원분산분석검정에서의 임계치와 검정통계량</div>
+</div>
+</div>
+<div id="r을-활용한-일원분산분석anova" class="section level3 hasAnchor" number="6.4.4">
+<h3><span class="header-section-number">6.4.4</span> R을 활용한 일원분산분석(ANOVA)<a href="ttest.html#r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%9D%BC%EC%9B%90%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9Danova" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="r-code" class="section level4 hasAnchor" number="6.4.4.1">
+<h4><span class="header-section-number">6.4.4.1</span> R code<a href="ttest.html#r-code" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>R을 통해 일원분산분석을 하는 것은 매우 쉽다. <code>oneway.test</code>라는 명령어와 종속변수, 독립변수를 지정해주기만 하면된다.</p>
+<pre><code>## 
+##  One-way analysis of means
+## 
+## data:  Y and X
+## F = 5.2706, num df = 2, denom df = 12, p-value = 0.02276</code></pre>
+</div>
+<div id="주의-등분산성-가정" class="section level4 hasAnchor" number="6.4.4.2">
+<h4><span class="header-section-number">6.4.4.2</span> 주의: 등분산성 가정<a href="ttest.html#%EC%A3%BC%EC%9D%98-%EB%93%B1%EB%B6%84%EC%82%B0%EC%84%B1-%EA%B0%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>추가로 고려해야할 것인 일원분산분석의 기본 가정이다. 이중 가장 대표적인 것이 세집단의 등분산 가정이다. 만일 등분산 가정이 충족되지 않는다면 F-value를 계산하는 공식이 달라진다.</p>
+<p>등분산성을 확인하는 방식은 여러가지다. 바틀렛테스트(battlett.test)나 레벤테스트(leveneTest)가 대표적이다. 둘다 영가설(H0)은 집단간 분산이 모두 같다. 연구가설(H1)은 적어도 두개의 집단의 분산이 서로다르다.
+따라서 두개의 테스트에서 연구가설이 기각된다면 집단간의 등분산성이 확인된다고 볼 수 있다.</p>
+<pre><code>## 
+##  Bartlett test of homogeneity of variances
+## 
+## data:  dataAnova$Y by dataAnova$G
+## Bartlett&#39;s K-squared = 2.5304, df = 2, p-value = 0.2822
+## Loading required package: carData
+## 
+## Attaching package: &#39;car&#39;
+## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     recode
+## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     some
+## Warning in leveneTest.default(y = y, group = group, ...): group coerced to
+## factor.
+## Levene&#39;s Test for Homogeneity of Variance (center = median)
+##       Df F value Pr(&gt;F)
+## group  2   0.675 0.5275
+##       12</code></pre>
+<p>그 결과 바틀렛테스트와 레벤테스트 모두 연구가설(집단간 분신이 다르다)를 기각하고, 영가설(집단간 분신이 서로 같다)극 채택하였다. 따라서 앞서 일원분산분석시 <code>var.equal=TRUE</code>의 옵션을 지정해주면 된다. 만일 집단간 분산이 서로 다르다면 <code>var.equal=FALSE</code>를 넣어주면 그에 맞는 계산이 이루어진다.</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="probability.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="correlation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://github.com/USERNAME/REPO/edit/BRANCH/06-ttest.Rmd",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["_main.pdf", "_main.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "subsection"
+  }
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
