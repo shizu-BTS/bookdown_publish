@@ -1,0 +1,10 @@
+name: bookdown_publish
+title: bookdown_publish
+username: zilchhidezilchhide
+account: zilchhidezilchhide
+server: bookdown.org
+hostUrl: https://bookdown.org/__api__
+appId: 14418
+bundleId: 100138
+url: https://bookdown.org/zilchhidezilchhide/bookdown_publish/
+version: 1

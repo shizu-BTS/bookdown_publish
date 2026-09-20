@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">A Minimal Book Example</a></li>
+        <li><a href="./"> Intuitive Regression Analysis in Workforce Development</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/USERNAME/REPO/edit/BRANCH/%s
@@ -11,7 +11,8 @@ bookdown::gitbook:
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
-  latex_engine: xelatex
+  latex_engine: pdflatex
   citation_package: natbib
   keep_tex: yes
+  toc: TRUE
 bookdown::epub_book: default
