@@ -88,7 +88,7 @@ $t_{\bar{X}}=\frac{79-80}{2/\sqrt{100}} =-5$
 산출된 t값 -5는 검정통계량이라고 하며, 검정통계량을 임계치와 비교함으로서 연구가설의 채택여부를 결정한다. 우리의 유의수준은 .05이며, 자유도 99(100-1)의 t값의 임계치는 $-1.66$이므로 절대값이 임계치보다 크다. 따라서 영가설을 기각하고 연구가설을 채택할 수 있다. 
 
 
-```{r collapse=TRUE, echo=TRUE}
+```{r collapse=FALSE, echo=TRUE}
 
 df <- 99
 t_obs <- -2.31
@@ -180,8 +180,7 @@ $H_0: \mu_{\bar{d}}=\mu_{X_{후}}-\mu_{X_{전}}=0$ (훈련프로그램 사전/�
 
 
 
-```{r paired-t-data, echo=TRUE}
-install.packages("kableExtra")
+```{r collapse=FALSE, echo=TRUE}
 library(tidyverse)
 library(knitr)
 library(kableExtra)
