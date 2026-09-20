@@ -23,7 +23,7 @@
 <meta name="author" content="Su Jung Choi (Seoul National University)" />
 
 
-<meta name="date" content="2026-09-14" />
+<meta name="date" content="2026-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -173,12 +175,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="literature.html"><a href="literature.html#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0"><i class="fa fa-check"></i><b>3.1</b> 들어가며</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="literature.html"><a href="literature.html#%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.1</b> 패키지 준비하기</a></li>
-<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85%EA%B3%B5%EA%B0%84-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업공간 설정하기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업 디렉토리 설정하기</a></li>
 <li class="chapter" data-level="3.1.3" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.3</b> 데이터 불러오기</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="literature.html"><a href="literature.html#dplyr-%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>3.2</b> dplyr 패키지의 이해</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#chain-operator"><i class="fa fa-check"></i><b>3.2.1</b> chain operator</a></li>
+<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#pipe-operator"><i class="fa fa-check"></i><b>3.2.1</b> pipe operator</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="literature.html"><a href="literature.html#dplyr%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5"><i class="fa fa-check"></i><b>3.3</b> dplyr의 주요 기능</a>
 <ul>
@@ -204,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.2" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0import"><i class="fa fa-check"></i><b>3.6.2</b> 데이터의 불러오기(import)</a></li>
 <li class="chapter" data-level="3.6.3" data-path="literature.html"><a href="literature.html#%ED%95%84%EC%9A%94%ED%95%9C-%EB%B3%80%EC%88%98%EB%A7%8C-%EC%84%A0%ED%83%9Dselect"><i class="fa fa-check"></i><b>3.6.3</b> 필요한 변수만 선택(select)</a></li>
 <li class="chapter" data-level="3.6.4" data-path="literature.html"><a href="literature.html#%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-one-match"><i class="fa fa-check"></i><b>3.6.4</b> 기업 데이터 결합(one-to-one match)</a></li>
-<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-many-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(one-to-many match)</a></li>
+<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9many-to-one-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(many-to-one match)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="graph.html"><a href="graph.html"><i class="fa fa-check"></i><b>4</b> 데이터 시각화</a>
@@ -227,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="graph.html"><a href="graph.html#miscellaneous-items"><i class="fa fa-check"></i><b>4.5</b> Miscellaneous items</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계과 가설검정</a>
+<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계와 가설검정</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="probability.html"><a href="probability.html#%EC%B6%94%EB%A1%A0%ED%86%B5%EA%B3%84%EC%99%80-%ED%99%95%EB%A5%A0"><i class="fa fa-check"></i><b>5.1</b> 추론통계와 확률</a>
 <ul>
@@ -451,7 +453,7 @@ var(X) &amp; =\sigma^2=\sigma_{xx}=\frac{1}{N}\sum_{i=1}^{N}(X_{i}-\mu)(X_{i}-\m
 <div id="시각적으로-이해하는-분산" class="section level4 hasAnchor" number="7.2.1.2">
 <h4><span class="header-section-number">7.2.1.2</span> 시각적으로 이해하는 분산<a href="correlation.html#%EC%8B%9C%EA%B0%81%EC%A0%81%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EB%B6%84%EC%82%B0" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>공분산을 이해하기 위해 분산을 시각적으로 이해해보자. 앞서 살펴본 6개의 데이터를 갖고 있는 X를 자격증 수로 가정해보자. 이와 함께 또 하나의 변수 Y(직무수행점수)를 가정해보자. Y는 {15, 30, 45, 55, 70, 100}이라고 가정하자. 예를 들어 첫번째 사례(사람)은 자격증 수(X)는 1개이고, 직무수행점수는 15점이다.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-96-1.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-96-2.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-102-1.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-102-2.png" alt="" width="672" /></p>
 <div class="float">
 <img src="images/variancex.png" alt="X의 분산" />
 <div class="figcaption">X의 분산</div>
@@ -481,7 +483,7 @@ Cov(X,Y) &amp; =\sigma_{xy}\\
 ## 4 4  55  45  70
 ## 5 5  70  30  55
 ## 6 6 100  15  45</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-97-1.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-97-2.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-97-3.png" alt="" width="672" />
+<p><img src="_main_files/figure-html/unnamed-chunk-103-1.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-103-2.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-103-3.png" alt="" width="672" />
 <img src="images/covariance1.png" alt="양의 공분산" /></p>
 <div class="float">
 <img src="images/covariance2.png" alt="음의 공분산" />
@@ -691,22 +693,22 @@ corr(X,Y) &amp; =\rho=\frac{cov(X,Y)}{\sqrt{var(X)}\sqrt{var(Y)}}\\
 <div id="r을-활용한-상관계수-검정" class="section level4 hasAnchor" number="7.3.4.2">
 <h4><span class="header-section-number">7.3.4.2</span> R을 활용한 상관계수 검정<a href="correlation.html#r%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98-%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>데이터 셋이 있는 경우에 R을 활용하여 상관계수를 검정하는것은 매우 쉽다. cor.test(데이터프레임<span class="math inline">\(변수1, 데이터프레임\)</span>변수2)</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="correlation.html#cb92-1" tabindex="-1"></a></span>
-<span id="cb92-2"><a href="correlation.html#cb92-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
-<span id="cb92-3"><a href="correlation.html#cb92-3" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">45</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">100</span>)</span>
-<span id="cb92-4"><a href="correlation.html#cb92-4" tabindex="-1"></a>correlation <span class="ot">&lt;-</span><span class="fu">data.frame</span>(X, Y)</span>
-<span id="cb92-5"><a href="correlation.html#cb92-5" tabindex="-1"></a><span class="fu">cor.test</span>(correlation<span class="sc">$</span>X, correlation<span class="sc">$</span>Y)</span>
-<span id="cb92-6"><a href="correlation.html#cb92-6" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb92-7"><a href="correlation.html#cb92-7" tabindex="-1"></a><span class="do">##  Pearson&#39;s product-moment correlation</span></span>
-<span id="cb92-8"><a href="correlation.html#cb92-8" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb92-9"><a href="correlation.html#cb92-9" tabindex="-1"></a><span class="do">## data:  correlation$X and correlation$Y</span></span>
-<span id="cb92-10"><a href="correlation.html#cb92-10" tabindex="-1"></a><span class="do">## t = 7.8651, df = 8, p-value = 4.935e-05</span></span>
-<span id="cb92-11"><a href="correlation.html#cb92-11" tabindex="-1"></a><span class="do">## alternative hypothesis: true correlation is not equal to 0</span></span>
-<span id="cb92-12"><a href="correlation.html#cb92-12" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb92-13"><a href="correlation.html#cb92-13" tabindex="-1"></a><span class="do">##  0.7640734 0.9862784</span></span>
-<span id="cb92-14"><a href="correlation.html#cb92-14" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
-<span id="cb92-15"><a href="correlation.html#cb92-15" tabindex="-1"></a><span class="do">##       cor </span></span>
-<span id="cb92-16"><a href="correlation.html#cb92-16" tabindex="-1"></a><span class="do">## 0.9410018</span></span></code></pre></div>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="correlation.html#cb96-1" tabindex="-1"></a></span>
+<span id="cb96-2"><a href="correlation.html#cb96-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">7</span>)</span>
+<span id="cb96-3"><a href="correlation.html#cb96-3" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">45</span>, <span class="dv">40</span>, <span class="dv">50</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">100</span>)</span>
+<span id="cb96-4"><a href="correlation.html#cb96-4" tabindex="-1"></a>correlation <span class="ot">&lt;-</span><span class="fu">data.frame</span>(X, Y)</span>
+<span id="cb96-5"><a href="correlation.html#cb96-5" tabindex="-1"></a><span class="fu">cor.test</span>(correlation<span class="sc">$</span>X, correlation<span class="sc">$</span>Y)</span>
+<span id="cb96-6"><a href="correlation.html#cb96-6" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb96-7"><a href="correlation.html#cb96-7" tabindex="-1"></a><span class="do">##  Pearson&#39;s product-moment correlation</span></span>
+<span id="cb96-8"><a href="correlation.html#cb96-8" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb96-9"><a href="correlation.html#cb96-9" tabindex="-1"></a><span class="do">## data:  correlation$X and correlation$Y</span></span>
+<span id="cb96-10"><a href="correlation.html#cb96-10" tabindex="-1"></a><span class="do">## t = 7.8651, df = 8, p-value = 4.935e-05</span></span>
+<span id="cb96-11"><a href="correlation.html#cb96-11" tabindex="-1"></a><span class="do">## alternative hypothesis: true correlation is not equal to 0</span></span>
+<span id="cb96-12"><a href="correlation.html#cb96-12" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb96-13"><a href="correlation.html#cb96-13" tabindex="-1"></a><span class="do">##  0.7640734 0.9862784</span></span>
+<span id="cb96-14"><a href="correlation.html#cb96-14" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb96-15"><a href="correlation.html#cb96-15" tabindex="-1"></a><span class="do">##       cor </span></span>
+<span id="cb96-16"><a href="correlation.html#cb96-16" tabindex="-1"></a><span class="do">## 0.9410018</span></span></code></pre></div>
 </div>
 </div>
 </div>

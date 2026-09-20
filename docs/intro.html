@@ -23,7 +23,7 @@
 <meta name="author" content="Su Jung Choi (Seoul National University)" />
 
 
-<meta name="date" content="2026-09-14" />
+<meta name="date" content="2026-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -173,12 +175,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="literature.html"><a href="literature.html#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0"><i class="fa fa-check"></i><b>3.1</b> 들어가며</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="literature.html"><a href="literature.html#%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.1</b> 패키지 준비하기</a></li>
-<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85%EA%B3%B5%EA%B0%84-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업공간 설정하기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업 디렉토리 설정하기</a></li>
 <li class="chapter" data-level="3.1.3" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.3</b> 데이터 불러오기</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="literature.html"><a href="literature.html#dplyr-%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>3.2</b> dplyr 패키지의 이해</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#chain-operator"><i class="fa fa-check"></i><b>3.2.1</b> chain operator</a></li>
+<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#pipe-operator"><i class="fa fa-check"></i><b>3.2.1</b> pipe operator</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="literature.html"><a href="literature.html#dplyr%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5"><i class="fa fa-check"></i><b>3.3</b> dplyr의 주요 기능</a>
 <ul>
@@ -204,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.2" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0import"><i class="fa fa-check"></i><b>3.6.2</b> 데이터의 불러오기(import)</a></li>
 <li class="chapter" data-level="3.6.3" data-path="literature.html"><a href="literature.html#%ED%95%84%EC%9A%94%ED%95%9C-%EB%B3%80%EC%88%98%EB%A7%8C-%EC%84%A0%ED%83%9Dselect"><i class="fa fa-check"></i><b>3.6.3</b> 필요한 변수만 선택(select)</a></li>
 <li class="chapter" data-level="3.6.4" data-path="literature.html"><a href="literature.html#%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-one-match"><i class="fa fa-check"></i><b>3.6.4</b> 기업 데이터 결합(one-to-one match)</a></li>
-<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-many-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(one-to-many match)</a></li>
+<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9many-to-one-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(many-to-one match)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="graph.html"><a href="graph.html"><i class="fa fa-check"></i><b>4</b> 데이터 시각화</a>
@@ -227,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="graph.html"><a href="graph.html#miscellaneous-items"><i class="fa fa-check"></i><b>4.5</b> Miscellaneous items</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계과 가설검정</a>
+<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계와 가설검정</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="probability.html"><a href="probability.html#%EC%B6%94%EB%A1%A0%ED%86%B5%EA%B3%84%EC%99%80-%ED%99%95%EB%A5%A0"><i class="fa fa-check"></i><b>5.1</b> 추론통계와 확률</a>
 <ul>
@@ -383,7 +385,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">R을 활용한 산업인력개발통계</h1>
 <p class="author"><em>Su Jung Choi (Seoul National University)</em></p>
-<p class="date"><em>2026-09-14</em></p>
+<p class="date"><em>2026-09-20</em></p>
 </div>
 <div id="intro" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction<a href="intro.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h1>

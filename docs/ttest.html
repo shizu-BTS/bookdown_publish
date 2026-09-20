@@ -23,7 +23,7 @@
 <meta name="author" content="Su Jung Choi (Seoul National University)" />
 
 
-<meta name="date" content="2026-09-14" />
+<meta name="date" content="2026-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -173,12 +175,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="literature.html"><a href="literature.html#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0"><i class="fa fa-check"></i><b>3.1</b> 들어가며</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="literature.html"><a href="literature.html#%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.1</b> 패키지 준비하기</a></li>
-<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85%EA%B3%B5%EA%B0%84-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업공간 설정하기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업 디렉토리 설정하기</a></li>
 <li class="chapter" data-level="3.1.3" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.3</b> 데이터 불러오기</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="literature.html"><a href="literature.html#dplyr-%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>3.2</b> dplyr 패키지의 이해</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#chain-operator"><i class="fa fa-check"></i><b>3.2.1</b> chain operator</a></li>
+<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#pipe-operator"><i class="fa fa-check"></i><b>3.2.1</b> pipe operator</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="literature.html"><a href="literature.html#dplyr%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5"><i class="fa fa-check"></i><b>3.3</b> dplyr의 주요 기능</a>
 <ul>
@@ -204,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.2" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0import"><i class="fa fa-check"></i><b>3.6.2</b> 데이터의 불러오기(import)</a></li>
 <li class="chapter" data-level="3.6.3" data-path="literature.html"><a href="literature.html#%ED%95%84%EC%9A%94%ED%95%9C-%EB%B3%80%EC%88%98%EB%A7%8C-%EC%84%A0%ED%83%9Dselect"><i class="fa fa-check"></i><b>3.6.3</b> 필요한 변수만 선택(select)</a></li>
 <li class="chapter" data-level="3.6.4" data-path="literature.html"><a href="literature.html#%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-one-match"><i class="fa fa-check"></i><b>3.6.4</b> 기업 데이터 결합(one-to-one match)</a></li>
-<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-many-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(one-to-many match)</a></li>
+<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9many-to-one-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(many-to-one match)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="graph.html"><a href="graph.html"><i class="fa fa-check"></i><b>4</b> 데이터 시각화</a>
@@ -227,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="graph.html"><a href="graph.html#miscellaneous-items"><i class="fa fa-check"></i><b>4.5</b> Miscellaneous items</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계과 가설검정</a>
+<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계와 가설검정</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="probability.html"><a href="probability.html#%EC%B6%94%EB%A1%A0%ED%86%B5%EA%B3%84%EC%99%80-%ED%99%95%EB%A5%A0"><i class="fa fa-check"></i><b>5.1</b> 추론통계와 확률</a>
 <ul>
@@ -405,13 +407,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <div id="모집단-평균에-관한-가설검정" class="section level2 hasAnchor" number="6.1">
 <h2><span class="header-section-number">6.1</span> 모집단 평균에 관한 가설검정<a href="ttest.html#%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0%EC%97%90-%EA%B4%80%ED%95%9C-%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>모집단에 대한 가설검정은 검정 대상에 따라 크게 두가지 종류가 있다. (1) 모집단의 평균(<span class="math inline">\(\mu\)</span>) 검정, (2) 모집단의 분산(<span class="math inline">\(\sigma^2\)</span>) 검정이다. 검정 대상이란 무엇일까? 앞서 살펴본 중심극한정리에 따라 우리는 소량의 표본(sample)의 통계량(표본평균, 표본분산)을 활용해 모집단의 모수(모집단 평균, 모집단분산)을 추정할 수 있음을 이해했다. 여기서 가설검정이란 추정하는 대상이 모집단 평균과 모집단 분산인지를 의미한다.</p>
-<p>아래 그림과 같이 가설검정 대상에 따라 검정 방식은 모두 달라진다. 모집단 평균을 검정하는 경우 모집단의 수에 따라 검정방식이 달라진다.</p>
+<p>모집단에 대한 가설검정은 검정 대상에 따라 크게 두가지 종류가 있다. (1) 모집단의 평균(<span class="math inline">\(\mu\)</span>) 검정, (2) 모집단의 분산(<span class="math inline">\(\sigma^2\)</span>) 검정이다. 검정 대상이란 무엇일까? 앞서 살펴본 중심극한정리에 따라 우리는 소량의 표본(sample)의 통계량(표본평균, 표본분산)을 활용해 모집단의 모수(모집단 평균, 모집단분산)을 추정할 수 있음을 이해했다. 여기서 가설검정이란 표본으로부터 얻은 정보를 이용하여 모집단의 모수(예: 모집단 평균, 모집단 분산)에 대한 가설이 타당한지를 판단하는 절차이다.</p>
+<p>아래와 같이 가설검정 대상에 따라 검정 방식은 모두 달라진다. 모집단 평균을 검정하는 경우 모집단의 수에 따라 검정방식이 달라진다.</p>
 <ul>
 <li>1개 모집단의 평균을 검정 : t 검정 (예: H1: 서울대학교 학생들의 평균키는 165cm이다)</li>
-<li>2개 모집단의 평균 차이 검정 :
-단일 모집단 t 검정 : (H1: 서울대학교 남학생의 입학당시 IQ와 졸업당시 IQ는 차이가 있다. )
-두 모집단 T검정 : (H1: 서울대학교 남학생과 여학생의 평균키는 차이가 있다)</li>
+<li>2개 집단의 평균 차이 검정 :
+단일 모집단 t검정 : (H1: 서울대학교 남학생의 입학당시 IQ와 졸업당시 IQ는 차이가 있다)
+두 모집단 t검정 : (H1: 서울대학교 남학생과 여학생의 평균키는 차이가 있다)</li>
 <li>3개 모집단의 평균 차이 검정 : ANOVA (H1: 서울대학교 학생의 GPA는 학년별(1/2/3/4학년)로 차이가 있다)</li>
 </ul>
 <p>한편 모집단 분산을 검정하는 경우에도 모집단의 수에 따라 검정방식은 다르다</p>
@@ -426,15 +428,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="t-검정-t-test의-개념-및-가정" class="section level2 hasAnchor" number="6.3">
 <h2><span class="header-section-number">6.3</span> t 검정 (t-test)의 개념 및 가정<a href="ttest.html#t-%EA%B2%80%EC%A0%95-t-test%EC%9D%98-%EA%B0%9C%EB%85%90-%EB%B0%8F-%EA%B0%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>t 검정에 대해 알아보기 전에, 먼저 가설검정에 대해 좀더 자세히 알아보자. 가설 검정은 연구자가 세운 가설(alternative hypothesis)가 참인지 확인하는 절차이다. 가설검정의 중요한 원리는 영가설, 또는 귀무가설(null hypothesis)을 기각하는 방식으로 연구가설을 채택한다는 점이다. 다음의 예시를 통해 이해해보자.</p>
+<p>t 검정에 대해 알아보기 전에, 먼저 가설검정에 대해 좀더 자세히 알아보자. 가설 검정은 연구자가 세운 가설(alternative hypothesis)이 참인지 확인하는 절차이다. 그러나 연구가설을 직접 검정하는 것이 아니라, 영가설, 또는 귀무가설(null hypothesis)을 기각하는 방식으로 연구가설을 채택한다. 다음의 예시를 통해 이해해보자.</p>
 <ul>
 <li><p>서울대학교 학생회관 근처를 지나가는 학생들 100명을 표집하여 키(cm)를 측정했더니 평균 168cm가 나왔다. 이 평균키가 서울대학교 전체 학생들의 키 분포에서 나왔는지, 아니면 다른 분포에서 나왔는지 검증하려고 한다(예: 서울대학교 농구부 학생들처럼 키가 큰 학생들의 분포에서 나왔는지)</p></li>
 <li><p>서울대학교 전체 학생의 평균키는 평균키 165cm, 분산은 4인 정규분포를 따른다는 정보를 알고 있다. 우리가 갖고 있는 표본이 이 분포에서 나왔다고 가정하자(H0: X~N(165, 4))</p></li>
 <li><p>평균을 검정하는 것이므로 영가설과 연구가설은 다음과 같이 쓸 수 있다.
 <span class="math inline">\(H_0: \mu_x=165\)</span>
-<span class="math inline">\(H_1: \mu_x\neq 5\)</span></p></li>
-<li><p>표본의 평큔키인 168cm가 <span class="math inline">\(N(165,4)\)</span>의 분포에서 나올 확률을 구한다.</p></li>
-<li><p>만일 이 확률이 우리의 기준 확률보다 낮으면, 표본의 평균키가 해당분포에서 나올 확률은 극히 드물것이다. 따라서 표본은 서울대학교 전체 학생들의 키 분포에서 나왔다는 영가설을 기각하고, 우리의 표본은 새로운 분포에서 나왔다는 연구가설(H1)을 채택할 수 있다.</p></li>
+<span class="math inline">\(H_1: \mu_x\neq 165\)</span></p></li>
+<li><p>표본의 평균키인 168cm가 <span class="math inline">\(N(165,4)\)</span>의 분포에서 나올 확률을 구한다.</p></li>
+<li><p>만일 유의확률(p-value)이 유의수준보다 낮으면, 표본의 평균키가 해당분포에서 나올 확률은 극히 드물것이다. 따라서 표본은 서울대학교 전체 학생들의 키 분포에서 나왔다는 영가설을 기각하고, 우리의 표본은 다른 모집단에서 추출되었다는 연구가설(H1)을 채택할 수 있다.</p></li>
 </ul>
 <p>하지만 대부분의 경우 우리는 모집단의 분포에 대한 정보(<span class="math inline">\(\mu\)</span>, <span class="math inline">\(\sigma^2\)</span>)를 알지못한다. 따라서 표본의 평균(<span class="math inline">\(\bar{X}\)</span>)과 표본의 분산(<span class="math inline">\(S^2\)</span>)를 사용하여 모집단의 평균과 분산을 추정할 수 밖에 없다는 것을 기억하자.</p>
 <div id="단일-모집단-평균에-대한-t-검정" class="section level3 hasAnchor" number="6.3.1">
@@ -448,239 +450,522 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math inline">\(H_0: \mu\geq80  또는 \mu=80\)</span>노트북의 배터리 용량은 80시간과 같거나 크다.</p>
 <p>즉, 우리가 수집한 100개의 노트북 배터리의 평균 용량 79시간이 <span class="math inline">\(N(80, \sigma^2)\)</span>의 분포에서 나온것인지 확인하는 것이다. 안타깝게도 모집단의 평균은 80시간으로 알려져있지만 분산값은 확인할 수가 없다. 이 경우는 표본의 분산값을 사용해 모집단의 분산을 추정해야 한다. 앞서 중심극한정리에서 간단히 설명한 바와 같이 모집단의 분산과 표본의 분산은 완전히 일치하지 않지만 가장 적합한 추정량이기 때문에 이를 사용하게 된다.</p>
 <p>만일 우리가 모집단의 평균과 분산을 모두 안다면, 표준정규분포로 변환하여 구간확률을 구할 수 있었던 점을 기억하자. 이때 Z-score는 다음과 같은 공식으로 산출된다.</p>
-<p><span class="math inline">\(Z=\frac{\bar{X}-\mu}{\sigma}\)</span></p>
+<p><span class="math inline">\(Z=\frac{\bar{X}-\mu}{\sigma/\sqrt{n}}\)</span></p>
 <p>우리는 모집단의 표준편차(sigma)를 알지 못하므로, 표본의 표준편차를 표본크기 제곱근(<span class="math inline">\(\sqrt{n}\)</span>)으로 나눈값을 활용해 모집단 표준편차를 대체해보자. 이때의 값을 t-score로 명명한다.</p>
 <p><span class="math inline">\(t=\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}\)</span></p>
 <p><span class="math inline">\(\bar{X}=79\)</span>, <span class="math inline">\(\mu=80\)</span>, <span class="math inline">\(S=2\)</span>, <span class="math inline">\(n=100\)</span>이므로 t값은 다음과 같이 계산된다.</p>
 <p><span class="math inline">\(t_{\bar{X}}=\frac{79-80}{2/\sqrt{100}} =-5\)</span></p>
-<p>산출된 t값 -5는 검정통계량이라고 하며, 검정통계량을 임계치와 비교함으로서 연구가설의 채택여부를 결정한다. 우리의 유의수준은 .05이며, 자유도 99(100-1)의 t값의 임계치는 <span class="math inline">\(-1.64\)</span>이므로 절대값이 임계치보다 크다. 따라서 영가설을 기각하고 연구가설을 채택할 수 있다.</p>
-<p>그림삽입</p>
+<p>산출된 t값 -5는 검정통계량이라고 하며, 검정통계량을 임계치와 비교함으로서 연구가설의 채택여부를 결정한다. 우리의 유의수준은 .05이며, 자유도 99(100-1)의 t값의 임계치는 <span class="math inline">\(-1.66\)</span>이므로 절대값이 임계치보다 크다. 따라서 영가설을 기각하고 연구가설을 채택할 수 있다.</p>
+<p><img src="_main_files/figure-html/unnamed-chunk-92-1.png" alt="" width="672" /></p>
 <p>따라서 유의수준(<span class="math inline">\(\alpha\)</span>) 0.05에서 A 회사의 노트북 배터리의 평균 용량은 우리의 주장대로 80시간보다 작은 것으로 판단된다.</p>
 </div>
 <div id="동일-모집단-반복측정-평균에-대한-t-검정" class="section level3 hasAnchor" number="6.3.2">
 <h3><span class="header-section-number">6.3.2</span> 동일 모집단 반복측정 평균에 대한 t 검정<a href="ttest.html#%EB%8F%99%EC%9D%BC-%EB%AA%A8%EC%A7%91%EB%8B%A8-%EB%B0%98%EB%B3%B5%EC%B8%A1%EC%A0%95-%ED%8F%89%EA%B7%A0%EC%97%90-%EB%8C%80%ED%95%9C-t-%EA%B2%80%EC%A0%95" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>동일 모집단을 반복측정한 두 평균에 대한 t 검정은 흔히 쌍체비교 t 검정 (paired t-test)이라고 불린다. 산업인력개발분야에서 가장 대표적인 쌍체비교 t 검정 사례는 교육훈련 프로그램 전/후의 직무 수준의 차이가 통계적으로 유의미한지를 확인하는 주제일 것이다. 예를 들어 A 회사의 25명의 사람들에게 특정한 직무훈련프로그램을 제공하였다고 가정해보자. 우리는 직무훈련 프로그램의 효과성을 검증하기 위해 훈련프로그램 전/후의 직무 수준을 측정할 것이다. 25명의 사람들의 교육전 직무 수준을 측정하였더니 평균 3.00(5점 만점)이었다. 직무훈련프로그램을 이수한 후에 동일한 측정도구로 직무 수준을 측정하였더니 평균 3.30(5점 만점)이 나왔다. 프로그램은 효과적이었는가? 다시 말해 훈련프로그램 전 후의 직무수준은 유의미한 차이가 있는가?</p>
+<p>동일 대상을 반복측정한 두 평균에 대한 t 검정은 흔히 쌍체비교 t 검정 (paired t-test)이라고 불린다. 산업인력개발분야에서 가장 대표적인 쌍체비교 t 검정 사례는 교육훈련 프로그램 전/후의 직무 수준의 차이가 통계적으로 유의미한지를 확인하는 주제일 것이다. 예를 들어 A 회사의 25명의 사람들에게 특정한 직무훈련프로그램을 제공하였다고 가정해보자. 우리는 직무훈련 프로그램의 효과성을 검증하기 위해 훈련프로그램 전/후의 직무 수준을 측정할 것이다. 25명의 사람들의 교육전 직무 수준을 측정하였더니 평균 3.00(5점 만점)이었다. 직무훈련프로그램을 이수한 후에 동일한 측정도구로 직무 수준을 측정하였더니 평균 3.30(5점 만점)이 나왔다. 프로그램은 효과적이었는가? 다시 말해 훈련프로그램 전 후의 직무수준은 유의미한 차이가 있는가?</p>
 <p>위의 실험에서 우리는 동일한 모집단에게서 반복 측정된 숫자 두 가지를 갖게 된다. 첫번째 사람의 훈련 전/후 직무수준, 두 번째 사람의 훈련 전/후 직무 수준….25번째 사람의 훈련 전/후 직무수준으로 총 50개의 자료를 얻었다. 이들 자료는 전체 평균으로 비교할 것이 아니라 동일한 개인의 사전/사후 검사를 비교해야만 의미가 있을 것이다.즉,쌍별(paired) 평균 비교를 해야 한다.</p>
 <p>관련한 쌍체비교 t 검정을 하기 위해 연구가설과 영가설을 다음과 같이 쓸 수 있다.</p>
 <p><span class="math inline">\(H_1: \mu_{\bar{d}}=\mu_{X_{후}}-\mu_{X_{전}}&gt;0\)</span> (훈련프로그램 사후 직무수준이 사전 직무수준보다 크다)
 <span class="math inline">\(H_0: \mu_{\bar{d}}=\mu_{X_{후}}-\mu_{X_{전}}=0\)</span> (훈련프로그램 사전/사후 직무수준의 차이는 없다)</p>
-<table>
-<colgroup>
-<col width="4%" />
-<col width="19%" />
-<col width="21%" />
-<col width="29%" />
-<col width="24%" />
-</colgroup>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:unnamed-chunk-93">Table 6.1: </span>대응표본 t 검정을 위한 예제 데이터
+</caption>
 <thead>
-<tr class="header">
-<th></th>
-<th>pre-test(x_pre)</th>
-<th>post-test(x_post)</th>
-<th>differences(x_post-x_pre)</th>
-<th>square of deviation</th>
+<tr>
+<th style="text-align:center;">
+ID
+</th>
+<th style="text-align:center;">
+Pre-test
+</th>
+<th style="text-align:center;">
+Post-test
+</th>
+<th style="text-align:center;">
+Difference (d)
+</th>
+<th style="text-align:center;">
+<span class="math inline">\((d-\bar{d})^2\)</span>
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>1</td>
-<td>3.0</td>
-<td>3.2</td>
-<td>0.2</td>
-<td>0.04</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+1
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.0
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.003
+</td>
 </tr>
-<tr class="even">
-<td>2</td>
-<td>3.5</td>
-<td>3.8</td>
-<td>0.3</td>
-<td>0.09</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+2
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.5
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.8
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.3
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.002
+</td>
 </tr>
-<tr class="odd">
-<td>3</td>
-<td>3.2</td>
-<td>3.4</td>
-<td>0.2</td>
-<td>0.04</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+3
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.2
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.4
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.003
+</td>
 </tr>
-<tr class="even">
-<td>4</td>
-<td>3.0</td>
-<td>2.8</td>
-<td>-0.2</td>
-<td>0.04</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+4
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.0
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.8
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+-0.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.208
+</td>
 </tr>
-<tr class="odd">
-<td>5</td>
-<td>2.8</td>
-<td>3.5</td>
-<td>0.7</td>
-<td>0.49</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+5
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.8
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.5
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.7
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.197
+</td>
 </tr>
-<tr class="even">
-<td>6</td>
-<td>3.1</td>
-<td>3.2</td>
-<td>0.1</td>
-<td>0.01</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+6
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.1
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.1
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.024
+</td>
 </tr>
-<tr class="odd">
-<td>7</td>
-<td>3.1</td>
-<td>3.3</td>
-<td>0.2</td>
-<td>0.04</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+7
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.1
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.3
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.003
+</td>
 </tr>
-<tr class="even">
-<td>8</td>
-<td>3.2</td>
-<td>3.7</td>
-<td>0.5</td>
-<td>0.25</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+8
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.2
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.7
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.5
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.060
+</td>
 </tr>
-<tr class="odd">
-<td>9</td>
-<td>2.9</td>
-<td>3.1</td>
-<td>0.2</td>
-<td>0.04</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+9
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.9
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.1
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.003
+</td>
 </tr>
-<tr class="even">
-<td>10</td>
-<td>3.0</td>
-<td>3.8</td>
-<td>0.8</td>
-<td>0.64</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+10
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.0
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.8
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.8
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.296
+</td>
 </tr>
-<tr class="odd">
-<td>11</td>
-<td>3.0</td>
-<td>3.3</td>
-<td>0.3</td>
-<td>0.09</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+11
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.0
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.3
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.3
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.002
+</td>
 </tr>
-<tr class="even">
-<td>12</td>
-<td>3.1</td>
-<td>2.9</td>
-<td>-0.2</td>
-<td>0.04</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+12
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.1
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.9
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+-0.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.208
+</td>
 </tr>
-<tr class="odd">
-<td>13</td>
-<td>3.3</td>
-<td>3.1</td>
-<td>-0.2</td>
-<td>0.04</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+13
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.3
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.1
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+-0.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.208
+</td>
 </tr>
-<tr class="even">
-<td>14</td>
-<td>2.0</td>
-<td>2.8</td>
-<td>0.8</td>
-<td>0.64</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+14
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.0
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.8
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.8
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.296
+</td>
 </tr>
-<tr class="odd">
-<td>15</td>
-<td>3.5</td>
-<td>3.6</td>
-<td>0.1</td>
-<td>0.01</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+15
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.5
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.6
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.1
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.024
+</td>
 </tr>
-<tr class="even">
-<td>16</td>
-<td>3.2</td>
-<td>3.5</td>
-<td>0.3</td>
-<td>0.09</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+16
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.2
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.5
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.3
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.002
+</td>
 </tr>
-<tr class="odd">
-<td>17</td>
-<td>3.3</td>
-<td>3.7</td>
-<td>0.4</td>
-<td>0.16</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+17
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.3
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.7
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.4
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.021
+</td>
 </tr>
-<tr class="even">
-<td>18</td>
-<td>2.8</td>
-<td>2.9</td>
-<td>0.1</td>
-<td>0.01</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+18
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.8
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.9
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.1
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.024
+</td>
 </tr>
-<tr class="odd">
-<td>19</td>
-<td>2.9</td>
-<td>2.9</td>
-<td>0.0</td>
-<td>0</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+19
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.9
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.9
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.0
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.066
+</td>
 </tr>
-<tr class="even">
-<td>20</td>
-<td>2.9</td>
-<td>3.6</td>
-<td>0.7</td>
-<td>0.49</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+20
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.9
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.6
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.7
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.197
+</td>
 </tr>
-<tr class="odd">
-<td>21</td>
-<td>2.7</td>
-<td>3.3</td>
-<td>0.6</td>
-<td>0.36</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+21
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.7
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.3
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.6
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.118
+</td>
 </tr>
-<tr class="even">
-<td>22</td>
-<td>3.2</td>
-<td>3.5</td>
-<td>0.3</td>
-<td>0.09</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+22
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.2
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.5
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.3
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.002
+</td>
 </tr>
-<tr class="odd">
-<td>23</td>
-<td>3.0</td>
-<td>3.1</td>
-<td>0.1</td>
-<td>0.01</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+23
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.0
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.1
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.1
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.024
+</td>
 </tr>
-<tr class="even">
-<td>24</td>
-<td>3.1</td>
-<td>3.4</td>
-<td>0.3</td>
-<td>0.09</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+24
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.1
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+3.4
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.3
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.002
+</td>
 </tr>
-<tr class="odd">
-<td>25</td>
-<td>2.8</td>
-<td>2.6</td>
-<td>-0.2</td>
-<td>0.04</td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-<td>6.4</td>
-<td>3.84</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>평균= 3.0</td>
-<td>평균=3.3</td>
-<td>평균= 0.3</td>
-<td>S=0.39</td>
+<tr>
+<td style="text-align:center;width: 1.2cm; ">
+25
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.8
+</td>
+<td style="text-align:center;width: 2.2cm; ">
+2.6
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+-0.2
+</td>
+<td style="text-align:center;width: 3.5cm; ">
+0.208
+</td>
 </tr>
 </tbody>
 </table>
-<p>쌍체 비교는 두개의 통계량(사전 측정값의 평균, 사후 측정값의 평균)이 존재하지만, 가설검정을 위해서는 사전/사후의 차이(differences)의 평균값만을 활용한다. 위의 표와 같이 25명의 사전/사후 직무수준 측정값을 갖고 있다면, 세 번째 열인 사전/사후 차이값 만을 활용한다. 따라서 가설을 검정하는 방식이 단일 모집단 평균에 관한 검정과 같다.</p>
-<p>위의 가설을 다시 설명해보면 <span class="math inline">\(\mu_{\bar{d}}\)</span>가 평균이 0인 분포에서 도출된 것인지를 검정하는 것이다. 즉 평균이 0인 분포에서 나왔다면 영가설이 채택되고, 그렇지 않다면 연구가설이 채택될 것이다. 마찬가지로 모집단의 표준편차(<span class="math inline">\(\sigma\)</span>)는 알 수 없으므로 표본의 표준편차를 사용하는 것이 최선의 대안일 것이다. 표본의 표준편차는 위의 표의 네번째 열에 나타난 <span class="math inline">\(\mu_{\bar{d}}\)</span>의 제곱합을 표본크기로 나눠준 값이다.</p>
-<p><span class="math inline">\(S_{\bar{d}}=\sqrt{\frac{3.84}{25}}=0.39\)</span></p>
-<p>t값을 구하는 공식은 아래와 같으므로,</p>
-<p><span class="math inline">\(t=\frac{\bar{X}-\mu}{\frac{S}{\sqrt{n}}}\)</span></p>
-<p><span class="math inline">\(\bar{d}=0.3\)</span>, <span class="math inline">\(\mu=0\)</span>, <span class="math inline">\(S=0.39\)</span>, <span class="math inline">\(n=25\)</span>이므로 t값은 다음과 같이 계산된다.</p>
-<p><span class="math inline">\(t_{\bar{d}}=\frac{0.3-0}{0.39/\sqrt{25}} =3.85\)</span></p>
-<p>유의수준이 0.05이고 자유도가 24(n-1)인 t 분포상의 임계치(<span class="math inline">\(t_{(0.05, 24)}\)</span>는 1.710이다. 따라서 표본으로부터 구한 검정통계량(3.85)이 임계치보다 크다. 다시 말해 표본은 평균이 0인 분포에서 나왔다고 말하기 지극히 힘든 수준에서 나왔으므로 연구가설을 채택하게 된다.</p>
+<p>쌍체 비교는 두개의 통계량(사전 측정값의 평균, 사후 측정값의 평균)이 존재하지만, 가설검정을 위해서는 사전/사후의 차이(differences)의 평균값만을 활용한다. 위의 표와 같이 25명의 사전/사후 직무수준 측정값을 갖고 있다면, 세 번째 열인 사전/사후 차이값을 하나의 새로운 변수로 만든뒤, 그 차이의 평균이 0인지 검정한다. 따라서 가설을 검정하는 방식이 단일 모집단 평균에 관한 검정과 같다.</p>
+<p>위의 가설을 다시 설명해보면 <span class="math inline">\(\mu_{\bar{d}}\)</span>가 평균이 0인 분포에서 도출된 것인지를 검정하는 것이다. 즉 평균이 0인 분포에서 나왔다면 영가설이 채택되고, 그렇지 않다면 연구가설이 채택될 것이다. 마찬가지로 모집단의 표준편차(<span class="math inline">\(\sigma\)</span>)는 알 수 없으므로 표본의 표준편차를 사용하는 것이 최선의 대안일 것이다. 표본의 표준분산은 위의 표의 네번째 열을 표본크기-1(n-1)로 나눠준 값이고, 표준편차는 표준분산의 제곱근이다.</p>
+<p><span class="math display" id="eq:pairedvar">\[\begin{equation}
+s_d^2=\frac{\sum_{i=1}^{n}(d_i-\bar d)^2}{n-1}
+=\frac{2.2016}{24}
+=0.0917
+\tag{6.1}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:pairedsd">\[\begin{equation}
+s_d
+=
+\sqrt{0.0917}
+=
+0.303
+\tag{6.2}
+\end{equation}\]</span></p>
+<p>표준오차(standard error)는 다음과 같이 구한다.
+<span class="math display" id="eq:pairedse">\[\begin{equation}
+SE_{\bar d}
+=
+\frac{s_d}{\sqrt n}
+=
+\frac{0.303}{\sqrt{25}}
+=
+0.0606
+\tag{6.3}
+\end{equation}\]</span></p>
+<p>t값을 구하는 공식은 다음과 같다.</p>
+<p><span class="math display" id="eq:pairedt">\[\begin{equation}
+t
+=
+\frac{\bar d-\mu_d}
+{SE_{\bar d}}
+\tag{6.4}
+\end{equation}\]</span></p>
+<p>여기서 <span class="math inline">\(\bar d=0.256\)</span>, <span class="math inline">\(\mu_d=0\)</span>, <span class="math inline">\(SE_{\bar d}=0.0606\)</span>이므로 t값은 다음과 같이 계산된다.</p>
+<p><span class="math display" id="eq:pairedtexample">\[\begin{equation}
+t
+=
+\frac{0.256-0}{0.0606}
+=
+4.23
+\tag{6.5}
+\end{equation}\]</span></p>
 <ul>
 <li><p>왼쪽꼬리 검정</p></li>
 <li><p>오른쪽 꼬리 검정</p></li>
@@ -698,22 +983,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>두 모집단이 독립적이라고 가정한다면 모분산은 다음과 같이 계산할 수 있다.</p>
 <p><span class="math inline">\(\sigma^2_{\bar{X_{M}}-\bar{X_{F}}}= var(\bar{X_{M}}-\bar{X_{F}})=var(\bar{X_{M}})+var(\bar{X_{F}})=\frac{\sigma^2_{M}}{N_{M}}+\frac{\sigma^2_{F}}{N_{F}}\)</span></p>
 <p><span class="math inline">\(\sigma_{\bar{X_{M}}-\bar{X_{F}}}= \sqrt{\frac{\sigma^2_{M}}{N_{M}}+\frac{\sigma^2_{F}}{N_{F}}}\)</span></p>
-<p>만일 두 모집단의 분산이 서로 같다는 가정을 할 수 있다면 두개의 표본을 합쳐서 하나의 표본으로 생각하고, 통합된 분산을 구하여 표준 오차를 구한다. <a href="ttest.html#eq:samevar">(6.1)</a></p>
+<p>만일 두 모집단의 분산이 서로 같다는 가정을 할 수 있다면 두개의 표본을 합쳐서 하나의 표본으로 생각하고, 통합된 분산을 구하여 표준 오차를 구한다. <a href="ttest.html#eq:samevar">(6.6)</a></p>
 <p><span class="math display" id="eq:samevar">\[\begin{equation}
 S_{\bar{X_{M}}-\bar{X_{F}}}= \sqrt{S^2_{p}(\frac{1}{n_M}+\frac{1}{n_F})}
 when
 S^2_{p}=\frac{(n_{M}-1)S^2_{M}+(n_{F}-1)S^2_{F}}{{n_M}+{n_F}-2}
-\tag{6.1}
+\tag{6.6}
 \end{equation}\]</span></p>
-<p>이때의 자유도는 다음과 같이 계산된다. <a href="ttest.html#eq:samedf">(6.2)</a></p>
+<p>이때의 자유도는 다음과 같이 계산된다. <a href="ttest.html#eq:samedf">(6.7)</a></p>
 <p><span class="math display" id="eq:samedf">\[\begin{equation}
-df=\left ( \frac{(S^2_{m}/n_{m}+S^2_{f}/n_{f})^2}{\frac{(S^2_{m}/n_{m})^2}{(n_{m}-1)}+\frac{(S^2_{f}/n_{f})^2}{(n_{f}-1)}} \right )
-\tag{6.2}
+df=\left ( \frac{(S^2_{m}/n_{m}+S^2_{f}/n_{f})^2}{\frac{(S^2_{m}/n_{m})^2}{(n_{m}-1)}+\frac{(S^2_{f}/n_{f})^2}{(n_{f}-1)}} \right)
+\tag{6.7}
 \end{equation}\]</span></p>
-<p>반대로 두 모집단의 분산이 서로 다르다면, 두 집단별 표본분산을 각각의 표본개수로 나우어 더한 다음 루트를 씌워서 표준오차를 구한다.<a href="ttest.html#eq:diffvar">(6.3)</a></p>
+<p>반대로 두 모집단의 분산이 서로 다르다면, 두 집단별 표본분산을 각각의 표본개수로 나우어 더한 다음 루트를 씌워서 표준오차를 구한다.<a href="ttest.html#eq:diffvar">(6.8)</a></p>
 <p><span class="math display" id="eq:diffvar">\[\begin{equation}
 S_{\bar{X_{M}}-\bar{X_{F}}}= \sqrt{\frac{S^2_{M}}{N_{M}}+\frac{S^2_{F}}{N_{F}}}
-\tag{6.3}
+\tag{6.8}
 \end{equation}\]</span></p>
 <p>다시 예시로 돌아와서, 남학생과 여학생의 성실성 수준에 차이가 있는가를 검증해보자. 모집단 분산이 서로 다르다고 가정하면 다음과 같다.
 먼저 자유도를 계산해보면 다음과 같다.</p>
@@ -811,24 +1096,24 @@ t_{\bar{x_{m}}-\bar{x_{f}}}=\frac{(\bar{x_{m}}-\bar{x_{f}})-(\mu_{m}-\mu_{f})}{\
 H1: C사 립밤의 평균중량은 3g보다 작다(less than 3g)
 H0: C사 립밤의 평균중량은 3g과 같거나 크다.</p>
 <p>r 코드는 간단하다. <code>t.test</code>를 사용하면 되고, 괄호안에는 총 4개의 인수를 지정해준다. 첫째, 데이터셋$변수명, 둘째, 가설검정할 평균값, 셋째, 단측검정과 양측검정, 넷째, 신뢰수준을 추가해야한다. 이 사례에서는 가설검정을 할 평균값이 3g이므로 mu=3, 연구가설이 평균(mu=3)보다 작다이므로 단측검정, 신뢰수준은 연구자가 설정한 95 프로 이다.</p>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="ttest.html#cb83-1" tabindex="-1"></a></span>
-<span id="cb83-2"><a href="ttest.html#cb83-2" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
-<span id="cb83-3"><a href="ttest.html#cb83-3" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.00</span>, <span class="fl">2.75</span>, <span class="fl">2.81</span>, <span class="fl">3.0</span>, <span class="fl">2.93</span>, <span class="fl">3.01</span>, <span class="fl">3.10</span>, <span class="fl">3.20</span>, <span class="fl">2.90</span>, <span class="fl">3.00</span>, <span class="fl">3.00</span>, <span class="fl">2.95</span>, <span class="fl">2.75</span>, <span class="fl">2.88</span>, <span class="fl">3.12</span>, <span class="fl">3.05</span>, <span class="fl">3.10</span>, <span class="fl">2.85</span>, <span class="fl">2.95</span>, <span class="fl">2.90</span>, <span class="fl">2.79</span>, <span class="fl">3.14</span>, <span class="fl">3.00</span>, <span class="fl">3.10</span>, <span class="fl">2.83</span>)  </span>
-<span id="cb83-4"><a href="ttest.html#cb83-4" tabindex="-1"></a>onesampleT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X)</span>
-<span id="cb83-5"><a href="ttest.html#cb83-5" tabindex="-1"></a><span class="fu">mean</span>(onesampleT<span class="sc">$</span>X)</span>
-<span id="cb83-6"><a href="ttest.html#cb83-6" tabindex="-1"></a><span class="do">## [1] 2.9644</span></span>
-<span id="cb83-7"><a href="ttest.html#cb83-7" tabindex="-1"></a><span class="fu">t.test</span>(onesampleT<span class="sc">$</span>X, <span class="at">mu=</span><span class="dv">3</span>, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
-<span id="cb83-8"><a href="ttest.html#cb83-8" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb83-9"><a href="ttest.html#cb83-9" tabindex="-1"></a><span class="do">##  One Sample t-test</span></span>
-<span id="cb83-10"><a href="ttest.html#cb83-10" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb83-11"><a href="ttest.html#cb83-11" tabindex="-1"></a><span class="do">## data:  onesampleT$X</span></span>
-<span id="cb83-12"><a href="ttest.html#cb83-12" tabindex="-1"></a><span class="do">## t = -1.4225, df = 24, p-value = 0.08388</span></span>
-<span id="cb83-13"><a href="ttest.html#cb83-13" tabindex="-1"></a><span class="do">## alternative hypothesis: true mean is less than 3</span></span>
-<span id="cb83-14"><a href="ttest.html#cb83-14" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb83-15"><a href="ttest.html#cb83-15" tabindex="-1"></a><span class="do">##      -Inf 3.007219</span></span>
-<span id="cb83-16"><a href="ttest.html#cb83-16" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
-<span id="cb83-17"><a href="ttest.html#cb83-17" tabindex="-1"></a><span class="do">## mean of x </span></span>
-<span id="cb83-18"><a href="ttest.html#cb83-18" tabindex="-1"></a><span class="do">##    2.9644</span></span></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="ttest.html#cb87-1" tabindex="-1"></a></span>
+<span id="cb87-2"><a href="ttest.html#cb87-2" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
+<span id="cb87-3"><a href="ttest.html#cb87-3" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.00</span>, <span class="fl">2.75</span>, <span class="fl">2.81</span>, <span class="fl">3.0</span>, <span class="fl">2.93</span>, <span class="fl">3.01</span>, <span class="fl">3.10</span>, <span class="fl">3.20</span>, <span class="fl">2.90</span>, <span class="fl">3.00</span>, <span class="fl">3.00</span>, <span class="fl">2.95</span>, <span class="fl">2.75</span>, <span class="fl">2.88</span>, <span class="fl">3.12</span>, <span class="fl">3.05</span>, <span class="fl">3.10</span>, <span class="fl">2.85</span>, <span class="fl">2.95</span>, <span class="fl">2.90</span>, <span class="fl">2.79</span>, <span class="fl">3.14</span>, <span class="fl">3.00</span>, <span class="fl">3.10</span>, <span class="fl">2.83</span>)  </span>
+<span id="cb87-4"><a href="ttest.html#cb87-4" tabindex="-1"></a>onesampleT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X)</span>
+<span id="cb87-5"><a href="ttest.html#cb87-5" tabindex="-1"></a><span class="fu">mean</span>(onesampleT<span class="sc">$</span>X)</span>
+<span id="cb87-6"><a href="ttest.html#cb87-6" tabindex="-1"></a><span class="do">## [1] 2.9644</span></span>
+<span id="cb87-7"><a href="ttest.html#cb87-7" tabindex="-1"></a><span class="fu">t.test</span>(onesampleT<span class="sc">$</span>X, <span class="at">mu=</span><span class="dv">3</span>, <span class="at">alternative=</span><span class="st">&quot;less&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span>
+<span id="cb87-8"><a href="ttest.html#cb87-8" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb87-9"><a href="ttest.html#cb87-9" tabindex="-1"></a><span class="do">##  One Sample t-test</span></span>
+<span id="cb87-10"><a href="ttest.html#cb87-10" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb87-11"><a href="ttest.html#cb87-11" tabindex="-1"></a><span class="do">## data:  onesampleT$X</span></span>
+<span id="cb87-12"><a href="ttest.html#cb87-12" tabindex="-1"></a><span class="do">## t = -1.4225, df = 24, p-value = 0.08388</span></span>
+<span id="cb87-13"><a href="ttest.html#cb87-13" tabindex="-1"></a><span class="do">## alternative hypothesis: true mean is less than 3</span></span>
+<span id="cb87-14"><a href="ttest.html#cb87-14" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb87-15"><a href="ttest.html#cb87-15" tabindex="-1"></a><span class="do">##      -Inf 3.007219</span></span>
+<span id="cb87-16"><a href="ttest.html#cb87-16" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb87-17"><a href="ttest.html#cb87-17" tabindex="-1"></a><span class="do">## mean of x </span></span>
+<span id="cb87-18"><a href="ttest.html#cb87-18" tabindex="-1"></a><span class="do">##    2.9644</span></span></code></pre></div>
 <p>검정 결과, 표본평균은 2.9644이지만 t검정통계량이 -14.225, p-value가 0.08388로 연구가설이 기각되고, 영가설이 채택되었다. 다시 말해 C사의 립밤의 평균중량은 3g과 같거나 크다고 볼 수 있다.</p>
 <div class="float">
 <img src="images/onesampleT.png" alt="t분포를 활용한 가설검정" />
@@ -854,91 +1139,91 @@ t.test()에서 지정할 인수는 다음과 같다.</p>
 </ul>
 <p>데이터를 입력한 후에는 일단 각 집단별 평균을 구해보자. 사전점수는 3.024, 사후검사는 3.28로 사후검사가 더 높은 것을 알 수 있다. 다음으로는 집단간 동분산을 확인하여야 한다. 동분산 가정이 충족되지 않는 경우 t값의 계산 공식이 달라지기 때문이다. 집단간 동분산을 검증하는 방법이 여러가지가 있다. 여기서는 <code>var.test</code>명령어를 사용해보자. 분석결과 p값이 상당히 커서 연구가설(두 집단의 분산의 차이가 0이 아니다)이 기각된다. 따라서 두 집단은 분산이 같다고 가정할 수 있다.
 이를 기초로 t.test명령어를 사용하여 분석해보면 t 값은 -4.2262 이고, p-value는 0.05 미만으로 연구가설을 채택한다. 연구가설은 “Xpre-Xpost가 0이 아니다” 이므로 두 집단간의 차이가 있다고 결론내릴 수 있다.</p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="ttest.html#cb84-1" tabindex="-1"></a></span>
-<span id="cb84-2"><a href="ttest.html#cb84-2" tabindex="-1"></a><span class="do">## 데이터 입력</span></span>
-<span id="cb84-3"><a href="ttest.html#cb84-3" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
-<span id="cb84-4"><a href="ttest.html#cb84-4" tabindex="-1"></a>Xpre<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">2.8</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">2.9</span>, <span class="fl">3.0</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">3.3</span>, <span class="fl">2.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">2.8</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">2.7</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>)  </span>
-<span id="cb84-5"><a href="ttest.html#cb84-5" tabindex="-1"></a>Xpost<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">3.8</span>, <span class="fl">3.4</span>, <span class="fl">2.8</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.7</span>, <span class="fl">3.1</span>, <span class="fl">3.8</span>, <span class="fl">3.3</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">3.7</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">3.6</span>, <span class="fl">3.3</span>, <span class="fl">3.5</span>, <span class="fl">3.1</span>, <span class="fl">3.4</span>, <span class="fl">2.6</span>)</span>
-<span id="cb84-6"><a href="ttest.html#cb84-6" tabindex="-1"></a>prepostT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, Xpre, Xpost)</span>
-<span id="cb84-7"><a href="ttest.html#cb84-7" tabindex="-1"></a></span>
-<span id="cb84-8"><a href="ttest.html#cb84-8" tabindex="-1"></a><span class="do">## 사전/사후 집단의 평균비교</span></span>
-<span id="cb84-9"><a href="ttest.html#cb84-9" tabindex="-1"></a><span class="fu">mean</span>(prepostT<span class="sc">$</span>Xpre)</span>
-<span id="cb84-10"><a href="ttest.html#cb84-10" tabindex="-1"></a><span class="do">## [1] 3.024</span></span>
-<span id="cb84-11"><a href="ttest.html#cb84-11" tabindex="-1"></a><span class="fu">mean</span>(prepostT<span class="sc">$</span>Xpost)</span>
-<span id="cb84-12"><a href="ttest.html#cb84-12" tabindex="-1"></a><span class="do">## [1] 3.28</span></span>
-<span id="cb84-13"><a href="ttest.html#cb84-13" tabindex="-1"></a></span>
-<span id="cb84-14"><a href="ttest.html#cb84-14" tabindex="-1"></a><span class="do">## 집단간 동분산성 확인</span></span>
-<span id="cb84-15"><a href="ttest.html#cb84-15" tabindex="-1"></a><span class="fu">var.test</span>(prepostT<span class="sc">$</span>Xpre, prepostT<span class="sc">$</span>Xpost)</span>
-<span id="cb84-16"><a href="ttest.html#cb84-16" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb84-17"><a href="ttest.html#cb84-17" tabindex="-1"></a><span class="do">##  F test to compare two variances</span></span>
-<span id="cb84-18"><a href="ttest.html#cb84-18" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb84-19"><a href="ttest.html#cb84-19" tabindex="-1"></a><span class="do">## data:  prepostT$Xpre and prepostT$Xpost</span></span>
-<span id="cb84-20"><a href="ttest.html#cb84-20" tabindex="-1"></a><span class="do">## F = 0.76847, num df = 24, denom df = 24, p-value = 0.5238</span></span>
-<span id="cb84-21"><a href="ttest.html#cb84-21" tabindex="-1"></a><span class="do">## alternative hypothesis: true ratio of variances is not equal to 1</span></span>
-<span id="cb84-22"><a href="ttest.html#cb84-22" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb84-23"><a href="ttest.html#cb84-23" tabindex="-1"></a><span class="do">##  0.3386396 1.7438650</span></span>
-<span id="cb84-24"><a href="ttest.html#cb84-24" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
-<span id="cb84-25"><a href="ttest.html#cb84-25" tabindex="-1"></a><span class="do">## ratio of variances </span></span>
-<span id="cb84-26"><a href="ttest.html#cb84-26" tabindex="-1"></a><span class="do">##          0.7684672</span></span>
-<span id="cb84-27"><a href="ttest.html#cb84-27" tabindex="-1"></a></span>
-<span id="cb84-28"><a href="ttest.html#cb84-28" tabindex="-1"></a><span class="do">## 쌍체비교 t-test</span></span>
-<span id="cb84-29"><a href="ttest.html#cb84-29" tabindex="-1"></a><span class="fu">t.test</span>(prepostT<span class="sc">$</span>Xpre, prepostT<span class="sc">$</span>Xpost, <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">paired=</span><span class="cn">TRUE</span>)</span>
-<span id="cb84-30"><a href="ttest.html#cb84-30" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb84-31"><a href="ttest.html#cb84-31" tabindex="-1"></a><span class="do">##  Paired t-test</span></span>
-<span id="cb84-32"><a href="ttest.html#cb84-32" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb84-33"><a href="ttest.html#cb84-33" tabindex="-1"></a><span class="do">## data:  prepostT$Xpre and prepostT$Xpost</span></span>
-<span id="cb84-34"><a href="ttest.html#cb84-34" tabindex="-1"></a><span class="do">## t = -4.2262, df = 24, p-value = 0.0002971</span></span>
-<span id="cb84-35"><a href="ttest.html#cb84-35" tabindex="-1"></a><span class="do">## alternative hypothesis: true mean difference is not equal to 0</span></span>
-<span id="cb84-36"><a href="ttest.html#cb84-36" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb84-37"><a href="ttest.html#cb84-37" tabindex="-1"></a><span class="do">##  -0.3810207 -0.1309793</span></span>
-<span id="cb84-38"><a href="ttest.html#cb84-38" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
-<span id="cb84-39"><a href="ttest.html#cb84-39" tabindex="-1"></a><span class="do">## mean difference </span></span>
-<span id="cb84-40"><a href="ttest.html#cb84-40" tabindex="-1"></a><span class="do">##          -0.256</span></span></code></pre></div>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="ttest.html#cb88-1" tabindex="-1"></a></span>
+<span id="cb88-2"><a href="ttest.html#cb88-2" tabindex="-1"></a><span class="do">## 데이터 입력</span></span>
+<span id="cb88-3"><a href="ttest.html#cb88-3" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
+<span id="cb88-4"><a href="ttest.html#cb88-4" tabindex="-1"></a>Xpre<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">2.8</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">2.9</span>, <span class="fl">3.0</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">3.3</span>, <span class="fl">2.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">2.8</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">2.7</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>)  </span>
+<span id="cb88-5"><a href="ttest.html#cb88-5" tabindex="-1"></a>Xpost<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">3.8</span>, <span class="fl">3.4</span>, <span class="fl">2.8</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.7</span>, <span class="fl">3.1</span>, <span class="fl">3.8</span>, <span class="fl">3.3</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">3.7</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">3.6</span>, <span class="fl">3.3</span>, <span class="fl">3.5</span>, <span class="fl">3.1</span>, <span class="fl">3.4</span>, <span class="fl">2.6</span>)</span>
+<span id="cb88-6"><a href="ttest.html#cb88-6" tabindex="-1"></a>prepostT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, Xpre, Xpost)</span>
+<span id="cb88-7"><a href="ttest.html#cb88-7" tabindex="-1"></a></span>
+<span id="cb88-8"><a href="ttest.html#cb88-8" tabindex="-1"></a><span class="do">## 사전/사후 집단의 평균비교</span></span>
+<span id="cb88-9"><a href="ttest.html#cb88-9" tabindex="-1"></a><span class="fu">mean</span>(prepostT<span class="sc">$</span>Xpre)</span>
+<span id="cb88-10"><a href="ttest.html#cb88-10" tabindex="-1"></a><span class="do">## [1] 3.024</span></span>
+<span id="cb88-11"><a href="ttest.html#cb88-11" tabindex="-1"></a><span class="fu">mean</span>(prepostT<span class="sc">$</span>Xpost)</span>
+<span id="cb88-12"><a href="ttest.html#cb88-12" tabindex="-1"></a><span class="do">## [1] 3.28</span></span>
+<span id="cb88-13"><a href="ttest.html#cb88-13" tabindex="-1"></a></span>
+<span id="cb88-14"><a href="ttest.html#cb88-14" tabindex="-1"></a><span class="do">## 집단간 동분산성 확인</span></span>
+<span id="cb88-15"><a href="ttest.html#cb88-15" tabindex="-1"></a><span class="fu">var.test</span>(prepostT<span class="sc">$</span>Xpre, prepostT<span class="sc">$</span>Xpost)</span>
+<span id="cb88-16"><a href="ttest.html#cb88-16" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb88-17"><a href="ttest.html#cb88-17" tabindex="-1"></a><span class="do">##  F test to compare two variances</span></span>
+<span id="cb88-18"><a href="ttest.html#cb88-18" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb88-19"><a href="ttest.html#cb88-19" tabindex="-1"></a><span class="do">## data:  prepostT$Xpre and prepostT$Xpost</span></span>
+<span id="cb88-20"><a href="ttest.html#cb88-20" tabindex="-1"></a><span class="do">## F = 0.76847, num df = 24, denom df = 24, p-value = 0.5238</span></span>
+<span id="cb88-21"><a href="ttest.html#cb88-21" tabindex="-1"></a><span class="do">## alternative hypothesis: true ratio of variances is not equal to 1</span></span>
+<span id="cb88-22"><a href="ttest.html#cb88-22" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb88-23"><a href="ttest.html#cb88-23" tabindex="-1"></a><span class="do">##  0.3386396 1.7438650</span></span>
+<span id="cb88-24"><a href="ttest.html#cb88-24" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb88-25"><a href="ttest.html#cb88-25" tabindex="-1"></a><span class="do">## ratio of variances </span></span>
+<span id="cb88-26"><a href="ttest.html#cb88-26" tabindex="-1"></a><span class="do">##          0.7684672</span></span>
+<span id="cb88-27"><a href="ttest.html#cb88-27" tabindex="-1"></a></span>
+<span id="cb88-28"><a href="ttest.html#cb88-28" tabindex="-1"></a><span class="do">## 쌍체비교 t-test</span></span>
+<span id="cb88-29"><a href="ttest.html#cb88-29" tabindex="-1"></a><span class="fu">t.test</span>(prepostT<span class="sc">$</span>Xpre, prepostT<span class="sc">$</span>Xpost, <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">paired=</span><span class="cn">TRUE</span>)</span>
+<span id="cb88-30"><a href="ttest.html#cb88-30" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb88-31"><a href="ttest.html#cb88-31" tabindex="-1"></a><span class="do">##  Paired t-test</span></span>
+<span id="cb88-32"><a href="ttest.html#cb88-32" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb88-33"><a href="ttest.html#cb88-33" tabindex="-1"></a><span class="do">## data:  prepostT$Xpre and prepostT$Xpost</span></span>
+<span id="cb88-34"><a href="ttest.html#cb88-34" tabindex="-1"></a><span class="do">## t = -4.2262, df = 24, p-value = 0.0002971</span></span>
+<span id="cb88-35"><a href="ttest.html#cb88-35" tabindex="-1"></a><span class="do">## alternative hypothesis: true mean difference is not equal to 0</span></span>
+<span id="cb88-36"><a href="ttest.html#cb88-36" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb88-37"><a href="ttest.html#cb88-37" tabindex="-1"></a><span class="do">##  -0.3810207 -0.1309793</span></span>
+<span id="cb88-38"><a href="ttest.html#cb88-38" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb88-39"><a href="ttest.html#cb88-39" tabindex="-1"></a><span class="do">## mean difference </span></span>
+<span id="cb88-40"><a href="ttest.html#cb88-40" tabindex="-1"></a><span class="do">##          -0.256</span></span></code></pre></div>
 </div>
 <div id="두-모집단-평균-t-검정-two-sample-t-test" class="section level4 hasAnchor" number="6.3.5.3">
 <h4><span class="header-section-number">6.3.5.3</span> 두 모집단 평균 t 검정 (two sample t-test)<a href="ttest.html#%EB%91%90-%EB%AA%A8%EC%A7%91%EB%8B%A8-%ED%8F%89%EA%B7%A0-t-%EA%B2%80%EC%A0%95-two-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>두 모집단 평균 t검정은 paired t-test와 매우 유사한 데이터 구조를 갖고 있지만 쌍별 비교가 아니라 두 집단의 전체 평균을 비교한다는 점에서 차이가 있다. r명령어도 매우 유사한데, 다만 “paired=FALSE”로 반드시 지정해주어야 잘못된 분석결과를 피할 수 있다.</p>
 <p>앞서 paired t-test에서 사용한 데이터셋을 그대로 사용해보자. 다만 이번에는 A직무 25명과, B직무 25명의 시험점수를 측정해서 학년간 격차가 있는지 확인한다고 가정하자.</p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="ttest.html#cb85-1" tabindex="-1"></a></span>
-<span id="cb85-2"><a href="ttest.html#cb85-2" tabindex="-1"></a><span class="do">## 데이터 입력</span></span>
-<span id="cb85-3"><a href="ttest.html#cb85-3" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
-<span id="cb85-4"><a href="ttest.html#cb85-4" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">2.8</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">2.9</span>, <span class="fl">3.0</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">3.3</span>, <span class="fl">2.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">2.8</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">2.7</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>)  </span>
-<span id="cb85-5"><a href="ttest.html#cb85-5" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">3.8</span>, <span class="fl">3.4</span>, <span class="fl">2.8</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.7</span>, <span class="fl">3.1</span>, <span class="fl">3.8</span>, <span class="fl">3.3</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">3.7</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">3.6</span>, <span class="fl">3.3</span>, <span class="fl">3.5</span>, <span class="fl">3.1</span>, <span class="fl">3.4</span>, <span class="fl">2.6</span>)</span>
-<span id="cb85-6"><a href="ttest.html#cb85-6" tabindex="-1"></a>twosampleT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, A, B)</span>
-<span id="cb85-7"><a href="ttest.html#cb85-7" tabindex="-1"></a></span>
-<span id="cb85-8"><a href="ttest.html#cb85-8" tabindex="-1"></a><span class="do">## A와 B집단의 평균비교</span></span>
-<span id="cb85-9"><a href="ttest.html#cb85-9" tabindex="-1"></a><span class="fu">mean</span>(twosampleT<span class="sc">$</span>A)</span>
-<span id="cb85-10"><a href="ttest.html#cb85-10" tabindex="-1"></a><span class="do">## [1] 3.024</span></span>
-<span id="cb85-11"><a href="ttest.html#cb85-11" tabindex="-1"></a><span class="fu">mean</span>(twosampleT<span class="sc">$</span>B)</span>
-<span id="cb85-12"><a href="ttest.html#cb85-12" tabindex="-1"></a><span class="do">## [1] 3.28</span></span>
-<span id="cb85-13"><a href="ttest.html#cb85-13" tabindex="-1"></a></span>
-<span id="cb85-14"><a href="ttest.html#cb85-14" tabindex="-1"></a><span class="do">## 집단간 동분산성 확인</span></span>
-<span id="cb85-15"><a href="ttest.html#cb85-15" tabindex="-1"></a><span class="fu">var.test</span>(twosampleT<span class="sc">$</span>A, twosampleT<span class="sc">$</span>B)</span>
-<span id="cb85-16"><a href="ttest.html#cb85-16" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb85-17"><a href="ttest.html#cb85-17" tabindex="-1"></a><span class="do">##  F test to compare two variances</span></span>
-<span id="cb85-18"><a href="ttest.html#cb85-18" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb85-19"><a href="ttest.html#cb85-19" tabindex="-1"></a><span class="do">## data:  twosampleT$A and twosampleT$B</span></span>
-<span id="cb85-20"><a href="ttest.html#cb85-20" tabindex="-1"></a><span class="do">## F = 0.76847, num df = 24, denom df = 24, p-value = 0.5238</span></span>
-<span id="cb85-21"><a href="ttest.html#cb85-21" tabindex="-1"></a><span class="do">## alternative hypothesis: true ratio of variances is not equal to 1</span></span>
-<span id="cb85-22"><a href="ttest.html#cb85-22" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb85-23"><a href="ttest.html#cb85-23" tabindex="-1"></a><span class="do">##  0.3386396 1.7438650</span></span>
-<span id="cb85-24"><a href="ttest.html#cb85-24" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
-<span id="cb85-25"><a href="ttest.html#cb85-25" tabindex="-1"></a><span class="do">## ratio of variances </span></span>
-<span id="cb85-26"><a href="ttest.html#cb85-26" tabindex="-1"></a><span class="do">##          0.7684672</span></span>
-<span id="cb85-27"><a href="ttest.html#cb85-27" tabindex="-1"></a></span>
-<span id="cb85-28"><a href="ttest.html#cb85-28" tabindex="-1"></a><span class="do">## 두집단 t-test</span></span>
-<span id="cb85-29"><a href="ttest.html#cb85-29" tabindex="-1"></a><span class="fu">t.test</span>(twosampleT<span class="sc">$</span>A, twosampleT<span class="sc">$</span>A, <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">paired=</span><span class="cn">FALSE</span>)</span>
-<span id="cb85-30"><a href="ttest.html#cb85-30" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb85-31"><a href="ttest.html#cb85-31" tabindex="-1"></a><span class="do">##  Two Sample t-test</span></span>
-<span id="cb85-32"><a href="ttest.html#cb85-32" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb85-33"><a href="ttest.html#cb85-33" tabindex="-1"></a><span class="do">## data:  twosampleT$A and twosampleT$A</span></span>
-<span id="cb85-34"><a href="ttest.html#cb85-34" tabindex="-1"></a><span class="do">## t = 0, df = 48, p-value = 1</span></span>
-<span id="cb85-35"><a href="ttest.html#cb85-35" tabindex="-1"></a><span class="do">## alternative hypothesis: true difference in means is not equal to 0</span></span>
-<span id="cb85-36"><a href="ttest.html#cb85-36" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
-<span id="cb85-37"><a href="ttest.html#cb85-37" tabindex="-1"></a><span class="do">##  -0.1684459  0.1684459</span></span>
-<span id="cb85-38"><a href="ttest.html#cb85-38" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
-<span id="cb85-39"><a href="ttest.html#cb85-39" tabindex="-1"></a><span class="do">## mean of x mean of y </span></span>
-<span id="cb85-40"><a href="ttest.html#cb85-40" tabindex="-1"></a><span class="do">##     3.024     3.024</span></span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="ttest.html#cb89-1" tabindex="-1"></a></span>
+<span id="cb89-2"><a href="ttest.html#cb89-2" tabindex="-1"></a><span class="do">## 데이터 입력</span></span>
+<span id="cb89-3"><a href="ttest.html#cb89-3" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>, <span class="dv">25</span>) </span>
+<span id="cb89-4"><a href="ttest.html#cb89-4" tabindex="-1"></a>A<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">2.8</span>, <span class="fl">3.1</span>, <span class="fl">3.1</span>, <span class="fl">3.2</span>, <span class="fl">2.9</span>, <span class="fl">3.0</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">3.3</span>, <span class="fl">2.0</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">2.8</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">2.7</span>, <span class="fl">3.2</span>, <span class="fl">3.0</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>)  </span>
+<span id="cb89-5"><a href="ttest.html#cb89-5" tabindex="-1"></a>B<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">3.2</span>, <span class="fl">3.8</span>, <span class="fl">3.4</span>, <span class="fl">2.8</span>, <span class="fl">3.5</span>, <span class="fl">3.2</span>, <span class="fl">3.3</span>, <span class="fl">3.7</span>, <span class="fl">3.1</span>, <span class="fl">3.8</span>, <span class="fl">3.3</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>, <span class="fl">2.8</span>, <span class="fl">3.6</span>, <span class="fl">3.5</span>, <span class="fl">3.7</span>, <span class="fl">2.9</span>, <span class="fl">2.9</span>, <span class="fl">3.6</span>, <span class="fl">3.3</span>, <span class="fl">3.5</span>, <span class="fl">3.1</span>, <span class="fl">3.4</span>, <span class="fl">2.6</span>)</span>
+<span id="cb89-6"><a href="ttest.html#cb89-6" tabindex="-1"></a>twosampleT<span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, A, B)</span>
+<span id="cb89-7"><a href="ttest.html#cb89-7" tabindex="-1"></a></span>
+<span id="cb89-8"><a href="ttest.html#cb89-8" tabindex="-1"></a><span class="do">## A와 B집단의 평균비교</span></span>
+<span id="cb89-9"><a href="ttest.html#cb89-9" tabindex="-1"></a><span class="fu">mean</span>(twosampleT<span class="sc">$</span>A)</span>
+<span id="cb89-10"><a href="ttest.html#cb89-10" tabindex="-1"></a><span class="do">## [1] 3.024</span></span>
+<span id="cb89-11"><a href="ttest.html#cb89-11" tabindex="-1"></a><span class="fu">mean</span>(twosampleT<span class="sc">$</span>B)</span>
+<span id="cb89-12"><a href="ttest.html#cb89-12" tabindex="-1"></a><span class="do">## [1] 3.28</span></span>
+<span id="cb89-13"><a href="ttest.html#cb89-13" tabindex="-1"></a></span>
+<span id="cb89-14"><a href="ttest.html#cb89-14" tabindex="-1"></a><span class="do">## 집단간 동분산성 확인</span></span>
+<span id="cb89-15"><a href="ttest.html#cb89-15" tabindex="-1"></a><span class="fu">var.test</span>(twosampleT<span class="sc">$</span>A, twosampleT<span class="sc">$</span>B)</span>
+<span id="cb89-16"><a href="ttest.html#cb89-16" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb89-17"><a href="ttest.html#cb89-17" tabindex="-1"></a><span class="do">##  F test to compare two variances</span></span>
+<span id="cb89-18"><a href="ttest.html#cb89-18" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb89-19"><a href="ttest.html#cb89-19" tabindex="-1"></a><span class="do">## data:  twosampleT$A and twosampleT$B</span></span>
+<span id="cb89-20"><a href="ttest.html#cb89-20" tabindex="-1"></a><span class="do">## F = 0.76847, num df = 24, denom df = 24, p-value = 0.5238</span></span>
+<span id="cb89-21"><a href="ttest.html#cb89-21" tabindex="-1"></a><span class="do">## alternative hypothesis: true ratio of variances is not equal to 1</span></span>
+<span id="cb89-22"><a href="ttest.html#cb89-22" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb89-23"><a href="ttest.html#cb89-23" tabindex="-1"></a><span class="do">##  0.3386396 1.7438650</span></span>
+<span id="cb89-24"><a href="ttest.html#cb89-24" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb89-25"><a href="ttest.html#cb89-25" tabindex="-1"></a><span class="do">## ratio of variances </span></span>
+<span id="cb89-26"><a href="ttest.html#cb89-26" tabindex="-1"></a><span class="do">##          0.7684672</span></span>
+<span id="cb89-27"><a href="ttest.html#cb89-27" tabindex="-1"></a></span>
+<span id="cb89-28"><a href="ttest.html#cb89-28" tabindex="-1"></a><span class="do">## 두집단 t-test</span></span>
+<span id="cb89-29"><a href="ttest.html#cb89-29" tabindex="-1"></a><span class="fu">t.test</span>(twosampleT<span class="sc">$</span>A, twosampleT<span class="sc">$</span>A, <span class="at">var.equal=</span><span class="cn">TRUE</span>, <span class="at">alternative=</span><span class="st">&quot;two.sided&quot;</span>, <span class="at">conf.level=</span><span class="fl">0.95</span>, <span class="at">paired=</span><span class="cn">FALSE</span>)</span>
+<span id="cb89-30"><a href="ttest.html#cb89-30" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb89-31"><a href="ttest.html#cb89-31" tabindex="-1"></a><span class="do">##  Two Sample t-test</span></span>
+<span id="cb89-32"><a href="ttest.html#cb89-32" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb89-33"><a href="ttest.html#cb89-33" tabindex="-1"></a><span class="do">## data:  twosampleT$A and twosampleT$A</span></span>
+<span id="cb89-34"><a href="ttest.html#cb89-34" tabindex="-1"></a><span class="do">## t = 0, df = 48, p-value = 1</span></span>
+<span id="cb89-35"><a href="ttest.html#cb89-35" tabindex="-1"></a><span class="do">## alternative hypothesis: true difference in means is not equal to 0</span></span>
+<span id="cb89-36"><a href="ttest.html#cb89-36" tabindex="-1"></a><span class="do">## 95 percent confidence interval:</span></span>
+<span id="cb89-37"><a href="ttest.html#cb89-37" tabindex="-1"></a><span class="do">##  -0.1684459  0.1684459</span></span>
+<span id="cb89-38"><a href="ttest.html#cb89-38" tabindex="-1"></a><span class="do">## sample estimates:</span></span>
+<span id="cb89-39"><a href="ttest.html#cb89-39" tabindex="-1"></a><span class="do">## mean of x mean of y </span></span>
+<span id="cb89-40"><a href="ttest.html#cb89-40" tabindex="-1"></a><span class="do">##     3.024     3.024</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -998,7 +1283,7 @@ t.test()에서 지정할 인수는 다음과 같다.</p>
 ## 1     1  12  
 ## 2     2  10.4
 ## 3     3  15.2</code></pre>
-<p><img src="_main_files/figure-html/unnamed-chunk-91-1.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-91-2.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-97-1.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-97-2.png" alt="" width="672" /></p>
 </div>
 </div>
 <div id="일원분산분석-공식" class="section level3 hasAnchor" number="6.4.2">
@@ -1104,18 +1389,18 @@ t.test()에서 지정할 인수는 다음과 같다.</p>
 ## 14 C 14
 ## 15 C 17</code></pre>
 <p>좀 더 쉽게 계산하기 위해서는 위의 long data format을 wide data format으로 바꾸도록하자.</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="ttest.html#cb88-1" tabindex="-1"></a></span>
-<span id="cb88-2"><a href="ttest.html#cb88-2" tabindex="-1"></a>A_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>)</span>
-<span id="cb88-3"><a href="ttest.html#cb88-3" tabindex="-1"></a>B_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">14</span>, <span class="dv">11</span>, <span class="dv">10</span>)</span>
-<span id="cb88-4"><a href="ttest.html#cb88-4" tabindex="-1"></a>C_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">17</span>)</span>
-<span id="cb88-5"><a href="ttest.html#cb88-5" tabindex="-1"></a>longAnova<span class="ot">&lt;-</span><span class="fu">data.frame</span>(A_group, B_group, C_group)</span>
-<span id="cb88-6"><a href="ttest.html#cb88-6" tabindex="-1"></a>longAnova</span>
-<span id="cb88-7"><a href="ttest.html#cb88-7" tabindex="-1"></a><span class="do">##   A_group B_group C_group</span></span>
-<span id="cb88-8"><a href="ttest.html#cb88-8" tabindex="-1"></a><span class="do">## 1       7       8      14</span></span>
-<span id="cb88-9"><a href="ttest.html#cb88-9" tabindex="-1"></a><span class="do">## 2      11       9      15</span></span>
-<span id="cb88-10"><a href="ttest.html#cb88-10" tabindex="-1"></a><span class="do">## 3      13      14      16</span></span>
-<span id="cb88-11"><a href="ttest.html#cb88-11" tabindex="-1"></a><span class="do">## 4      14      11      14</span></span>
-<span id="cb88-12"><a href="ttest.html#cb88-12" tabindex="-1"></a><span class="do">## 5      15      10      17</span></span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="ttest.html#cb92-1" tabindex="-1"></a></span>
+<span id="cb92-2"><a href="ttest.html#cb92-2" tabindex="-1"></a>A_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">14</span>, <span class="dv">15</span>)</span>
+<span id="cb92-3"><a href="ttest.html#cb92-3" tabindex="-1"></a>B_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">14</span>, <span class="dv">11</span>, <span class="dv">10</span>)</span>
+<span id="cb92-4"><a href="ttest.html#cb92-4" tabindex="-1"></a>C_group<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">16</span>, <span class="dv">14</span>, <span class="dv">17</span>)</span>
+<span id="cb92-5"><a href="ttest.html#cb92-5" tabindex="-1"></a>longAnova<span class="ot">&lt;-</span><span class="fu">data.frame</span>(A_group, B_group, C_group)</span>
+<span id="cb92-6"><a href="ttest.html#cb92-6" tabindex="-1"></a>longAnova</span>
+<span id="cb92-7"><a href="ttest.html#cb92-7" tabindex="-1"></a><span class="do">##   A_group B_group C_group</span></span>
+<span id="cb92-8"><a href="ttest.html#cb92-8" tabindex="-1"></a><span class="do">## 1       7       8      14</span></span>
+<span id="cb92-9"><a href="ttest.html#cb92-9" tabindex="-1"></a><span class="do">## 2      11       9      15</span></span>
+<span id="cb92-10"><a href="ttest.html#cb92-10" tabindex="-1"></a><span class="do">## 3      13      14      16</span></span>
+<span id="cb92-11"><a href="ttest.html#cb92-11" tabindex="-1"></a><span class="do">## 4      14      11      14</span></span>
+<span id="cb92-12"><a href="ttest.html#cb92-12" tabindex="-1"></a><span class="do">## 5      15      10      17</span></span></code></pre></div>
 <p>이를 바탕으로 분산분석표를 계산해보면 다음과 같아.</p>
 <div class="float">
 <img src="images/anovatable2.png" alt="일원분산분석검정을 위한 F 분포" />

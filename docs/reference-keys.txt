@@ -1,7 +1,9 @@
 fig:unnamed-chunk-16
+fig:group-by-summarise-diagram
 eq:prob
 eq:probinf
 eq:nordis
+fig:locationscale
 eq:normal
 eq:stno
 eq:zscore
@@ -14,6 +16,13 @@ eq:centrltheorem
 eq:samplevar
 eq:confidenceinterval
 eq:interval
+fig:confidential
+tab:unnamed-chunk-93
+eq:pairedvar
+eq:pairedsd
+eq:pairedse
+eq:pairedt
+eq:pairedtexample
 eq:samevar
 eq:samedf
 eq:diffvar
@@ -47,10 +56,10 @@ r-내장함수를-활용한-기술통계량-산출
 literature
 들어가며
 패키지-준비하기
-작업공간-설정하기
+작업-디렉토리-설정하기
 데이터-불러오기
 dplyr-패키지의-이해
-chain-operator
+pipe-operator
 dplyr의-주요-기능
 filter
 select
@@ -72,7 +81,7 @@ full_join-두-데이터의-모든-행을-결합
 데이터의-불러오기import
 필요한-변수만-선택select
 기업-데이터-결합one-to-one-match
-근로자-기업-데이터-결합one-to-many-match
+근로자-기업-데이터-결합many-to-one-match
 graph
 들어가며-1
 ggplot2의-설치-및-소개
@@ -100,7 +109,7 @@ probability
 확률probability과-확률변수random-variable
 확률변수random-variable와-확률분포probability-distribution
 확률질량함수와-확률밀도함수
-확률질량함수-probability-mass-funtion-pmf
+확률질량함수-probability-mass-function-pmf
 확률밀도함수-probability-density-function-pdf
 대표적인-확률분포
 정규분포

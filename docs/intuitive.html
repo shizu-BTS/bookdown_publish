@@ -23,7 +23,7 @@
 <meta name="author" content="Su Jung Choi (Seoul National University)" />
 
 
-<meta name="date" content="2026-09-14" />
+<meta name="date" content="2026-09-20" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,6 +52,8 @@
 <link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -173,12 +175,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.1" data-path="literature.html"><a href="literature.html#%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0"><i class="fa fa-check"></i><b>3.1</b> 들어가며</a>
 <ul>
 <li class="chapter" data-level="3.1.1" data-path="literature.html"><a href="literature.html#%ED%8C%A8%ED%82%A4%EC%A7%80-%EC%A4%80%EB%B9%84%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.1</b> 패키지 준비하기</a></li>
-<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85%EA%B3%B5%EA%B0%84-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업공간 설정하기</a></li>
+<li class="chapter" data-level="3.1.2" data-path="literature.html"><a href="literature.html#%EC%9E%91%EC%97%85-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.2</b> 작업 디렉토리 설정하기</a></li>
 <li class="chapter" data-level="3.1.3" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0"><i class="fa fa-check"></i><b>3.1.3</b> 데이터 불러오기</a></li>
 </ul></li>
 <li class="chapter" data-level="3.2" data-path="literature.html"><a href="literature.html#dplyr-%ED%8C%A8%ED%82%A4%EC%A7%80%EC%9D%98-%EC%9D%B4%ED%95%B4"><i class="fa fa-check"></i><b>3.2</b> dplyr 패키지의 이해</a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#chain-operator"><i class="fa fa-check"></i><b>3.2.1</b> chain operator</a></li>
+<li class="chapter" data-level="3.2.1" data-path="literature.html"><a href="literature.html#pipe-operator"><i class="fa fa-check"></i><b>3.2.1</b> pipe operator</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="literature.html"><a href="literature.html#dplyr%EC%9D%98-%EC%A3%BC%EC%9A%94-%EA%B8%B0%EB%8A%A5"><i class="fa fa-check"></i><b>3.3</b> dplyr의 주요 기능</a>
 <ul>
@@ -204,7 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.6.2" data-path="literature.html"><a href="literature.html#%EB%8D%B0%EC%9D%B4%ED%84%B0%EC%9D%98-%EB%B6%88%EB%9F%AC%EC%98%A4%EA%B8%B0import"><i class="fa fa-check"></i><b>3.6.2</b> 데이터의 불러오기(import)</a></li>
 <li class="chapter" data-level="3.6.3" data-path="literature.html"><a href="literature.html#%ED%95%84%EC%9A%94%ED%95%9C-%EB%B3%80%EC%88%98%EB%A7%8C-%EC%84%A0%ED%83%9Dselect"><i class="fa fa-check"></i><b>3.6.3</b> 필요한 변수만 선택(select)</a></li>
 <li class="chapter" data-level="3.6.4" data-path="literature.html"><a href="literature.html#%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-one-match"><i class="fa fa-check"></i><b>3.6.4</b> 기업 데이터 결합(one-to-one match)</a></li>
-<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9one-to-many-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(one-to-many match)</a></li>
+<li class="chapter" data-level="3.6.5" data-path="literature.html"><a href="literature.html#%EA%B7%BC%EB%A1%9C%EC%9E%90-%EA%B8%B0%EC%97%85-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EA%B2%B0%ED%95%A9many-to-one-match"><i class="fa fa-check"></i><b>3.6.5</b> 근로자-기업 데이터 결합(many-to-one match)</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="graph.html"><a href="graph.html"><i class="fa fa-check"></i><b>4</b> 데이터 시각화</a>
@@ -227,7 +229,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="graph.html"><a href="graph.html#miscellaneous-items"><i class="fa fa-check"></i><b>4.5</b> Miscellaneous items</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계과 가설검정</a>
+<li class="chapter" data-level="5" data-path="probability.html"><a href="probability.html"><i class="fa fa-check"></i><b>5</b> 추론통계와 가설검정</a>
 <ul>
 <li class="chapter" data-level="5.1" data-path="probability.html"><a href="probability.html#%EC%B6%94%EB%A1%A0%ED%86%B5%EA%B3%84%EC%99%80-%ED%99%95%EB%A5%A0"><i class="fa fa-check"></i><b>5.1</b> 추론통계와 확률</a>
 <ul>
@@ -512,7 +514,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>음의 값(-)을 가지면 : X와 Y의 관계가 부적(negative)이다. X가 증가할 때 Y가 감소한다.</li>
 </ul></li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-101-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-107-1.png" alt="" width="672" /></p>
 </div>
 <div id="haty-y와-잔차residual" class="section level3 hasAnchor" number="8.2.3">
 <h3><span class="header-section-number">8.2.3</span> <span class="math inline">\(\hat{Y}\)</span>, <span class="math inline">\(Y\)</span>와 잔차(residual)<a href="intuitive.html#haty-y%EC%99%80-%EC%9E%94%EC%B0%A8residual" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -623,35 +625,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>회귀식은 우리의 관측치를 완벽히 설명할수가 없기 때문에, 잔차는 필연적으로 발생한다. 예를 들어 ID 4번과 5번은 <span class="math inline">\(X\)</span>의 값이 3으로 같다. 10개의 데이터를 통해 추정된 회귀식 <span class="math inline">\(\hat{Y}=10+3X\)</span>에 <span class="math inline">\(X=3\)</span>을 투입하면 <span class="math inline">\(\hat{Y}\)</span>는 19이다. ID 4번의 사람은 <span class="math inline">\(Y\)</span>가 19로 <span class="math inline">\(\hat{Y}\)</span> 19와 같아잔차가 0인데 반해, ID 5번의 사람은 <span class="math inline">\(Y_4=21\)</span>로 잔차가 2만큼 발생한다.</p>
 <p>잔차는 작을수록 좋다. 우리가 추정한 회귀식이 관측된 값들을 잘 예측한다는 뜻이기 때문이다. 따라서 회귀분석을 할때 추정되는 회귀계수(절편과 회귀)는 잔차를 최소화하는 방식으로 계산된다. 이와 관련한 자세한 내용은 Chapter 9에서 다루도록 하겠다.</p>
 <p>위의 데이터를 활용해서 실제로 회귀분석을 실시해보자. Chapter 9에서 다루겠지만 R에서 회귀분석은 매우 간단한 코드로 이루어져있다. 여기서 산출되는 값을 활용해 다시 한번 회귀식을 제대로 이해해보자.</p>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="intuitive.html#cb93-1" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>) </span>
-<span id="cb93-2"><a href="intuitive.html#cb93-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">3.5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">4.5</span>, <span class="dv">5</span>)</span>
-<span id="cb93-3"><a href="intuitive.html#cb93-3" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="fl">18.5</span>, <span class="fl">21.5</span>, <span class="fl">23.5</span>, <span class="fl">22.5</span>, <span class="dv">25</span>)</span>
-<span id="cb93-4"><a href="intuitive.html#cb93-4" tabindex="-1"></a>Learning <span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X, Y)</span>
-<span id="cb93-5"><a href="intuitive.html#cb93-5" tabindex="-1"></a>learningReg <span class="ot">&lt;-</span><span class="fu">lm</span>(Y <span class="sc">~</span> X, <span class="at">data=</span>Learning)</span>
-<span id="cb93-6"><a href="intuitive.html#cb93-6" tabindex="-1"></a><span class="fu">summary</span>(learningReg)</span>
-<span id="cb93-7"><a href="intuitive.html#cb93-7" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb93-8"><a href="intuitive.html#cb93-8" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb93-9"><a href="intuitive.html#cb93-9" tabindex="-1"></a><span class="do">## lm(formula = Y ~ X, data = Learning)</span></span>
-<span id="cb93-10"><a href="intuitive.html#cb93-10" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb93-11"><a href="intuitive.html#cb93-11" tabindex="-1"></a><span class="do">## Residuals:</span></span>
-<span id="cb93-12"><a href="intuitive.html#cb93-12" tabindex="-1"></a><span class="do">##     Min      1Q  Median      3Q     Max </span></span>
-<span id="cb93-13"><a href="intuitive.html#cb93-13" tabindex="-1"></a><span class="do">## -2.0437 -0.9187 -0.2937  1.0917  1.9493 </span></span>
-<span id="cb93-14"><a href="intuitive.html#cb93-14" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb93-15"><a href="intuitive.html#cb93-15" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
-<span id="cb93-16"><a href="intuitive.html#cb93-16" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb93-17"><a href="intuitive.html#cb93-17" tabindex="-1"></a><span class="do">## (Intercept)  10.0925     1.0930   9.233 1.53e-05 ***</span></span>
-<span id="cb93-18"><a href="intuitive.html#cb93-18" tabindex="-1"></a><span class="do">## X             2.9861     0.3255   9.173 1.61e-05 ***</span></span>
-<span id="cb93-19"><a href="intuitive.html#cb93-19" tabindex="-1"></a><span class="do">## ---</span></span>
-<span id="cb93-20"><a href="intuitive.html#cb93-20" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb93-21"><a href="intuitive.html#cb93-21" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb93-22"><a href="intuitive.html#cb93-22" tabindex="-1"></a><span class="do">## Residual standard error: 1.446 on 8 degrees of freedom</span></span>
-<span id="cb93-23"><a href="intuitive.html#cb93-23" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.9132, Adjusted R-squared:  0.9023 </span></span>
-<span id="cb93-24"><a href="intuitive.html#cb93-24" tabindex="-1"></a><span class="do">## F-statistic: 84.15 on 1 and 8 DF,  p-value: 1.611e-05</span></span>
-<span id="cb93-25"><a href="intuitive.html#cb93-25" tabindex="-1"></a><span class="fu">resid</span>(learningReg)</span>
-<span id="cb93-26"><a href="intuitive.html#cb93-26" tabindex="-1"></a><span class="do">##           1           2           3           4           5           6 </span></span>
-<span id="cb93-27"><a href="intuitive.html#cb93-27" tabindex="-1"></a><span class="do">## -1.07858048 -0.58555133  1.93536122 -0.05069708  1.94930292 -2.04372624 </span></span>
-<span id="cb93-28"><a href="intuitive.html#cb93-28" tabindex="-1"></a><span class="do">##           7           8           9          10 </span></span>
-<span id="cb93-29"><a href="intuitive.html#cb93-29" tabindex="-1"></a><span class="do">## -0.53675539  1.46324461 -1.02978454 -0.02281369</span></span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="intuitive.html#cb97-1" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>) </span>
+<span id="cb97-2"><a href="intuitive.html#cb97-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">3.5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">4.5</span>, <span class="dv">5</span>)</span>
+<span id="cb97-3"><a href="intuitive.html#cb97-3" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="fl">18.5</span>, <span class="fl">21.5</span>, <span class="fl">23.5</span>, <span class="fl">22.5</span>, <span class="dv">25</span>)</span>
+<span id="cb97-4"><a href="intuitive.html#cb97-4" tabindex="-1"></a>Learning <span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X, Y)</span>
+<span id="cb97-5"><a href="intuitive.html#cb97-5" tabindex="-1"></a>learningReg <span class="ot">&lt;-</span><span class="fu">lm</span>(Y <span class="sc">~</span> X, <span class="at">data=</span>Learning)</span>
+<span id="cb97-6"><a href="intuitive.html#cb97-6" tabindex="-1"></a><span class="fu">summary</span>(learningReg)</span>
+<span id="cb97-7"><a href="intuitive.html#cb97-7" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb97-8"><a href="intuitive.html#cb97-8" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb97-9"><a href="intuitive.html#cb97-9" tabindex="-1"></a><span class="do">## lm(formula = Y ~ X, data = Learning)</span></span>
+<span id="cb97-10"><a href="intuitive.html#cb97-10" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb97-11"><a href="intuitive.html#cb97-11" tabindex="-1"></a><span class="do">## Residuals:</span></span>
+<span id="cb97-12"><a href="intuitive.html#cb97-12" tabindex="-1"></a><span class="do">##     Min      1Q  Median      3Q     Max </span></span>
+<span id="cb97-13"><a href="intuitive.html#cb97-13" tabindex="-1"></a><span class="do">## -2.0437 -0.9187 -0.2937  1.0917  1.9493 </span></span>
+<span id="cb97-14"><a href="intuitive.html#cb97-14" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb97-15"><a href="intuitive.html#cb97-15" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
+<span id="cb97-16"><a href="intuitive.html#cb97-16" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb97-17"><a href="intuitive.html#cb97-17" tabindex="-1"></a><span class="do">## (Intercept)  10.0925     1.0930   9.233 1.53e-05 ***</span></span>
+<span id="cb97-18"><a href="intuitive.html#cb97-18" tabindex="-1"></a><span class="do">## X             2.9861     0.3255   9.173 1.61e-05 ***</span></span>
+<span id="cb97-19"><a href="intuitive.html#cb97-19" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb97-20"><a href="intuitive.html#cb97-20" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb97-21"><a href="intuitive.html#cb97-21" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb97-22"><a href="intuitive.html#cb97-22" tabindex="-1"></a><span class="do">## Residual standard error: 1.446 on 8 degrees of freedom</span></span>
+<span id="cb97-23"><a href="intuitive.html#cb97-23" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.9132, Adjusted R-squared:  0.9023 </span></span>
+<span id="cb97-24"><a href="intuitive.html#cb97-24" tabindex="-1"></a><span class="do">## F-statistic: 84.15 on 1 and 8 DF,  p-value: 1.611e-05</span></span>
+<span id="cb97-25"><a href="intuitive.html#cb97-25" tabindex="-1"></a><span class="fu">resid</span>(learningReg)</span>
+<span id="cb97-26"><a href="intuitive.html#cb97-26" tabindex="-1"></a><span class="do">##           1           2           3           4           5           6 </span></span>
+<span id="cb97-27"><a href="intuitive.html#cb97-27" tabindex="-1"></a><span class="do">## -1.07858048 -0.58555133  1.93536122 -0.05069708  1.94930292 -2.04372624 </span></span>
+<span id="cb97-28"><a href="intuitive.html#cb97-28" tabindex="-1"></a><span class="do">##           7           8           9          10 </span></span>
+<span id="cb97-29"><a href="intuitive.html#cb97-29" tabindex="-1"></a><span class="do">## -0.53675539  1.46324461 -1.02978454 -0.02281369</span></span></code></pre></div>
 <p>R의 내장함수인 <code>lm</code>을 사용하면 간단히 회귀분석을 실시할 수 있다. 명령어의 사용법은 다음과 같다.
 * 회귀분석결과 &lt;- lm(종속변수 ~ 독립변수, data=사용할 data.frame)
 또한 회귀분석결과와 잔차를 확인하는 명령어는 다음과 같다.
@@ -759,12 +761,7 @@ Y = 10.0925+(2.9861*X) + e
 </tbody>
 </table>
 <p>종속변수 1개와 독립변수 1개의 관계는 2차원으로 표현할 수 있었다. 당연하게도 종속변수 2개와 독립변수 1개의 관계는 3차원으로 표현해야 한다. 아래 그림은 종속변수 <span class="math inline">\(Y\)</span>를 Z축으로 두고 10개의 데이터를 좌표에 표시한 것이다. 데이터는 3개의 좌표를 갖기 때문에 데이터의 집합은 더이상 <code>선</code>이 아니라 <code>면</code>의 형태를 갖게 된다. 두 번째 그림은 데이터를 가장 잘 설명하는, 다시 말해 잔차를 최소화하는 평평한 면을 표시한 것이다.</p>
-<pre><code>## Error in `library()`:
-## ! there is no package called &#39;plot3D&#39;
-## Error in `scatter3D()`:
-## ! could not find function &quot;scatter3D&quot;
-## Error in `scatter3D()`:
-## ! could not find function &quot;scatter3D&quot;</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-109-1.png" alt="" width="672" /><img src="_main_files/figure-html/unnamed-chunk-109-2.png" alt="" width="672" /></p>
 <p>이처럼 독립변수가 2개 이상이 되면 더이상 1차 함수로 설명하기 곤란해진다. 독립변수가 2개이면 3차원으로 표시가 가능하하지만, 독립변수가 3개라면 4차원, 4개라면 5차원 등 시각화가 어려워지기 때문에 더욱 어렵다. 따라서 다중회귀분석부터는 회귀식으로 이해하는 것이 편리하다.
 위의 그래프에서 활용한 두 개의 독립변수(<span class="math inline">\(X1\)</span>, <span class="math inline">\(X2\)</span>)를 <span class="math inline">\(Y\)</span>에 대해 회귀분석을 해보자. 아래 결과표를 활용해서 회귀식을 구성해보면 아래와 같다.</p>
 <pre><code>## 
@@ -827,7 +824,7 @@ Y = \beta_{0}+\beta_{1}*X_{1}+\beta_{2}*X_{2}+ e
 당연히 절편, 기울기, 잔차 모두 <a href="intuitive.html#eq:basicreg2">(8.4)</a>와 달라진다. 이때 <span class="math inline">\({\beta_{1}}&#39;\)</span>는 <span class="math inline">\(X_{2}\)</span>를 고정하지 않았을 때의 회귀식이다.
 만일 <span class="math inline">\(X_{2}\)</span>와 <span class="math inline">\(Y\)</span>가 정적인 영향관계가 있다면 <span class="math inline">\(\beta_{1}&gt;0\)</span>이다. 하지만 <span class="math inline">\(X_{1}\)</span>이 증가할수록 <span class="math inline">\(X_{2}\)</span>가 함게 증가하고(두 변수가 positively correlated), <span class="math inline">\(\beta_{2}&gt;0\)</span>이므로, <span class="math inline">\(Y\)</span>의 평균값은 <span class="math inline">\(X_{1}\)</span>만 단독 투입했을 때보다 증가한다. 따라서 <span class="math inline">\(\beta_{1}&lt;\ {\beta_{1}}&#39;\)</span>이 된다. 만일 <span class="math inline">\(X_{1}\)</span>과 <span class="math inline">\(X_{2}\)</span>의 상관관계가 강하다면, 이러한 경향성은 더욱 강화된다.</p>
 <p>따라서 하나의 독립변수와 종속변수의 simple regression graph를 그려 설명하는 것은 매우 위험하다. 대신에 나머지 변수들을 통제하고 관심변수와 종속변수의 관계를 설명할 수 있는 그래프인 ‘added variable plot’, ’partial regression plot’을 활용하는 것이 좋다. Frisch-Waugh-Lovell theorem을 활용하여 다른 독립변수의 영향력을 ’partial out’시킨 결과를 그래프에 표시하는 것이다.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-105-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-111-1.png" alt="" width="672" /></p>
 <p>위의 value added 그래프의 좌측은 X1-Y의 관계, 우측은 X2-Y의 관계를 의미한다. 좌측을 중심으로 설명하면 Y축은 ‘Y &lt;- X2’ 회귀식의 잔차를 나타내고 있다. X축은 ’X1 &lt;- X2’회귀식의 잔차를 나타낸다. 종속변수와 독립변수 모두 X2가 미치는 영향을 partial out 한 것이다.</p>
 </div>
 </div>
@@ -847,7 +844,7 @@ Y = \beta_{0}+\beta_{1}*X_{1}+\beta_{2}*X_{2}+ e
 <span class="math inline">\(X=-\frac{b}{2a}\)</span>,<span class="math inline">\(Y=f(-\frac{b}{2a})\)</span>
 따라서 (-1, -25)이다.</li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-106-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-112-1.png" alt="" width="672" /></p>
 <p>2차함수의 모양은 a, b, c의 값에 따라 달라진다. 아래 그래프를 보면 각 계수의 부호에 따라 그래프의 모양과 위치가 달라지는 것을 알 수 있다. 중학교 시절 수학을 떠올려보면 다음과 같이 정리가 가능하다.</p>
 <ul>
 <li><p>2차항의 계수 ’a’의 부호 : 그래프의 오목함과 볼록함을 결정</p>
@@ -866,8 +863,8 @@ Y = \beta_{0}+\beta_{1}*X_{1}+\beta_{2}*X_{2}+ e
 <li>c&lt;0 : y 절편이 음의 값</li>
 </ul></li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-107-1.png" alt="" width="672" /></p>
-<p><img src="_main_files/figure-html/unnamed-chunk-108-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-113-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-114-1.png" alt="" width="672" /></p>
 <p>예를 들어 개인의 시험점수(Y)와 학습시간(X)의 관계를 2차 함수로 설명해보자. 첫번째 그래프의 함수인 <span class="math inline">\(Y=2X+20X+100\)</span>를 회귀식으로 쓰면<a href="intuitive.html#eq:regnonlinear">(8.5)</a>와 같다.</p>
 <p><span class="math display" id="eq:regnonlinear">\[\begin{equation}
 \hat{Y} = 100+(20*X)+2X^2
@@ -890,7 +887,7 @@ Y = \beta_{0}+\beta_{1}*X_{1}+\beta_{2}*X_{2}+ e
 <li>X=a 인 점에서의 미분계수</li>
 </ul>
 <p>다시 원래의 회귀식<a href="intuitive.html#eq:regnonlinear">(8.5)</a>로 돌아와 생각해보자. 이 함수의 기울기(<span class="math inline">\(X\)</span>한단위 변화시 <span class="math inline">\(Y\)</span>의 변화량)을 구하기 위해서는 <span class="math inline">\(X\)</span>로 미분한다.
-고등학교때 배웠던 간단한 미분공식을 활용해보면 아래와 같다. <a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
+고등학교때 배웠던 간단한 미분공식을 활용해보면 아래와 같다. <a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>.</p>
 <p><span class="math inline">\(\frac{d}{dx}f(x)={f}&#39;(x) = 2*2*X +20 = 4X+20\)</span></p>
 <p>따라서 이 2차함수의 기울기는 4X+20이다. 2차항이 존재하기 때문에 <span class="math inline">\(X\)</span>로 한번 미분했을 때 상수가 아닌 X가 포함된 값이 나온다. 이것은 무엇을 의미할까? 이는 <span class="math inline">\(X\)</span>의 값에 따라 기울기의 값이 변화한다는 비선형함수의 특징을 나타낸다.
 잘 이해가 안될때는 X에 특정 값을 반복해서 넣고, 이를 그래프로 이해해보자.
@@ -909,7 +906,7 @@ Y = \beta_{0}+\beta_{1}*X_{1}+\beta_{2}*X_{2}+ e
 <div id="임금방정식으로-이해하는-비선형-회귀분석" class="section level3 hasAnchor" number="8.3.4">
 <h3><span class="header-section-number">8.3.4</span> 임금방정식으로 이해하는 비선형 회귀분석<a href="intuitive.html#%EC%9E%84%EA%B8%88%EB%B0%A9%EC%A0%95%EC%8B%9D%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%EB%B9%84%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>비선형 회귀분석은 사회과학에서 빈번하게 활용된다. 가장 대표적인 사례는 Mincer (19##)의 임금 방정식일 것이다. 개인의 임금은 보통 연령에 따라 증가하지만 선형적인 관계는 아니다. 다시 말해 나이가들수록 임금이 상승하지만 기울기는 변화하다가, 특정한 나이에 정점을 찍고 살짝 감소하는 비선형 관계를 갖고 있다. Mincer의 임금방정식은 연령-임금의 관계를 기초로 교육연한, 경력연한 등의 관계를 구명하는 목적을 갖고 있지만, 우리는 단순화하여 연령-임금의 관계만 국한해서 설명해보자.</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-109-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-115-1.png" alt="" width="672" /></p>
 <p>좌측의 그림은 1차함수(<span class="math inline">\(\small Y(임금)=5*X+100\)</span>), 우측의 그림은 2차함수 (<span class="math inline">\(\small Y(임금)=-0.04*X^2+5*X+200\)</span>)을 나타낸다. 선형관계인 1차함수는 나이가 증가할 수록 일정한 비율로 임금이 증가한다. 결국 20세에 200만원이었던 임금은 30세에 250만원, 40세에 300만원씩 올라가서 80세에는 500만원까지 끊임없이 증가하는 비현실적인 모습을 보인다. 실제 노동시장에서의 개인의 임금은 우측의 그림과 가깝다. 연령이 증가할수록 임금은 증가하긴 하지만 증가율은 점차 감소하는 것이다.</p>
 <div id="선형-관계인-1차함수의-계수-해석" class="section level4 hasAnchor" number="8.3.4.1">
 <h4><span class="header-section-number">8.3.4.1</span> 선형 관계인 1차함수의 계수 해석<a href="intuitive.html#%EC%84%A0%ED%98%95-%EA%B4%80%EA%B3%84%EC%9D%B8-1%EC%B0%A8%ED%95%A8%EC%88%98%EC%9D%98-%EA%B3%84%EC%88%98-%ED%95%B4%EC%84%9D" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1203,45 +1200,45 @@ Y = \beta_{0}+\beta_{1}*X_{1}+\beta_{2}*X_{2}+ e
 <li>O형인 사람은 D1변수에는 0, D2변수는 0의 값을 갖는다.</li>
 </ul>
 <p>이와 같이 n-1 개의 더미변수를 통해 3집단을 1 또는 0의 값을 갖도록 코딩할 수 있다.</p>
-<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="intuitive.html#cb98-1" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>) </span>
-<span id="cb98-2"><a href="intuitive.html#cb98-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
-<span id="cb98-3"><a href="intuitive.html#cb98-3" tabindex="-1"></a>D1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb98-4"><a href="intuitive.html#cb98-4" tabindex="-1"></a>D2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
-<span id="cb98-5"><a href="intuitive.html#cb98-5" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">19</span>, <span class="fl">20.5</span>, <span class="fl">18.5</span>, <span class="fl">18.5</span>, <span class="dv">27</span>, <span class="dv">25</span>)</span>
-<span id="cb98-6"><a href="intuitive.html#cb98-6" tabindex="-1"></a>bloodLearning2 <span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X, D1, D2, Y)</span>
-<span id="cb98-7"><a href="intuitive.html#cb98-7" tabindex="-1"></a>bloodReg2 <span class="ot">&lt;-</span><span class="fu">lm</span>(Y <span class="sc">~</span> D1 <span class="sc">+</span> D2, <span class="at">data=</span>bloodLearning2)</span>
-<span id="cb98-8"><a href="intuitive.html#cb98-8" tabindex="-1"></a>bloodLearning2</span>
-<span id="cb98-9"><a href="intuitive.html#cb98-9" tabindex="-1"></a><span class="do">##    ID X D1 D2    Y</span></span>
-<span id="cb98-10"><a href="intuitive.html#cb98-10" tabindex="-1"></a><span class="do">## 1   1 1  1  0 12.0</span></span>
-<span id="cb98-11"><a href="intuitive.html#cb98-11" tabindex="-1"></a><span class="do">## 2   2 1  1  0 11.0</span></span>
-<span id="cb98-12"><a href="intuitive.html#cb98-12" tabindex="-1"></a><span class="do">## 3   3 1  1  0 14.0</span></span>
-<span id="cb98-13"><a href="intuitive.html#cb98-13" tabindex="-1"></a><span class="do">## 4   4 1  1  0 15.0</span></span>
-<span id="cb98-14"><a href="intuitive.html#cb98-14" tabindex="-1"></a><span class="do">## 5   5 2  0  1 19.0</span></span>
-<span id="cb98-15"><a href="intuitive.html#cb98-15" tabindex="-1"></a><span class="do">## 6   6 2  0  1 20.5</span></span>
-<span id="cb98-16"><a href="intuitive.html#cb98-16" tabindex="-1"></a><span class="do">## 7   7 2  0  1 18.5</span></span>
-<span id="cb98-17"><a href="intuitive.html#cb98-17" tabindex="-1"></a><span class="do">## 8   8 2  0  1 18.5</span></span>
-<span id="cb98-18"><a href="intuitive.html#cb98-18" tabindex="-1"></a><span class="do">## 9   9 3  0  0 27.0</span></span>
-<span id="cb98-19"><a href="intuitive.html#cb98-19" tabindex="-1"></a><span class="do">## 10 10 3  0  0 25.0</span></span>
-<span id="cb98-20"><a href="intuitive.html#cb98-20" tabindex="-1"></a><span class="fu">summary</span>(bloodReg2)</span>
-<span id="cb98-21"><a href="intuitive.html#cb98-21" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb98-22"><a href="intuitive.html#cb98-22" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb98-23"><a href="intuitive.html#cb98-23" tabindex="-1"></a><span class="do">## lm(formula = Y ~ D1 + D2, data = bloodLearning2)</span></span>
-<span id="cb98-24"><a href="intuitive.html#cb98-24" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb98-25"><a href="intuitive.html#cb98-25" tabindex="-1"></a><span class="do">## Residuals:</span></span>
-<span id="cb98-26"><a href="intuitive.html#cb98-26" tabindex="-1"></a><span class="do">##     Min      1Q  Median      3Q     Max </span></span>
-<span id="cb98-27"><a href="intuitive.html#cb98-27" tabindex="-1"></a><span class="do">## -2.0000 -0.9062 -0.3750  1.0000  2.0000 </span></span>
-<span id="cb98-28"><a href="intuitive.html#cb98-28" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb98-29"><a href="intuitive.html#cb98-29" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
-<span id="cb98-30"><a href="intuitive.html#cb98-30" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb98-31"><a href="intuitive.html#cb98-31" tabindex="-1"></a><span class="do">## (Intercept)   26.000      1.024   25.38 3.76e-08 ***</span></span>
-<span id="cb98-32"><a href="intuitive.html#cb98-32" tabindex="-1"></a><span class="do">## D1           -13.000      1.254  -10.36 1.69e-05 ***</span></span>
-<span id="cb98-33"><a href="intuitive.html#cb98-33" tabindex="-1"></a><span class="do">## D2            -6.875      1.254   -5.48 0.000926 ***</span></span>
-<span id="cb98-34"><a href="intuitive.html#cb98-34" tabindex="-1"></a><span class="do">## ---</span></span>
-<span id="cb98-35"><a href="intuitive.html#cb98-35" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb98-36"><a href="intuitive.html#cb98-36" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb98-37"><a href="intuitive.html#cb98-37" tabindex="-1"></a><span class="do">## Residual standard error: 1.449 on 7 degrees of freedom</span></span>
-<span id="cb98-38"><a href="intuitive.html#cb98-38" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.9407, Adjusted R-squared:  0.9238 </span></span>
-<span id="cb98-39"><a href="intuitive.html#cb98-39" tabindex="-1"></a><span class="do">## F-statistic: 55.53 on 2 and 7 DF,  p-value: 5.075e-05</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="intuitive.html#cb101-1" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>) </span>
+<span id="cb101-2"><a href="intuitive.html#cb101-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb101-3"><a href="intuitive.html#cb101-3" tabindex="-1"></a>D1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb101-4"><a href="intuitive.html#cb101-4" tabindex="-1"></a>D2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
+<span id="cb101-5"><a href="intuitive.html#cb101-5" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">15</span>, <span class="dv">19</span>, <span class="fl">20.5</span>, <span class="fl">18.5</span>, <span class="fl">18.5</span>, <span class="dv">27</span>, <span class="dv">25</span>)</span>
+<span id="cb101-6"><a href="intuitive.html#cb101-6" tabindex="-1"></a>bloodLearning2 <span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X, D1, D2, Y)</span>
+<span id="cb101-7"><a href="intuitive.html#cb101-7" tabindex="-1"></a>bloodReg2 <span class="ot">&lt;-</span><span class="fu">lm</span>(Y <span class="sc">~</span> D1 <span class="sc">+</span> D2, <span class="at">data=</span>bloodLearning2)</span>
+<span id="cb101-8"><a href="intuitive.html#cb101-8" tabindex="-1"></a>bloodLearning2</span>
+<span id="cb101-9"><a href="intuitive.html#cb101-9" tabindex="-1"></a><span class="do">##    ID X D1 D2    Y</span></span>
+<span id="cb101-10"><a href="intuitive.html#cb101-10" tabindex="-1"></a><span class="do">## 1   1 1  1  0 12.0</span></span>
+<span id="cb101-11"><a href="intuitive.html#cb101-11" tabindex="-1"></a><span class="do">## 2   2 1  1  0 11.0</span></span>
+<span id="cb101-12"><a href="intuitive.html#cb101-12" tabindex="-1"></a><span class="do">## 3   3 1  1  0 14.0</span></span>
+<span id="cb101-13"><a href="intuitive.html#cb101-13" tabindex="-1"></a><span class="do">## 4   4 1  1  0 15.0</span></span>
+<span id="cb101-14"><a href="intuitive.html#cb101-14" tabindex="-1"></a><span class="do">## 5   5 2  0  1 19.0</span></span>
+<span id="cb101-15"><a href="intuitive.html#cb101-15" tabindex="-1"></a><span class="do">## 6   6 2  0  1 20.5</span></span>
+<span id="cb101-16"><a href="intuitive.html#cb101-16" tabindex="-1"></a><span class="do">## 7   7 2  0  1 18.5</span></span>
+<span id="cb101-17"><a href="intuitive.html#cb101-17" tabindex="-1"></a><span class="do">## 8   8 2  0  1 18.5</span></span>
+<span id="cb101-18"><a href="intuitive.html#cb101-18" tabindex="-1"></a><span class="do">## 9   9 3  0  0 27.0</span></span>
+<span id="cb101-19"><a href="intuitive.html#cb101-19" tabindex="-1"></a><span class="do">## 10 10 3  0  0 25.0</span></span>
+<span id="cb101-20"><a href="intuitive.html#cb101-20" tabindex="-1"></a><span class="fu">summary</span>(bloodReg2)</span>
+<span id="cb101-21"><a href="intuitive.html#cb101-21" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb101-22"><a href="intuitive.html#cb101-22" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb101-23"><a href="intuitive.html#cb101-23" tabindex="-1"></a><span class="do">## lm(formula = Y ~ D1 + D2, data = bloodLearning2)</span></span>
+<span id="cb101-24"><a href="intuitive.html#cb101-24" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb101-25"><a href="intuitive.html#cb101-25" tabindex="-1"></a><span class="do">## Residuals:</span></span>
+<span id="cb101-26"><a href="intuitive.html#cb101-26" tabindex="-1"></a><span class="do">##     Min      1Q  Median      3Q     Max </span></span>
+<span id="cb101-27"><a href="intuitive.html#cb101-27" tabindex="-1"></a><span class="do">## -2.0000 -0.9062 -0.3750  1.0000  2.0000 </span></span>
+<span id="cb101-28"><a href="intuitive.html#cb101-28" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb101-29"><a href="intuitive.html#cb101-29" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
+<span id="cb101-30"><a href="intuitive.html#cb101-30" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb101-31"><a href="intuitive.html#cb101-31" tabindex="-1"></a><span class="do">## (Intercept)   26.000      1.024   25.38 3.76e-08 ***</span></span>
+<span id="cb101-32"><a href="intuitive.html#cb101-32" tabindex="-1"></a><span class="do">## D1           -13.000      1.254  -10.36 1.69e-05 ***</span></span>
+<span id="cb101-33"><a href="intuitive.html#cb101-33" tabindex="-1"></a><span class="do">## D2            -6.875      1.254   -5.48 0.000926 ***</span></span>
+<span id="cb101-34"><a href="intuitive.html#cb101-34" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb101-35"><a href="intuitive.html#cb101-35" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb101-36"><a href="intuitive.html#cb101-36" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb101-37"><a href="intuitive.html#cb101-37" tabindex="-1"></a><span class="do">## Residual standard error: 1.449 on 7 degrees of freedom</span></span>
+<span id="cb101-38"><a href="intuitive.html#cb101-38" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.9407, Adjusted R-squared:  0.9238 </span></span>
+<span id="cb101-39"><a href="intuitive.html#cb101-39" tabindex="-1"></a><span class="do">## F-statistic: 55.53 on 2 and 7 DF,  p-value: 5.075e-05</span></span></code></pre></div>
 <p>더미코딩이 완료되면, 더미변수만을 회귀식에 투입하면 된다. 이때 회귀식은 <span class="math inline">\(Y=B0+B1*D1+B2+D2+e\)</span>이다. 회귀분석결과 3개의 계수가 산출되었다.</p>
 <ul>
 <li>Y절편 : 26.000</li>
@@ -1265,7 +1262,7 @@ D1의 회귀 계수는 D1이 1일때와 0일때의 격차이다.</p>
 <p>이처럼 더미변수를 투입한 회귀식에서의 회귀계수는 준거집단-비교집단의 차이(difference)를 의미한다. 또한</p>
 <p>barplot(height=data<span class="math inline">\(value, names=data\)</span>name)</p>
 <p>[그래프 추가]</p>
-<p><img src="_main_files/figure-html/unnamed-chunk-113-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-119-1.png" alt="" width="672" /></p>
 </div>
 </div>
 </div>
@@ -1308,56 +1305,56 @@ Y &amp; = B_{0}+B_{1} \ast X+ B_{2} \ast M + B_{3} \ast X \ast M + e\\
 <h3><span class="header-section-number">8.5.3</span> 분석결과 해석 예제<a href="intuitive.html#%EB%B6%84%EC%84%9D%EA%B2%B0%EA%B3%BC-%ED%95%B4%EC%84%9D-%EC%98%88%EC%A0%9C" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>실제 데이터를 활용하여 조절효과를 분석해보자. 이번에는 20명의 사람의 학습시간(X), 일 열의(M), 직무수행점수(Y)의 데이터를 수집했다. 우리가 수집한 데이터는 행이 20개(사례수), 열이 4개 (ID를 포함하여 변수 4개)의 20 * 4 의 매트릭스 형태이다.</p>
 <p>조절효과의 기본 회귀식을 생각해보면 변수 하나가 더 필요하다. <code>X * M</code> , 즉 독립변수와 조절변수의 상호작용항이다. 여러가지 방법이 있지만 통상적으로는 데이터 프레임에 이 상호작용항을 새로운 변수로 추가한다. R에서는 기존 변수(old variable)을 연산하여 새로운 변수(new variable) 로 간단히 추가할 수 있다. 아래 R 코드를 보면 moderLearning<span class="math inline">\(XM &lt;-moderLearning\)</span>X * moderLearning$M 의 구분이 X과 M을 곱하여 XM을 만들고 있다. 최종적으로 만들어진 데이터프레임은 변수 열이 추가되어 20*5의 행렬이다.</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="intuitive.html#cb99-1" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) </span>
-<span id="cb99-2"><a href="intuitive.html#cb99-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">3.5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">4.5</span>, <span class="dv">5</span>, <span class="fl">1.2</span>, <span class="fl">0.7</span>, <span class="fl">2.2</span>, <span class="fl">3.3</span>, <span class="fl">3.1</span>, <span class="fl">3.7</span>, <span class="fl">4.1</span>, <span class="fl">3.9</span>, <span class="fl">4.3</span>, <span class="dv">5</span>)</span>
-<span id="cb99-3"><a href="intuitive.html#cb99-3" tabindex="-1"></a>M<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="fl">1.2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">1.1</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
-<span id="cb99-4"><a href="intuitive.html#cb99-4" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="fl">18.5</span>, <span class="fl">21.5</span>, <span class="fl">23.5</span>, <span class="fl">22.5</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">28</span>, <span class="dv">29</span>, <span class="dv">26</span>, <span class="fl">27.5</span>, <span class="fl">27.5</span>, <span class="dv">30</span>)</span>
-<span id="cb99-5"><a href="intuitive.html#cb99-5" tabindex="-1"></a>moderLearning <span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X1, M, Y)</span>
-<span id="cb99-6"><a href="intuitive.html#cb99-6" tabindex="-1"></a>moderLearning<span class="sc">$</span>XM <span class="ot">&lt;-</span>moderLearning<span class="sc">$</span>X <span class="sc">*</span> moderLearning<span class="sc">$</span>M </span>
-<span id="cb99-7"><a href="intuitive.html#cb99-7" tabindex="-1"></a>moderLearning</span>
-<span id="cb99-8"><a href="intuitive.html#cb99-8" tabindex="-1"></a><span class="do">##    ID  X1   M    Y    XM</span></span>
-<span id="cb99-9"><a href="intuitive.html#cb99-9" tabindex="-1"></a><span class="do">## 1   1 1.0 2.0 12.0  2.00</span></span>
-<span id="cb99-10"><a href="intuitive.html#cb99-10" tabindex="-1"></a><span class="do">## 2   2 0.5 1.0 11.0  0.50</span></span>
-<span id="cb99-11"><a href="intuitive.html#cb99-11" tabindex="-1"></a><span class="do">## 3   3 2.0 1.2 18.0  2.40</span></span>
-<span id="cb99-12"><a href="intuitive.html#cb99-12" tabindex="-1"></a><span class="do">## 4   4 3.0 1.0 19.0  3.00</span></span>
-<span id="cb99-13"><a href="intuitive.html#cb99-13" tabindex="-1"></a><span class="do">## 5   5 3.0 1.0 21.0  3.00</span></span>
-<span id="cb99-14"><a href="intuitive.html#cb99-14" tabindex="-1"></a><span class="do">## 6   6 3.5 1.1 18.5  3.85</span></span>
-<span id="cb99-15"><a href="intuitive.html#cb99-15" tabindex="-1"></a><span class="do">## 7   7 4.0 1.0 21.5  4.00</span></span>
-<span id="cb99-16"><a href="intuitive.html#cb99-16" tabindex="-1"></a><span class="do">## 8   8 4.0 1.5 23.5  6.00</span></span>
-<span id="cb99-17"><a href="intuitive.html#cb99-17" tabindex="-1"></a><span class="do">## 9   9 4.5 1.0 22.5  4.50</span></span>
-<span id="cb99-18"><a href="intuitive.html#cb99-18" tabindex="-1"></a><span class="do">## 10 10 5.0 2.0 25.0 10.00</span></span>
-<span id="cb99-19"><a href="intuitive.html#cb99-19" tabindex="-1"></a><span class="do">## 11 11 1.0 5.0 12.0  5.00</span></span>
-<span id="cb99-20"><a href="intuitive.html#cb99-20" tabindex="-1"></a><span class="do">## 12 12 0.5 7.0 11.0  3.50</span></span>
-<span id="cb99-21"><a href="intuitive.html#cb99-21" tabindex="-1"></a><span class="do">## 13 13 2.0 7.0 18.0 14.00</span></span>
-<span id="cb99-22"><a href="intuitive.html#cb99-22" tabindex="-1"></a><span class="do">## 14 14 3.0 6.0 19.0 18.00</span></span>
-<span id="cb99-23"><a href="intuitive.html#cb99-23" tabindex="-1"></a><span class="do">## 15 15 3.0 7.0 28.0 21.00</span></span>
-<span id="cb99-24"><a href="intuitive.html#cb99-24" tabindex="-1"></a><span class="do">## 16 16 3.5 7.0 29.0 24.50</span></span>
-<span id="cb99-25"><a href="intuitive.html#cb99-25" tabindex="-1"></a><span class="do">## 17 17 4.0 6.0 26.0 24.00</span></span>
-<span id="cb99-26"><a href="intuitive.html#cb99-26" tabindex="-1"></a><span class="do">## 18 18 4.0 7.0 27.5 28.00</span></span>
-<span id="cb99-27"><a href="intuitive.html#cb99-27" tabindex="-1"></a><span class="do">## 19 19 4.5 4.0 27.5 18.00</span></span>
-<span id="cb99-28"><a href="intuitive.html#cb99-28" tabindex="-1"></a><span class="do">## 20 20 5.0 5.0 30.0 25.00</span></span>
-<span id="cb99-29"><a href="intuitive.html#cb99-29" tabindex="-1"></a>moderReg <span class="ot">&lt;-</span><span class="fu">lm</span>(Y <span class="sc">~</span> X<span class="sc">+</span>M<span class="sc">+</span> XM, <span class="at">data=</span>moderLearning)</span>
-<span id="cb99-30"><a href="intuitive.html#cb99-30" tabindex="-1"></a><span class="fu">summary</span>(moderReg)</span>
-<span id="cb99-31"><a href="intuitive.html#cb99-31" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb99-32"><a href="intuitive.html#cb99-32" tabindex="-1"></a><span class="do">## Call:</span></span>
-<span id="cb99-33"><a href="intuitive.html#cb99-33" tabindex="-1"></a><span class="do">## lm(formula = Y ~ X + M + XM, data = moderLearning)</span></span>
-<span id="cb99-34"><a href="intuitive.html#cb99-34" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb99-35"><a href="intuitive.html#cb99-35" tabindex="-1"></a><span class="do">## Residuals:</span></span>
-<span id="cb99-36"><a href="intuitive.html#cb99-36" tabindex="-1"></a><span class="do">##     Min      1Q  Median      3Q     Max </span></span>
-<span id="cb99-37"><a href="intuitive.html#cb99-37" tabindex="-1"></a><span class="do">## -4.2673 -0.9477 -0.4419  1.0102  4.4372 </span></span>
-<span id="cb99-38"><a href="intuitive.html#cb99-38" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb99-39"><a href="intuitive.html#cb99-39" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
-<span id="cb99-40"><a href="intuitive.html#cb99-40" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
-<span id="cb99-41"><a href="intuitive.html#cb99-41" tabindex="-1"></a><span class="do">## (Intercept)  10.8869     1.9740   5.515  4.7e-05 ***</span></span>
-<span id="cb99-42"><a href="intuitive.html#cb99-42" tabindex="-1"></a><span class="do">## X             2.3572     0.6012   3.921  0.00122 ** </span></span>
-<span id="cb99-43"><a href="intuitive.html#cb99-43" tabindex="-1"></a><span class="do">## M            -0.4978     0.4213  -1.182  0.25457    </span></span>
-<span id="cb99-44"><a href="intuitive.html#cb99-44" tabindex="-1"></a><span class="do">## XM            0.4216     0.1357   3.106  0.00679 ** </span></span>
-<span id="cb99-45"><a href="intuitive.html#cb99-45" tabindex="-1"></a><span class="do">## ---</span></span>
-<span id="cb99-46"><a href="intuitive.html#cb99-46" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
-<span id="cb99-47"><a href="intuitive.html#cb99-47" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb99-48"><a href="intuitive.html#cb99-48" tabindex="-1"></a><span class="do">## Residual standard error: 2.068 on 16 degrees of freedom</span></span>
-<span id="cb99-49"><a href="intuitive.html#cb99-49" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.9053, Adjusted R-squared:  0.8876 </span></span>
-<span id="cb99-50"><a href="intuitive.html#cb99-50" tabindex="-1"></a><span class="do">## F-statistic:    51 on 3 and 16 DF,  p-value: 2.062e-08</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="intuitive.html#cb102-1" tabindex="-1"></a>ID<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">20</span>) </span>
+<span id="cb102-2"><a href="intuitive.html#cb102-2" tabindex="-1"></a>X<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="fl">3.5</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">4.5</span>, <span class="dv">5</span>, <span class="fl">1.2</span>, <span class="fl">0.7</span>, <span class="fl">2.2</span>, <span class="fl">3.3</span>, <span class="fl">3.1</span>, <span class="fl">3.7</span>, <span class="fl">4.1</span>, <span class="fl">3.9</span>, <span class="fl">4.3</span>, <span class="dv">5</span>)</span>
+<span id="cb102-3"><a href="intuitive.html#cb102-3" tabindex="-1"></a>M<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">1</span>, <span class="fl">1.2</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">1.1</span>, <span class="dv">1</span>, <span class="fl">1.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">7</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span>
+<span id="cb102-4"><a href="intuitive.html#cb102-4" tabindex="-1"></a>Y<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">21</span>, <span class="fl">18.5</span>, <span class="fl">21.5</span>, <span class="fl">23.5</span>, <span class="fl">22.5</span>, <span class="dv">25</span>, <span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">28</span>, <span class="dv">29</span>, <span class="dv">26</span>, <span class="fl">27.5</span>, <span class="fl">27.5</span>, <span class="dv">30</span>)</span>
+<span id="cb102-5"><a href="intuitive.html#cb102-5" tabindex="-1"></a>moderLearning <span class="ot">&lt;-</span><span class="fu">data.frame</span>(ID, X1, M, Y)</span>
+<span id="cb102-6"><a href="intuitive.html#cb102-6" tabindex="-1"></a>moderLearning<span class="sc">$</span>XM <span class="ot">&lt;-</span>moderLearning<span class="sc">$</span>X <span class="sc">*</span> moderLearning<span class="sc">$</span>M </span>
+<span id="cb102-7"><a href="intuitive.html#cb102-7" tabindex="-1"></a>moderLearning</span>
+<span id="cb102-8"><a href="intuitive.html#cb102-8" tabindex="-1"></a><span class="do">##    ID  X1   M    Y    XM</span></span>
+<span id="cb102-9"><a href="intuitive.html#cb102-9" tabindex="-1"></a><span class="do">## 1   1 1.0 2.0 12.0  2.00</span></span>
+<span id="cb102-10"><a href="intuitive.html#cb102-10" tabindex="-1"></a><span class="do">## 2   2 0.5 1.0 11.0  0.50</span></span>
+<span id="cb102-11"><a href="intuitive.html#cb102-11" tabindex="-1"></a><span class="do">## 3   3 2.0 1.2 18.0  2.40</span></span>
+<span id="cb102-12"><a href="intuitive.html#cb102-12" tabindex="-1"></a><span class="do">## 4   4 3.0 1.0 19.0  3.00</span></span>
+<span id="cb102-13"><a href="intuitive.html#cb102-13" tabindex="-1"></a><span class="do">## 5   5 3.0 1.0 21.0  3.00</span></span>
+<span id="cb102-14"><a href="intuitive.html#cb102-14" tabindex="-1"></a><span class="do">## 6   6 3.5 1.1 18.5  3.85</span></span>
+<span id="cb102-15"><a href="intuitive.html#cb102-15" tabindex="-1"></a><span class="do">## 7   7 4.0 1.0 21.5  4.00</span></span>
+<span id="cb102-16"><a href="intuitive.html#cb102-16" tabindex="-1"></a><span class="do">## 8   8 4.0 1.5 23.5  6.00</span></span>
+<span id="cb102-17"><a href="intuitive.html#cb102-17" tabindex="-1"></a><span class="do">## 9   9 4.5 1.0 22.5  4.50</span></span>
+<span id="cb102-18"><a href="intuitive.html#cb102-18" tabindex="-1"></a><span class="do">## 10 10 5.0 2.0 25.0 10.00</span></span>
+<span id="cb102-19"><a href="intuitive.html#cb102-19" tabindex="-1"></a><span class="do">## 11 11 1.0 5.0 12.0  5.00</span></span>
+<span id="cb102-20"><a href="intuitive.html#cb102-20" tabindex="-1"></a><span class="do">## 12 12 0.5 7.0 11.0  3.50</span></span>
+<span id="cb102-21"><a href="intuitive.html#cb102-21" tabindex="-1"></a><span class="do">## 13 13 2.0 7.0 18.0 14.00</span></span>
+<span id="cb102-22"><a href="intuitive.html#cb102-22" tabindex="-1"></a><span class="do">## 14 14 3.0 6.0 19.0 18.00</span></span>
+<span id="cb102-23"><a href="intuitive.html#cb102-23" tabindex="-1"></a><span class="do">## 15 15 3.0 7.0 28.0 21.00</span></span>
+<span id="cb102-24"><a href="intuitive.html#cb102-24" tabindex="-1"></a><span class="do">## 16 16 3.5 7.0 29.0 24.50</span></span>
+<span id="cb102-25"><a href="intuitive.html#cb102-25" tabindex="-1"></a><span class="do">## 17 17 4.0 6.0 26.0 24.00</span></span>
+<span id="cb102-26"><a href="intuitive.html#cb102-26" tabindex="-1"></a><span class="do">## 18 18 4.0 7.0 27.5 28.00</span></span>
+<span id="cb102-27"><a href="intuitive.html#cb102-27" tabindex="-1"></a><span class="do">## 19 19 4.5 4.0 27.5 18.00</span></span>
+<span id="cb102-28"><a href="intuitive.html#cb102-28" tabindex="-1"></a><span class="do">## 20 20 5.0 5.0 30.0 25.00</span></span>
+<span id="cb102-29"><a href="intuitive.html#cb102-29" tabindex="-1"></a>moderReg <span class="ot">&lt;-</span><span class="fu">lm</span>(Y <span class="sc">~</span> X<span class="sc">+</span>M<span class="sc">+</span> XM, <span class="at">data=</span>moderLearning)</span>
+<span id="cb102-30"><a href="intuitive.html#cb102-30" tabindex="-1"></a><span class="fu">summary</span>(moderReg)</span>
+<span id="cb102-31"><a href="intuitive.html#cb102-31" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb102-32"><a href="intuitive.html#cb102-32" tabindex="-1"></a><span class="do">## Call:</span></span>
+<span id="cb102-33"><a href="intuitive.html#cb102-33" tabindex="-1"></a><span class="do">## lm(formula = Y ~ X + M + XM, data = moderLearning)</span></span>
+<span id="cb102-34"><a href="intuitive.html#cb102-34" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb102-35"><a href="intuitive.html#cb102-35" tabindex="-1"></a><span class="do">## Residuals:</span></span>
+<span id="cb102-36"><a href="intuitive.html#cb102-36" tabindex="-1"></a><span class="do">##     Min      1Q  Median      3Q     Max </span></span>
+<span id="cb102-37"><a href="intuitive.html#cb102-37" tabindex="-1"></a><span class="do">## -4.2673 -0.9477 -0.4419  1.0102  4.4372 </span></span>
+<span id="cb102-38"><a href="intuitive.html#cb102-38" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb102-39"><a href="intuitive.html#cb102-39" tabindex="-1"></a><span class="do">## Coefficients:</span></span>
+<span id="cb102-40"><a href="intuitive.html#cb102-40" tabindex="-1"></a><span class="do">##             Estimate Std. Error t value Pr(&gt;|t|)    </span></span>
+<span id="cb102-41"><a href="intuitive.html#cb102-41" tabindex="-1"></a><span class="do">## (Intercept)  10.8869     1.9740   5.515  4.7e-05 ***</span></span>
+<span id="cb102-42"><a href="intuitive.html#cb102-42" tabindex="-1"></a><span class="do">## X             2.3572     0.6012   3.921  0.00122 ** </span></span>
+<span id="cb102-43"><a href="intuitive.html#cb102-43" tabindex="-1"></a><span class="do">## M            -0.4978     0.4213  -1.182  0.25457    </span></span>
+<span id="cb102-44"><a href="intuitive.html#cb102-44" tabindex="-1"></a><span class="do">## XM            0.4216     0.1357   3.106  0.00679 ** </span></span>
+<span id="cb102-45"><a href="intuitive.html#cb102-45" tabindex="-1"></a><span class="do">## ---</span></span>
+<span id="cb102-46"><a href="intuitive.html#cb102-46" tabindex="-1"></a><span class="do">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span></span>
+<span id="cb102-47"><a href="intuitive.html#cb102-47" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb102-48"><a href="intuitive.html#cb102-48" tabindex="-1"></a><span class="do">## Residual standard error: 2.068 on 16 degrees of freedom</span></span>
+<span id="cb102-49"><a href="intuitive.html#cb102-49" tabindex="-1"></a><span class="do">## Multiple R-squared:  0.9053, Adjusted R-squared:  0.8876 </span></span>
+<span id="cb102-50"><a href="intuitive.html#cb102-50" tabindex="-1"></a><span class="do">## F-statistic:    51 on 3 and 16 DF,  p-value: 2.062e-08</span></span></code></pre></div>
 <p>분석결과 X(학습시간)과 XM(학습시간 * 일열의)가 Y(직무수행점수)에 유의미한 영향을 미치는 것으로 나타났다. 구체적으로 해석하기 위해서 추정된 회귀계수를 활용하여 회귀식을 구성해보자.</p>
 <p><span class="math display">\[ \hat{Y} = 10.8737 + 2.3928 \ast X -0.5915 \ast M + 0.4309 \ast XM \]</span>
 <span class="math display">\[ \hat{Y} = 10.8737 + (2.3928+0.4309 \ast M) \ast X -0.5915 \ast M \]</span>
@@ -1373,7 +1370,7 @@ Y &amp; = B_{0}+B_{1} \ast X+ B_{2} \ast M + B_{3} \ast X \ast M + e\\
 <li>거꾸로 X가 Y에 미치는 영향이 0인 점도 찾을 수 있다. 2.3928+0.4309*M=0을 풀면, M=-5.553 이다. 이는 M이 -5.553인 집단은 X와 Y의 관계가 0이라는 것을 뜻한다.</li>
 </ul></li>
 </ul>
-<p><img src="_main_files/figure-html/unnamed-chunk-115-1.png" alt="" width="672" /></p>
+<p><img src="_main_files/figure-html/unnamed-chunk-121-1.png" alt="" width="672" /></p>
 </div>
 </div>
 <div id="회귀식으로-이해하는-매개효과" class="section level2 hasAnchor" number="8.6">
@@ -1393,8 +1390,8 @@ Y &amp; = B_{0}+B_{1} \ast X+ B_{2} \ast M + B_{3} \ast X \ast M + e\\
 </div>
 <div class="footnotes">
 <hr />
-<ol start="5">
-<li id="fn5"><p>1차 함수의 기울기도 미분의 방식으로 생각해보면 이해에 도움이 된다. <span class="math inline">\(Y=3x+10\)</span>을 미분하면, 기울기는 3인 상수이다. 직선인 1차함수의 그래프를 생각해보면 x의 값에 관계없이 기울기가 일정하다<a href="intuitive.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<ol start="6">
+<li id="fn6"><p>1차 함수의 기울기도 미분의 방식으로 생각해보면 이해에 도움이 된다. <span class="math inline">\(Y=3x+10\)</span>을 미분하면, 기울기는 3인 상수이다. 직선인 1차함수의 그래프를 생각해보면 x의 값에 관계없이 기울기가 일정하다<a href="intuitive.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
